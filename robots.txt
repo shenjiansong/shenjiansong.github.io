@@ -52,5 +52,5 @@ Disallow: /medias/
 Disallow: /page/
 Disallow: /posts/
 Disallow: /tags/
-Sitemap: https://mobaijun.com/sitemap.xml
-Sitemap: https://mobaijun.com/baidusitemap.xml
+Sitemap: https://www.1kat.cn/sitemap.xml
+Sitemap: https://www.1kat.cn/baidusitemap.xml
