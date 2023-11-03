@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>框架师</title>
+  <title>玩者</title>
   
-  <subtitle>施巴拉古大师</subtitle>
+  <subtitle>施巴拉古</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.1kat.cn/"/>
@@ -10,7 +10,7 @@
   <id>https://www.1kat.cn/</id>
   
   <author>
-    <name>施巴拉古大师</name>
+    <name>施巴拉古</name>
     
   </author>
   

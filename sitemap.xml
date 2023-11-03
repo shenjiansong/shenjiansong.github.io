@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.1kat.cn/font.html</loc>
+    
+    <lastmod>2023-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.1kat.cn/logo.html</loc>
+    
+    <lastmod>2023-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.1kat.cn/watermark.html</loc>
+    
+    <lastmod>2023-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.1kat.cn/color.html</loc>
+    
+    <lastmod>2023-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.1kat.cn/posts/3274106043.html</loc>
     
     <lastmod>2023-10-29</lastmod>
@@ -112,7 +148,7 @@
 
   <url>
     <loc>https://www.1kat.cn/</loc>
-    <lastmod>2023-10-30</lastmod>
+    <lastmod>2023-11-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -120,14 +156,14 @@
   
   <url>
     <loc>https://www.1kat.cn/tags/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2023-10-30</lastmod>
+    <lastmod>2023-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.1kat.cn/tags/%E5%91%8A%E7%A4%BA/</loc>
-    <lastmod>2023-10-30</lastmod>
+    <lastmod>2023-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -136,14 +172,14 @@
   
   <url>
     <loc>https://www.1kat.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2023-10-30</lastmod>
+    <lastmod>2023-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.1kat.cn/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-10-30</lastmod>
+    <lastmod>2023-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
