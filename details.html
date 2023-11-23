@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="res/img/html_head.png" rel="SHORTCUT ICON">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/css/layui.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="res/css/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" type="text/css" charset="UTF-8" />
+ --> 
+ <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css" type="text/css" charset="UTF-8" />
+<!-- <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism-themes/1.9.0/prism-ghcolors.min.css" type="text/css" charset="UTF-8" /> -->
+ <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.19.0/themes/prism.min.css" type="text/css" charset="UTF-8" />
+ <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js"></script>
+<!-- <script src="https://lib.baomitu.com/marked/10.0.0/marked.min.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/marked/9.0.0/marked.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.29.0/prism.min.js" type="text/javascript" charset="UTF-8"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.29.0/components/prism-java.min.js" type="text/javascript" charset="UTF-8"></script>
+
+ <!--加载meta IE兼容文件-->
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style>
+	#mkd img {
+	    float: none;
+		width: 97%;
+	}
+	.markdown-body li{
+		list-style: disc;
+	}
+	
+	.markdown-body {
+	    box-sizing: border-box;
+	    min-width: 200px;
+	    max-width: 980px;
+	    margin: 0 auto;
+	    padding: 45px;
+	}
+	.table-container {
+		overflow: auto;
+	}
+	table {
+		table-layout: fixed;
+		width: auto !important;
+	}
+	td{
+		white-space: nowrap;
+	}
+	ul li.task{
+		list-style-type:none;
+	}
+	.btn-pre{
+		float: left !important;;
+		margin-left: 10px!important;;
+	}
+	.btn-next{
+		float:right!important;;
+		margin-right: 10px!important;;
+	}
+</style>
+</head>
+<body>
+  <!--<div id="content" class="content"></div>-->
+  <div style="background-color: black;height: 60px;"></div>
+   <div id='mkd' class="markdown-body"></div>
+   <div class="btn-box">
+     <button class="layui-btn layui-btn-primary btn-pre layui-hide">上一篇</button>
+     <button class="layui-btn layui-btn-primary btn-next  layui-hide">下一篇</button> 
+   </div>
+  <script type="text/javascript">
+    layui.config({
+      base: 'res/js/util/'
+    }).use(['element','templet',"detail"],function(){
+	  layui.templet.init();
+	  layui.element.init(); 
+	  layui.detail.show("#mkd");
+	});
+  </script>
+  
+</body>
+</html>
