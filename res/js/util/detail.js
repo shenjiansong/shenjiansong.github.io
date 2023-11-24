@@ -7,9 +7,14 @@
 		preMd:'',
 		createTime:'',
 		name:'',
+		render:null,
 		initData:function(md){
 			this.mdTxt=md.trim();
 			var mdArr=this.mdTxt.split("\n");
+			this.title=null;
+			this.createTime=null;
+			this.nextMd=null;
+			this.preMd=null;
 			for(var i=0;i<Math.min(10,mdArr.length);i++){
 				var tmp=mdArr[i].trim();
 				if(tmp.startsWith("<!--")&&tmp.endsWith("-->")){
@@ -22,29 +27,47 @@
 				}
 			}
 		},
-   		show:function(dom){
-			if(!layui.mm.param||!layui.mm.param.md){
+   		show:function(dom,md,callback){
+			this.render=dom;
+			this.name=md||X.PARAM.md;
+			if(!this.name){
 				layui.$("#mkd").html("暂无内容");
 				return ;
 			}
-			this.name=layui.mm.param.md;
 			if(!this.name.toLowerCase().endsWith(".md"))this.name=this.name+'.md';
 			let that=this;
-			layui.mm.request({url:this.name,success:function(res){
+			layui.mm.request({url:X.base+'/md/'+this.name,success:function(res){
 					that.initData(res.trim());
-					layui.$(dom).html(marked.parse(that.mdTxt));
+					layui.$(that.render).html(marked.parse(that.mdTxt));
 					let blocks = document.querySelectorAll("pre code");
 					blocks.forEach((block) => {
 					  Prism.highlightElement(block);
 					});
-					layui.$(".layui-btn").on("click",that.goto);
-					if(that.nextMd)layui.$(".btn-next").removeClass("layui-hide");
-					if(that.preMd)layui.$(".btn-pre").removeClass("layui-hide");
+					that.initBtn();
+					if(typeof callback=='function')callback();
 			},dataType:'text'})
 		},
-		goto:function(dom){
-			console.log(dom);
+		initBtn:function(){
+			if(this.nextMd)layui.$(".btn-next").removeClass("layui-hide");
+			else if(!layui.$(".btn-next").hasClass("layui-hide"))layui.$(".btn-next").addClass("layui-hide");
+			if(this.preMd)layui.$(".btn-pre").removeClass("layui-hide");
+			else if(!layui.$(".btn-pre").hasClass("layui-hide"))layui.$(".btn-pre").addClass("layui-hide");
+		},
+		btnClick:function(e){
+			let nowName=this.name;
+			let that=this;
+			var calbk=function(){
+				if(!that.preMd)that.preMd=nowName;
+				that.initBtn();
+			}
+			if(e.target.className.indexOf("btn-pre")>-1){
+				this.show(this.render,this.preMd,calbk);
+			}else if(e.target.className.indexOf("btn-next")>-1){
+				this.show(this.render,this.nextMd,calbk);
+			}
 		}
 	}
+	
+	layui.$(".layui-btn").on("click",function(e){detail.btnClick(e) ;} );
    	exports('detail', detail)
    });

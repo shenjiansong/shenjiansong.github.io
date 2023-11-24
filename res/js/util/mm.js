@@ -2,7 +2,6 @@
 //封装ajax请求
 layui.define(['jquery', 'element', 'laytpl', 'carousel', 'laypage'], function (exports) {
     var $ = layui.$, laytpl = layui.laytpl, element = layui.element, laypage = layui.laypage, carousel = layui.carousel;
-	
     var _mm = {
         request: function (param) {
 			if(typeof param ==='string')param={
@@ -44,20 +43,7 @@ layui.define(['jquery', 'element', 'laytpl', 'carousel', 'laypage'], function (e
             var template = laytpl(htmlTemplate),
                 result = template.render(data);
             return result;
-        },
-		getRequestParamMap:function (){
-			var url = location.search;
-			var theRequest = {};
-			if(url.indexOf("?") != -1){
-				var str = url.substr(1);
-				var strs = str.split("&");
-				for(var i = 0; i < strs.length; i ++) {
-					theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]); 
-				}
-			}
-			return theRequest;
-		}
+        }
     }
-	_mm.param=_mm.getRequestParamMap();
     exports('mm', _mm)
 });
