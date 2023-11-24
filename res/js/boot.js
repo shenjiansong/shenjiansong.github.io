@@ -29,7 +29,7 @@ X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://magni
 //X.base='https://magnificent-souffle-89810d.netlify.app';
 X.js=`${X.base}/res/js`
 X.css=`${X.base}/res/css`
-X.md=`${X.base}/md`
+X.md=`https://c.1kat.cn/cdn/md`
 //X.img= "https://7up.pics/images/2023/11/24";
 X.img= `${X.base}/res/img`
 if(typeof X.beforeLoad=="function")X.beforeLoad();
