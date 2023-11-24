@@ -1,5 +1,5 @@
 
-X.getLayUi().define(['jquery','D','mm'], function (exports) {
+layui.define(['jquery','D','mm'], function (exports) {
     var $ = layui.$, mm = layui.mm,data=layui.D;
     var templet = {
 		init:function(){

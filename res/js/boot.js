@@ -39,24 +39,24 @@ if(typeof X.beforeLoad=="function")X.beforeLoad();
 // document.addEventListener("DOMNodeInserted",function(e,a){console.log(e.target.src)},false);
 var layuiDom= document.createElement("script");
 layuiDom.onload = layuiDom.onreadystatechange=function(){
+	layui.config({base: `res/js/util/`}); 
+	layui.extend({
+		"templet":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/templet",
+		"D":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/D",
+		"detail":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/detail",
+		"index":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/index",
+		"mm":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/mm",
+		});
 	if(typeof layuiOnReady=="function")layuiOnReady();
 }
-layuiDom.src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js";
+layuiDom.src="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/layui.min.js";
 document.head.append(layuiDom);
 //<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js"></script> 
 document.write(`
 <link href="${X.img}/html_head.png" rel="SHORTCUT ICON">
-<link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/css/layui.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/css/layui.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.1/css/all.css">
 <link rel="stylesheet" type="text/css" href="${X.css}/main.css?v=${X.RES_CSS_VERSION}">
-
-
-
-<script src="${X.js}/util/D.js"></script>
-<script src="${X.js}/util/detail.js"></script>
-<script src="${X.js}/util/index.js"></script>
-<script src="${X.js}/util/mm.js"></script>
-<script src="${X.js}/util/templet.js"></script>
 <!--加载meta IE兼容文件-->
 <!--[if lte IE 9]>
 <script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>

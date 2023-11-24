@@ -1,4 +1,4 @@
-   X.getLayUi().define(['jquery','D','mm'], function (exports) {
+layui.define(['jquery','D','mm'], function (exports) {
 	var index={
 		categorys:[
 			{text:"最新文章",href:'javascript:;'},

@@ -1,5 +1,5 @@
 
-   X.getLayUi().define(['jquery','D','mm'], function (exports) {
+layui.define(['jquery','D','mm'], function (exports) {
    	var detail={
 		title:'',
 		mdTxt:'',

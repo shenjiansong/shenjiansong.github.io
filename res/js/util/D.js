@@ -1,4 +1,4 @@
-X.getLayUi().define([], function (exports) {
+layui.define([], function (exports) {
 	var D={
 			header:{
 				welcome:'.',
