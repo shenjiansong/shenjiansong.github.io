@@ -25,7 +25,8 @@ var X=window.X||{
 	},
 };
 X.PARAM=X.GetRequest();
-X.res=X.isLocal ? X.base+'/res' : 'https://gitee.com/shenjiansong/static/raw/master/';
+X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://gitee.com/shenjiansong/static/raw/master';
+X.res= X.base+'/res';
 if(typeof X.beforeLoad=="function")X.beforeLoad();
 
 document.write(`
