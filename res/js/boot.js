@@ -28,7 +28,7 @@ var X=window.X||{
 	}
 };
 X.PARAM=X.GetRequest();
-X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://sensational-dusk-8229ae.netlify.app';
+X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://magnificent-souffle-89810d.netlify.app';
 //X.base='https://sensational-dusk-8229ae.netlify.app';
 X.js=`${X.base}/res/js`
 X.css=`${X.base}/res/css`
