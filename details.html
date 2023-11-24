@@ -4,17 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>Title</title>
-  <script type="text/javascript"> 
-  	  var layuiOnReady=function(){
-  		layui.use(['element','templet',"detail"],function(){
-  		  layui.templet.init();
-  		  layui.element.init(); 
-  		  layui.detail.show("#mkd");
-  		});
-  	  }
-  </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.0/layui.min.js"></script>
   <script type="text/javascript" src="./bootx.js"></script> 
-
 <style>
 	#mkd img {
 	    float: none;
@@ -64,3 +55,10 @@
    </div>
 </body>
 </html>
+  <script type="text/javascript"> 
+	layui.config({base: `${X.js}/util/`}).use(['element','templet',"detail"],function(){
+	  layui.templet.init();
+	  layui.element.init(); 
+	  layui.detail.show("#mkd");
+	});
+  </script>

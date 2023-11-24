@@ -22,35 +22,41 @@ var X=window.X||{
 			}
 		}
 		return theRequest;
-	},
-	getLayUi:function(){
-		return layui.config({base: `${X.js}/util/`});
 	}
 };
 X.PARAM=X.GetRequest();
 X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://magnificent-souffle-89810d.netlify.app';
-//X.base='https://sensational-dusk-8229ae.netlify.app';
+//X.base='https://magnificent-souffle-89810d.netlify.app';
 X.js=`${X.base}/res/js`
 X.css=`${X.base}/res/css`
-X.md=`https://gitee.com/shenjiansong/static/raw/master/md`
+X.md=`${X.base}/md`
 //X.img= "https://7up.pics/images/2023/11/24";
 X.img= `${X.base}/res/img`
 if(typeof X.beforeLoad=="function")X.beforeLoad();
 // document.addEventListener("DOMNodeInserted",function(e,a){console.log(e.target.src)},false);
-var layuiDom= document.createElement("script");
-layuiDom.onload = layuiDom.onreadystatechange=function(){
-	layui.config({base: `res/js/util/`}); 
-	layui.extend({
-		"templet":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/templet",
-		"D":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/D",
-		"detail":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/detail",
-		"index":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/index",
-		"mm":"{/}https://magnificent-souffle-89810d.netlify.app/res/js/util/mm",
-		});
-	if(typeof layuiOnReady=="function")layuiOnReady();
-}
-layuiDom.src="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/layui.min.js";
-document.head.append(layuiDom);
+// var layuiDom= document.createElement("script");
+// layuiDom.onload = layuiDom.onreadystatechange=function(){
+// 	//layui.config({base: `res/js/util/`}); 
+// 	layui.extend({
+// 		"mm":`{/}${X.js}/util/mm`,
+// 		"D":`{/}${X.js}/util/D`,
+// 		"templet":`{/}${X.js}/util/templet`,
+// 		"detail":`{/}${X.js}/util/detail`,
+// 		"index":`{/}${X.js}/util/index`,
+// 		});
+// 	if(typeof layuiOnReady=="function")layuiOnReady();
+// }
+// layuiDom.src="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/layui.min.js";
+// document.head.append(layuiDom);
+//layui.config({base: `res/js/util/`}); 
+// layui.extend({
+// 	"mm":`{/}${X.js}/util/mm`,
+// 	"D":`{/}${X.js}/util/D`,
+// 	"templet":`{/}${X.js}/util/templet`,
+// 	"detail":`{/}${X.js}/util/detail`,
+// 	"index":`{/}${X.js}/util/index`,
+// 	});
+// 	console.log(layui)
 //<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js"></script> 
 document.write(`
 <link href="${X.img}/html_head.png" rel="SHORTCUT ICON">
