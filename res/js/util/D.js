@@ -1,8 +1,8 @@
-layui.define([], function (exports) {
+X.getLayUi().define([], function (exports) {
 	var D={
 			header:{
 				welcome:'.',
-				logo:`${X.res}/img/logo.png`,
+				logo:`https://7up.pics/images/2023/11/24/logo.png`,
 				name:'玩者',
 				url:'index.html',
 				items:[
@@ -40,7 +40,7 @@ layui.define([], function (exports) {
 					<div class="nav-overlay" style=" opacity: 1;"></div></div>`
 		},
 		banner:{
-			bg:`${X.res}/img/banner.jpg`,
+			bg:`https://7up.pics/images/2023/11/24/banner.jpeg`,
 			title:``,//<h3>欢迎来到<br />刘启旺</h3><h4>博客空间</h4>
 			tempHtml:`<div class="banner" style="background: url({{d.bg}}) no-repeat;background-position: center center;background-size: cover">
 			  <div class="cont w1000">
@@ -55,7 +55,7 @@ layui.define([], function (exports) {
 			</div>`
 		},
 		footer:{
-			wx:`${X.res}/img/wx.jpg`,
+			wx:`${X.img}/wx.jpg`,
 			mobile:'18888888888',
 			qq:'88888888',
 			email:'88888888@qq.com',

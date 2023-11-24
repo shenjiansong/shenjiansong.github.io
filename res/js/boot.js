@@ -23,23 +23,46 @@ var X=window.X||{
 		}
 		return theRequest;
 	},
+	getLayUi:function(){
+		return layui.config({base: `${X.js}/util/`});
+	}
 };
 X.PARAM=X.GetRequest();
-X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://gitee.com/shenjiansong/static/raw/master';
-X.res= X.base+'/res';
+X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://sensational-dusk-8229ae.netlify.app';
+//X.base='https://sensational-dusk-8229ae.netlify.app';
+X.js=`${X.base}/res/js`
+X.css=`${X.base}/res/css`
+X.md=`https://gitee.com/shenjiansong/static/raw/master/md`
+//X.img= "https://7up.pics/images/2023/11/24";
+X.img= `${X.base}/res/img`
 if(typeof X.beforeLoad=="function")X.beforeLoad();
-
+// document.addEventListener("DOMNodeInserted",function(e,a){console.log(e.target.src)},false);
+var layuiDom= document.createElement("script");
+layuiDom.onload = layuiDom.onreadystatechange=function(){
+	if(typeof layuiOnReady=="function")layuiOnReady();
+}
+layuiDom.src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js";
+document.head.append(layuiDom);
+//<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js"></script> 
 document.write(`
-<link href="${X.res}/img/html_head.png" rel="SHORTCUT ICON">
+<link href="${X.img}/html_head.png" rel="SHORTCUT ICON">
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/css/layui.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.1/css/all.css">
-<link rel="stylesheet" type="text/css" href="${X.res}/css/main.css?v=${X.RES_CSS_VERSION}">
-<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layui/2.8.17/layui.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="${X.css}/main.css?v=${X.RES_CSS_VERSION}">
+
+
+
+<script src="${X.js}/util/D.js"></script>
+<script src="${X.js}/util/detail.js"></script>
+<script src="${X.js}/util/index.js"></script>
+<script src="${X.js}/util/mm.js"></script>
+<script src="${X.js}/util/templet.js"></script>
 <!--加载meta IE兼容文件-->
 <!--[if lte IE 9]>
 <script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->`);
+
 try{
 	var ___tmpurlpage=location.href.split("#")[0].split("?")[0].split('/').pop();
 	if(___tmpurlpage==="details.html"){

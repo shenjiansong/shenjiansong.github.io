@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>Title</title>
+  <script type="text/javascript">
+  	var layuiOnReady=function(){
+  		X.getLayUi().use(['element','templet',"index"],function(){
+  		  layui.templet.init();
+  		  layui.index.showBanner("#banner");
+  		  layui.index.show("#content");
+  		  layui.element.init();
+  		});
+  	}
+  </script>
   <script type="text/javascript" src="./res/js/bootx.js"></script> 
 </head>
 <body>
   <div id="banner"></div>
   <div id="content" class="content"></div>
-  <script type="text/javascript">
-    layui.config({
-      base: 'res/js/util/'
-    }).use(['element','templet',"index"],function(){
-	  layui.templet.init();
-	  layui.index.showBanner("#banner");
-	  layui.index.show("#content");
-	  layui.element.init();
-    });
-  </script>
 </body>
 </html>

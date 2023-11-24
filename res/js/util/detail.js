@@ -1,5 +1,5 @@
 
-   layui.define(['jquery','D','mm'], function (exports) {
+   X.getLayUi().define(['jquery','D','mm'], function (exports) {
    	var detail={
 		title:'',
 		mdTxt:'',
@@ -36,7 +36,7 @@
 			}
 			if(!this.name.toLowerCase().endsWith(".md"))this.name=this.name+'.md';
 			let that=this;
-			layui.mm.request({url:X.base+'/md/'+this.name,success:function(res){
+			layui.mm.request({url:X.md+'/'+this.name,success:function(res){
 					that.initData(res.trim());
 					layui.$(that.render).html(marked.parse(that.mdTxt));
 					let blocks = document.querySelectorAll("pre code");
