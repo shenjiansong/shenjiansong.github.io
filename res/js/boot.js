@@ -8,7 +8,7 @@ var X=window.X||{
 	RES_CSS_VERSION:'1.0.0',
 	RES_JS_VERSION:'1.0.0',
 	RES_CUSTOM_VERSION:'1.0.0',
-	base:__BOOTPATH.replace(window.location.origin,""),
+	base: function(){try{return document.getElementById("bootjs").src.split("/res/js/boot.js")[0]}catch{return document.location.origin;}}(),
 	isLocal:(window.location.href.indexOf("127.0.0")>-1||window.location.href.indexOf("localhost")>-1),
 	sleep:function(ms){var start = new Date().getTime();while (true) if (new Date().getTime() - start > ms) break;},
 	GetRequest:function(){
@@ -25,11 +25,12 @@ var X=window.X||{
 	}
 };
 X.PARAM=X.GetRequest();
-X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://magnificent-souffle-89810d.netlify.app';
+//X.base=X.isLocal ? __BOOTPATH.replace(window.location.origin,"") :'https://c.1kat.cn/cdn';
 //X.base='https://magnificent-souffle-89810d.netlify.app';
+//X.base='https://c.1kat.cn/cdn';
 X.js=`${X.base}/res/js`
 X.css=`${X.base}/res/css`
-X.md=`https://c.1kat.cn/cdn/md`
+X.md=`${X.base}/md`
 //X.img= "https://7up.pics/images/2023/11/24";
 X.img= `${X.base}/res/img`
 if(typeof X.beforeLoad=="function")X.beforeLoad();
