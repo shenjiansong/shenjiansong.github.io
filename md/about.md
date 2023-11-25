@@ -1,2 +1,2 @@
-#about
+#关于
 >about

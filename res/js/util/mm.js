@@ -19,6 +19,7 @@ layui.define(['jquery', 'element', 'laytpl', 'carousel', 'laypage'], function (e
                 url: param.url,
                 dataType: param.dataType, 
                 data: param_data,
+				crossDomain: true,
                 async: param.async || true,
                 success: function (res) {
 					if(param.dataType=="json"){
