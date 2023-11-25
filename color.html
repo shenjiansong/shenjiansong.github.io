@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">  
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			   border-collapse: collapse;
+			}
+			
+		</style>
+		<script>
+			function setColor(c){
+				console.log(c)
+				if(typeof AZ=="object"){
+					AZ.setColor(c);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<th>编号</th>
+				<th>色值</th>
+				<th>名称</th>
+				<th>背景颜色</th>
+				<th>字体颜色</th>
+				<th>选择</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>#ff0000</td>
+					<td>红色</td>
+					<td style="background-color: #ff0000;"></td>
+					<td style="color: #ff0000;">字体颜色</td>
+					<td><input type="button" value="选择" onclick="setColor('#ff0000')"/></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="text" id='cc' value="#00ff00"/>
+		<input type="button" value="选择" onclick="setColor(cc.value)"/>
+	</body>
+</html>

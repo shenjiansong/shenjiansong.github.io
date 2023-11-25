@@ -2,7 +2,7 @@ layui.define([], function (exports) {
 	var D={
 			header:{
 				welcome:'.',
-				logo:`https://7up.pics/images/2023/11/24/logo.png`,
+				logo:`https://z1.ax1x.com/2023/11/25/piwvMD0.png`,
 				name:'玩者',
 				url:'index.html',
 				items:[
@@ -12,6 +12,7 @@ layui.define([], function (exports) {
 					{url:'details.html?md=leacots',icon:'fas fa-comments',text:'留言'},
 					{url:'details.html?md=album',icon:'fas fa-address-book',text:'相册'},
 					{url:'details.html?md=about',icon:'fas fa-user-circle',text:'关于'},
+					{url:'details.html?md=links',icon:'fas fa-link',text:'导航'},
 				],
 				tempHtml:`<div class="header">
 				  <div class="welcome-text">{{d.welcome}}</div>
@@ -55,10 +56,10 @@ layui.define([], function (exports) {
 			</div>`
 		},
 		footer:{
-			wx:`${X.img}/wx.jpg`,
-			mobile:'18888888888',
-			qq:'88888888',
-			email:'88888888@qq.com',
+			// wx:`${X.img}/wx.jpg`,
+			// mobile:'18888888888',
+			qq:'1315112919',
+			email:'1315112919@qq.com',
 			tempHtml:`<div class="footer-wrap">
 				<div class="footer w1000">
 				{{#  if(d.wx){ }}<div class="qrcode"><img width="160px" src="{{d.wx}}"></div>{{# } }}
