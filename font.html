@@ -3,7 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script>
+			function setFont(){
+				var url='https://www.1kat.cn/TEMPSITC.TTF';
+				var mc="TEMPSITC";
+				if(typeof AZ=="object"){
+					AZ.setFont(url,mc);
+				}
+			}
+		</script>
 	</head>
 	<body>
+		
+		<input type="button" value="选择" onclick="setFont()"/>
 	</body>
 </html>
