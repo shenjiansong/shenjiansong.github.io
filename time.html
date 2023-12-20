@@ -9,35 +9,46 @@
 			   border: 1px solid black;
 			   border-spacing: 0px;
 			   border-collapse: collapse;
+			   text-align: center;
 			}
 			
 		</style>
 		<script>
+			if(typeof "".replaceAll !="function"){
+				String.prototype.replaceAll = function(s1, s2) {
+				    return this.replace(new RegExp(s1, "gm"), s2);
+				}
+			}
+			var tempTr=`<tr>
+					<td>{f}</td>
+					<td>{d}</td>
+					<td><input type="button" value="选择" onclick="setDateFormat('{f}')"/></td>
+				</tr>`
 			function setDateFormat(c){
 				console.log(c)
 				if(typeof AZ=="object"){
 					AZ.setDateFormat(c);
 				}
 			}
-			function initData(){
-				var res=localStorage.getItem("time");
-				if(res){
-					res=JSON.parse(res);
-				}
-			}
-			setTimeout(() => {
-				if(typeof AZ=="object"){
-				 	var res=AZ.getData("time.json");
-				 	try{
-				 		res=JSON.parse(res);
-				 	}catch(e){
-				 		eval("res="+res);
-				 	}
-				 	if(typeof res=="object"&&(res.success||res.success=="true")&&res.data){
-						localStorage.setItem("time",JSON.stringify(res.data));
-				 	}
-				 }
-			  }, 100);
+			var data=[];
+			data.push({ f:"%tF", d:"'-'分隔的年月日:2023-12-12" });
+			data.push({ f:"%tD", d:"'/'分隔的年月日:2023-12-12" });
+			data.push({ f:"%tc", d:"全部日期和时间:星期二 三月 25 12:20:00 CST 2023" });
+			data.push({ f:"%er", d:"时：分：秒12时制 03:22:06 下午" });
+			data.push({ f:"%tT", d:"时：分：秒24时制 15:22:06" });
+			data.push({ f:"%tR", d:"时：分 24时制 15:22" });
+			data.push({ f:"%te", d:"日：9" });
+			data.push({ f:"%tb", d:"月份简称：二月, 语言随系统" });
+			data.push({ f:"%tB", d:"月份全称：二月, 语言随系统" });
+			data.push({ f:"%tA", d:"星期简称：星期一, 语言随系统" });
+			data.push({ f:"%ta", d:"星期全称：星期一, 语言随系统" });
+			data.push({ f:"%tY", d:"4位年份：2023" });
+			data.push({ f:"%ty", d:"2位年份：23" });
+			data.push({ f:"%tm", d:"数字月份：09" });
+			data.push({ f:"%td", d:"数字日：08" });
+			data.push({ f:"%tD %tT", d:"组合：2023-12-12 15:22:06" });
+			data.push({ f:"%tD %er", d:"组合：2023-12-12 03:22:06 下午" });
+			data.push({ f:"%tD %tT %ta", d:"组合：2023-12-12 15:22:06 星期一" });
 		</script>
 	</head>
 	<body>
@@ -47,11 +58,16 @@
 				<th>选择</th>
 			</thead>
 			<tbody>
-				<tr>
-					<td>2023-12-12</td>
-					<td><input type="button" value="选择" onclick="setDateFormat('%tF')"/></td>
-				</tr>
+				<script>
+					
+					for(var i=0;i<data.length;i++){
+						document.writeln(
+						tempTr.replaceAll("{f}",data[i].f)
+						.replaceAll("{d}",data[i].d) )
+					}
+				</script>
 			</tbody>
 		</table>
 	</body>
 </html>
+
