@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">  
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			   border-collapse: collapse;
+			}
+			
+		</style>
+		<script>
+			function setDateFormat(c){
+				console.log(c)
+				if(typeof AZ=="object"){
+					AZ.setDateFormat(c);
+				}
+			}
+			function initData(){
+				var res=localStorage.getItem("time");
+				if(res){
+					res=JSON.parse(res);
+				}
+			}
+			setTimeout(() => {
+				if(typeof AZ=="object"){
+				 	var res=AZ.getData("time.json");
+				 	try{
+				 		res=JSON.parse(res);
+				 	}catch(e){
+				 		eval("res="+res);
+				 	}
+				 	if(typeof res=="object"&&(res.success||res.success=="true")&&res.data){
+						localStorage.setItem("time",JSON.stringify(res.data));
+				 	}
+				 }
+			  }, 100);
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<th>格式</th>
+				<th>选择</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2023-12-12</td>
+					<td><input type="button" value="选择" onclick="setDateFormat('%tF')"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
