@@ -62,7 +62,7 @@ if(typeof X.beforeLoad=="function")X.beforeLoad();
 document.write(`
 <link href="${X.img}/html_head.png" rel="SHORTCUT ICON">
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/css/layui.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.1/css/all.css">
+<link rel="stylesheet" type="text/css" href="https://lib.baomitu.com/font-awesome/5.13.0/css/all.css">
 <link rel="stylesheet" type="text/css" href="${X.css}/main.css?v=${X.RES_CSS_VERSION}">
 <!--加载meta IE兼容文件-->
 <!--[if lte IE 9]>

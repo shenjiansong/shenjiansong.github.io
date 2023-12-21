@@ -7,8 +7,8 @@ layui.define([], function (exports) {
 				url:'index.html',
 				items:[
 					{url:'index.html',icon:'fas fa-home',text:'首页'},
-					{url:'details.html?md=wenzhang',icon:'fas fa-archive',text:'文章'},
-					{url:'details.html?md=whisper',icon:'fas fa-tags',text:'微语'},
+					{url:'details.html?md=wenzhang',icon:'fa fa-archive',text:'文章'},
+					{url:'details.html?md=whisper',icon:'fa fa-tags',text:'微语'},
 					{url:'details.html?md=leacots',icon:'fas fa-comments',text:'留言'},
 					{url:'details.html?md=album',icon:'fas fa-address-book',text:'相册'},
 					{url:'details.html?md=about',icon:'fas fa-user-circle',text:'关于'},
