@@ -258,3 +258,7 @@ body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-se
 @media screen and (max-width: 320px){
   .whisper-content .cont .item img{width: 100%;}
 }
+
+
+.content .cont .list-item .item .item-cont{background-color: white;}
+.content .cont .list-item .item .img{height: 200px;}
