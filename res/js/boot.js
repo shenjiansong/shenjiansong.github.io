@@ -30,7 +30,7 @@ X.PARAM=X.GetRequest();
 //X.base='https://c.1kat.cn/cdn';
 X.js=`${X.base}/res/js`
 X.css=`${X.base}/res/css`
-X.md=`${X.base}/md`
+X.md=`./md`
 //X.img= "https://7up.pics/images/2023/11/24";
 X.img= `${X.base}/res/img`
 if(typeof X.beforeLoad=="function")X.beforeLoad();
