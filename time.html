@@ -31,24 +31,44 @@
 				}
 			}
 			var data=[];
-			data.push({ f:"%tF", d:"'-'分隔的年月日:2023-12-12" });
-			data.push({ f:"%tD", d:"'/'分隔的年月日:2023-12-12" });
-			data.push({ f:"%tc", d:"全部日期和时间:星期二 三月 25 12:20:00 CST 2023" });
-			data.push({ f:"%er", d:"时：分：秒12时制 03:22:06 下午" });
-			data.push({ f:"%tT", d:"时：分：秒24时制 15:22:06" });
-			data.push({ f:"%tR", d:"时：分 24时制 15:22" });
-			data.push({ f:"%te", d:"日：9" });
-			data.push({ f:"%tb", d:"月份简称：二月, 语言随系统" });
-			data.push({ f:"%tB", d:"月份全称：二月, 语言随系统" });
-			data.push({ f:"%tA", d:"星期简称：星期一, 语言随系统" });
-			data.push({ f:"%ta", d:"星期全称：星期一, 语言随系统" });
-			data.push({ f:"%tY", d:"4位年份：2023" });
-			data.push({ f:"%ty", d:"2位年份：23" });
-			data.push({ f:"%tm", d:"数字月份：09" });
-			data.push({ f:"%td", d:"数字日：08" });
-			data.push({ f:"%tD %tT", d:"组合：2023-12-12 15:22:06" });
-			data.push({ f:"%tD %er", d:"组合：2023-12-12 03:22:06 下午" });
-			data.push({ f:"%tD %tT %ta", d:"组合：2023-12-12 15:22:06 星期一" });
+				data.push({f:"%tF",d:"'-'分隔的年月日> 2023-12-09"});
+				data.push({f:"%tD",d:"'/'分隔的2位年年月日> 12/09/23"});
+				data.push({f:"20%tD",d:"'/'分隔的4位年月日> 2012/09/23"});
+				data.push({f:"%tY.%tm.%te",d:"组合 '.'分隔的年月日> 2023.12.9"});
+				data.push({f:"%tc",d:"全部日期和时间> 星期六 十二月 09 06:05:04 CST 2023"});
+				data.push({f:"%tr",d:"时:分:秒12时制> 06:05:04 上午"});
+				data.push({f:"%tT",d:"时:分:秒24时制> 06:05:04"});
+				data.push({f:"%tR",d:"时:分 24时制> 06:05"});
+				data.push({f:"%tb",d:"月份简称> 十二月"});
+				data.push({f:"%tB",d:"月份全称> 十二月"});
+				data.push({f:"%tA",d:"星期简称> 星期六"});
+				data.push({f:"%ta",d:"星期全称> 星期六"});
+				data.push({f:"%tY",d:"4位年份> 2023"});
+				data.push({f:"%ty",d:"2位年份> 23"});
+				data.push({f:"%tm",d:"数字月> 12"});
+				data.push({f:"%td",d:"数字日> 09"});
+				data.push({f:"%tZ",d:"时区名称> CST"});
+				data.push({f:"%tz",d:"时区值> +0800"});
+				data.push({f:"%tH",d:"24时制00-23> 06"});
+				data.push({f:"%tk",d:"24时制0-23> 6"});
+				data.push({f:"%tI",d:"12时制00-12> 06"});
+				data.push({f:"%tl",d:"12时制0-12> 6"});
+				data.push({f:"%tM",d:"分> 05"});
+				data.push({f:"%tS",d:"秒> 04"});
+				data.push({f:"%te",d:"日> 9"});
+				data.push({f:"%tD %tT",d:"组合> 12/09/23 06:05:04"});
+				data.push({f:"%tD %tz %tT",d:"组合> 12/09/23 +0800 06:05:04"});
+				data.push({f:"%tD %tr",d:"组合> 12/09/23 06:05:04 上午"});
+				data.push({f:"%tD %tT %ta",d:"组合> 12/09/23 06:05:04 星期六"});
+				data.push({f:"%tF %tT",d:"组合> 2023-12-09 06:05:04"});
+				data.push({f:"%tF %tz %tT",d:"组合> 2023-12-09 +0800 06:05:04"});
+				data.push({f:"%tF %tr",d:"组合> 2023-12-09 06:05:04 上午"});
+				data.push({f:"%tF %tT %ta",d:"组合> 2023-12-09 06:05:04 星期六"});
+				data.push({f:"%tY.%tm.%te %tT",d:"组合> 2023.12.9 06:05:04"});
+				data.push({f:"%tY.%tm.%te %tz %tT",d:"组合> 2023.12.9 +0800 06:05:04"});
+				data.push({f:"%tY.%tm.%te %tr",d:"组合> 2023.12.9 06:05:04 上午"});
+				data.push({f:"%tY.%tm.%te %tT %ta",d:"组合> 2023.12.9 06:05:04 星期六"});
+
 		</script>
 	</head>
 	<body>
