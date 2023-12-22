@@ -64,6 +64,7 @@ document.write(`
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/layui/2.7.0/css/layui.min.css">
 <link rel="stylesheet" type="text/css" href="https://lib.baomitu.com/font-awesome/5.13.0/css/all.css">
 <link rel="stylesheet" type="text/css" href="${X.css}/main.css?v=${X.RES_CSS_VERSION}">
+<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 <!--加载meta IE兼容文件-->
 <!--[if lte IE 9]>
 <script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
