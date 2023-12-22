@@ -5,12 +5,12 @@
 		<title>选择图标</title>
 		<style>
 			#D1{
-				width: 100%;
+				width: 100vw;
 				text-align: left;
 			}
 			#D1 div{
-				width: 32%;
-				height: 150px; 
+				width: 31vw;
+				height: 160px;
 				border: 1px solid red;
 				display: inline-block;
 				background-color: #cec1aa33;
@@ -20,7 +20,8 @@
 				vertical-align: middle;
 			}
 			#D1 div img{
-				width: 32%;
+				max-width: 30vw;
+				max-height: 150px;
 				text-align: center;
 				vertical-align: middle;
 			}
@@ -28,7 +29,7 @@
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
 			function setImage(url,mc){
-				console.log(url)
+				console.log(url,mc)
 				if(typeof AZ=="object"){
 					AZ.setImage(url,mc);
 				}
@@ -37,69 +38,85 @@
 	</head>
 	<body>
 	<div id="D1">
-		<div><img src='https://7up.pics/images/2023/12/21/25cda6a55863046d114b8a680f4cd108.png' onclick="setImage(this.src,'empty001.png')"/><br>空图</div>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofHOS.png' onclick="setImage(this.src,'piofHOS.png')"/></div>
-
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofOoj.png' onclick="setImage(this.src,'piofOoj.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofvYn.png' onclick="setImage(this.src,'piofvYn.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofxWq.png' onclick="setImage(this.src,'piofxWq.png')"/></div>
-
-
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTPtCn.png' onclick="setImage(this.src,'piTPtCn.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTPhDO.png' onclick="setImage(this.src,'piTPhDO.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTP4bD.png' onclick="setImage(this.src,'piTP4bD.png')"/></div>
-
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTPIVe.png' onclick="setImage(this.src,'piTPIVe.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkRvq.png' onclick="setImage(this.src,'piTkRvq.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkfK0.png' onclick="setImage(this.src,'piTkfK0.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTk22n.png' onclick="setImage(this.src,'piTk22n.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkIVU.png' onclick="setImage(this.src,'piTkIVU.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkT54.png' onclick="setImage(this.src,'piTkT54.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTZGLt.png' onclick="setImage(this.src,'piTZGLt.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_OM.png' onclick="setImage(this.src,'OlDYf.png')"/></div>
 		
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_74ce5567ac88a7db.png' onclick="setImage(this.src,'Ola6Q.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_6cac4f1a09ffdfc3.png' onclick="setImage(this.src,'OlViX.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_c99851f5dbe3d893.png' onclick="setImage(this.src,'OlRX2.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_EOS.png' onclick="setImage(this.src,'Olsy4.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_.png' onclick="setImage(this.src,'OlM7Z.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_61cc90735ab79c4a.png' onclick="setImage(this.src,'OlhTz.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTZ8sI.png' onclick="setImage(this.src,'piTZ8sI.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/SGC_2.png' onclick="setImage(this.src,'OlNhM.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkoaF.png' onclick="setImage(this.src,'piTkoaF.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTk4bT.png' onclick="setImage(this.src,'piTk4bT.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTkhrV.png' onclick="setImage(this.src,'piTkhrV.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTPUg0.png' onclick="setImage(this.src,'piTPUg0.png')"/></div>
-		<br>
-		<div><img src='https://7up.pics/images/2023/12/21/500.png' onclick="setImage(this.src,'OwA3W.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/camera_click.png' onclick="setImage(this.src,'Ow00P.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/gen2_triple.png' onclick="setImage(this.src,'OwWYv.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/2032449abf18f384047c83b6d3569c0c.png' onclick="setImage(this.src,'Owgs8.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/11.png' onclick="setImage(this.src,'OwXTo.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/112.png' onclick="setImage(this.src,'Owb4E.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/515.png' onclick="setImage(this.src,'OwuXs.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/ace6d9932602c477ead0019b2794f58c.png' onclick="setImage(this.src,'Owzie.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/2.png' onclick="setImage(this.src,'Owt97.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/500910d4696679c1ddb.png' onclick="setImage(this.src,'OwI0N.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/5009889b8da439fc7ef.png' onclick="setImage(this.src,'Owf3F.png')"/></div>
-		<br>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piohSS0.png' onclick="setImage(this.src,'piohSS0.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/oppo.png' onclick="setImage(this.src,'OwSIl.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/c53a61b484b79af62abdf5395590fce9.png' onclick="setImage(this.src,'OwEsp.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/00c6dc02e1b0f627c3e4de1c5b0c947d.png' onclick="setImage(this.src,'Ow3Zk.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/c7e26bedff7a8bb563a8a50d235e37b4.png' onclick="setImage(this.src,'OwUbU.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/204e71241f526f54e.png' onclick="setImage(this.src,'Ow849.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/64905231c8f4014f3ac6bffd04c607fb.png' onclick="setImage(this.src,'OwJl0.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/lg.png' onclick="setImage(this.src,'OwlAS.png')"/></div>
-		<div><img src='https://7up.pics/images/2023/12/21/moto.png' onclick="setImage(this.src,'OwP9C.png')"/></div>
+		<div><br /><br /><br />空图<img src='https://7up.pics/images/2023/12/21/25cda6a55863046d114b8a680f4cd108.png'  id='empty001.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofHOS.png'  id='piofHOS.png'/></div>
 		
-		<br>
-		<div><img src='https://s11.ax1x.com/2023/12/21/piTPN3q.png' onclick="setImage(this.src,'piTPN3q.png')"/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofOoj.png'  id='piofOoj.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofvYn.png'  id='piofvYn.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofxWq.png'  id='piofxWq.png'/></div>
 		
-		<br>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofjFs.png' onclick="setImage(this.src,'piofjFs.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofqeg.png' onclick="setImage(this.src,'piofqeg.png')"/></div>
-		<div><img src='https://s11.ax1x.com/2023/12/20/piofLwQ.png' onclick="setImage(this.src,'piofLwQ.png')"/></div>
+		
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTPtCn.png'  id='piTPtCn.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTPhDO.png'  id='piTPhDO.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTP4bD.png'  id='piTP4bD.png'/></div>
+		
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTPIVe.png'  id='piTPIVe.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkRvq.png'  id='piTkRvq.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkfK0.png'  id='piTkfK0.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTk22n.png'  id='piTk22n.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkIVU.png'  id='piTkIVU.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkT54.png'  id='piTkT54.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTZGLt.png'  id='piTZGLt.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_OM.png'  id='OlDYf.png'/></div>
+				
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_74ce5567ac88a7db.png'  id='Ola6Q.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_6cac4f1a09ffdfc3.png'  id='OlViX.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_c99851f5dbe3d893.png'  id='OlRX2.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_EOS.png'  id='Olsy4.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_.png'  id='OlM7Z.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_61cc90735ab79c4a.png'  id='OlhTz.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTZ8sI.png'  id='piTZ8sI.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/SGC_2.png'  id='OlNhM.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkoaF.png'  id='piTkoaF.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTk4bT.png'  id='piTk4bT.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTkhrV.png'  id='piTkhrV.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTPUg0.png'  id='piTPUg0.png'/></div>
+				<br>
+				<div><img src='https://7up.pics/images/2023/12/21/500.png'  id='OwA3W.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/camera_click.png'  id='Ow00P.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/gen2_triple.png'  id='OwWYv.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/2032449abf18f384047c83b6d3569c0c.png'  id='Owgs8.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/11.png'  id='OwXTo.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/112.png'  id='Owb4E.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/515.png'  id='OwuXs.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/ace6d9932602c477ead0019b2794f58c.png'  id='Owzie.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/2.png'  id='Owt97.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/500910d4696679c1ddb.png'  id='OwI0N.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/5009889b8da439fc7ef.png'  id='Owf3F.png'/></div>
+				<br>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piohSS0.png'  id='piohSS0.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/oppo.png'  id='OwSIl.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/c53a61b484b79af62abdf5395590fce9.png'  id='OwEsp.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/00c6dc02e1b0f627c3e4de1c5b0c947d.png'  id='Ow3Zk.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/c7e26bedff7a8bb563a8a50d235e37b4.png'  id='OwUbU.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/204e71241f526f54e.png'  id='Ow849.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/64905231c8f4014f3ac6bffd04c607fb.png'  id='OwJl0.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/lg.png'  id='OwlAS.png'/></div>
+				<div><img src='https://7up.pics/images/2023/12/21/moto.png'  id='OwP9C.png'/></div>
+				
+				<br>
+				<div><img src='https://s11.ax1x.com/2023/12/21/piTPN3q.png'  id='piTPN3q.png'/></div>
+				
+				<br>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofjFs.png'  id='piofjFs.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofqeg.png'  id='piofqeg.png'/></div>
+				<div><img src='https://s11.ax1x.com/2023/12/20/piofLwQ.png'  id='piofLwQ.png'/></div>
 	</div>
+	<div id="info">11111111</div>
 	</body>
-</html> 
+</html>
+<script>
+	var d1= document.getElementById("D1");
+	for(var c in d1.children){
+		var d=d1.children[c];
+		if(typeof d.getElementsByTagName !="function")continue;
+		var imgs=d.getElementsByTagName("img");
+		if(imgs.length>0){
+			d.addEventListener("click",function(e){
+				var img=this.getElementsByTagName("img")[0];
+				setImage(img.src,img.id);
+			})
+		}
+	}
+</script>
