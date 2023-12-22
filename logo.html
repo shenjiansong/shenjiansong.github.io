@@ -108,6 +108,7 @@
 </html>
 <script>
 	var d1= document.getElementById("D1");
+	var info= document.getElementById("info");
 	for(var c in d1.children){
 		var d=d1.children[c];
 		if(typeof d.getElementsByTagName !="function")continue;
@@ -119,4 +120,7 @@
 			})
 		}
 	}
+	
+	info.innerHTML="aaaa:"+document.body.clientWidth+"-"+d1.children[0].clientWidth;
+	
 </script>
