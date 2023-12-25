@@ -1,0 +1,16 @@
+<string name="lib_profile_title_key_p0_{cid}">超级·夜景</string>
+<string name="lib_blue_key_p0_{cid}">0.00</string>
+<string name="lib_cf1_key_p0_{cid}">1.05</string>
+<string name="lib_cf2_key_p0_{cid}">0.95</string>
+<string name="lib_cg3_key_p0_{cid}">0.00</string>
+<string name="lib_exposure_darker_2_key_p0_{cid}">0.500 (Default)</string>
+<string name="lib_exposure_darker_key_p0_{cid}">1.750</string>
+<string name="lib_green_key_p0_{cid}">1.05</string>
+<string name="lib_hdr_range_minus_key_p0_{cid}">-4.0</string>
+<string name="lib_hdr_range_plus_key_p0_{cid}">0</string>
+<string name="lib_red_key_p0_{cid}">0.95</string>
+<string name="lib_saturation_key_p0_{cid}">1.25</string>
+<string name="lib_sharpness_a_key_p0_{cid}">1.125</string>
+<string name="lib_sharpness_b_key_p0_{cid}">1.125</string>
+<string name="lib_tun_col_sat_par_1_key_p0_{cid}">1.20</string>
+<string name="lib_tun_col_sat_par_2_key_p0_{cid}">1.70</string>
