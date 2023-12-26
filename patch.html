@@ -6,17 +6,71 @@
 		<title></title>
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
+			var tempTr=`<tr onclick="rowClick(this)">
+					<td><input type='checkbox' name='ck' data='{url}'></td>
+					<td>{name}</td>
+					<td>{zz}</td>
+					<td>{note}</td>
+				</tr>`
+			function rowClick(self){
+				var nCks=self.getElementsByTagName("input");
+				if(nCks.length>0){
+					nCks[0].checked=!nCks[0].checked;
+				}
+			}
 			function addPatch(){
 				var url1='https://www.1kat.cn/p1.ptc';
 				var url2='https://www.1kat.cn/p2.ptc';
-				if(typeof AZ=="object"){
-					AZ.addPatch([url1,url2]);
+				var ckData=[];
+				var cks=document.getElementsByName("ck");
+				for(var i=0;i<cks.length;i++){
+					var tmpck=cks[i];
+					if(tmpck.checked){
+						ckData.push(tmpck.getAttribute("data"));
+					}
+				}
+				console.log(ckData);
+				if(ckData.length>0){
+					if(typeof AZ=="object"){
+						AZ.addPatch(ckData);
+					}
 				}
 			}
+			var data=[
+				{u:'https://www.1kat.cn/p1.ptc',zz:'佚名',n:'普罗·维亚'},
+				{u:'https://www.1kat.cn/p2.ptc',zz:'佚名',n:'柯达·多彩'},
+				{u:'https://www.1kat.cn/p3.ptc',zz:'佚名',n:'生动·创意'},
+				{u:'https://www.1kat.cn/p4.ptc',zz:'佚名',n:'极致·青橙'},
+				{u:'https://www.1kat.cn/p5.ptc',zz:'佚名',n:'黑白·人文'},
+				{u:'https://www.1kat.cn/p6.ptc',zz:'佚名',n:'超级·夜景'},
+			];
 		</script>
 	</head>
 	<body>
 		
-		<input type="button" value="添加" onclick="addPatch()"/>
+		<table border="1">
+			<thead>
+				<th colspan=4 style="text-align: left;"><input type="button"  value="添加选中" onclick="addPatch()" ></th>
+			</thead>
+			<thead>
+				<th width="5%" nowrap>选择</th>
+				<th width="25%" nowrap>配置名</th>
+				<th width="25%" nowrap>作者</th>
+				<th width="25%" nowrap>说明</th>
+			</thead>
+			<tbody>
+				<script>
+					for(var i=0;i<data.length;i++){
+						if(data[i]){
+							document.writeln(
+							tempTr.replaceAll("{url}",data[i].u)
+							.replaceAll("{zz}",data[i].zz)
+							.replaceAll("{name}",data[i].n)
+							.replaceAll("{note}",data[i].note||'无') )
+						}
+					}
+				</script>
+			</tbody>
+		</table>
 	</body>
 </html>
