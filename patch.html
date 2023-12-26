@@ -6,6 +6,11 @@
 		<title></title>
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
+			if(typeof "".replaceAll !="function"){
+				String.prototype.replaceAll = function(s1, s2) {
+				    return this.replace(new RegExp(s1, "gm"), s2);
+				}
+			}
 			var tempTr=`<tr onclick="rowClick(this)">
 					<td><input type='checkbox' name='ck' data='{url}'></td>
 					<td>{name}</td>
@@ -50,7 +55,11 @@
 		
 		<table border="1">
 			<thead>
-				<th colspan=4 style="text-align: left;"><input type="button"  value="添加选中" onclick="addPatch()" ></th>
+				<th colspan=4 style="text-align: left;">
+					<input type="button"  value="添加选中" onclick="addPatch()" >
+					|| 
+					<a href="pref.html" >配置查询</a>
+				</th>
 			</thead>
 			<thead>
 				<th width="5%" nowrap>选择</th>

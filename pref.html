@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
+		<script>
+			if(typeof "".replaceAll !="function"){
+				String.prototype.replaceAll = function(s1, s2) {
+				    return this.replace(new RegExp(s1, "gm"), s2);
+				}
+			}
+			var tempTr=`<tr">
+					<td><input type='button' value='保存[{index}]' data-k='{key}' onclick='doSave(this)' ></td>
+					<td>{key}</td>
+					<td><input type='text' id='{key}' value='{value}'></td>
+				</tr>`;
+				
+			function doSave(self){
+				if(1|| typeof AZ=="object"){
+					var k=self.getAttribute("data-k");
+					var v=document.getElementById(k).value;
+					AZ.setPref(k,v);
+					alert("保存成功");
+				}
+			}
+			
+			function doQ(){ 
+				if(1|| typeof AZ=="object"){
+					var filter=document.getElementById("filter");
+					var dBody=document.getElementById("dBody");
+					var result=AZ.queryPref(filter.value);
+					//"{a:1,b:2,c:'aa'}";
+					var res={};
+					try{res=JSON.parse(result);}catch(e){
+						eval("res="+result);
+					}
+					var index=1;
+					var html="";
+					for(var k in res){
+						if(k) html=html+tempTr.replaceAll("{index}",index).replaceAll("{key}",k).replaceAll("{value}",res[k]);
+						index++;
+					}
+					dBody.innerHTML=html;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<th colspan=3 style="text-align: left;">
+					<input id="filter" type="text" value="*" width="100" >
+					<input type="button"  value="查询" onclick="doQ()"></th>
+			</thead>
+			<thead>
+				<th width="5%" nowrap>修改</th>
+				<th width="25%" nowrap>name</th>
+				<th width="70%" nowrap>value</th>
+			</thead>
+			<tbody id='dBody'></tbody>
+		</table>
+	</body>
+</html>
