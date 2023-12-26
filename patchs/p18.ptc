@@ -1,0 +1,8 @@
+<string name="lib_profile_title_key_p0_{cid}">色空</string>
+<string name="lib_enable_color_key_p0_{cid}">1</string>
+<string name="lib_lut_intensity_key_p0_{cid}">1.0</string>
+<string name="lib_pref_color_transform_key_p0_{cid}">5</string>
+<string name="lib_contrast_2_key_p0_{cid}">0.51</string>
+<string name="lib_dehazed_expo_key_p0_{cid}">1.25</string>
+<string name="lib_profile_show_key_p0_{cid}">0</string>
+<string name="lib_enable_cct_key_p0_{cid}">1</string>
