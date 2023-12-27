@@ -4,6 +4,30 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
+		<style>
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			   border-collapse: collapse;
+			   text-align: center;
+			}
+			thead{
+				width: 99vw;
+			}
+			.toolbar{
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				text-align: center;
+				background: #3e3e3e99;
+			}
+			.toolbar input{
+				margin-left: 10px;
+				color: aliceblue;
+				background-color: #5f97a5;
+			}
+			
+		</style>
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
 			if(typeof "".replaceAll !="function"){
@@ -62,6 +86,11 @@
 					nCks[0].checked=!nCks[0].checked;
 				}
 			}
+			function toClose(self){
+				if(typeof AZ=="object"){
+					AZ.close();
+				}
+			}
 			function addPatch(self){
 				self.disabled="disabled"
 				try{
@@ -106,20 +135,20 @@
 {u:'https://www.1kat.cn/patchs/p36.ptc',zz:'老K',n:'暗调风格'},
 {u:'https://www.1kat.cn/patchs/p37.ptc',zz:'老K',n:'电影胶片'},
 
-{u:'https://www.1kat.cn/patchs/p38.ptc',zz:'幸运不繁',n:'Regular'},
-{u:'https://www.1kat.cn/patchs/p39.ptc',zz:'幸运不繁',n:'B&W'},
-{u:'https://www.1kat.cn/patchs/p40.ptc',zz:'幸运不繁',n:'Vibrant'},
-{u:'https://www.1kat.cn/patchs/p41.ptc',zz:'幸运不繁',n:'LDR'},
-{u:'https://www.1kat.cn/patchs/p42.ptc',zz:'幸运不繁',n:'Night'},
-{u:'https://www.1kat.cn/patchs/p43.ptc',zz:'幸运不繁',n:'Smooth'},
-{u:'https://www.1kat.cn/patchs/p44.ptc',zz:'幸运不繁',n:'Bright'},
-{u:'https://www.1kat.cn/patchs/p45.ptc',zz:'幸运不繁',n:'Pro'},
-{u:'https://www.1kat.cn/patchs/p46.ptc',zz:'幸运不繁',n:'ꏿdslrꏿ'},
-{u:'https://www.1kat.cn/patchs/p47.ptc',zz:'幸运不繁',n:'ꏿnatureꏿ'},
-{u:'https://www.1kat.cn/patchs/p48.ptc',zz:'幸运不繁',n:'ꏿvividꏿ'},
-{u:'https://www.1kat.cn/patchs/p49.ptc',zz:'幸运不繁',n:'ꏿnightꏿ'},
-{u:'https://www.1kat.cn/patchs/p50.ptc',zz:'幸运不繁',n:'ꏿnatureꏿ'},
-{u:'https://www.1kat.cn/patchs/p51.ptc',zz:'幸运不繁',n:'ꏿhumanꏿ'},
+{u:'https://www.1kat.cn/patchs/p38.ptc',zz:'佚名',n:'Regular'},
+{u:'https://www.1kat.cn/patchs/p39.ptc',zz:'佚名',n:'B&W'},
+{u:'https://www.1kat.cn/patchs/p40.ptc',zz:'佚名',n:'Vibrant'},
+{u:'https://www.1kat.cn/patchs/p41.ptc',zz:'佚名',n:'LDR'},
+{u:'https://www.1kat.cn/patchs/p42.ptc',zz:'佚名',n:'Night'},
+{u:'https://www.1kat.cn/patchs/p43.ptc',zz:'佚名',n:'Smooth'},
+{u:'https://www.1kat.cn/patchs/p44.ptc',zz:'佚名',n:'Bright'},
+{u:'https://www.1kat.cn/patchs/p45.ptc',zz:'佚名',n:'Pro'},
+{u:'https://www.1kat.cn/patchs/p46.ptc',zz:'佚名',n:'ꏿdslrꏿ'},
+{u:'https://www.1kat.cn/patchs/p47.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
+{u:'https://www.1kat.cn/patchs/p48.ptc',zz:'佚名',n:'ꏿvividꏿ'},
+{u:'https://www.1kat.cn/patchs/p49.ptc',zz:'佚名',n:'ꏿnightꏿ'},
+{u:'https://www.1kat.cn/patchs/p50.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
+{u:'https://www.1kat.cn/patchs/p51.ptc',zz:'佚名',n:'ꏿhumanꏿ'},
 
 {u:'https://www.1kat.cn/patchs/p52.ptc',zz:'佚名',n:'德味₲₰⛎꒰ঌ🥏໒꒱'},
 {u:'https://www.1kat.cn/patchs/p53.ptc',zz:'佚名',n:'夜景压光💫'},
@@ -166,14 +195,11 @@
 		</script>
 	</head>
 	<body>
-		
+		<div class="toolbar">
+			<input type="button"  value="添加选中" onclick="addPatch(this)" >
+			<input type="button"  value="关闭" onclick="toClose(this)" >
+		</div>
 		<table border="1">
-			<thead>
-				<th colspan=4 style="text-align: left;">
-					<input type="button"  value="添加选中" onclick="addPatch(this)" >
-					 
-				</th>
-			</thead>
 			<thead>
 				<th width="5%" nowrap>选择</th>
 				<th width="25%" nowrap>配置名</th>
