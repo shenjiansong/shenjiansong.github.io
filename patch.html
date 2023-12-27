@@ -77,6 +77,13 @@
 				    return this.replace(new RegExp(s1, "gm"), s2);
 				}
 			}
+			function sleep(time) {
+			    return new Promise((resolve) => {
+			      setTimeout(() => {
+			        resolve();
+			      }, time);
+			    });
+			  }
 			var addIng=false;
 			function pageLoadTip(msg){
 				 document.getElementById("pageLoadTip").style.display="block";
@@ -124,7 +131,7 @@
 							}
 						}
 						self.disabled="";
-						pageLoadTipHide();
+						//pageLoadTipHide();
 					}catch(e){
 						self.disabled="";
 						pageLoadTipHide();
