@@ -90,7 +90,7 @@
 <string name="lib_custom_18_key_p0_{cid}_title">(Google风格)🌏GCam8.7Curve</string>
 <string name="lib_shot_noise_factor_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_hdr_effect_intensity_key_p0_{cid}">1.0625</string>
-<string name="lib_fine_spatial_max_1_key_p0_{cid}">1.75</string>
+<string name="lib_fine_spatial_max_1_key_p0_{cid}">-1</string>
 <string name="lib_vignettec_key_p0_{cid}">2.00 (Subtle)</string>
 <string name="lib_smoothing2_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_14_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
@@ -284,7 +284,7 @@
 <string name="lib_luma_dls_l5_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_5_key_p0_{cid}_enabled">1</string>
 <string name="lib_luma_dm_sabre_l3a_key_p0_{cid}">Off (as in library)</string>
-<string name="lib_fine_spatial_min_1_key_p0_{cid}">2.25</string>
+<string name="lib_fine_spatial_min_1_key_p0_{cid}">0.25</string>
 <string name="lib_custom_5_key_p0_{cid}_address">365AF0</string>
 <string name="lib_contrast_3a_key_p0_{cid}">0.625</string>
 <string name="lib_override_hdrnet_key_p0_{cid}">1</string>
