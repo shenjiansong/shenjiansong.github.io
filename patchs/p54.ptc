@@ -16,7 +16,6 @@
 <string name="lib_custom_18_key_p0_{cid}_value">00902D1E</string>
 <string name="lib_custom_9_key_p0_{cid}_address">01FBE49C</string>
 <string name="lib_custom_16_key_p0_{cid}_value">0000C03F0000E03F</string>
-<string name="lib_by_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_cg6_key_p0_{cid}">0.183 (Default CG4)</string>
 <string name="lib_hdr_plus_interface_key_p0_{cid}">-31.0</string>
 <string name="lib_custom_9_key_p0_{cid}_value">10102B1E</string>
@@ -29,7 +28,6 @@
 <string name="lib_custom_2_key_p0_{cid}_address">00423968</string>
 <string name="lib_custom_12_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_10_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_blue_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_pref_color_transform_key_p0_{cid}">12</string>
 <string name="lib_custom_19_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_13_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
@@ -57,7 +55,6 @@
 <string name="lib_cg10_key_p0_{cid}">-0.78084 (Default CG10)</string>
 <string name="lib_saturation_key_p0_{cid}">1.3125</string>
 <string name="lib_tun_col_sat_par_2_key_p0_{cid}">1.85</string>
-<string name="lib_darken_light_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_4_key_p0_{cid}_value">CDCCCC3E</string>
 <string name="lib_custom_5_key_p0_{cid}_value">0000C03F0000E03F</string>
 <string name="lib_custom_10_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
@@ -75,7 +72,6 @@
 <string name="lib_custom_8_key_p0_{cid}_address">01FBE49C</string>
 <string name="lib_cg4_key_p0_{cid}">0.183 (Default CG4)</string>
 <string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
-<string name="lib_gro_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_cg2_key_p0_{cid}">0.816 (Default CG2)</string>
 <string name="lib_custom_14_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_15_key_p0_{cid}_value">03506D1E</string>
@@ -105,7 +101,6 @@
 <string name="lib_luma_noise_key_p0_{cid}">1.125</string>
 <string name="lib_sabre_contrast_sharp_key_p0_{cid}">1.875</string>
 <string name="lib_custom_16_key_p0_{cid}_enabled">1</string>
-<string name="lib_contrast_3a_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_5_key_p0_{cid}_address">366188</string>
 <string name="lib_custom_7_key_p0_{cid}_enabled">1</string>
 <string name="lib_vignette_key_p0_{cid}">0.96875 (Enable)</string>
@@ -158,7 +153,6 @@
 通过抖动噪点来增加细节
 但数码变焦会产生亮噪点
 🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_orgb_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_17_key_p0_{cid}_value">CDCCCC3E</string>
 <string name="lib_custom_18_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_7_key_p0_{cid}_address">01FBE49C</string>

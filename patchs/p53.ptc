@@ -6,7 +6,6 @@
 但数码变焦会产生亮噪点
 🔺🔺🔺🔺🔺🔺</string>
 <string name="lib_luma_b_key_p0_{cid}">0.8125</string>
-<string name="lib_white_level_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_spatial_a_key_p0_{cid}">0</string>
 <string name="lib_custom_2_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_4_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
@@ -27,7 +26,6 @@
 <string name="lib_iso_expo_tuning_key_p0_{cid}">1.000</string>
 <string name="lib_brightness_intensity_key_p0_{cid}">0.9375</string>
 <string name="lib_custom_13_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_hdr_overall_lightness_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_temporal_a_key_p0_{cid}">1.0 (Default)</string>
 <string name="lib_cg4_key_p0_{cid}">0.183 (Default CG4)</string>
 <string name="lib_hdr_range_plus_key_p0_{cid}">5.0</string>
@@ -64,7 +62,6 @@
 <string name="lib_custom_20_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_saturation_2_key_p0_{cid}">1.125</string>
 <string name="lib_custom_1_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_by_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_10_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
 《加强边缘》
 锐化加重，细节更清晰
@@ -104,10 +101,7 @@
 <string name="lib_custom_9_key_p0_{cid}_value">10102B1E</string>
 <string name="lib_custom_5_key_p0_{cid}_address">01FBE49C</string>
 <string name="lib_custom_20_key_p0_{cid}_enabled">1</string>
-<string name="lib_contrast_3b_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_contrast_black_key_p0_{cid}">1.125</string>
-<string name="lib_sabre_contrast_key_p0_{cid}">Off (as in library)</string>
-<string name="lib_exposure_darker_2_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_16_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_4_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_gro_key_p0_{cid}">0.51</string>
@@ -119,14 +113,11 @@
 通过抖动噪点来增加细节
 但数码变焦会产生亮噪点
 🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_contrast_1_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_8_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_exposure_darker_key_p0_{cid}">1.625</string>
 <string name="lib_custom_15_key_p0_{cid}_value">10102B1E</string>
 <string name="lib_custom_7_key_p0_{cid}_enabled">1</string>
-<string name="lib_soft_contrast_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_19_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_smoothing_sabre_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_chroma_a_key_p0_{cid}">0.9375</string>
 <string name="lib_custom_10_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_17_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
@@ -153,11 +144,9 @@
 <string name="lib_luma_noise_key_p0_{cid}">1.125</string>
 <string name="lib_sabre_denoise_control_key_p0_{cid}">-31.0</string>
 <string name="lib_custom_17_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_contrast_2_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_19_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_8_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_10_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_clarity_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_12_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_override_cct_key_p0_{cid}">1</string>
 <string name="lib_custom_1_key_p0_{cid}_value">10102B1E</string>
@@ -171,7 +160,6 @@
 <string name="lib_custom_5_key_p0_{cid}_enabled">1</string>
 <string name="lib_cg5_key_p0_{cid}">0.59711 (Default CG5)</string>
 <string name="lib_denoise_key_p0_{cid}">1.0 (Default)</string>
-<string name="lib_hardmerge_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_saturations_key_p0_{cid}">1.0 (Default)</string>
 <string name="lib_custom_17_key_p0_{cid}_value">10102B1E</string>
 <string name="lib_custom_16_key_p0_{cid}_value">03506D1E</string>
