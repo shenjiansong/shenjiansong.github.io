@@ -5,8 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
 		<style>
+			body{ 
+				background-color: #3e3e3eaa;
+				color: #cfcfcf;
+			}
 			table{
-				
 				margin-bottom: 30px;
 			}
 			table, th, td {
@@ -78,14 +81,16 @@
 			function pageLoadTip(msg){
 				 document.getElementById("pageLoadTip").style.display="block";
 				document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
+				document.body.style["overflow"]="hidden";
 			}
 			
 			function pageLoadTipHide(){
 				document.getElementById("pageLoadTip").style.display="none";
+				document.body.style["overflow"]="auto";
 			}
 			var tempTr=`<tr onclick="rowClick(this)">
-					<td>{no}<input type='checkbox' name='ck' data='{url}'></td>
-					<td>{name}</td>
+					<td nowrap>{no}<input type='checkbox' name='ck' data='{url}'></td>
+					<td nowrap>{name}</td>
 					<td>{zz}</td>
 					<td>{note}</td>
 				</tr>`
