@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div style="height: 100%;">
+	<div style="height:20%;width:90%">
+		<p>源文件内容粘贴到此处V 
+		<label for="cid">cid:<input id='cid' value="0" ></label>
+		<label for="zz">作者:<input id='zz' value="幸运不繁" ></label>
+		<label for="sid">序列:<input id='sid' value="52" ></label>
+		</p>
+		<textarea id='txt' style="height:50%;width:90%"></textarea>
+		<button onclick="zh()">转换</button>
+	</div>
+	<div id="tempDiv" style="height:90%;width:90%"></div>
+</div>
+
+<script>
+	if(typeof "".replaceAll !="function"){
+		String.prototype.replaceAll = function(s1, s2) {
+		    return this.replace(new RegExp(s1, "gm"), s2);
+		}
+	}
+var taTmp="<textarea id='{id}' style='height:100%;width:20%'>{value}</textarea>";
+var tempDiv =document.getElementById("tempDiv") 
+var txt =document.getElementById("txt");
+var cid =document.getElementById("cid");
+var zz =document.getElementById("zz");
+var sid =document.getElementById("sid");
+var data=[];
+function isHidden(parr){
+	if(parr==null||parr.length<2)return true;
+	for(var i=0;i<parr.length;i++){
+		var p=parr[i];
+		if(p.indexOf("lib_profile_show_key_p")>0&&p.replaceAll(" ","").indexOf(">0<")>0)
+		return true;
+	}
+	return false;
+}
+function zh(){
+	let matches = txt.value.match(/<string[^>]+?>[\s\S]*?<\/string>/ig);
+	if (matches) {
+	  var data=[];
+	  var tar=[];
+	  var reg=new RegExp("[.]*_p[0-9]+_"+cid.value+"[^\"]?");
+	  for(var i=0;i<matches.length;i++){
+			var tmpStr=matches[i];
+			if(reg.test(tmpStr)){
+				data.push(tmpStr);
+			}
+	  }
+
+	  for(var i=0;i<100;i++){
+		  tar[i]=[];
+		 for(var k=0;k<data.length;k++){
+			 
+			if(data[k].indexOf("_p"+i+"_")>0){
+				var addStr=data[k].replace("_p"+i+"_"+cid.value,"_p0_{cid}");
+				if(addStr.indexOf("profile_title_key")>0){
+					tar[i].unshift(addStr);
+				}else{
+					tar[i].push(addStr);
+				}
+			}
+		 }
+		 if(tar[i].length<1)break;
+	  }
+	  
+	  var tar2=[];
+	  //删除隐藏
+	  for(var i=0;i<tar.length;i++){
+		  if(isHidden(tar[i]))continue;
+		  tar2.push(tar[i]);
+	  }
+	  
+	  
+	  var resHtml="";
+	  var cflist=[];
+	  var cfTmp="{u:'https://www.1kat.cn/patchs/p{no}.ptc',zz:'{zz}',n:'{name}'},"
+	  var zzName=zz.value;
+	  var no=sid.value*1;
+	  for(var i=0;i<tar2.length;i++){
+		if(tar2[i]&&tar2[i][0]){
+			var taTmpStr=taTmp.replace("{id}","p"+i).replace("{value}",tar2[i].join("\n"));
+			var n=tar2[i][0].split("title_key_p0_{cid}\">");
+			if(n.length>1){
+				n=n[1].replace("</string>","");
+				cflist.push(cfTmp.replace("{name}",zzName+"."+n).replace("{zz}",zzName).replace("{no}",no++));
+			}
+			resHtml+=taTmpStr;
+		}
+	  }
+	  resHtml+=taTmp.replace("{id}","p999").replace("{value}",cflist.join("\n"));
+	  tempDiv.innerHTML=resHtml;
+	}
+}
+
+</script>
+</body>
+</html>

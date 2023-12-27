@@ -50,7 +50,7 @@
 				$('#pageLoadTip').hide();
 			}
 			var tempTr=`<tr onclick="rowClick(this)">
-					<td><input type='checkbox' name='ck' data='{url}'></td>
+					<td>{no}<input type='checkbox' name='ck' data='{url}'></td>
 					<td>{name}</td>
 					<td>{zz}</td>
 					<td>{note}</td>
@@ -84,32 +84,84 @@
 				}
 			}
 			var data=[
-				{u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'老K.哈苏'},
-				{u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'老K.拍立得'},
-				{u:'https://www.1kat.cn/patchs/p9.ptc',zz:'老K',n:'老K.人像'},
-				{u:'https://www.1kat.cn/patchs/p10.ptc',zz:'老K',n:'老K.富士c200'},
-				{u:'https://www.1kat.cn/patchs/p11.ptc',zz:'老K',n:'老K.不列松'},
-				{u:'https://www.1kat.cn/patchs/p12.ptc',zz:'老K',n:'老K.青橙'},
-				{u:'https://www.1kat.cn/patchs/p13.ptc',zz:'鱼纨子',n:'鱼纨子.柔润'},
-				{u:'https://www.1kat.cn/patchs/p14.ptc',zz:'鱼纨子',n:'鱼纨子.明艳'},
-				{u:'https://www.1kat.cn/patchs/p15.ptc',zz:'鱼纨子',n:'鱼纨子.暗夜'},
-				{u:'https://www.1kat.cn/patchs/p16.ptc',zz:'鱼纨子',n:'鱼纨子.夜视'},
-				{u:'https://www.1kat.cn/patchs/p17.ptc',zz:'鱼纨子',n:'鱼纨子.追风'},
-				{u:'https://www.1kat.cn/patchs/p18.ptc',zz:'鱼纨子',n:'鱼纨子.色空'},
-				{u:'https://www.1kat.cn/patchs/p19.ptc',zz:'鱼纨子',n:'鱼纨子.哈苏'},
-				{u:'https://www.1kat.cn/patchs/p20.ptc',zz:'鱼纨子',n:'鱼纨子.松下'},
-				{u:'https://www.1kat.cn/patchs/p21.ptc',zz:'鱼纨子',n:'鱼纨子.莱卡'},
-				{u:'https://www.1kat.cn/patchs/p22.ptc',zz:'鱼纨子',n:'鱼纨子.人像'},
-				{u:'https://www.1kat.cn/patchs/p23.ptc',zz:'鱼纨子',n:'鱼纨子.超清'},
-				{u:'https://www.1kat.cn/patchs/p24.ptc',zz:'鱼纨子',n:'鱼纨子.标准'},
-				{u:'https://www.1kat.cn/patchs/p1.ptc',zz:'佚名',n:'普罗·维亚'},
-				{u:'https://www.1kat.cn/patchs/p2.ptc',zz:'佚名',n:'柯达·多彩'},
-				{u:'https://www.1kat.cn/patchs/p3.ptc',zz:'佚名',n:'生动·创意'},
+				{u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
+				{u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得'},
+				{u:'https://www.1kat.cn/patchs/p9.ptc',zz:'老K',n:'人像'},
+				{u:'https://www.1kat.cn/patchs/p10.ptc',zz:'老K',n:'富士c200'},
+				{u:'https://www.1kat.cn/patchs/p11.ptc',zz:'老K',n:'不列松'},
+				{u:'https://www.1kat.cn/patchs/p12.ptc',zz:'老K',n:'青橙'},
+{u:'https://www.1kat.cn/patchs/p25.ptc',zz:'老K',n:'高饱和度'},
+{u:'https://www.1kat.cn/patchs/p26.ptc',zz:'老K',n:'自然色彩'},
+{u:'https://www.1kat.cn/patchs/p27.ptc',zz:'老K',n:'清新人像'},
+{u:'https://www.1kat.cn/patchs/p28.ptc',zz:'老K',n:'压光夜景'},
+{u:'https://www.1kat.cn/patchs/p29.ptc',zz:'老K',n:'人文街拍'},
+
+{u:'https://www.1kat.cn/patchs/p30.ptc',zz:'老K',n:'CCD相机'},
+{u:'https://www.1kat.cn/patchs/p31.ptc',zz:'老K',n:'风光旅拍'},
+{u:'https://www.1kat.cn/patchs/p32.ptc',zz:'老K',n:'森山大道'},
+{u:'https://www.1kat.cn/patchs/p33.ptc',zz:'老K',n:'lomo蓝黄'},
+
+{u:'https://www.1kat.cn/patchs/p34.ptc',zz:'老K',n:'风光旅拍'},
+{u:'https://www.1kat.cn/patchs/p35.ptc',zz:'老K',n:'奶油糖果'},
+{u:'https://www.1kat.cn/patchs/p36.ptc',zz:'老K',n:'暗调风格'},
+{u:'https://www.1kat.cn/patchs/p37.ptc',zz:'老K',n:'电影胶片'},
+
+{u:'https://www.1kat.cn/patchs/p38.ptc',zz:'幸运不繁',n:'Regular'},
+{u:'https://www.1kat.cn/patchs/p39.ptc',zz:'幸运不繁',n:'B&W'},
+{u:'https://www.1kat.cn/patchs/p40.ptc',zz:'幸运不繁',n:'Vibrant'},
+{u:'https://www.1kat.cn/patchs/p41.ptc',zz:'幸运不繁',n:'LDR'},
+{u:'https://www.1kat.cn/patchs/p42.ptc',zz:'幸运不繁',n:'Night'},
+{u:'https://www.1kat.cn/patchs/p43.ptc',zz:'幸运不繁',n:'Smooth'},
+{u:'https://www.1kat.cn/patchs/p44.ptc',zz:'幸运不繁',n:'Bright'},
+{u:'https://www.1kat.cn/patchs/p45.ptc',zz:'幸运不繁',n:'Pro'},
+{u:'https://www.1kat.cn/patchs/p46.ptc',zz:'幸运不繁',n:'ꏿdslrꏿ'},
+{u:'https://www.1kat.cn/patchs/p47.ptc',zz:'幸运不繁',n:'ꏿnatureꏿ'},
+{u:'https://www.1kat.cn/patchs/p48.ptc',zz:'幸运不繁',n:'ꏿvividꏿ'},
+{u:'https://www.1kat.cn/patchs/p49.ptc',zz:'幸运不繁',n:'ꏿnightꏿ'},
+{u:'https://www.1kat.cn/patchs/p50.ptc',zz:'幸运不繁',n:'ꏿnatureꏿ'},
+{u:'https://www.1kat.cn/patchs/p51.ptc',zz:'幸运不繁',n:'ꏿhumanꏿ'},
+
+{u:'https://www.1kat.cn/patchs/p52.ptc',zz:'幸运不繁',n:'德味₲₰⛎꒰ঌ🥏໒꒱'},
+{u:'https://www.1kat.cn/patchs/p53.ptc',zz:'幸运不繁',n:'夜景压光💫'},
+{u:'https://www.1kat.cn/patchs/p54.ptc',zz:'幸运不繁',n:'索尼₯Ⓜ️꒰ঌ📀໒꒱'},
+{u:'https://www.1kat.cn/patchs/p55.ptc',zz:'幸运不繁',n:'徕卡柔和🍀'},
+{u:'https://www.1kat.cn/patchs/p56.ptc',zz:'幸运不繁',n:'徕卡灵动🌿'},
+{u:'https://www.1kat.cn/patchs/p57.ptc',zz:'幸运不繁',n:'徕卡鲜艳🍓'},
+{u:'https://www.1kat.cn/patchs/p58.ptc',zz:'幸运不繁',n:'阿狄丽娜꒰ঌ💖໒꒱'},
+{u:'https://www.1kat.cn/patchs/p59.ptc',zz:'幸运不繁',n:'青色馏分🦋'},
+{u:'https://www.1kat.cn/patchs/p60.ptc',zz:'幸运不繁',n:'仿原相机꒰ঌ㊙️໒꒱'},
+{u:'https://www.1kat.cn/patchs/p61.ptc',zz:'幸运不繁',n:'安澜王◈帝ʚ😈ྀིɞ'},
+{u:'https://www.1kat.cn/patchs/p62.ptc',zz:'幸运不繁',n:'电影叙事🏂'},
+{u:'https://www.1kat.cn/patchs/p63.ptc',zz:'幸运不繁',n:'徕卡₪🎯꒰ঌ🌟໒꒱'},
+{u:'https://www.1kat.cn/patchs/p64.ptc',zz:'幸运不繁',n:'袖里乾坤୧⍤⃝🧿'},
+{u:'https://www.1kat.cn/patchs/p65.ptc',zz:'幸运不繁',n:'炫彩斑斓୧⍤⃝🍄'},
+{u:'https://www.1kat.cn/patchs/p66.ptc',zz:'幸运不繁',n:'龙象般若୧⍤⃝🌀'},
+{u:'https://www.1kat.cn/patchs/p67.ptc',zz:'幸运不繁',n:'苹果伽玛୧⍤⃝🍏'},
+{u:'https://www.1kat.cn/patchs/p68.ptc',zz:'幸运不繁',n:'仙山琼阁୧⍤⃝🖼️'},
+{u:'https://www.1kat.cn/patchs/p69.ptc',zz:'幸运不繁',n:'毒德蓝调୧⍤⃝💙'},
+{u:'https://www.1kat.cn/patchs/p70.ptc',zz:'幸运不繁',n:'伽玛₺₢♉꒰ঌ⚛️໒꒱'},
+{u:'https://www.1kat.cn/patchs/p71.ptc',zz:'幸运不繁',n:'往日时光꒰ঌ📽️໒꒱'},
+{u:'https://www.1kat.cn/patchs/p72.ptc',zz:'幸运不繁',n:'松下₨🅾️꒰ঌ📸໒꒱'},
+
+				{u:'https://www.1kat.cn/patchs/p13.ptc',zz:'鱼纨子',n:'柔润'},
+				{u:'https://www.1kat.cn/patchs/p14.ptc',zz:'鱼纨子',n:'明艳'},
+				{u:'https://www.1kat.cn/patchs/p15.ptc',zz:'鱼纨子',n:'暗夜'},
+				{u:'https://www.1kat.cn/patchs/p16.ptc',zz:'鱼纨子',n:'夜视'},
+				{u:'https://www.1kat.cn/patchs/p17.ptc',zz:'鱼纨子',n:'追风'},
+				{u:'https://www.1kat.cn/patchs/p18.ptc',zz:'鱼纨子',n:'色空'},
+				{u:'https://www.1kat.cn/patchs/p19.ptc',zz:'鱼纨子',n:'哈苏'},
+				{u:'https://www.1kat.cn/patchs/p20.ptc',zz:'鱼纨子',n:'松下'},
+				{u:'https://www.1kat.cn/patchs/p21.ptc',zz:'鱼纨子',n:'莱卡'},
+				{u:'https://www.1kat.cn/patchs/p22.ptc',zz:'鱼纨子',n:'人像'},
+				{u:'https://www.1kat.cn/patchs/p23.ptc',zz:'鱼纨子',n:'超清'},
+				{u:'https://www.1kat.cn/patchs/p24.ptc',zz:'鱼纨子',n:'标准'},
+				{u:'https://www.1kat.cn/patchs/p1.ptc',zz:'老马',n:'普罗·维亚'},
+				{u:'https://www.1kat.cn/patchs/p2.ptc',zz:'老马',n:'柯达·多彩'},
+				{u:'https://www.1kat.cn/patchs/p3.ptc',zz:'老马',n:'生动·创意'},
 				{u:'https://www.1kat.cn/patchs/p4.ptc',zz:'佚名',n:'极致·青橙'},
 				{u:'https://www.1kat.cn/patchs/p5.ptc',zz:'佚名',n:'黑白·人文'},
-				{u:'https://www.1kat.cn/patchs/p6.ptc',zz:'佚名',n:'超级·夜景'},
+				{u:'https://www.1kat.cn/patchs/p6.ptc',zz:'老马',n:'超级·夜景'},
 				
-				     
 			];
 		</script>
 	</head>
@@ -130,10 +182,12 @@
 			</thead>
 			<tbody>
 				<script>
+					var no=1;
 					for(var i=0;i<data.length;i++){
 						if(data[i]){
 							document.writeln(
 							tempTr.replaceAll("{url}",data[i].u)
+							.replaceAll("{no}",no++)
 							.replaceAll("{zz}",data[i].zz)
 							.replaceAll("{name}",data[i].n)
 							.replaceAll("{note}",data[i].note||'无') )
