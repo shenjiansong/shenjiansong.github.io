@@ -77,16 +77,7 @@
 				    return this.replace(new RegExp(s1, "gm"), s2);
 				}
 			}
-			function sleep(time) {
-			    return new Promise((resolve) => {
-			      setTimeout(() => {
-			        resolve();
-			      }, time);
-			    });
-			  }
-			var addIng=false;
 			function pageLoadTip(msg){
-				console.log(msg);
 				try{
 				document.getElementById("pageLoadTip").style.display="block";
 				document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
@@ -94,11 +85,9 @@
 				}catch(e){
 					console.log("xxxxxx:"+e.message);
 				}
-				console.log("11111111111");
 			}
 			
 			function pageLoadTipHide(){
-				console.log("ccccccccccccccccc");
 				document.getElementById("pageLoadTip").style.display="none";
 				document.body.style["overflow"]="auto";
 			}
@@ -121,29 +110,29 @@
 				}
 			}
 			function addPatch(self){
-					pageLoadTip("");
+					pageLoadTip(null);
 					self.disabled="disabled"
-					try{
-						var ckData=[];
-						var cks=document.getElementsByName("ck");
-						for(var i=0;i<cks.length;i++){
-							var tmpck=cks[i];
-							if(tmpck.checked){
-								ckData.push(tmpck.getAttribute("data"));
-							}
-						}
-						if(ckData.length>0){
-							if(typeof AZ=="object"){
-								AZ.addPatch(ckData);
-							}
-						}
-						self.disabled="";
-						//pageLoadTipHide();
-					}catch(e){
-						self.disabled="";
-						console.log("bbbb:"+e.message);
-						pageLoadTipHide();
-					}
+					setTimeout(() => {
+							 try{
+								var ckData=[];
+								var cks=document.getElementsByName("ck");
+								for(var i=0;i<cks.length;i++){
+									var tmpck=cks[i];
+									if(tmpck.checked){
+										ckData.push(tmpck.getAttribute("data"));
+									}
+								}
+								if(ckData.length>0){
+									if(typeof AZ=="object"){
+										AZ.addPatch(ckData);
+									}
+								}
+								self.disabled="";
+							 }catch(e){
+								self.disabled="";
+								pageLoadTipHide();
+							 }
+					}, 50);
 			}
 var data=[
 {u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},

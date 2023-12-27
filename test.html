@@ -121,29 +121,30 @@
 				}
 			}
 			function addPatch(self){
-					pageLoadTip("");
+					pageLoadTip(null);
 					self.disabled="disabled"
-					try{
-						var ckData=[];
-						var cks=document.getElementsByName("ck");
-						for(var i=0;i<cks.length;i++){
-							var tmpck=cks[i];
-							if(tmpck.checked){
-								ckData.push(tmpck.getAttribute("data"));
-							}
-						}
-						if(ckData.length>0){
-							if(typeof AZ=="object"){
-								AZ.addPatch(ckData);
-							}
-						}
-						self.disabled="";
-						//pageLoadTipHide();
-					}catch(e){
-						self.disabled="";
-						console.log("bbbb:"+e.message);
-						pageLoadTipHide();
-					}
+					setTimeout(() => {
+							 try{
+								var ckData=[];
+								var cks=document.getElementsByName("ck");
+								for(var i=0;i<cks.length;i++){
+									var tmpck=cks[i];
+									if(tmpck.checked){
+										ckData.push(tmpck.getAttribute("data"));
+									}
+								}
+								if(ckData.length>0){
+									if(typeof AZ=="object"){
+										AZ.addPatch(ckData);
+									}
+								}
+								self.disabled="";
+							 }catch(e){
+								self.disabled="";
+								console.log("bbbb:"+e.message);
+								pageLoadTipHide();
+							 }
+					}, 50);
 			}
 var data=[
 {u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
