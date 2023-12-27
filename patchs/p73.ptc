@@ -1,4 +1,4 @@
-<string name="lib_profile_title_key_p0_{cid}">馃尭鏄ユ棩鑺卞崏馃尭</string>
+<string name="lib_profile_title_key_p0_{cid}">春日花卉</string>
 <string name="lib_resamplmethod_key_p0_{cid}">2</string>
 <string name="lib_zipper_2_key_p0_{cid}">4.00</string>
 <string name="lib_sharp_gain_micro_key_p0_{cid}">-10.0</string>
@@ -18,10 +18,10 @@
 <string name="lib_sharp_macro_key_p0_{cid}">0.50</string>
 <string name="lib_lutnoisefix_key_p0_{cid}">4.0 (ON)</string>
 <string name="lib_contrast_3a_key_p0_{cid}">0.625</string>
-<string name="lib_smoothing2_key_p0_{cid}">-15.000 (小learly)</string>
+<string name="lib_smoothing2_key_p0_{cid}">-15.000 (Сlearly)</string>
 <string name="lib_hdr_range_minus_key_p0_{cid}">-1.5</string>
 <string name="lib_luma_dh_sabre_l2_key_p0_{cid}">0.10</string>
-<string name="lib_smoothing1_key_p0_{cid}">-15.000 (小learly)</string>
+<string name="lib_smoothing1_key_p0_{cid}">-15.000 (Сlearly)</string>
 <string name="lib_fine_spatial_max_2_key_p0_{cid}">3.75</string>
 <string name="lib_tun_col_sat_par_2_key_p0_{cid}">1.46</string>
 <string name="lib_color_processing_key_p0_{cid}">0</string>

@@ -57,6 +57,9 @@ function zh(){
 			 
 			if(data[k].indexOf("_p"+i+"_")>0){
 				var addStr=data[k].replace("_p"+i+"_"+cid.value,"_p0_{cid}");
+				if(addStr.indexOf("lib_saturation_3_key")>0){
+					addStr=addStr.replace(">1.",">0.");
+				}
 				if(addStr.indexOf("profile_title_key")>0){
 					tar[i].unshift(addStr);
 				}else{
