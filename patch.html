@@ -86,12 +86,19 @@
 			  }
 			var addIng=false;
 			function pageLoadTip(msg){
-				 document.getElementById("pageLoadTip").style.display="block";
+				console.log(msg);
+				try{
+				document.getElementById("pageLoadTip").style.display="block";
 				document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
 				document.body.style["overflow"]="hidden";
+				}catch(e){
+					console.log("xxxxxx:"+e.message);
+				}
+				console.log("11111111111");
 			}
 			
 			function pageLoadTipHide(){
+				console.log("ccccccccccccccccc");
 				document.getElementById("pageLoadTip").style.display="none";
 				document.body.style["overflow"]="auto";
 			}
@@ -134,6 +141,7 @@
 						//pageLoadTipHide();
 					}catch(e){
 						self.disabled="";
+						console.log("bbbb:"+e.message);
 						pageLoadTipHide();
 					}
 			}
