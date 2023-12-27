@@ -1,10 +1,10 @@
-<string name="lib_profile_title_key_p0_{cid}">�⿨</string>
+<string name="lib_profile_title_key_p0_{cid}">徕卡</string>
 <string name="lib_custom_11_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_15_key_p0_{cid}_title">6٤��߶Ա�</string>
+<string name="lib_custom_15_key_p0_{cid}_title">6伽玛高对比</string>
 <string name="lib_better_color_wiener_sabre_key_p0_{cid}">1.000</string>
 <string name="lib_custom_16_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
-<string name="lib_custom_7_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_7_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_sharp_depth_1_key_p0_{cid}">3.5</string>
 <string name="lib_cf3_key_p0_{cid}">-0.35</string>
 <string name="lib_hdr_effect_intensity_key_p0_{cid}">1.0625</string>
@@ -21,19 +21,19 @@
 <string name="lib_custom_16_key_p0_{cid}_address">00DBC290</string>
 <string name="lib_custom_9_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_6_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_13_key_p0_{cid}_title">�����ʸ�</string>
+<string name="lib_custom_13_key_p0_{cid}_title">金属质感</string>
 <string name="lib_custom_14_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_cf2_key_p0_{cid}">0.88</string>
 <string name="lib_custom_6_key_p0_{cid}_value">F6285C8FC2F5E03F</string>
 <string name="lib_hdr_range_plus_key_p0_{cid}">12.5</string>
 <string name="lib_cg5_key_p0_{cid}">0.679</string>
-<string name="lib_custom_5_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (����)</string>
+<string name="lib_custom_5_key_p0_{cid}_title">《色调 - 徕卡》 </string>
+<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
 <string name="lib_custom_2_key_p0_{cid}_address">01EE7874</string>
 <string name="lib_smoothing_sabre_key_p0_{cid}">-1.0</string>
 <string name="lib_custom_20_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_custom_13_key_p0_{cid}_address">00DBC290</string>
-<string name="lib_custom_19_key_p0_{cid}_title">7��ϸ����ǿ��</string>
+<string name="lib_custom_19_key_p0_{cid}_title">7《细节增强》</string>
 <string name="lib_custom_11_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_custom_14_key_p0_{cid}_enabled">1</string>
 <string name="lib_saturation_key_p0_{cid}">1.3125</string>
@@ -47,34 +47,34 @@
 <string name="lib_blurpreview_key_p0_{cid}">0</string>
 <string name="lib_sabre_sharp_key_p0_{cid}">10.0</string>
 <string name="lib_custom_11_key_p0_{cid}_title">2
-����ǿ��Ե��
-�񻯼��أ�ϸ�ڸ�����
-����࣬�������������
+《加强边缘》
+锐化加重，细节更清晰
+噪点变多，可能有描边现象。
 </string>
 <string name="lib_custom_13_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_10_key_p0_{cid}_value">10102B1E</string>
 <string name="lib_tun_col_sat_par_1_key_p0_{cid}">1.75</string>
 <string name="lib_custom_2_key_p0_{cid}_value">00902D1E</string>
-<string name="lib_custom_3_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_3_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_custom_7_key_p0_{cid}_address">00DBC290</string>
-<string name="lib_custom_18_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_18_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_tun_col_sat_par_2_key_p0_{cid}">1.80</string>
 <string name="lib_custom_8_key_p0_{cid}_enabled">1</string>
 <string name="lib_volume_processing_key_p0_{cid}">29.0</string>
 <string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_4_key_p0_{cid}_title">5����ϸ��</string>
+<string name="lib_custom_4_key_p0_{cid}_title">5暗处细节</string>
 <string name="lib_custom_12_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_6_key_p0_{cid}_address">365AF0</string>
-<string name="lib_custom_17_key_p0_{cid}_title">5����ϸ��</string>
+<string name="lib_custom_17_key_p0_{cid}_title">5暗处细节</string>
 <string name="lib_custom_1_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_sharp_depth_2_key_p0_{cid}">5.0</string>
 <string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_fix_sabre_noise_key_p0_{cid}">1672 (*)</string>
 <string name="lib_custom_12_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_custom_9_key_p0_{cid}_title">1
-����ǿϸ�ڡ�
-ͨ���������������ϸ��
-������佹����������
+《加强细节》
+通过抖动噪点来增加细节
+但数码变焦会产生亮噪点
 </string>
 <string name="lib_saturations_key_p0_{cid}">1.0 (Default)</string>
 <string name="lib_cg6_key_p0_{cid}">0.099</string>
@@ -85,9 +85,9 @@
 <string name="lib_hdr_range_minus_key_p0_{cid}">-2.5</string>
 <string name="lib_custom_18_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_12_key_p0_{cid}_title">2
-����ǿ��Ե��
-�񻯼��أ�ϸ�ڸ�����
-����࣬�������������
+《加强边缘》
+锐化加重，细节更清晰
+噪点变多，可能有描边现象。
 </string>
 <string name="lib_custom_7_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_contrast_2_key_p0_{cid}">0.50</string>
@@ -102,11 +102,11 @@
 <string name="lib_dehazed_regulator_2_key_p0_{cid}">1.875</string>
 <string name="lib_custom_5_key_p0_{cid}_enabled">1</string>
 <string name="lib_cg2_key_p0_{cid}">0.816 (Default CG2)</string>
-<string name="lib_custom_14_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_14_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_cg3_key_p0_{cid}">0.270 (Default CG3)</string>
-<string name="lib_custom_6_key_p0_{cid}_title">6٤��߶Ա�</string>
+<string name="lib_custom_6_key_p0_{cid}_title">6伽玛高对比</string>
 <string name="lib_custom_19_key_p0_{cid}_address">01EE7874</string>
-<string name="lib_custom_20_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_20_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_sabre_sharp_3_key_p0_{cid}">1.875</string>
 <string name="lib_sharp_macro_key_p0_{cid}">0.00</string>
 <string name="lib_custom_19_key_p0_{cid}_value">00902D1E</string>
@@ -116,15 +116,15 @@
 <string name="lib_luma_noise_key_p0_{cid}">1.125</string>
 <string name="lib_raisr_zf_tuning_1_key_p0_{cid}">16384.0</string>
 <string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_16_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_16_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_custom_5_key_p0_{cid}_address">00DBC290</string>
 <string name="lib_override_hdrnet_key_p0_{cid}">1</string>
 <string name="lib_compress_merged_dng_key_p0_{cid}">1</string>
-<string name="lib_custom_8_key_p0_{cid}_title">�����ʸ�</string>
+<string name="lib_custom_8_key_p0_{cid}_title">金属质感</string>
 <string name="lib_custom_20_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_3_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_clarity_key_p0_{cid}">10.0</string>
-<string name="lib_custom_2_key_p0_{cid}_title">7��ϸ����ǿ��</string>
+<string name="lib_custom_2_key_p0_{cid}_title">7《细节增强》</string>
 <string name="lib_custom_8_key_p0_{cid}_address">00DBC290</string>
 <string name="lib_custom_14_key_p0_{cid}_address">00DBC290</string>
 <string name="lib_custom_12_key_p0_{cid}_value">03506D1E</string>
@@ -139,9 +139,9 @@
 <string name="lib_custom_5_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
 <string name="lib_pref_color_transform_key_p0_{cid}">23</string>
 <string name="lib_custom_10_key_p0_{cid}_title">1
-����ǿϸ�ڡ�
-ͨ���������������ϸ��
-������佹����������
+《加强细节》
+通过抖动噪点来增加细节
+但数码变焦会产生亮噪点
 </string>
 <string name="lib_override_cct_key_p0_{cid}">1</string>
 <string name="lib_custom_18_key_p0_{cid}_value">0000000000000000EC51B89E4E8A6A3F3E0AD7239E27A23FAE47E17AAFDBB53F1F85EB912C45C23F666666663E9CCA3FD7A370FD0493D13F7B14AE27D7FDD53F1F85EB314283DA3FC3F5285CFE20DF3F3333339382D3E13F85EB5198A009E43FD7A3703DD234E63F295C8FC2944BE83F7B14AE874F28EA3FCDCCCCCC48D6EB3F1F85EB51B81EED3F0000000000000000000000C0E0978E3F00000060983CA23F00000000AF26B03F000000804B74B83F00000040E8DAC03F000000E016BEC53F000000002E26CB3F000000601B63D03F000000002B3DD33F000000804724D63F00000060A119D93F00000060CF1ADC3F000000800E14DF3F000000206BECE03F000000206F3FE23F00000060468AE33F000000E0FFC3E43F0000002067F7E53F00000040D722E73F000000001246E83F000000E0453AE93F000000C0C31DEA3F000000C07DF3EA3F00000080EFC1EB3F00000080B17EEC3F000000C03722ED3F0000000022BBED3F00000000B846EE3F0000004068C3EE3F00000000D834EF3F000000C0219DEF3F000000000000F03F</string>
@@ -154,7 +154,7 @@
 <string name="lib_shadow_compensation_key_p0_{cid}">Default</string>
 <string name="lib_sharp_mini_key_p0_{cid}">6.50</string>
 <string name="lib_custom_4_key_p0_{cid}_value">CDCCCC3E</string>
-<string name="lib_custom_1_key_p0_{cid}_title">��ɫ�� - �⿨�� </string>
+<string name="lib_custom_1_key_p0_{cid}_title">《色调 - 徕卡》 </string>
 <string name="lib_custom_10_key_p0_{cid}_enabled">1</string>
 <string name="lib_contrast_1_key_p0_{cid}">0.050</string>
 <string name="lib_custom_9_key_p0_{cid}_address">01FBE49C</string>

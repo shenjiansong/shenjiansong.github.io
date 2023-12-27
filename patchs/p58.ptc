@@ -123,7 +123,6 @@
 <string name="lib_contrast_black_key_p0_{cid}">0.625</string>
 <string name="lib_custom_1_key_p0_{cid}_address">365AF0</string>
 <string name="lib_custom_16_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_saturation_3_key_p0_{cid}">0.125</string>
 <string name="lib_cf3_key_p0_{cid}">-0.31</string>
 <string name="lib_sabre_contrast_sharp_key_p0_{cid}">2.5</string>
 <string name="lib_highlight_fix_3_key_p0_{cid}">1</string>

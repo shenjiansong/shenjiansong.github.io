@@ -165,7 +165,6 @@
 <string name="lib_contrast_2_key_p0_{cid}">0.54</string>
 <string name="lib_custom_9_key_p0_{cid}_address">01FBE49C</string>
 <string name="lib_sabre_level_new_l3_key_p0_{cid}">0.90</string>
-<string name="lib_saturation_3_key_p0_{cid}">1.25</string>
 <string name="lib_sabre_sharp_key_p0_{cid}">10.0</string>
 <string name="lib_luma_a_key_p0_{cid}">0.75</string>
 <string name="lib_custom_9_key_p0_{cid}_value">10102B1E</string>

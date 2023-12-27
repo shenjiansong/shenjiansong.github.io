@@ -236,7 +236,6 @@
 <string name="lib_volume_processing_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_sabre_level_new_l1_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_custom_9_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_saturation_3_key_p0_{cid}">1.25</string>
 <string name="lib_custom_12_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_luma_dl_l2_key_p0_{cid}">Off (as in library)</string>
 <string name="lib_override_cct_key_p0_{cid}">1</string>

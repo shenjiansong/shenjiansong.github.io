@@ -35,7 +35,6 @@
 <string name="lib_cf3_key_p0_{cid}">-0.33 (default CF-3)</string>
 <string name="lib_cg5_key_p0_{cid}">0.59375 (Default CG5)</string>
 <string name="lib_custom_19_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_saturation_3_key_p0_{cid}">1.25</string>
 <string name="lib_custom_19_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_custom_13_key_p0_{cid}_title">🍏Gamma [24]✨</string>
 <string name="lib_custom_18_key_p0_{cid}_address">01FBE49C</string>

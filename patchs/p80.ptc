@@ -1,7 +1,6 @@
 <string name="lib_profile_title_key_p0_{cid}">Pure｜艳丽</string>
 <string name="lib_fine_spatial_max_1_key_p0_{cid}">-1.0</string>
 <string name="lib_pref_color_transform_key_p0_{cid}">12</string>
-<string name="lib_saturation_3_key_p0_{cid}">1.125</string>
 <string name="lib_fine_spatial_max_2_key_p0_{cid}">8.0</string>
 <string name="lib_better_color_wiener_sabre_key_p0_{cid}">0.500</string>
 <string name="lib_highlight_fix_3_key_p0_{cid}">1</string>
