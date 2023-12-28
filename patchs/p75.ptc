@@ -52,19 +52,19 @@
 <string name="lib_chroma_b_key_p0_{cid}">1.25</string>
 <string name="lib_cf6_key_p0_{cid}">-0.41 (default CF-6)</string>
 <string name="lib_custom_1_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_1_key_p0_{cid}_title">《加强细节🌟V3.7》</string>
 <string name="lib_custom_1_key_p0_{cid}_value">10102B1E</string>
+<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_title">《加强边缘🌟V3.7》</string>
 <string name="lib_custom_2_key_p0_{cid}_value">03506D1E</string>
+<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_3_key_p0_{cid}_address">01FBC1F8</string>
-<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_3_key_p0_{cid}_title">《锐化画质》🔰🔰🔰🔰🔰
 *锐化略微加重，细节更清晰，噪点变多。</string>
 <string name="lib_custom_3_key_p0_{cid}_value">E0F4036FE8FCE7D2</string>
+<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_4_key_p0_{cid}_address">00B00670</string>
-<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_4_key_p0_{cid}_title">🔥(糖果风)Tone🎯</string>
 <string name="lib_custom_4_key_p0_{cid}_value">00000000000000000000000000000000000000606DDE7D3F000000E09D83AD3F00000000F1CCBE3F000000000B90C93F000000E03A12D23F000000A0CB9FD73F000000E06266DD3F0000006096A1E13F00000000426FE43F00000000A41CE73F00000060EBB2E93F00000060FDF7EB3F00000020AADAED3F000000E0C544EF3F000000000000F03F</string>
+<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>

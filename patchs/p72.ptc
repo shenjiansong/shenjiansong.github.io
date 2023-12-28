@@ -61,30 +61,34 @@
 <string name="lib_vignettec_key_p0_{cid}">0.0</string>
 <string name="lib_sharp_depth_2_key_p0_{cid}">5.0</string>
 <string name="lib_custom_1_key_p0_{cid}_address">00DBC290</string>
-<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_1_key_p0_{cid}_title">《色调 - 松下》🌲🌲🌲🌲🌲</string>
 <string name="lib_custom_1_key_p0_{cid}_value">0000000000000000E17A144E9F6B873FE17A14EE50D19F3F14AE47015670B03F713D0A1726D6BD3F6666664679DEC73F0AD7A3F03115D23FE17A146E2916D93F5C8FC215255AE03F48E17A14529AE33F333333F36379E63F1F85EBF150BDE83F0AD7A3F0E881EA3FF6285CEFE4F4EB3FE17A144EAE16ED3FCDCCCCCC28FBED3FB81E85EB51B8EE3F0000000000000000000000404D379B3F00000040094EAB3F00000040AD94B43F000000200DA0BB3F000000E08165C13F000000402A17C53F000000C08ADAC83F0000000078BACC3F000000201C68D03F000000E0F27BD23F000000E0359ED43F00000080CCE9D63F000000009958D93F00000040DDD5DB3F000000806E68DE3F000000E08989E03F000000C037EDE13F00000000813CE33F000000E00B7DE43F0000004074ACE53F0000002027D4E63F000000A0ECEBE73F000000A010E4E83F0000004077D1E93F000000C070B8EA3F000000403891EB3F000000C03D5EEC3F00000000D525ED3F0000008066E3ED3F000000003F9CEE3F00000080B14FEF3F000000000000F03F</string>
+<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_address">01EE7874</string>
-<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_title">7⃣《细节增强》</string>
 <string name="lib_custom_2_key_p0_{cid}_value">00902D1E</string>
+<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_3_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_3_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
 《加强细节》
 通过抖动噪点来增加细节
 但数码变焦会产生亮噪点
 🔺🔺🔺🔺🔺🔺</string>
 <string name="lib_custom_3_key_p0_{cid}_value">10102B1E</string>
+<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_4_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_4_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
 《加强边缘》
 锐化加重，细节更清晰
 噪点变多，可能有描边现象。
 🔺🔺🔺🔺🔺🔺</string>
 <string name="lib_custom_4_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_5_key_p0_{cid}_address">365AF0</string>
-<string name="lib_custom_5_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_5_key_p0_{cid}_title">6⃣伽玛高对比💛</string>
-<string name="lib_custom_5_key_p0_{cid}_value">F6285C8FC2F5E03F</string>
+<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
+<string name="lib_custom_5_key_p0_{cid}_address">03654E4</string>
+<string name="lib_custom_5_key_p0_{cid}_title">5⃣暗处细节💛</string>
+<string name="lib_custom_5_key_p0_{cid}_value">CDCCCC3E</string>
+<string name="lib_custom_5_key_p0_{cid}_enabled">0</string>
+<string name="lib_custom_6_key_p0_{cid}_address">365AF0</string>
+<string name="lib_custom_6_key_p0_{cid}_title">6⃣伽玛高对比💛</string>
+<string name="lib_custom_6_key_p0_{cid}_value">F6285C8FC2F5E03F</string>
+<string name="lib_custom_6_key_p0_{cid}_enabled">0</string>
