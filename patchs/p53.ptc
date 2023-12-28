@@ -1,205 +1,54 @@
 <string name="lib_profile_title_key_p0_{cid}">夜景压光💫</string>
-<string name="lib_hardmerge_key_p0_{cid}">0</string>
-<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
+<string name="lib_luma_b_key_p0_{cid}">0.8125</string>
+<string name="lib_spatial_a_key_p0_{cid}">0</string>
+<string name="lib_iso_expo_tuning_key_p0_{cid}">1.000</string>
+<string name="lib_brightness_intensity_key_p0_{cid}">0.9375</string>
+<string name="lib_temporal_a_key_p0_{cid}">1.0 (Default)</string>
+<string name="lib_hdr_range_plus_key_p0_{cid}">5.0</string>
+<string name="lib_saturation_2_key_p0_{cid}">1.125</string>
+<string name="lib_vignettec_key_p0_{cid}">0.0</string>
+<string name="lib_blue_key_p0_{cid}">0.270 (Default CG3)</string>
+<string name="lib_hdr_effect_intensity_key_p0_{cid}">0.96875</string>
+<string name="lib_savannah_merge_key_p0_{cid}">1.125</string>
+<string name="lib_pref_color_transform_key_p0_{cid}">2</string>
+<string name="lib_darken_light_key_p0_{cid}">1.000 (Default)</string>
+<string name="lib_saturation_key_p0_{cid}">1.125</string>
+<string name="lib_contrast_black_key_p0_{cid}">1.125</string>
+<string name="lib_gro_key_p0_{cid}">0.51</string>
+<string name="lib_exposure_darker_key_p0_{cid}">1.625</string>
+<string name="lib_chroma_a_key_p0_{cid}">0.9375</string>
+<string name="lib_exposition_key_p0_{cid}">5.00</string>
+<string name="lib_red_key_p0_{cid}">1.10</string>
+<string name="lib_spatial_b_key_p0_{cid}">0.375</string>
+<string name="lib_luma_a_key_p0_{cid}">0.875</string>
+<string name="lib_chroma_b_key_p0_{cid}">0.9375</string>
+<string name="lib_luma_noise_key_p0_{cid}">1.125</string>
+<string name="lib_sabre_denoise_control_key_p0_{cid}">-31.0</string>
+<string name="lib_override_cct_key_p0_{cid}">1</string>
+<string name="lib_contrast_3a_key_p0_{cid}">0.500 (Default)</string>
+<string name="lib_vignette_key_p0_{cid}">0.96875 (Enable)</string>
+<string name="lib_denoise_key_p0_{cid}">1.0 (Default)</string>
+<string name="lib_saturations_key_p0_{cid}">1.0 (Default)</string>
+<string name="lib_override_hdrnet_key_p0_{cid}">1</string>
+<string name="lib_noise_reduction_sabre_key_p0_{cid}">0.8125</string>
+<string name="lib_sharpness_a_key_p0_{cid}">0.9375</string>
+<string name="lib_dehazed_expo_key_p0_{cid}">1.25</string>
+<string name="lib_highlight_key_p0_{cid}">4096 (Default)</string>
+<string name="lib_hdr_range_minus_key_p0_{cid}">-5.0</string>
+<string name="lib_green_key_p0_{cid}">1.15 (default CF-1 Green)</string>
+<string name="lib_custom_1_key_p0_{cid}_address">01FBE49C</string>
+<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_1_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
 《加强细节》
 通过抖动噪点来增加细节
 但数码变焦会产生亮噪点
 🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_luma_b_key_p0_{cid}">0.8125</string>
-<string name="lib_spatial_a_key_p0_{cid}">0</string>
+<string name="lib_custom_1_key_p0_{cid}_value">10102B1E</string>
 <string name="lib_custom_2_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_4_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_13_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_14_key_p0_{cid}_enabled">1</string>
-<string name="lib_cg6_key_p0_{cid}">0.220 (Default CG6)</string>
-<string name="lib_custom_20_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_3_key_p0_{cid}_address">01FBE49C</string>
+<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
 《加强边缘》
 锐化加重，细节更清晰
 噪点变多，可能有描边现象。
 🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_iso_expo_tuning_key_p0_{cid}">1.000</string>
-<string name="lib_brightness_intensity_key_p0_{cid}">0.9375</string>
-<string name="lib_custom_13_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_temporal_a_key_p0_{cid}">1.0 (Default)</string>
-<string name="lib_cg4_key_p0_{cid}">0.183 (Default CG4)</string>
-<string name="lib_hdr_range_plus_key_p0_{cid}">5.0</string>
-<string name="lib_custom_3_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_5_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_7_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_6_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_8_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_14_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_20_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_saturation_2_key_p0_{cid}">1.125</string>
-<string name="lib_custom_1_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_10_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_4_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_18_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_12_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_15_key_p0_{cid}_enabled">1</string>
-<string name="lib_vignettec_key_p0_{cid}">0.0</string>
-<string name="lib_cg10_key_p0_{cid}">-0.78084 (Default CG10)</string>
-<string name="lib_custom_12_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_blue_key_p0_{cid}">0.270 (Default CG3)</string>
-<string name="lib_custom_16_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_hdr_effect_intensity_key_p0_{cid}">0.96875</string>
-<string name="lib_custom_14_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_16_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_19_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_18_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_savannah_merge_key_p0_{cid}">1.125</string>
-<string name="lib_pref_color_transform_key_p0_{cid}">2</string>
-<string name="lib_darken_light_key_p0_{cid}">1.000 (Default)</string>
-<string name="lib_saturation_key_p0_{cid}">1.125</string>
-<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_9_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_5_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_20_key_p0_{cid}_enabled">1</string>
-<string name="lib_contrast_black_key_p0_{cid}">1.125</string>
-<string name="lib_custom_16_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_4_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_gro_key_p0_{cid}">0.51</string>
-<string name="lib_cg2_key_p0_{cid}">0.816 (Default CG2)</string>
-<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_11_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_13_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_8_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_exposure_darker_key_p0_{cid}">1.625</string>
-<string name="lib_custom_15_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_7_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_19_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_chroma_a_key_p0_{cid}">0.9375</string>
-<string name="lib_custom_10_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_17_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_exposition_key_p0_{cid}">5.00</string>
-<string name="lib_custom_20_key_p0_{cid}_title">2⃣⭐️⭐️⭐️⭐️⭐️
-《加强边缘》
-锐化加重，细节更清晰
-噪点变多，可能有描边现象。
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_red_key_p0_{cid}">1.10</string>
-<string name="lib_spatial_b_key_p0_{cid}">0.375</string>
-<string name="lib_custom_7_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_luma_a_key_p0_{cid}">0.875</string>
-<string name="lib_custom_18_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_10_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_cg9_key_p0_{cid}">-0.20 (Default CG9)</string>
-<string name="lib_chroma_b_key_p0_{cid}">0.9375</string>
-<string name="lib_custom_18_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_6_key_p0_{cid}_enabled">1</string>
-<string name="lib_luma_noise_key_p0_{cid}">1.125</string>
-<string name="lib_sabre_denoise_control_key_p0_{cid}">-31.0</string>
-<string name="lib_custom_17_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_19_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_8_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_10_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_12_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_override_cct_key_p0_{cid}">1</string>
-<string name="lib_custom_1_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_11_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_custom_5_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_3_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_contrast_3a_key_p0_{cid}">0.500 (Default)</string>
-<string name="lib_custom_7_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_vignette_key_p0_{cid}">0.96875 (Enable)</string>
-<string name="lib_custom_14_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_5_key_p0_{cid}_enabled">1</string>
-<string name="lib_cg5_key_p0_{cid}">0.59711 (Default CG5)</string>
-<string name="lib_denoise_key_p0_{cid}">1.0 (Default)</string>
-<string name="lib_saturations_key_p0_{cid}">1.0 (Default)</string>
-<string name="lib_custom_17_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_custom_16_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_12_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_9_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_8_key_p0_{cid}_enabled">1</string>
-<string name="lib_override_hdrnet_key_p0_{cid}">1</string>
-<string name="lib_custom_9_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_11_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
-<string name="lib_custom_15_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_15_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_noise_reduction_sabre_key_p0_{cid}">0.8125</string>
-<string name="lib_sharpness_a_key_p0_{cid}">0.9375</string>
-<string name="lib_custom_17_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_2_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_6_key_p0_{cid}_address">01FBED44</string>
-<string name="lib_custom_6_key_p0_{cid}_value">03506D1E</string>
-<string name="lib_custom_19_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_custom_13_key_p0_{cid}_value">10102B1E</string>
-<string name="lib_dehazed_expo_key_p0_{cid}">1.25</string>
-<string name="lib_custom_11_key_p0_{cid}_title">1⃣🔥🔥🔥🔥🔥
-《加强细节》
-通过抖动噪点来增加细节
-但数码变焦会产生亮噪点
-🔺🔺🔺🔺🔺🔺</string>
-<string name="lib_highlight_key_p0_{cid}">4096 (Default)</string>
-<string name="lib_hdr_range_minus_key_p0_{cid}">-5.0</string>
-<string name="lib_custom_9_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_green_key_p0_{cid}">1.15 (default CF-1 Green)</string>

@@ -6,6 +6,7 @@
 <div style="height: 100%;">
 	<div style="height:20%;width:90%">
 		<p>源文件内容粘贴到此处V 
+		<label for="bhyc">包含隐藏:<input type='checkbox' id='bhyc' ></label>
 		<label for="cid">cid:<input id='cid' value="0" ></label>
 		<label for="zz">作者:<input id='zz' value="仙女" ></label>
 		<label for="sid">序列:<input id='sid' value="80" ></label>
@@ -28,15 +29,87 @@ var txt =document.getElementById("txt");
 var cid =document.getElementById("cid");
 var zz =document.getElementById("zz");
 var sid =document.getElementById("sid");
+var bhyc =document.getElementById("bhyc");
+
 var data=[];
 function isHidden(parr){
 	if(parr==null||parr.length<2)return true;
+	if(bhyc.checked)return false;
 	for(var i=0;i<parr.length;i++){
 		var p=parr[i];
 		if(p.indexOf("lib_profile_show_key_p")>0&&p.replaceAll(" ","").indexOf(">0<")>0)
 		return true;
 	}
 	return false;
+}
+var TextToolDiv=document.createElement("div");
+function getCustObj(s,cs){
+	var t=s.split("_address")[0];
+	var obj={}
+	for(var i=0;i<cs.length;i++){
+		var c=cs[i];
+		if(c.trim().indexOf(t)>-1){
+			var k="address";
+			if(c.toLowerCase().indexOf("_title")>0)k="title";
+			else if(c.toLowerCase().indexOf("_address")>0)k="address";
+			else if(c.toLowerCase().indexOf("_value")>0)k="value";
+			else if(c.toLowerCase().indexOf("_enabled")>0)k="enabled";
+			TextToolDiv.innerHTML=c;
+			var v=TextToolDiv.innerText;
+			obj[k]=v;
+		}
+	}
+	return obj
+}
+function reGenCustoms(customs){
+	if(customs==null||customs.length<1)return [];
+	customs.sort(function (a, b){
+		var i=0,j=0;
+		try{
+			i=a.split("lib_custom_")[1];
+			i=i.substring(0,i.indexOf("_"))*1;
+			if(a.toLowerCase().indexOf("_title")>0)i=i+0.01;
+			else if(a.toLowerCase().indexOf("_address")>0)i=i+0.02;
+			else if(a.toLowerCase().indexOf("_value")>0)i=i+0.03;
+			else if(a.toLowerCase().indexOf("_enabled")>0)i=i+0.04;
+		}catch(e){ i=0;}
+		try{
+			j=b.split("lib_custom_")[1];
+			j=j.substring(0,j.indexOf("_"))*1;
+			
+			if(b.toLowerCase().indexOf("_title")>0)j=j+0.01;
+			else if(b.toLowerCase().indexOf("_address")>0)j=j+0.02;
+			else if(b.toLowerCase().indexOf("_value")>0)j=j+0.03;
+			else if(b.toLowerCase().indexOf("_enabled")>0)j=j+0.04;
+		}catch(e){ j=0;}
+		return i-j;
+	});
+	
+	var res={};
+	for(var i=0;i<customs.length;i++){
+		var c=customs[i];
+		if(c.toLowerCase().indexOf("_address")>0){
+			 TextToolDiv.innerHTML=c;
+			 var add= TextToolDiv.innerText;
+			 if(!res[add]){
+				 res[add]=getCustObj(c,customs);
+			 }
+		}
+	}
+	var i=1;
+	var arr=[];
+	
+	for(var att in res){
+		var o=res[att];
+		if("365AF0"==o.address)continue;
+		arr.push('<string name="lib_custom_'+i+'_key_p0_{cid}_address">'+o.address+'</string>');
+		arr.push('<string name="lib_custom_'+i+'_key_p0_{cid}_enabled">'+o.enabled+'</string>');
+		arr.push('<string name="lib_custom_'+i+'_key_p0_{cid}_title">'+o.title+'</string>');
+		arr.push('<string name="lib_custom_'+i+'_key_p0_{cid}_value">'+o.value+'</string>');
+		i++;
+	}
+	
+	return  arr;
 }
 function zh(){
 	let matches = txt.value.match(/<string[^>]+?>[\s\S]*?<\/string>/ig);
@@ -92,9 +165,22 @@ function zh(){
 	  //删除隐藏
 	  for(var i=0;i<tar.length;i++){
 		  if(isHidden(tar[i]))continue;
-		  tar2.push(tar[i]);
+		  var customs=[];
+		  var tarT=[]
+		  for(var j=0;j<tar[i].length;j++){
+			  var tmpStr=tar[i][j];
+			  if(tmpStr.indexOf("lib_custom_")>0){
+				customs.push(tmpStr);
+			  }else{
+				tarT.push(tmpStr);
+			  }
+		  }
+		  var customs2=reGenCustoms(customs);
+		  tar2.push(tarT.concat(customs2));
 	  }
 	  
+	  console.log(tar2);
+	
 	  
 	  var resHtml="";
 	  var cflist=[];
@@ -112,6 +198,7 @@ function zh(){
 			resHtml+=taTmpStr;
 		}
 	  }
+	  
 	  resHtml+=taTmp.replace("{id}","p999").replace("{value}",cflist.join("\n"));
 	  tempDiv.innerHTML=resHtml;
 	}
