@@ -97,7 +97,7 @@
 <string name="lib_custom_7_key_p0_{cid}_title">🍏Gamma [12]✨</string>
 <string name="lib_contrast_3b_key_p0_{cid}">1.000 (Default)</string>
 <string name="lib_chroma_b_key_p0_{cid}">1.25</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_fix_sabre_noise_key_p0_{cid}">1672 (*)</string>
 <string name="lib_custom_5_key_p0_{cid}_title">🍏Gamma [8]✨</string>
 <string name="lib_custom_4_key_p0_{cid}_address">00B00728</string>

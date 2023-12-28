@@ -94,7 +94,7 @@
 <string name="lib_custom_16_key_p0_{cid}_title">🍏Gamma [30]✨</string>
 <string name="lib_cf2_key_p0_{cid}">0.88</string>
 <string name="lib_custom_7_key_p0_{cid}_address">00B00758</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_custom_10_key_p0_{cid}_address">00B00788</string>
 <string name="lib_custom_19_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_8_key_p0_{cid}_title">🍏Gamma [14]✨</string>

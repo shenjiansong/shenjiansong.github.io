@@ -64,7 +64,7 @@
 <string name="lib_temporal_b_key_p0_{cid}">1.25</string>
 <string name="lib_custom_10_key_p0_{cid}_title">《加强边缘V3.7》</string>
 <string name="lib_cg5_key_p0_{cid}">0.59375 (Default CG5)</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_compress_merged_dng_key_p0_{cid}">1</string>
 <string name="lib_custom_13_key_p0_{cid}_title">《加强细节V3.7》</string>
 <string name="lib_saturation_key_p0_{cid}">1.25</string>

@@ -110,7 +110,7 @@
 <string name="lib_custom_20_key_p0_{cid}_address">00B006F8</string>
 <string name="lib_custom_11_key_p0_{cid}_title">🍏Gamma [21]✨</string>
 <string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_cg5_key_p0_{cid}">0.679</string>
 <string name="lib_blurpreview_key_p0_{cid}">0</string>
 <string name="lib_custom_9_key_p0_{cid}_title">🍏Gamma [17]✨</string>

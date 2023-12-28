@@ -128,7 +128,7 @@
 <string name="lib_sabre_contrast_sharp_key_p0_{cid}">2.75</string>
 <string name="lib_cf2_key_p0_{cid}">0.55</string>
 <string name="lib_custom_5_key_p0_{cid}_title">《色调 - 松下》</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_custom_13_key_p0_{cid}_title">5暗处细节</string>
 <string name="lib_custom_15_key_p0_{cid}_value">03506D1E</string>
 <string name="lib_cf5_key_p0_{cid}">0.51</string>

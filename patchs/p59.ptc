@@ -202,7 +202,7 @@
 <string name="lib_luma_dl_sabre_l2a_key_p0_{cid}">0.05</string>
 <string name="lib_luma_dh_sabre_l4b_key_p0_{cid}">0.20</string>
 <string name="lib_custom_13_key_p0_{cid}_enabled">1</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_luma_dh_l3_key_p0_{cid}">0.15</string>
 <string name="lib_custom_11_key_p0_{cid}_address">01FBE49C</string>
 <string name="lib_hdr_range_minus_key_p0_{cid}">2.5</string>

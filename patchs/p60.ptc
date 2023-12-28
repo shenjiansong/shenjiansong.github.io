@@ -143,7 +143,7 @@
 噪点变多，可能有描边现象。
 🔺🔺🔺🔺🔺🔺</string>
 <string name="lib_shadow_compensation_key_p0_{cid}">Default</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_hdr_range_minus_key_p0_{cid}">-1.875</string>
 <string name="lib_red_key_p0_{cid}">1.02</string>
 <string name="lib_custom_14_key_p0_{cid}_enabled">1</string>

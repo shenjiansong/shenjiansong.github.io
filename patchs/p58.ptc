@@ -155,7 +155,7 @@
 噪点变多，可能有描边现象。
 🔺🔺🔺🔺🔺🔺</string>
 <string name="lib_custom_19_key_p0_{cid}_address">01FBE49C</string>
-<string name="lib_hardmerge_key_p0_{cid}">3 (RGB 阵列)</string>
+<string name="lib_hardmerge_key_p0_{cid}">3</string>
 <string name="lib_custom_3_key_p0_{cid}_value">CDCCCC3E</string>
 <string name="lib_custom_4_key_p0_{cid}_address">00B00638</string>
 <string name="lib_custom_15_key_p0_{cid}_enabled">1</string>

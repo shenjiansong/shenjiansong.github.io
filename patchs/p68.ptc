@@ -126,7 +126,7 @@
 <string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
 <string name="lib_hdr_range_plus_key_p0_{cid}">12.5</string>
 <string name="lib_cf2_key_p0_{cid}">0.75</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_custom_20_key_p0_{cid}_address">00DBC290</string>
 <string name="lib_custom_15_key_p0_{cid}_enabled">1</string>
 <string name="lib_smoothing_sabre_key_p0_{cid}">-1.0</string>

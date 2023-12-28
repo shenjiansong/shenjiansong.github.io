@@ -44,24 +44,38 @@ function zh(){
 	  var data=[];
 	  var tar=[];
 	  var reg=new RegExp("[.]*_p[0-9]+_"+cid.value+"[^\"]?");
+	  //过滤单个镜头的所有设置 镜头ID通过cid配置，默认0
 	  for(var i=0;i<matches.length;i++){
 			var tmpStr=matches[i];
 			if(reg.test(tmpStr)){
 				data.push(tmpStr);
 			}
 	  }
-
+	  //在过滤完的配置中，去掉8.8版本无效配置
+	  //重新设置部分配置项值
 	  for(var i=0;i<100;i++){
 		  tar[i]=[];
 		 for(var k=0;k<data.length;k++){
 			 
 			if(data[k].indexOf("_p"+i+"_")>0){
 				var addStr=data[k].replace("_p"+i+"_"+cid.value,"_p0_{cid}");
+				//过滤饱和度3，空间精细度最大1和最小1，以及值为as in library的配置
 				if(addStr.indexOf("lib_saturation_3_key")>0 
 				||addStr.indexOf("lib_fine_spatial_min_1_key")>0
 				||addStr.indexOf("lib_fine_spatial_max_1_key")>0
 				||addStr.indexOf("as in library")>0){
 					continue;
+				}
+				
+				//过滤 cg配置
+				if(/[.]*lib_cg[0-9]*_key_p[.]*/.test(addStr)) continue;
+
+				
+				//军刀/空间RGB  合并方法值调整
+				if(addStr.indexOf("lib_hardmerge_key_")>0){
+					var tmpArr=addStr.split("lib_hardmerge_key_p0_{cid}");
+					var tmpV=tmpArr[1].replaceAll(" ","").replaceAll("\">","").substr(0,1);
+					addStr=tmpArr[0]+"lib_hardmerge_key_p0_{cid}\">"+tmpV+"</string>";
 				}
 				
 				if(addStr.indexOf("profile_title_key")>0){

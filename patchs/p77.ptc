@@ -120,7 +120,7 @@
 <string name="lib_cg6_key_p0_{cid}">0.220 (Default CG6)</string>
 <string name="lib_custom_5_key_p0_{cid}_title">Sabre Contrast Sharp</string>
 <string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_custom_4_key_p0_{cid}_value">01F0271E</string>
 <string name="lib_highlight_fix_key_p0_{cid}">1</string>
 <string name="lib_maxrelativetetfactor_key_p0_{cid}">2 (default)</string>

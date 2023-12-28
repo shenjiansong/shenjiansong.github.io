@@ -87,7 +87,7 @@
 <string name="lib_robustness_key_p0_{cid}">9.0</string>
 <string name="lib_custom_4_key_p0_{cid}_address">01FBED44</string>
 <string name="lib_cf2_key_p0_{cid}">1.00 (default CF-2 Red)</string>
-<string name="lib_hardmerge_key_p0_{cid}">1 (军刀)</string>
+<string name="lib_hardmerge_key_p0_{cid}">1</string>
 <string name="lib_custom_20_key_p0_{cid}_enabled">1</string>
 <string name="lib_custom_15_key_p0_{cid}_enabled">1</string>
 <string name="lib_saturation_key_p0_{cid}">1.25</string>
