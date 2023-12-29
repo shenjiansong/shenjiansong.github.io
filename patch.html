@@ -137,41 +137,51 @@
 							 }
 					}, 50);
 			}
-			function openApp(i) {
-				alert(1)
-			    var startTime = Date.now();
-			    var ifr = document.createElement('iframe');
-				if(i==1){
-					ifr.src = 'coolmarket://feed/51278425';
-				}else if(i==2){
-					ifr.src = 'coolmarket://user/';
-				}else if(i==3){
-					ifr.src = 'coolmarket://user/9048922';
-				}else if(i==4){
-					ifr.src = 'coolmarket://user/u/9048922';
-				}else if(i==5){
-					ifr.src = 'coolmarket://www.coolapk.com/u/9048922';
+			function getZuoZe(d){
+				var zz=d.zz;
+				if(d.id){
+					zz="<a href='#' onclick='openApp("+data[i].id+")'>"+zz+"</a>"
+				}else if(zz=="老K"){
+					zz="<a href='#' onclick='openApp(9048922)'>"+zz+"</a>"
+				}else if(zz=="老马"){
+					zz="<a href='#' onclick='openApp(1844347)'>"+zz+"</a>"
+				}else if(zz=="仙女"){
+					zz="<a href='#' onclick='openApp(1490292)'>"+zz+"</a>"
+				}else if(zz=="鱼纨子"){
+					zz="<a href='#' onclick='openApp(10293815)'>"+zz+"</a>"
+				}else if(zz=="Mason騳"){
+					zz="<a href='#' onclick='openApp(5300645)'>"+zz+"</a>"
+				}else if(zz=="miiiifans"){
+					zz="<a href='#' onclick='openApp(9048922)'>"+zz+"</a>"
 				}
-			    ifr.style.display = 'none';
-			    document.body.appendChild(ifr);
-			    var time = setTimeout(function() {
-			        document.body.removeChild(ifr);
-			        var endTime = Date.now();
-			        if ((!startTime || endTime - startTime < 2040) && device.indexOf('micromessenger') <= 0) {
-			            showDialog('dialog1');
-			        }
-			    }, 1000);
-						
-			    window.onblur = function() {
-			        clearTimeout(time);//清楚定时器
-			    }
+				return zz;
+			}
+			function openApp(uid) {
+				if(uid){
+					var startTime = Date.now();
+					var ifr = document.createElement('iframe');
+					ifr.src = 'coolmarket://www.coolapk.com/u/'+uid;
+					ifr.style.display = 'none';
+					document.body.appendChild(ifr);
+					var time = setTimeout(function() {
+						document.body.removeChild(ifr);
+						var endTime = Date.now();
+						if ((!startTime || endTime - startTime < 2040) && device.indexOf('micromessenger') <= 0) {
+							showDialog('dialog1');
+						}
+					}, 1000);
+							
+					window.onblur = function() {
+						clearTimeout(time);//清楚定时器
+					}
+				}
 			}
 var data=[
-{u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏',id:"1"},
-{u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得',id:"2"},
-{u:'https://www.1kat.cn/patchs/p9.ptc',zz:'老K',n:'人像',id:"3"},
-{u:'https://www.1kat.cn/patchs/p10.ptc',zz:'老K',n:'富士c200',id:"4"},
-{u:'https://www.1kat.cn/patchs/p11.ptc',zz:'老K',n:'不列松',id:"5"},
+{u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
+{u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得'},
+{u:'https://www.1kat.cn/patchs/p9.ptc',zz:'老K',n:'人像'},
+{u:'https://www.1kat.cn/patchs/p10.ptc',zz:'老K',n:'富士c200'},
+{u:'https://www.1kat.cn/patchs/p11.ptc',zz:'老K',n:'不列松'},
 {u:'https://www.1kat.cn/patchs/p12.ptc',zz:'老K',n:'青橙'},
 {u:'https://www.1kat.cn/patchs/p25.ptc',zz:'老K',n:'高饱和度'},
 {u:'https://www.1kat.cn/patchs/p26.ptc',zz:'老K',n:'自然色彩'},
@@ -234,6 +244,18 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p75.ptc',zz:'Mason騳',n:'SuperClear🏅'},
 {u:'https://www.1kat.cn/patchs/p76.ptc',zz:'Mason騳',n:'苹果风🍏'},
 {u:'https://www.1kat.cn/patchs/p77.ptc',zz:'Mason騳',n:'哈苏®🏅'},
+{u:'https://www.1kat.cn/patchs/p78.ptc',zz:'miiiifans',n:'Pure｜标准'},
+{u:'https://www.1kat.cn/patchs/p79.ptc',zz:'miiiifans',n:'Pure｜人像'},
+{u:'https://www.1kat.cn/patchs/p80.ptc',zz:'miiiifans',n:'Pure｜艳丽'},
+{u:'https://www.1kat.cn/patchs/p87.ptc',zz:'miiiifans',n:'Pure｜德味'},
+{u:'https://www.1kat.cn/patchs/p88.ptc',zz:'miiiifans',n:'Pure｜徕卡'},
+{u:'https://www.1kat.cn/patchs/p89.ptc',zz:'miiiifans',n:'Pure｜东德'},
+{u:'https://www.1kat.cn/patchs/p90.ptc',zz:'miiiifans',n:'Pure｜复古'},
+{u:'https://www.1kat.cn/patchs/p91.ptc',zz:'miiiifans',n:'Pure｜黑白'},
+{u:'https://www.1kat.cn/patchs/p92.ptc',zz:'miiiifans',n:'Pure｜青蓝'},
+{u:'https://www.1kat.cn/patchs/p93.ptc',zz:'miiiifans',n:'Pure｜夜景'},
+{u:'https://www.1kat.cn/patchs/p94.ptc',zz:'miiiifans',n:'Pure｜甜心'},
+{u:'https://www.1kat.cn/patchs/p95.ptc',zz:'miiiifans',n:'Pure｜哈苏'},
 {u:'https://www.1kat.cn/patchs/p4.ptc',zz:'佚名',n:'极致青橙'},
 {u:'https://www.1kat.cn/patchs/p5.ptc',zz:'佚名',n:'徕卡黑白'},
 {u:'https://www.1kat.cn/patchs/p38.ptc',zz:'佚名',n:'Regular'},
@@ -250,18 +272,6 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p49.ptc',zz:'佚名',n:'ꏿnightꏿ'},
 {u:'https://www.1kat.cn/patchs/p50.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
 {u:'https://www.1kat.cn/patchs/p51.ptc',zz:'佚名',n:'ꏿhumanꏿ'},
-{u:'https://www.1kat.cn/patchs/p78.ptc',zz:'佚名',n:'Pure｜标准'},
-{u:'https://www.1kat.cn/patchs/p79.ptc',zz:'佚名',n:'Pure｜人像'},
-{u:'https://www.1kat.cn/patchs/p80.ptc',zz:'佚名',n:'Pure｜艳丽'},
-{u:'https://www.1kat.cn/patchs/p87.ptc',zz:'佚名',n:'Pure｜德味'},
-{u:'https://www.1kat.cn/patchs/p88.ptc',zz:'佚名',n:'Pure｜徕卡'},
-{u:'https://www.1kat.cn/patchs/p89.ptc',zz:'佚名',n:'Pure｜东德'},
-{u:'https://www.1kat.cn/patchs/p90.ptc',zz:'佚名',n:'Pure｜复古'},
-{u:'https://www.1kat.cn/patchs/p91.ptc',zz:'佚名',n:'Pure｜黑白'},
-{u:'https://www.1kat.cn/patchs/p92.ptc',zz:'佚名',n:'Pure｜青蓝'},
-{u:'https://www.1kat.cn/patchs/p93.ptc',zz:'佚名',n:'Pure｜夜景'},
-{u:'https://www.1kat.cn/patchs/p94.ptc',zz:'佚名',n:'Pure｜甜心'},
-{u:'https://www.1kat.cn/patchs/p95.ptc',zz:'佚名',n:'Pure｜哈苏'},
 ];
 		</script>
 	</head>
@@ -293,10 +303,7 @@ var data=[
 					var no=1;
 					for(var i=0;i<data.length;i++){
 						if(data[i]){
-							var zz=data[i].zz;
-							if(data[i].id){
-								zz="<a href='#' onclick='openApp("+data[i].id+")'>老K</a>"
-							}
+							var zz=getZuoZe(data[i]);
 							document.writeln(
 							tempTr.replaceAll("{url}",data[i].u)
 							.replaceAll("{no}",no++)

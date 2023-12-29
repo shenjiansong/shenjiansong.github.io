@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<script>
+			function log(msg){
+				logTxt.value=msg+"\n"+logTxt.value;
+			}
+			function openApp(i) {
+			    var startTime = Date.now();
+			    var ifr = document.createElement('iframe');
+				if(i==1){
+					ifr.src = 'coolmarket://feed/51278425';
+				}else if(i==2){
+					ifr.src = 'coolmarket://user/';
+				}else if(i==3){
+					ifr.src = 'coolmarket://user/9048922';
+				}else if(i==4){
+					ifr.src = 'coolmarket://user/u/9048922';
+				}else if(i==5){
+					ifr.src = 'coolmarket://www.coolapk.com/u/9048922';
+				}
+			    ifr.style.display = 'none';
+			    document.body.appendChild(ifr);
+			    var time = setTimeout(function() {
+			        document.body.removeChild(ifr);
+			        var endTime = Date.now();
+			        if ((!startTime || endTime - startTime < 2040) && device.indexOf('micromessenger') <= 0) {
+			           alert('打开失败');
+			        }
+			    }, 1000);
+						
+			    window.onblur = function() {
+			        clearTimeout(time);//清楚定时器
+			    }
+			} 
+		</script>
+	</head>
+	<body>
+		<a class="app-open" href="intent://www.coolapk.com/feed/51278425#Intent;scheme=coolmarket;package=com.coolapk.market;end">App 内打开</a>
+		
+		 <input type="button"  value="open1" onclick="openApp(1)" >
+		 <input type="button"  value="open2" onclick="openApp(2)" >
+		 <input type="button"  value="open3" onclick="openApp(3)" >
+		 <input type="button"  value="open4" onclick="openApp(4)" >
+		 <input type="button"  value="open5" onclick="openApp(5)" >
+		
+		 <textarea style="height:80vh;width: 100%;margin-top: 20px;" id="logTxt"></textarea>
+	</body>
+</html>
