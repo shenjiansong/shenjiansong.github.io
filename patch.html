@@ -137,7 +137,34 @@
 							 }
 					}, 50);
 			}
-//http://www.coolapk.com/u/9048922			
+			function openApp(i) {
+			    var startTime = Date.now();
+			    var ifr = document.createElement('iframe');
+				if(i==1){
+					ifr.src = 'coolmarket://feed/51278425';
+				}else if(i==2){
+					ifr.src = 'coolmarket://user/';
+				}else if(i==3){
+					ifr.src = 'coolmarket://user/9048922';
+				}else if(i==4){
+					ifr.src = 'coolmarket://user/u/9048922';
+				}else if(i==5){
+					ifr.src = 'coolmarket://www.coolapk.com/u/9048922';
+				}
+			    ifr.style.display = 'none';
+			    document.body.appendChild(ifr);
+			    var time = setTimeout(function() {
+			        document.body.removeChild(ifr);
+			        var endTime = Date.now();
+			        if ((!startTime || endTime - startTime < 2040) && device.indexOf('micromessenger') <= 0) {
+			            showDialog('dialog1');
+			        }
+			    }, 1000);
+						
+			    window.onblur = function() {
+			        clearTimeout(time);//清楚定时器
+			    }
+			}
 var data=[
 {u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
 {u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得'},
@@ -251,7 +278,7 @@ var data=[
 		<table border="1">
 			<thead>
 				<th style="text-align: left;font-size: 12px;color: #ff0000;" colspan="4" nowrap>
-					最近更新:2023-12-28 17:58:32
+					最近更新:2023-12-28 17:58:58
 				</th>
 			</thead>
 			<thead>
@@ -267,7 +294,7 @@ var data=[
 						if(data[i]){
 							var zz=data[i].zz;
 							if(zz=="老K"){
-								zz="<a href='http://www.coolapk.com/u/9048922'>老K</a>"
+								zz="<a href='#' onclick='openApp("+(i+1)+")'>老K</a>"
 							}
 							document.writeln(
 							tempTr.replaceAll("{url}",data[i].u)
