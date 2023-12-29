@@ -137,6 +137,7 @@
 							 }
 					}, 50);
 			}
+//http://www.coolapk.com/u/9048922			
 var data=[
 {u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
 {u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得'},
@@ -264,6 +265,10 @@ var data=[
 					var no=1;
 					for(var i=0;i<data.length;i++){
 						if(data[i]){
+							var zz=data[i].zz;
+							if(zz=="老K"){
+								zz="<a href='http://www.coolapk.com/u/9048922'>老K</a>"
+							}
 							document.writeln(
 							tempTr.replaceAll("{url}",data[i].u)
 							.replaceAll("{no}",no++)
