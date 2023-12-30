@@ -1,0 +1,5 @@
+<string name="lib_profile_title_key_p0_{cid}">LUT</string>
+<string name="lib_allow_spatial_rgb_key_p0_{cid}">1</string>
+<string name="lib_noisemodelunblock_key_p0_{cid}">1</string>
+<string name="lib_skipmetadatacheck_key_p0_{cid}">1</string>
+<string name="lib_allow_unknown_devices_key_p0_{cid}">1</string>
