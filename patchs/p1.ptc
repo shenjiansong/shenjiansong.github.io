@@ -18,7 +18,6 @@
 <string name="lib_highlight_fix_zsl_key_p0_{cid}">1</string>
 <string name="lib_highlight_key_p0_{cid}">2048</string>
 <string name="lib_lighting_key_p0_{cid}">0.625</string>
-<string name="lib_lut_intensity_key_p0_{cid}">1.0</string>
 <string name="lib_noisemodelunblock_key_p0_{cid}">1</string>
 <string name="lib_pref_b_hue_key_p0_{cid}">26.0</string>
 <string name="lib_pref_c_hue_key_p0_{cid}">0.0</string>
@@ -40,3 +39,19 @@
 <string name="lib_white_level_key_p0_{cid}">0.036</string>
 <string name="lib_with_lowest_score_key_p0_{cid}">0</string>
 <string name="lib_with_tet_mismatch_key_p0_{cid}">0</string>
+<string name="lib_custom_1_key_p0_{cid}_address">02624150</string>
+<string name="lib_custom_1_key_p0_{cid}_title">Lighting</string>
+<string name="lib_custom_1_key_p0_{cid}_value">01902C1E</string>
+<string name="lib_custom_1_key_p0_{cid}_enabled">1</string>
+<string name="lib_custom_2_key_p0_{cid}_address">0036075A</string>
+<string name="lib_custom_2_key_p0_{cid}_title">Sign</string>
+<string name="lib_custom_2_key_p0_{cid}_value">4B4F44</string>
+<string name="lib_custom_2_key_p0_{cid}_enabled">1</string>
+<string name="lib_custom_3_key_p0_{cid}_address">00DBC290</string>
+<string name="lib_custom_3_key_p0_{cid}_title">Curve</string>
+<string name="lib_custom_3_key_p0_{cid}_value">0000000000000000000000608178A63F000000803F46B73F00000020C952C23F000000609AFBC93F00000060463DD13F000000609362D63F0000004023EFDB3F000000C04BF1E03F00000020769EE33F00000040CC0FE63F000000808032E83F00000060810EEA3F00000040A3BEEB3F000000C06045ED3F00000000ACACEE3F000000000000F03FB81E85EB51B8AE3F7B14AE5FB06DB23F999999E9369AB53FB91E851B2AFDB83FD6A370BD92A5BC3F7B14AED74748C03F0BD7A390F386C23F9A99991964EDC43F285C8FE272A8C73FB81E856BD1C8CA3F48E17A148816CE3FEB51B8BE81D6D03F333333337413D33F7B14AEC73989D53FC3F528DC6A1AD83F0AD7A390A7E6DA3F52B81E05C2E3DD3FCCCCCC0C2092E03F713D0AD75C15E23F15AE47210F80E33FB81E856B54D3E43F5C8FC215061AE63F00000040763DE73FA4703D8A0238E83F48E17AF45920E93FEC51B8FE30FFE93F8FC2F548E7C3EA3F333333D39878EB3FD7A3709D8223EC3F7B14AEA729C0EC3F1F85EB51E353ED3FC2F5281CD1DFED3F666666666666EE3F</string>
+<string name="lib_custom_3_key_p0_{cid}_enabled">1</string>
+<string name="lib_custom_4_key_p0_{cid}_address">00DBC318</string>
+<string name="lib_custom_4_key_p0_{cid}_title">Gamma</string>
+<string name="lib_custom_4_key_p0_{cid}_value">00000000000000001429FE9F6F604B3F00000080D87F743F00000000129E8E3F000000807768A03F000000007348AC3F000000A0461DB63F000000809EFCBE3F0000004046D4C43F000000C06C31CB3F000000A08BECD03F000000802165D43F00000040970CD83F000000406CE5DB3F0000006085A5DF3F000000E01A87E13F000000601429E33F000000A0F2A9E43F00000040211DE63F000000C08B80E73F000000207BC8E83F0000000022C9E93F00000060A0B6EA3F000000E02A93EB3F000000C0F663EC3F000000404F0DED3F000000A07DA3ED3F00000020202FEE3F000000A0E0A1EE3F00000060A30BEF3F000000608565EF3F00000000A1B6EF3F000000000000F03F</string>
+<string name="lib_custom_4_key_p0_{cid}_enabled">1</string>
