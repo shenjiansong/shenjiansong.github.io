@@ -69,7 +69,12 @@
 		}        
 		.loading span:last-child{            
 			margin-right: 0px;
-		}        
+		}
+	  
+	  .qq img{
+		 width: 20px;
+		 padding: 0px;
+	   }
 		@-webkit-keyframes load{            0%{                opacity: 1;            }            100%{                opacity: 0;            }        }        .loading span:nth-child(1){            -webkit-animation-delay:0.13s;        }        .loading span:nth-child(2){            -webkit-animation-delay:0.26s;        }        .loading span:nth-child(3){            -webkit-animation-delay:0.39s;        }        .loading span:nth-child(4){            -webkit-animation-delay:0.52s;        }        .loading span:nth-child(5){            -webkit-animation-delay:0.65s;        }	
 	
 		</style>
@@ -97,7 +102,7 @@
 			var tempTr=`<tr onclick="rowClick(this)">
 					<td nowrap>{no}<input type='checkbox' name='ck' data='{url}'></td>
 					<td nowrap>{name}</td>
-					<td>{zz}</td>
+					<td nowrap>{zz}</td>
 					<td>{note}</td>
 				</tr>`
 			function rowClick(self){
@@ -179,6 +184,9 @@
 				}
 			}
 var data=[
+
+//mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3DZdXilFaDGAnZtAaJNmaoJOhAE8gj07M3
+{u:'details.html?md=agctoolkit',zz:'BigKaka',n:'AGC ToolKit',note:'<font size=1>相关配置使用，可下载工具包</font>'},
 {u:'https://www.1kat.cn/patchs/p7.ptc',zz:'老K',n:'哈苏'},
 {u:'https://www.1kat.cn/patchs/p8.ptc',zz:'老K',n:'拍立得'},
 {u:'https://www.1kat.cn/patchs/p9.ptc',zz:'老K',n:'人像'},
@@ -209,6 +217,13 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p85.ptc',zz:'仙女',n:'卡色系:浓烈'},
 {u:'https://www.1kat.cn/patchs/p86.ptc',zz:'仙女',n:'卡色系:标色'},
 {u:'https://www.1kat.cn/patchs/p34.ptc',zz:'仙女',n:'风光旅拍'},
+{u:'https://www.1kat.cn/patchs/p96.ptc',zz:'山禾',n:'自然-Natural'},
+{u:'https://www.1kat.cn/patchs/p97.ptc',zz:'山禾',n:'早春-Early Spring'},
+{u:'https://www.1kat.cn/patchs/p98.ptc',zz:'山禾',n:'盛夏-Midsummer'},
+{u:'https://www.1kat.cn/patchs/p99.ptc',zz:'山禾',n:'金秋-Golden Autumn'},
+{u:'https://www.1kat.cn/patchs/p100.ptc',zz:'山禾',n:'寒冬-Cold Winter'},
+{u:'https://www.1kat.cn/patchs/p101.ptc',zz:'山禾',n:'晨光-Morning light'},
+{u:'https://www.1kat.cn/patchs/p102.ptc',zz:'山禾',n:'暮色-Twilight'},
 {u:'https://www.1kat.cn/patchs/p13.ptc',zz:'鱼纨子',n:'柔润'},
 {u:'https://www.1kat.cn/patchs/p14.ptc',zz:'鱼纨子',n:'明艳'},
 {u:'https://www.1kat.cn/patchs/p15.ptc',zz:'鱼纨子',n:'暗夜'},
@@ -266,7 +281,6 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p39.ptc',zz:'佚名',n:'B&W'},
 {u:'https://www.1kat.cn/patchs/p40.ptc',zz:'佚名',n:'Vibrant'},
 {u:'https://www.1kat.cn/patchs/p41.ptc',zz:'佚名',n:'LDR'},
-{u:'https://www.1kat.cn/patchs/p42.ptc',zz:'佚名',n:'Night'},
 {u:'https://www.1kat.cn/patchs/p43.ptc',zz:'佚名',n:'Smooth'},
 {u:'https://www.1kat.cn/patchs/p44.ptc',zz:'佚名',n:'Bright'},
 {u:'https://www.1kat.cn/patchs/p45.ptc',zz:'佚名',n:'Pro'},
@@ -274,15 +288,9 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p47.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
 {u:'https://www.1kat.cn/patchs/p48.ptc',zz:'佚名',n:'ꏿvividꏿ'},
 {u:'https://www.1kat.cn/patchs/p49.ptc',zz:'佚名',n:'ꏿnightꏿ'},
-{u:'https://www.1kat.cn/patchs/p50.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
 {u:'https://www.1kat.cn/patchs/p51.ptc',zz:'佚名',n:'ꏿhumanꏿ'},
-{u:'https://www.1kat.cn/patchs/p96.ptc',zz:'山禾',n:'自然-Natural'},
-{u:'https://www.1kat.cn/patchs/p97.ptc',zz:'山禾',n:'早春-Early Spring'},
-{u:'https://www.1kat.cn/patchs/p98.ptc',zz:'山禾',n:'盛夏-Midsummer'},
-{u:'https://www.1kat.cn/patchs/p99.ptc',zz:'山禾',n:'金秋-Golden Autumn'},
-{u:'https://www.1kat.cn/patchs/p100.ptc',zz:'山禾',n:'寒冬-Cold Winter'},
-{u:'https://www.1kat.cn/patchs/p101.ptc',zz:'山禾',n:'晨光-Morning light'},
-{u:'https://www.1kat.cn/patchs/p102.ptc',zz:'山禾',n:'暮色-Twilight'},
+//{u:'https://www.1kat.cn/patchs/p50.ptc',zz:'佚名',n:'ꏿnatureꏿ'},
+//{u:'https://www.1kat.cn/patchs/p42.ptc',zz:'佚名',n:'Night'},
 ];
 		</script>
 	</head>
@@ -299,10 +307,9 @@ var data=[
 		</div>
 		<table border="1">
 			<thead>
-				<th style="text-align: left;font-size: 12px;color: #ff0000;" colspan="4" nowrap>
-					最近更新:2023-12-31 08:14:25
-      
-<a href='https://www.celsoazevedo.com/files/android/google-camera/dev-BigKaka/agctoolkit/'>AGC ToolKit</a>
+				<th style="text-align: left;font-size: 12px;" colspan="4" nowrap>
+					<span style="padding-right: 110px;color: #ff0000;">最近更新:2024-01-02 11:53:18</span>
+					<a class='qq' href='mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3DZdXilFaDGAnZtAaJNmaoJOhAE8gj07M3'><img src='https://7up.pics/images/2024/01/02/4e1141cdac43f181ca569b8e32a291c6.png'>加入QQ反馈群</a>
 				</th>
 			</thead>
 			<thead>
@@ -317,12 +324,21 @@ var data=[
 					for(var i=0;i<data.length;i++){
 						if(data[i]){
 							var zz=getZuoZe(data[i]);
-							document.writeln(
-							tempTr.replaceAll("{url}",data[i].u)
-							.replaceAll("{no}",no++)
-							.replaceAll("{zz}",zz)
-							.replaceAll("{name}",data[i].n)
-							.replaceAll("{note}",data[i].note||'无') )
+							if(i>0){
+								document.writeln(
+								tempTr.replaceAll("{url}",data[i].u)
+								.replaceAll("{no}",no++)
+								.replaceAll("{zz}",zz)
+								.replaceAll("{name}",data[i].n)
+								.replaceAll("{note}",data[i].note||'无') )
+							}else{
+								document.writeln(
+								tempTr.replaceAll("<input type='checkbox' name='ck' data='{url}'>","")
+								.replaceAll("{no}",'<a href="'+data[i].u+'"><font size=1>点击下载</font></a>')
+								.replaceAll("{zz}",zz)
+								.replaceAll("{name}",data[i].n)
+								.replaceAll("{note}",data[i].note||'无') )
+							}
 						}
 					}
 				</script>
