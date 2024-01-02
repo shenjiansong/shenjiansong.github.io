@@ -20,6 +20,8 @@
 
 待后续再完善
 ----
+> [在线配置使用手册](./details.html?md=gcam101) 
+> 
 > [不同品牌手机如何选择谷歌相机](./details.html?md=gcam001) 
 > 
 > [百度网盘如何快速下载谷歌相机](./details.html?md=gcam002) 
