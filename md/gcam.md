@@ -3,13 +3,19 @@
 
 > 百度链接
 
-[百度网盘](https://pan.baidu.com/s/14W4S5sqlGPVtZG1P8w3i-g)
-提取码:4456
-
+# [百度网盘](https://pan.baidu.com/s/18KYwoNZ8HDniyPbIk8FH8Q)
+> [点击下载](https://pan.baidu.com/s/18KYwoNZ8HDniyPbIk8FH8Q)<br />
+> 提取码:2p96
 
 > 二维码
 
-![二维码]()
+![二维码](https://7up.pics/images/2024/01/02/baidu_pan.jpeg)
+
+
+# [123云盘](https://www.123pan.com/s/B7cjVv-NxePv.html)
+> [点击下载](https://www.123pan.com/s/B7cjVv-NxePv.html)<br />
+> 提取码:Kouv
+
 
 
 
