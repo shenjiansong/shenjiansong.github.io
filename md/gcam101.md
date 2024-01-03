@@ -2,22 +2,26 @@
 <!-- pre:gcam002 --> 
 <!-- title: 在线配置使用手册--> 
 <!-- date:2024-01-02 --> 
+<!--
+![](https://7up.pics/images/2024/01/02/gcam_ol_01.jpeg)
+-->
+ 
 ## 在线配置使用手册
 >第一步，点击图中的图标，进入选配置页面。
-![图1](https://7up.pics/images/2024/01/02/gcam_ol_01.jpeg)
+![图1](https://s11.ax1x.com/2024/01/03/pijsdRs.jpg)
 
 >第二步，在选配页面最底部有”下载配置“按钮，点击该按钮将打开在线配置窗口。
-![图2](https://7up.pics/images/2024/01/02/gcam_ol_02.jpeg)
+![图2](https://s11.ax1x.com/2024/01/03/pijsaGj.jpg)
 
 >第三步,在打开的在线配置窗口中，将显示所有在线的配置 <br />
 >其中第一行是卡卡大佬的AGC工具包地址 <br />
 >小白和伸手党只需选择下面的配置即可 <br /> 
 >点击下面的行，选中自己想要添加的配置后，最后点击”添加“按钮，相机将自动为你下载并导入配置
-![图3](https://7up.pics/images/2024/01/02/gcam_ol_03.jpeg)
-![图4](https://7up.pics/images/2024/01/02/gcam_ol_04.jpeg)
+![图3](https://s11.ax1x.com/2024/01/03/pijsrLV.jpg)
+![图4](https://s11.ax1x.com/2024/01/03/pijsBMq.jpg)
 
 >第四步，当成功下载并导入配置后，相机会自动重启并进入取景器界面，此时点击选配图标后，将看到之前添加的配置已经可以选择了
-![图5](https://7up.pics/images/2024/01/02/gcam_ol_05.jpeg)
+![图5](https://s11.ax1x.com/2024/01/03/pijswzn.jpg)
 
 ><b>目的：</b>配置的调试是一件非常繁琐并且耗时的事情，每一位大佬在开发配置时，都耗费了大量的时间和经历。
 >很多时候我们从各个地方获取到了优秀配置但是不知道谁的创作。通过这个在线配置，希望大家能够支持作者。
@@ -36,7 +40,7 @@
 
 ## [点此加入QQ反馈群](mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3DZdXilFaDGAnZtAaJNmaoJOhAE8gj07M3)
 ## 本群群号：813432672
-## ![](https://7up.pics/images/2024/01/02/qqun_813432672.jpeg)
+## ![](https://s11.ax1x.com/2024/01/03/pijsDs0.jpg)
 
 ----
 ## 特别特别感谢
