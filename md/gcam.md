@@ -12,12 +12,9 @@
 ![二维码](https://7up.pics/images/2024/01/02/baidu_pan.jpeg)
 
 
-# [123云盘](https://www.123pan.com/s/B7cjVv-NxePv.html)
-> [点击下载](https://www.123pan.com/s/B7cjVv-NxePv.html)<br />
-> 提取码:Kouv
-
-
-
+# [123云盘](https://www.123pan.com/s/B7cjVv-zaePv.html)
+> [点击下载](https://www.123pan.com/s/B7cjVv-zaePv.html)<br />
+> 提取码:TIQS
 
 ----
 > [在线配置使用手册](./details.html?md=gcam101) 
