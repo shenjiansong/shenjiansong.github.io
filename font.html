@@ -2,20 +2,92 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
+		<style>
+			body{
+				background-color: #3e3e3eaa;
+				color: #cfcfcf;
+			}
+			table{
+				margin-bottom: 30px;
+			}
+			table, th, td {
+			   border: 1px solid black;
+			   border-spacing: 0px;
+			   border-collapse: collapse;
+			   text-align: center;
+			}
+			thead{
+				width: 99vw;
+			}
+		</style>
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
-			function setFont(){
-				var url='https://www.1kat.cn/TEMPSITC.TTF';
-				var mc="TEMPSITC";
+			if(typeof "".replaceAll !="function"){
+				String.prototype.replaceAll = function(s1, s2) {
+				    return this.replace(new RegExp(s1, "gm"), s2);
+				}
+			}
+			var tempTr=`<tr>
+					<td nowrap><input type="button" value="选择" onclick="setFont('{value}')"/></td>
+					<td nowrap>{name}</td>
+					<td style="font-family: {f};" nowrap>{value}{demo}</td>
+				</tr>`
+			function setFont(mc){
+				console.log(mc)
 				if(typeof AZ=="object"){
-					AZ.setFont(url,mc);
+					AZ.setFont(null,mc);
+				}
+			}
+			var data=[];
+			function initFontList(){
+				if(typeof AZ=="object"){
+					var res=AZ.getFileList("{BASE_AGC_PATH}/fonts");
+					try{
+						data=JSON.parse(res);
+					}catch(e){
+						data=eval("data="+res);
+					}
+				}
+			}
+			initFontList();
+		</script>
+		<script>
+			for(var i=0;i<data.length;i++){
+				if(data[i]){
+					if(!data[i].toLowerCase().endsWith(".ttf"))data[i]=data[i]+".ttf";
+					document.writeln("<style>@font-face{font-family:f"+i+"; src: url('/my_sdcard_font_path/{value}');}</style>".replaceAll("{value}",data[i]));
 				}
 			}
 		</script>
 	</head>
 	<body>
+		<table border="1">
+			<thead>
+				<th style="text-align: left;font-size: 12px;" colspan="4" nowrap>
+					<input  type="text" id="demoTxt" value='这是一条用于测试字体的文本'/>
+				</th>
+			</thead>
+			<thead>
+				<th width="5%" nowrap>操作</th>
+				<th width="25%" nowrap>字体名称</th>
+				<th width="70%" nowrap>样例</th>
+			</thead>
+			<tbody>
+				<script>
+					for(var i=0;i<data.length;i++){
+						if(data[i]){
+							if(!data[i].toLowerCase().endsWith(".ttf"))data[i]=data[i]+".ttf";
+							document.writeln(
+							tempTr.replaceAll("{value}",data[i]).replaceAll("{f}","f"+i)
+							.replaceAll("{name}",data[i])
+							.replaceAll("{demo}",document.getElementById("demoTxt").value) 
+							)
+						}
+					}
+				</script>
+			</tbody>
 		
-		<input type="button" value="选择" onclick="setFont()"/>
 	</body>
 </html>
