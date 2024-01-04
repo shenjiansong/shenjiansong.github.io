@@ -44,7 +44,7 @@
 			function initFontList(){
 				if(typeof AZ=="object"){
 					var res=AZ.getFileList("{BASE_AGC_PATH}/fonts");
-					document.getElementById("demoTxt").value=res;
+					console.log(res)
 					try{
 						data=JSON.parse(res);
 					}catch(e){
