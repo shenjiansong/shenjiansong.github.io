@@ -35,9 +35,9 @@
 
 >>如果你在使用过程中有任何问题或好的建议，可以通过下方QQ群进行反馈
 
-## [点此加入QQ反馈群](mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3DZdXilFaDGAnZtAaJNmaoJOhAE8gj07M3)
-## 本群群号：813432672
-## ![](https://s11.ax1x.com/2024/01/03/pijsDs0.jpg)
+## [点此加入QQ反馈群](mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3DAjunow7XHpNqGtbgG9hDMTnJy0aWK2CV)
+## 本群群号：792609104
+## ![](https://s11.ax1x.com/2024/01/04/pivh6ER.jpg)
 
 ----
 ## 特别特别感谢
