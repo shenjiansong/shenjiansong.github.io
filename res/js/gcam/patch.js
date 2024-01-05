@@ -9,6 +9,10 @@ function initX(){
 		}
 }
 function hasNewVersion(){
+	if(typeof AZ=="object"){
+		var v= AZ.getVersion();
+		if(v && !v.endsWith("_2302"))return true;
+	}
 	return false;
 }
 function getZuoZe(d){

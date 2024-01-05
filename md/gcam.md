@@ -3,13 +3,13 @@
 
 > 百度链接
 
-# [百度网盘](https://pan.baidu.com/s/18KYwoNZ8HDniyPbIk8FH8Q)
-> [点击下载](https://pan.baidu.com/s/18KYwoNZ8HDniyPbIk8FH8Q)<br />
-> 提取码:2p96
+# [百度网盘](https://pan.baidu.com/s/1n39Z7bRpeArDuEAFFDpXcQ)
+> [点击下载](https://pan.baidu.com/s/1n39Z7bRpeArDuEAFFDpXcQ)<br />
+> 提取码:8k22
 
 > 二维码
 
-![二维码](https://7up.pics/images/2024/01/02/baidu_pan.jpeg)
+![二维码](https://s11.ax1x.com/2024/01/05/pix1cjJ.png)
 
 
 # [123云盘](https://www.123pan.com/s/B7cjVv-zaePv.html)
