@@ -8,7 +8,7 @@
 		<p>源文件内容粘贴到此处V 
 		<label for="bhyc">包含隐藏:<input type='checkbox' id='bhyc' ></label>
 		<label for="cid">cid:<input id='cid' value="0" ></label>
-		<label for="zz">作者:<input id='zz' value="仙女" ></label>
+		<label for="zz">作者:<input id='zz' value="佚名" ></label>
 		<label for="sid">序列:<input id='sid' value="80" ></label>
 		</p>
 		<textarea id='txt' style="height:50%;width:90%"></textarea>
@@ -23,6 +23,7 @@
 		    return this.replace(new RegExp(s1, "gm"), s2);
 		}
 	}
+var nowTime=0;
 var taTmp="<textarea id='{id}' style='height:100%;width:20%'>{value}</textarea>";
 var tempDiv =document.getElementById("tempDiv") 
 var txt =document.getElementById("txt");
@@ -116,6 +117,7 @@ function reGenCustoms(customs){
 	return  arr;
 }
 function zh(){
+	nowTime=new Date().getTime();
 	let matches = txt.value.match(/<string[^>]+?>[\s\S]*?<\/string>/ig);
 	if (matches) {
 	  var data=[];
@@ -155,7 +157,7 @@ function zh(){
 					addStr=tmpArr[0]+"lib_hardmerge_key_p0_{cid}\">"+tmpV+"</string>";
 				}
 				
-				if(addStr.indexOf("profile_title_key")>0){
+				if(addStr.indexOf("lib_profile_title_key_p")>0){
 					tar[i].unshift(addStr);
 				}else{
 					tar[i].push(addStr);
@@ -188,16 +190,18 @@ function zh(){
 	  
 	  var resHtml="";
 	  var cflist=[];
-	  var cfTmp="{u:'https://www.1kat.cn/patchs/p{no}.ptc',zz:'{zz}',n:'{name}'},"
+	  var cfTmp="{u:'https://www.1kat.cn/patchs/{id}_0.ptc',zz:'{zz}',n:'{name}',v:0},"
 	  var zzName=zz.value;
 	  var no=sid.value*1;
 	  for(var i=0;i<tar2.length;i++){
 		if(tar2[i]&&tar2[i][0]){
-			var taTmpStr=taTmp.replace("{id}","p"+i).replace("{value}",tar2[i].join("\n"));
+			var id=getId();
+			var idXml="<string name='my_key_p0_id'>"+id+"</string>";  
+			var taTmpStr=taTmp.replace("{id}","p"+i).replace("{value}",idXml+tar2[i].join("\n"));
 			var n=tar2[i][0].split("title_key_p0_{cid}\">");
 			if(n.length>1){
 				n=n[1].replace("</string>","");
-				cflist.push(cfTmp.replace("{name}",n).replace("{zz}",zzName).replace("{no}",no++));
+				cflist.push(cfTmp.replace("{name}",n).replace("{zz}",zzName).replace("{id}",id));
 			}
 			resHtml+=taTmpStr;
 		}
@@ -205,6 +209,9 @@ function zh(){
 	  
 	  resHtml+=taTmp.replace("{id}","p999").replace("{value}",cflist.join("\n"));
 	  tempDiv.innerHTML=resHtml;
+	}
+	function getId(){
+		return  (nowTime++).toString(16).toUpperCase();
 	}
 }
 

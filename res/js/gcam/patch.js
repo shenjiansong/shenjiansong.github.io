@@ -11,7 +11,10 @@ function initX(){
 function hasNewVersion(){
 	if(typeof AZ=="object"){
 		var v= AZ.getVersion();
-		if(v && !v.endsWith("_2302"))return true;
+		if(v && v.indexOf("_")>0){
+			v=v.split("_")[1]*1;
+			return v<2302;
+		}
 	}
 	return false;
 }
