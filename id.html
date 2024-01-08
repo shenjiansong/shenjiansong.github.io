@@ -1,0 +1,19 @@
+<html>
+<head>
+<script>
+var url=document.location.search;
+var id;
+ if(url.indexOf("?") != -1) {
+     str = url.substr(1);
+     strs = str.split("=");
+     if(strs[0]=='id')
+     id = strs[1];
+ }
+if(strs[0]=='id'){
+
+document.location.href='nanren://patch.add?id='+id
+
+}
+</script>
+</head>
+</html>

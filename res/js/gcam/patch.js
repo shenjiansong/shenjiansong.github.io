@@ -13,7 +13,7 @@ function hasNewVersion(){
 		var v= AZ.getVersion();
 		if(v && v.indexOf("_")>0){
 			v=v.split("_")[1]*1;
-			return v<2302;
+			return v<2303;
 		}
 	}
 	return false;
