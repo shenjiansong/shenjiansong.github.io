@@ -43,7 +43,7 @@ function getZuoZe(d){
 }
 
 function toUpdate(){
-	document.location.href="details.html?md=gcam"
+	document.location.href="outs://www.1kat.cn/details.html?md=gcam";
 }
 var data=[
 {u:'details.html?md=agctoolkit',zz:'<font size=1>BigKaka</font>',n:'<font size=1>AGC ToolKit</font>',note:'<font size=1>AGC工具包</font>'},

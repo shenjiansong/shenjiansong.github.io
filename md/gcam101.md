@@ -77,3 +77,5 @@
 >
 > [后期优化内容](./details.html?md=gcam800) 
 >
+> [测试浏览器打开](outs://www.1kat.cn/details.html?md=gcam800) 
+>
