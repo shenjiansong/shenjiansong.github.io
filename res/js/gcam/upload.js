@@ -8,10 +8,10 @@ $( document ).ready(function(){
 		else self.addClass("checked");
 	});
 	if(typeof AZ=="object"){
-		AZ.toast("_key_p");
+		//AZ.toast("_key_p");
 		var  matchJson = AZ.queryPref("_key_p");
 		//if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
-		AZ.toast(matchJson);
+	//	AZ.toast(matchJson);
 		//AZ.log(matchJson)
 		var matchs=null;
 		try{matchs=JSON.parse(matchJson);}catch(e){ eval("matchs="+matchJson);}
