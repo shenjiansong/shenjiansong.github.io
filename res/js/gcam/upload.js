@@ -8,8 +8,11 @@ $( document ).ready(function(){
 		else self.addClass("checked");
 	});
 	if(typeof AZ=="object"){
+		AZ.toast(".*_key_p\\d_.*");
 		var  matchJson = AZ.matchPref(".*_key_p\\d_.*");
-		alert(matchJson);
+		if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
+		AZ.toast(matchJson);
+		AZ.log(matchJson)
 		var matchs=null;
 		try{matchs=JSON.parse(matchJson);}catch(e){ eval("matchs="+matchJson);}
 		if(matchs){
@@ -34,7 +37,7 @@ function initPatchArr(pdata){
 		var pd=pdata[k];
 		var p=getP(k);
 		if(p<0)continue;
-		if(k.indexOf("_key_p"+p+"_0")<0)continue;
+		if(k.indexOf("_key_p"+p+"_0")<0 &&  !k.startsWith("my_key") )continue;
 		if(!patchMap["p"+p])patchMap["p"+p]={};
 		var nk=k.replace("_key_p"+p+"_0","_key_p0_{cid}");
 		patchMap["p"+p][nk]=pd;
