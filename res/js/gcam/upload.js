@@ -12,7 +12,7 @@ $( document ).ready(function(){
 		var  matchJson = AZ.matchPref(".*_key_p\\d_.*");
 		if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
 		AZ.toast(matchJson);
-		AZ.log(matchJson)
+		//AZ.log(matchJson)
 		var matchs=null;
 		try{matchs=JSON.parse(matchJson);}catch(e){ eval("matchs="+matchJson);}
 		if(matchs){
