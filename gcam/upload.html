@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style>
+			body{
+				background-color: #3e3e3eaa;
+				color: #cfcfcf;
+			}
+			
+			.toolbar{
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				height: 30px;
+				text-align: center;
+				background: #3e3e3e99;
+			}
+			.toolbar input{
+				height: 30px;
+				margin-left: 10px;
+				color: aliceblue;
+				background-color: #5f97a5;
+				border: 0px;
+			}
+			#pageLoadTip{
+				display: none;
+				top:0px;
+				z-index:999999;
+				background-color:rgb(57 51 51 / 31%);
+				height:99vh;
+				width:99vw;
+				position:fixed;
+				text-align: center;
+			}
+			#pageLoadTip  .pltc{
+				    background-color: #3e3e3e3e;
+					color:rgb(255 255 255 / 88%);
+					font-size:16px;
+					margin-top:40vh;
+				}
+		.loading{
+			width: 100%;            
+			height: 15px;            
+			margin: 0 auto;            
+			margin-top:10px;        
+		}        
+		.loading span{            
+			display: inline-block;            
+			width: 15px;            
+			height: 15px;            
+			margin-right: 5px;            
+			border-radius: 50%;            
+			background: lightgreen;            
+			-webkit-animation: load 1.04s ease infinite;        
+		}        
+		.loading span:last-child{            
+			margin-right: 0px;
+		}
+		#D1{
+			width: 100vw;
+			text-align: left;
+		}
+		#D1 div{
+			width: 29vw;
+			height: 120px;
+			border: 1px solid #AAAAAA;
+			display: inline-grid;
+			background-color: #cec1aa33;
+			margin-top: 5px;
+			margin-left: 2px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		#D1 img{
+			width: 80%;
+			padding-left: 10%;
+		}
+		.item input{
+			    background-color: #cec1aa33;
+			    color: white;
+			    border: 1px solid #615858;
+			    width: 90%;
+			    margin-left: 5%;
+		}
+		.checked{
+			border-color: chartreuse !important;
+		}
+		</style>
+		
+		<script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
+		<script>
+			var now=new Date();
+			document.write('<script src="../res/js/gcam/upload.js?t='+now.getTime()+'"><\/script>');
+		</script>
+		<script>
+			
+			if(typeof "".replaceAll !="function"){
+				String.prototype.replaceAll = function(s1, s2) {
+				    return this.replace(new RegExp(s1, "gm"), s2);
+				}
+			}
+			function pageLoadTip(msg){
+				try{
+				document.getElementById("pageLoadTip").style.display="block";
+				document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
+				document.body.style["overflow"]="hidden";
+				}catch(e){
+					console.log("xxxxxx:"+e.message);
+				}
+			}
+			
+			function pageLoadTipHide(){
+				document.getElementById("pageLoadTip").style.display="none";
+				document.body.style["overflow"]="auto";
+			}
+			var tempTr=`<tr onclick="rowClick(this)">
+					<td nowrap>{no}<input type='checkbox' name='ck' data='{url}'></td>
+					<td nowrap>{name}</td>
+					<td nowrap>{zz}</td>
+					<td>{note}</td>
+				</tr>`
+			function rowClick(self){
+				var nCks=self.getElementsByTagName("input");
+				if(nCks.length>0){
+					if(event && event.target==nCks[0])return ;
+					nCks[0].checked=!nCks[0].checked;
+				}
+			}
+			function toClose(self){
+				if(typeof AZ=="object"){
+					AZ.close();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='pageLoadTip'>
+			<div class="pltc">
+				<span id="ptMsg">加载中  请稍后。。。</span>
+				<div class="loading"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+			</div>
+		</div>
+		<div class="toolbar">
+			<input type="button"  value="上传" onclick="upload(this)" >
+			<input type="button"  value="关闭" onclick="toClose(this)" >
+		</div>
+		
+		<div id="D1">
+		</div>
+	</body>
+</html>
