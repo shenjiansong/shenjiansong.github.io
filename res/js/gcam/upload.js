@@ -1,15 +1,19 @@
 
 var item_temp_html='<DIV data-p="{p}" class="item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAARdJREFUWEftltENwjAMRH1MwCiICZAQe8Fe/DABo7ABB6kIMmnduE1DJES/2lSNn88Xu5DGFxrHl98HIEkAZqLVFWgKEIJHj1kqVFOA5E1E1trkQxA9AE099YSEAJ7vNcjiAAF6DCJVwQQYc65XmVkeiB/NBdCuXwzAs9FL+r2InMN9TCACWYm5SpDW1FKHZA8glmtJgB2Ai+UDq/EUAShnHwB0Ek+9igFyAXPmrQrg8UgxAMkVgHuqBMmNiFyT9S2Aj7UlAMJgOT5PwEkHs7peelKKAKw+kOv7GmI2wFAQ79BJG5J+fo/pgZp2M1x3stwJGHuf7vPVYTTkFTdASdYeRbIlaAZQK7C1b7V/Qm8if4C/As0VeACreuwh5RKDXQAAAABJRU5ErkJggg=="/><label>{title}</label></DIV>';
+
 var patchMap={};
 $( document ).ready(function(){
+    
 	$( document ).on("click",".item",function(e){
 		const self=$(this);
 		if(self.hasClass("checked"))self.removeClass("checked");
 		else self.addClass("checked");
 	});
+	
 	if(typeof AZ=="object"){
 		//AZ.toast("_key_p");
 		var  matchJson = AZ.queryPref("_key_p");
+	//	sv(matchJson)
 		//if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
 	//	AZ.toast(matchJson);
 		//AZ.log(matchJson)
@@ -19,6 +23,7 @@ $( document ).ready(function(){
 			initPatchArr(matchs);
 		}
 	}
+//	sv('down')
 	initItems();
 });
 
@@ -32,16 +37,22 @@ function initItems(){
 		D1.append(item_temp_html.replace("{p}",k).replace("{title}",title));
 	}
 }
-function initPatchArr(pdata){
-	for(var k : pdata){
-		var pd=pdata[k];
+function initPatchArr(pdt){
+  //  sv(2)
+	for(var k in pdt){
+		var pd=pdt[k];
+	//	sv(k)
 		var p=getP(k);
+		
 		if(p<0)continue;
+	//	sv(k)
 		if(k.indexOf("_key_p"+p+"_0")<0 &&  !k.startsWith("my_key") )continue;
+		
 		if(!patchMap["p"+p])patchMap["p"+p]={};
 		var nk=k.replace("_key_p"+p+"_0","_key_p0_{cid}");
 		patchMap["p"+p][nk]=pd;
 	}
+//	sv(JSON.stringify(patchMap))
 	// patchMap={
 	// 	"p1":{
 	// 		"lib_profile_title_key_p0_{cid}":"T0001"
@@ -55,30 +66,10 @@ function initPatchArr(pdata){
 function getP(k){
 	if(!k||k.trim().length<3||k.indexOf("_key_p")<0)return -1;
 	try{
-		return k.toLowerCase().spit("_key_p")[1].spit("_")[0]*1;
+		return k.toLowerCase().split("_key_p")[1].split("_")[0]*1;
 	}catch(e){
 		return -1;
 	}
-}
-
-function getBase64Image(src) {
-    return new Promise(resolve => {
-        const img = new Image()
-        img.crossOrigin = ''
-        img.onload = function () {
-            const canvas = document.createElement('canvas')
-            canvas.width = 32
-            canvas.height = 32
-            const ctx = canvas.getContext('2d')
-            ctx?.drawImage(img, 0, 0, img.width, img.height
-			,0, 0, 32, 32)
-            const ext = img.src.substring(img.src.lastIndexOf('.') + 1).toLowerCase()
-            const dataURL = canvas.toDataURL('image/' + ext)
-			console.log(dataURL);
-            resolve(dataURL)
-        }
-        img.src = src
-    })
 }
 
 var logoList=[
