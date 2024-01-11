@@ -50,6 +50,11 @@ setprop vendor.camera.aux.packagelist "com.agc.gcam8.8,之前的包名"
 ```
 </font>
 
+<!--
+```
+setprop ro.camera.privileged.3rdpartyApp "com.agc.gcam8.8"
+```
+-->
 ----
 > [在线配置使用手册](./details.html?md=gcam101) 
 > 

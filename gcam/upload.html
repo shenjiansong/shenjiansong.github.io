@@ -85,71 +85,38 @@
 			    width: 90%;
 			    margin-left: 5%;
 		}
+		#D1 .notAllow{
+			background-color: currentcolor!important;
+			
+		}
+		#D1 .notAllow label{
+			color: #9b8193;
+		}
 		.checked{
+			border-color: #1332ff !important;
+		}
+		.error{
+			border-color: #ff0000 !important;
+		}
+		.success{
 			border-color: chartreuse !important;
 		}
+		@-webkit-keyframes load{            0%{                opacity: 1;            }            100%{                opacity: 0;            }        }        .loading span:nth-child(1){            -webkit-animation-delay:0.13s;        }        .loading span:nth-child(2){            -webkit-animation-delay:0.26s;        }        .loading span:nth-child(3){            -webkit-animation-delay:0.39s;        }        .loading span:nth-child(4){            -webkit-animation-delay:0.52s;        }        .loading span:nth-child(5){            -webkit-animation-delay:0.65s;        }
 		</style>
 		
 		<script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
 			var now=new Date();
+			document.write('<script src="../res/js/gcam/common.js?t='+now.getTime()+'"><\/script>');
 			document.write('<script src="../res/js/gcam/upload.js?t='+now.getTime()+'"><\/script>');
-		</script>
-		<script>
-			alert(1)
-			if(typeof "".replaceAll !="function"){
-				String.prototype.replaceAll = function(s1, s2) {
-				    return this.replace(new RegExp(s1, "gm"), s2);
-				}
-			}
-			function pageLoadTip(msg){
-				try{
-				document.getElementById("pageLoadTip").style.display="block";
-				document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
-				document.body.style["overflow"]="hidden";
-				}catch(e){
-					console.log("xxxxxx:"+e.message);
-				}
-			}
-			
-			function pageLoadTipHide(){
-				document.getElementById("pageLoadTip").style.display="none";
-				document.body.style["overflow"]="auto";
-			}
-			var tempTr=`<tr onclick="rowClick(this)">
-					<td nowrap>{no}<input type='checkbox' name='ck' data='{url}'></td>
-					<td nowrap>{name}</td>
-					<td nowrap>{zz}</td>
-					<td>{note}</td>
-				</tr>`
-			function rowClick(self){
-				var nCks=self.getElementsByTagName("input");
-				if(nCks.length>0){
-					if(event && event.target==nCks[0])return ;
-					nCks[0].checked=!nCks[0].checked;
-				}
-			}
-			function toClose(self){
-				if(typeof AZ=="object"){
-					AZ.close();
-				}
-			}
 		</script>
 	</head>
 	<body>
-		<div id='pageLoadTip'>
-			<div class="pltc">
-				<span id="ptMsg">加载中  请稍后。。。</span>
-				<div class="loading"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-			</div>
-		</div>
 		<div class="toolbar">
 			<input type="button"  value="上传" onclick="upload(this)" >
 			<input type="button"  value="关闭" onclick="toClose(this)" >
 		</div>
-		
-		<div id="D1">
-		</div>
+		<div id="D1"> </div>
 	</body>
 </html>
