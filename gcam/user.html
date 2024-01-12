@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<script src="../res/js/gcam/bootx.js"></script>
+	</head>
+	<body>
+		<div class="info" style="padding-left: 10px;">
+			<p>用户昵称：将在展示配置时显示，为必填项。</p>
+			<p>邮箱：后期将通过邮箱推送配置相关资料。</p>
+			<p>酷安：酷安主页的链接复制后粘贴到这里。</p>
+		</div>
+		<div id="D2">
+			<div><label>昵称<font color=red>*</font>：</label><input type="text" id="name" name="name"/></div>
+			<div><label>邮箱 ：</label><input type="email" id="email" name="email"/></div>
+			<div><label>酷安 ：</label><input type="text" id="kuan" name="kuan"/></div> 
+		</div>
+		<div class="toolbar">
+			<input type="button"  value="完成" onclick="doSave()" > 
+			<input type="button"  value="返回" onclick="(function(){history.back();})()" > 
+		</div>
+	</body>
+</html>

@@ -1,13 +1,31 @@
 if(typeof "".replaceAll !="function"){String.prototype.replaceAll = function(s1, s2) {return this.replace(new RegExp(s1, "gm"), s2);}}
+let MY={};
+function getUser(){
+	if(!MY || !MY["uid"] || MY["uid"].length<1){
+		MY=AZ.getUser();
+		if(MY && MY.length>10){
+			MY=JSON.parse(MY);
+		} 
+	}
+	return MY||{};
+}
 function getUkey(){
-	var lcuk=localStorage.getItem("myuk");
-	if(!lcuk || lcuk.trim().length<8){
-		initUk();
-		lcuk=localStorage.getItem("myuk");
+	const user=getUser();
+	const ukey=user["uid"];
+	if(!ukey||ukey.length<8)return null;
+	return ukey.trim();
+}
+
+
+function checkUser(needMsg,msg){
+	var u=getUkey();
+	if(!getUkey()){
+		if(needMsg){
+			alert(msg||"你还未完善用户资料");
+		}
+		return false;
 	}
-	if(!lcuk || lcuk.trim().length<8){
-		return "";
-	}
+	return true;
 }
 
 function toClose(self){
@@ -40,13 +58,28 @@ function pageLoadTipHide(){
 
 
 if(typeof AZ=="object"){
-	initUk();
+	//initUk();
+	alert=function(msg){
+		AZ.toast(msg);
+	}
+	 //var ids=AZ.matchPref("my_key_p\\d+_id");
+	// alert(ids);
+	// var obj=JSON.parse(ids);
+	// for(var k in obj){
+	// 	alert(k);
+	// 	AZ.setPref(k,"");
+	// }
 }else{
 	AZ={
 		queryPref:function(str){
 			return `{
 				'lib_profile_title_key_p0_0':'AAAA',
-				'my_key_p0_id':'AAAAAAAA'
+				'my_key_p0_id':'AAAAAAAA',
+				
+				'lib_profile_title_key_p2_0':'bbbbb',
+				
+				'lib_profile_title_key_p3_0':'ccccc',
+				'my_key_p3_id':'xxxxxx'
 			}`;
 		},
 		matchPref:function(reg){
@@ -99,19 +132,23 @@ if(typeof AZ=="object"){
 		},
 		encode:function(str){
 			
+		},
+		getUser:function(){
+			return null;
+		},
+		saveUser:function(str){
+			return true;
 		}
 	}
 }
-function initUk(){
-	var azuk= AZ.getUkey();
-	var lcuk=localStorage.getItem("myuk");
-	if(!azuk){
-	  var uk=	AZ.get("https://gc.1kat.cn/getuk");
-	  if(uk && uk.length>8 && uk.length<13){
-		  AZ.setUkey(uk);
-		  localStorage.setItem("myuk",uk);
-	  }
-	}else if(azuk!=lcuk){
-		localStorage.setItem("myuk",azuk);
-	}
-}
+// function initUk(){
+//   var azuk= AZ.getUkey();
+//   if(!azuk || azuk.trim().length<8){
+// 	  var uk=	AZ.post("https://gc.1kat.cn/getuk",'',"");
+// 	  AZ.toast(uk)
+// 	  if(uk && uk.length>8 && uk.length<13){
+// 		  AZ.setUkey(uk);
+// 		  MY_UK=uk;
+// 	  }
+//   }
+// }

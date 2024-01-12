@@ -5,9 +5,19 @@ var notAllowPatchs=[];
 $( document ).ready(function(){
 	$( document ).on("click",".item",function(e){
 		const self=$(this);
+		if(self.hasClass("success")){
+			self.removeClass("checked");
+			alert("该配置已上传");
+			return;
+		}
+		if(self.hasClass("error")){
+			self.removeClass("checked");
+			alert("该配置上次上传失败，可重新进入上传页面再次上传");
+			return;
+		}
 		if(self.hasClass("notAllow")){
 			self.removeClass("checked");
-			alert("暂不支持上传别人的配置");
+			alert("该配置已上线，后期将支持版本更新");
 			return;
 		}
 		if(self.hasClass("checked"))self.removeClass("checked");
@@ -21,21 +31,53 @@ $( document ).ready(function(){
 	if(matchs){
 		initPatchArr(matchs);
 	}
-	 
+	initLibCustom();
 	initItems();
+	checkUser(true);
 });
 
+function insertToFirst(e){
+	var D1=$("#D1")[0];
+	if(D1.children && D1.children.length>0){
+		D1.insertBefore($(e)[0],D1.children[0])
+	}else{
+		$("#D1").append($(e));
+	}
+}
+function insertToLast(e){
+	$("#D1").append($(e));
+}
+function moveToLast(e){
+	$("#D1").append(e);
+}
 function initItems(){
 	var D1=$("#D1");
 	console.log(patchMap)
 	for(var k in patchMap){
 		var patch=patchMap[k];
 		var title=patch["lib_profile_title_key_p0_{cid}"];
-		var notAllow=notAllowPatchs.indexOf(k)>-1?"notAllow":"";
-		D1.append(item_temp_html.replace("{p}",k).replace("{title}",title).replace("{notallow}",notAllow));
+		if(notAllowPatchs.indexOf(k)>-1){
+			insertToLast(item_temp_html.replace("{p}",k).replace("{title}",title).replace("{notallow}","notAllow"));
+		}else{
+			insertToFirst(item_temp_html.replace("{p}",k).replace("{title}",title).replace("{notallow}",""));
+		}
 	}
 }
-
+function initLibCustom(){
+	for(var k in patchMap){
+		var patch=patchMap[k];
+		for(var a in patch){
+			if(a.startsWith("lib_custom_") && a.endsWith("_address")){
+				patch[a.replace("lib_custom_","my_custom_").replace("_address","_fp")]=1;
+				var address=patch[a];
+				if("03654E4"==address || '365AF0'==address||"3654E4"==address || '0365AF0'==address){
+					patch[a.replace("_address","_enabled")]=0;
+				}
+			}
+		}
+		patchMap[k]=patch;
+	}
+}
 function initPatchArr(pdt){
 	for(var k in pdt){
 		var pd=pdt[k];
@@ -46,7 +88,7 @@ function initPatchArr(pdt){
 		var nk=k.replace("_key_p"+p+"_0","_key_p0_{cid}").replace("_key_p"+p+"_","_key_p0_");
 		patchMap["p"+p][nk]=pd;
 		if(nk=="my_key_p0_id"){
-			if(pd.length>30){
+			if(pd.length>1){
 				notAllowPatchs.push("p"+p);
 			}
 		}
@@ -60,36 +102,57 @@ function getP(k){
 		return -1;
 	}
 }
-function upload(self){
-	self.disabled="disabled";
-	pageLoadTip("上传中，请稍后。。。");
+function toUpload(self){
 	try{
 		var checkedList=$(".checked");
 		if(checkedList!=null && checkedList.length>0){
+			var sCnt=0,eCnt=0;
 			for(var i =0;i<checkedList.length;i++){
 				var it=$(checkedList[i]);
 				var p=it.data("p");
 				if(!p)continue;
 				var patch=patchMap[p];
 				var title=patch["lib_profile_title_key_p0_{cid}"];
-				var key=AZ.post("https://gc.1kat.cn/put",JSON.stringify(patch),null);
+				var key=AZ.post("https://gc.1kat.cn/put",toPatchXml(patch),null);
 				if(!key){
+					it.removeClass("checked");
 					it.addClass("error");
+					it.addClass("notAllow");
 					it.find("label").html(it.find("label").html()+'-上传失败');
+					moveToLast(it);
+					eCnt++;
 				}else{
 					AZ.setPref("my_key_"+p+"_id",key);
+					it.removeClass("checked");
 					it.addClass("success");
+					it.addClass("notAllow");
 					it.find("label").html(it.find("label").html()+'-成功');
+					moveToLast(it);
+					sCnt++;
 				}
 			}
+			alert("上传完成，成功："+sCnt+",失败："+eCnt)
 		}else{
 			alert("尚未选择配置")
 		}
 	}catch(e){
+		
 	}
 	self.disabled="";
 	pageLoadTipHide();
 }
+function upload(self){
+	self.disabled="disabled";
+	if(!checkUser(true,"请先完善个人资料后，再上传。")){
+		self.disabled="";
+		return ;
+	}
+	pageLoadTip("上传中，请稍后。。。");
+	setTimeout(function(){
+		toUpload(self)
+	},1000);
+}
+
 function toPatchXml(map){
 	var title=map["lib_profile_title_key_p0_{cid}"];
 	if(!title)title="未知配置"
@@ -100,6 +163,7 @@ function toPatchXml(map){
 	}
 	return result;
 }
+
 
 
 var logoList=[
