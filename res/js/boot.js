@@ -13,10 +13,10 @@ var Thead={
 }
 var X=window.X||{
 	debugger:true,
-	VERSION:'1.0.0',
-	RES_CSS_VERSION:'1.0.0',
-	RES_JS_VERSION:'1.0.0',
-	RES_CUSTOM_VERSION:'1.0.0',
+	VERSION:'1.0.1',
+	RES_CSS_VERSION:'1.0.1',
+	RES_JS_VERSION:'1.0.1',
+	RES_CUSTOM_VERSION:'1.0.1',
 	base: function(){try{return document.getElementById("bootjs").src.split("/res/js/boot.js")[0]}catch{return document.location.origin;}}(),
 	isLocal:(window.location.href.indexOf("127.0.0")>-1||window.location.href.indexOf("localhost")>-1),
 	sleep:function(ms){var start = new Date().getTime();while (true) if (new Date().getTime() - start > ms) break;},

@@ -1,6 +1,6 @@
 window.onerror=function(){if(typeof pageLoadTipHide =="function") pageLoadTipHide(); }
 let MY={};
-let MY_VER=2301;
+let MY_VER=2305;
 $(document).ready(function(){
 	$( document ).on("click",".naviga .back",function(e){
 		history.back();
