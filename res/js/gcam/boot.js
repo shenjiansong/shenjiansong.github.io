@@ -1,7 +1,16 @@
 "use strict";
 Array.prototype.remove = function(val){ var index = this.indexOf(val);if (index > -1) {this.splice(index, 1);}  };
 Array.prototype.removeAll = function(val){var index; while((index = this.indexOf(val) )>-1) {this.splice(index, 1);}  };
-String.prototype.replaceAll = function(s1, s2) {return this.replace(new RegExp(s1, "gm"), s2);}
+if(typeof "".replaceAll !="function"){String.prototype.replaceAll = function(s1, s2) {return this.replace(new RegExp(s1, "gm"), s2);}}
+
+var Thead={
+	run:function(task){
+		setTimeout(task,1);
+	},
+	delayed:function(task,delayedMills){
+		setTimeout(task,delayedMills);
+	}
+}
 var X=window.X||{
 	debugger:true,
 	VERSION:'1.0.0',
