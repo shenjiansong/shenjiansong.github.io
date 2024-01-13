@@ -1,16 +1,23 @@
 window.onerror=function(){if(typeof pageLoadTipHide =="function") pageLoadTipHide(); }
 let MY={};
+let MY_VER=2301;
 $(document).ready(function(){
 	$( document ).on("click",".naviga .back",function(e){
 		history.back();
 	}); 
  $( document ).on("click",".naviga .ulogo",function(e){
- 	 document.location.href='user.html?t='+new Date().getTime();
+ 	 document.location.href='user.html';
  }); 
  $( document ).on("click",".naviga .close",function(e){
  	 toClose();
  }); 
-	 
+ $( document ).on("click",".naviga .hadNew",function(e){
+ 	document.location.href='../details.html?md=gcam';
+ }); 
+if(hasNewVersion()){
+	$(".hadNew").removeClass("hide")
+}
+ 
 });
 function getUser(){
 	if(!MY || !MY["uid"] || MY["uid"].length<1){
@@ -161,6 +168,7 @@ if(typeof AZ=="object"){
 		},
 		getVersion:function(){
 			console.log("getVersion");
+			return "8.8_2305"
 		},
 		setPref:function(k,v){
 			console.log("setPref:",k,v);
@@ -206,7 +214,16 @@ if(typeof AZ=="object"){
 //   }
 // }
 
-
+function hasNewVersion(){
+	if(typeof AZ=="object"){
+		var v= AZ.getVersion();
+		if(v && v.indexOf("_")>0){
+			v=v.split("_")[1]*1;
+			return v<MY_VER;
+		}
+	}
+	return false;
+}
 
 var plist=[
 {

@@ -5,7 +5,9 @@ color: #cfcfcf;
 overflow-x: hidden;
 font-size: 0.7rem;
 }
-
+.hide{
+	display: none;
+}
 .toolbar{
 	position: fixed;
 	bottom: 0px;
@@ -49,6 +51,14 @@ font-size: 0.7rem;
 	width:2rem;
 	height:2rem;
 	border-radius:1.5rem;
+}
+
+.naviga .hadNew{
+	position: absolute;
+	font-size: 0.2rem; 
+	top: 1.5rem;
+	right: 7rem;
+	color: #ffaa00;
 }
    
 
