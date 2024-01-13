@@ -5,16 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
 		<script src="../res/js/gcam/bootx.js"></script>
+		<script id="tempItem" type="html/demo">
+			<DIV class="item">
+				<div class="demoimg" style="background-image: url('{demoImg}');"></div>
+				<label>{title}</label>
+				<i data-p="{p}" class="fa {uploadicon} upload"></i>
+			</DIV>
+		</script>
 	</head>
-	<body>
-		<div class="toolbar">
-			<input type="button"  value="上传" onclick="upload(this)" >
-			<input type="button"  value="关闭" onclick="toClose(this)" >
-			<input type="button"  value="完善资料" onclick="(function(){document.location.href='user.html?t='+new Date().getTime();})()" > 
-		</div>
+	<body class="blackBg">
+		<div class="naviga"><i class="fa fa-chevron-left back"></i><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>
 		<div class="info">
-			<font color="#1332ff">蓝框</font>代表选中，<font color="chartreuse">绿框</font>代表上传成功，<font color="#ff0000">红框</font>代表上传失败
-			<div style="background-color: currentcolor!important;"><label style="color: #9b8193;">灰色背景，代表已在线，暂不可更新，后期将开放版本更新</label></div>
+			<i class="fa  fa-arrow-up" ></i>代表本地配置还未上传，点击后上传配置<br />
+			<i class="fa  fa-ban" ></i>代表该配置已在线上，<i class="fa fa-exclamation" ></i>代表上传失败</div>
 		</div>
 		<div id="D1"> </div>
 	</body>

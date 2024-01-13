@@ -7,6 +7,9 @@ $( document ).ready(function(){
 		$("#email").val(user.email||"");
 	}
 });
+function toUpload(){
+	 document.location.href='upload.html';
+}
 function doSave(){
 	var data={
 		uid:user.uid||"",

@@ -36,6 +36,7 @@ var X=window.X||{
 X.PARAM=X.GetRequest();
 if(typeof X.beforeLoad=="function")X.beforeLoad();
 document.write(`
+<link rel="stylesheet" type="text/css" href="https://lib.baomitu.com/font-awesome/5.13.0/css/all.css">
 <link rel="stylesheet" type="text/css" href="../res/css/gcam.css?v=${X.RES_CSS_VERSION}">
 <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>

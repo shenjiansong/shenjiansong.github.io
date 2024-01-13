@@ -1,6 +1,25 @@
 var existsPatchList=[];
 var page=0,size=18;
 var allCnt=1;
+var default_logo="https://s11.ax1x.com/2024/01/13/pFPJVxI.png"
+
+$(document).ready(function(){
+	$( document ).on("click",".item .down",function(e){
+		const self=$(this);
+		if(self.hasClass("fa-arrow-down")){
+			addPatch(self);
+		}else{
+			alert("当前配置不可下载");
+		}
+	}); 
+	 initExistsPatchList();
+	 showList();
+	 onToEnd(showList);
+	 
+});
+
+
+
 function insertToFirst(e){
 	var D1=$("#D2")[0];
 	if(D1.children && D1.children.length>0){
@@ -34,12 +53,15 @@ function showList(){
 			var p=list[i];
 			var title=p.title||'未知配置'+(allCnt++)
 			var v=p.version||'8.8';
-			var downTitle="下载";
-			if(existsPatchList.includes(p.gkey))downTitle="已下载";
+			var downCls="fa-arrow-down";
+			if(existsPatchList.includes(p.gkey))downCls="fa-ban";
 			insertToLast(item_temp_html.replace("{key}",p.gkey)
 			.replace("{title}",title)
-			.replace("{down_title}",downTitle)
-			.replace("{v}",v));
+			.replace("{downcls}",downCls)
+			.replace("{v}",v)
+			.replace("{name}",p.name||'')
+			.replace("{demoImg}",p.demo||default_logo)
+			); 
 		}
 	}
 	pageLoadTipHide(); 
@@ -49,24 +71,8 @@ function showList(){
 		page++;
 	}
 }
-$(document).ready(function(){
-	$( document ).on("click",".item div",function(e){
-		const self=$(this);
-		if("已下载"==self.html()||"下载成功"==self.html()){
-			alert("当前配置已下载");
-		}else{
-			addPatch(self);
-		}
-	}); 
-	 initExistsPatchList();
-	 showList();
-	 onToEnd(showList);
-	 
-});
-
 function addPatch(self){
 	pageLoadTip(null);
-	self.html("下载中");
 	var gkey=self.data("key");
 	setTimeout(() => {
 			 try{
@@ -74,14 +80,16 @@ function addPatch(self){
 				var res=AZ.insetPatch(xmlPatch);
 				if(res=="1"){
 					alert("添加成功");
-					self.html("已下载");
+					self.removeClass("fa-arrow-down");
+					self.addClass("fa-ban")
 					pageLoadTipHide(); 
 					return;
 				}
 			 }catch(e){  }
 			 
 			alert("添加失败")
-			self.html("下载失败");
+			self.removeClass("fa-arrow-down");
+			self.addClass("fa-exclamation")
 			pageLoadTipHide();
 			return;
 	}, 50);

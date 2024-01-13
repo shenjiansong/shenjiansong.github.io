@@ -1,11 +1,23 @@
 window.onerror=function(){if(typeof pageLoadTipHide =="function") pageLoadTipHide(); }
 let MY={};
+$(document).ready(function(){
+	$( document ).on("click",".naviga .back",function(e){
+		history.back();
+	}); 
+ $( document ).on("click",".naviga .ulogo",function(e){
+ 	 document.location.href='user.html?t='+new Date().getTime();
+ }); 
+ $( document ).on("click",".naviga .close",function(e){
+ 	 toClose();
+ }); 
+	 
+});
 function getUser(){
 	if(!MY || !MY["uid"] || MY["uid"].length<1){
 		MY=AZ.getUser();
 		if(MY && MY.length>10){
 			MY=JSON.parse(MY);
-		} 
+		}
 	}
 	return MY||{};
 }
@@ -130,37 +142,37 @@ if(typeof AZ=="object"){
 			return "";
 		},
 		close:function(){
-			
+			console.log("close");
 		},
 		post:function(url,json,headers){
 			if(url=="https://gc.1kat.cn/list")return plist.concat(plist);
 		},
 		get:function(url){
-			
+			console.log("get：",url);
 		},
 		getFileList:function(path){
-			
+			console.log("getFileList：",path);
 		},
 		getFileText:function(path){
-			
+			console.log("getFileText：",path);
 		},
 		throwError:function(message){
-			
+			console.log("throwError：",message);
 		},
 		getVersion:function(){
-			
+			console.log("getVersion");
 		},
 		setPref:function(k,v){
-			
+			console.log("setPref:",k,v);
 		},
 		setPref:function(json){
-			
+			console.log("setPref：",json);
 		},
 		Restart:function(){
-			
+			console.log("Restart");
 		},
 		toast:function(msg){
-			
+			console.log("toast");
 		},
 		log:function(log){
 			
