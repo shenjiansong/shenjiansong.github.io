@@ -49,6 +49,7 @@ function checkUser(needMsg,msg){
 
 function toClose(self){
 	if(typeof AZ=="object"){
+alert('close')
   AZ.Restart()
 		//AZ.close();
 	}
