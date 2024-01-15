@@ -49,7 +49,8 @@ function checkUser(needMsg,msg){
 
 function toClose(self){
 	if(typeof AZ=="object"){
-		AZ.close();
+  AZ.Restart()
+		//AZ.close();
 	}
 }
 
