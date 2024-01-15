@@ -1,23 +1,23 @@
+var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(){if(typeof pageLoadTipHide =="function") pageLoadTipHide(); }
 let MY={};
-let MY_VER=2305;
 $(document).ready(function(){
+	$( document.body).append($(navigaTemp));
 	$( document ).on("click",".naviga .back",function(e){
 		history.back();
 	}); 
- $( document ).on("click",".naviga .ulogo",function(e){
- 	 document.location.href='user.html';
- }); 
- $( document ).on("click",".naviga .close",function(e){
- 	 toClose();
- }); 
- $( document ).on("click",".naviga .hadNew",function(e){
- 	document.location.href='../details.html?md=gcam';
- }); 
-if(hasNewVersion()){
-	$(".hadNew").removeClass("hide")
-}
- 
+	 $( document ).on("click",".naviga .ulogo",function(e){
+		 document.location.href='user.html';
+	 }); 
+	 $( document ).on("click",".naviga .close",function(e){
+		 toClose();
+	 }); 
+	 $( document ).on("click",".naviga .hadNew",function(e){
+		document.location.href='../details.html?md=gcam';
+	 }); 
+	if(hasNewVersion()){
+		$(".hadNew").removeClass("hide");
+	}
 });
 function getUser(){
 	if(!MY || !MY["uid"] || MY["uid"].length<1){
@@ -116,7 +116,6 @@ function onToEnd(toEndFunc){
 //             console.log('向下滑动事件被触发！',this,event)
 //         }
 //     })
-
 if(typeof AZ=="object"){
 	//initUk();
 	alert=function(msg){
@@ -130,17 +129,10 @@ if(typeof AZ=="object"){
 	// 	AZ.setPref(k,"");
 	// }
 }else{
+	document.write(`<script src="../res/js/gcam/ldata.js?v=1"></script>`);
 	AZ={
 		queryPref:function(str){
-			return `{
-				'lib_profile_title_key_p0_0':'AAAA',
-				'my_key_p0_id':'AAAAAAAA',
-				
-				'lib_profile_title_key_p2_0':'bbbbb',
-				
-				'lib_profile_title_key_p3_0':'ccccc',
-				'my_key_p3_id':'xxxxxx'
-			}`;
+			return searchList;
 		},
 		matchPref:function(reg){
 			return "";
@@ -152,10 +144,15 @@ if(typeof AZ=="object"){
 			console.log("close");
 		},
 		post:function(url,json,headers){
-			if(url=="https://gc.1kat.cn/list")return plist.concat(plist);
+			if(url=="https://gc.1kat.cn/list"){
+				return plist.concat(plist);
+			}
 		},
 		get:function(url){
 			console.log("get：",url);
+			if(url.indexOf("/item/")>0){
+				return litem;
+			}
 		},
 		getFileList:function(path){
 			console.log("getFileList：",path);
@@ -213,14 +210,26 @@ if(typeof AZ=="object"){
 // 	  }
 //   }
 // }
-
 function hasNewVersion(){
-	if(typeof AZ=="object"){
-		var v= AZ.getVersion();
-		if(v && v.indexOf("_")>0){
-			v=v.split("_")[1]*1;
-			return v<MY_VER;
-		}
-	}
+	try{
+		return AZ.getVersion().split("_")[1]*1 < X.VERSION;
+	}catch(e){}
 	return false;
+}
+function toItem(id){
+	X.to("./item","id="+id);
+}
+
+function addPatchByKey(gkey){
+	return new Promise (function(resolve, reject) {
+			setTimeout(() => {
+					 try{
+						var xmlPatch=AZ.get("https://gc.1kat.cn/get/"+gkey);
+						var res=AZ.insetPatch(xmlPatch);
+						resolve(res=="1");
+					 }catch(e){  } 
+					 resolve(false);
+			}, 50);
+	  });
+
 }

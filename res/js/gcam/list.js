@@ -4,14 +4,20 @@ var allCnt=1;
 var default_logo="https://s11.ax1x.com/2024/01/13/pFPJVxI.png"
 
 $(document).ready(function(){
-	$( document ).on("click",".item .down",function(e){
-		const self=$(this);
-		if(self.hasClass("fa-arrow-down")){
-			addPatch(self);
+	$( document ).on("click",".item",function(e){
+		const tag=$(event.target);
+		if(tag.hasClass("down")){
+			if(tag.hasClass("fa-arrow-down")){
+				addPatch(tag); 
+			}else{
+				alert("当前配置不可下载");
+			}
 		}else{
-			alert("当前配置不可下载");
+			var id=$(this).find("i").data("key");
+			toItem(id);
 		}
-	}); 
+	});
+	
 	 initExistsPatchList();
 	 showList();
 	 onToEnd(showList);

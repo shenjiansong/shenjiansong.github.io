@@ -13,7 +13,9 @@ var Thead={
 }
 var X=window.X||{
 	debugger:true,
-	VERSION:'1.0.0',
+	VERSION:2305,
+	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
+	CACHE_VERSION:1,
 	RES_CSS_VERSION:'1.0.0',
 	RES_JS_VERSION:'1.0.0',
 	RES_CUSTOM_VERSION:'1.0.0',
@@ -31,35 +33,54 @@ var X=window.X||{
 			}
 		}
 		return theRequest;
+	},
+	to:function(page,param){
+		var url=page+".html";
+		if(param && param.trim().length>0)url=url+"?"+param;
+		document.location.href=url;
 	}
 };
 X.PARAM=X.GetRequest();
 if(typeof X.beforeLoad=="function")X.beforeLoad();
 document.write(`
-<link rel="stylesheet" type="text/css" href="https://lib.baomitu.com/font-awesome/5.13.0/css/all.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="../res/css/gcam.css?v=${X.RES_CSS_VERSION}">
 <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 <script src="../res/js/gcam/common.js?v=${X.RES_JS_VERSION}"></script>`);
- 
  try{
  	var ___tmpurlpage=location.href.split("#")[0].split("?")[0].split('/').pop();
  	if(___tmpurlpage==="upload.html"){
  		document.write(`<script src="../res/js/gcam/upload.js?v=${X.RES_JS_VERSION}"></script>`);
  	}else if(___tmpurlpage==="user.html"){
- 		document.write(`<script src="../res/js/gcam/user.js?v=${X.RES_JS_VERSION}"></script>`);
+ 		document.write(`<script src="../res/js/gcam/user.js?v=${X.RES_JS_VERSION}"></script>
+		<script async src="//7up.pics/sdk/pup.js" data-url="https://7up.pics/upload"></script>`);
  	}else if(___tmpurlpage==="list.html"){
  		document.write(`<script src="../res/js/gcam/list.js?v=${X.RES_JS_VERSION}"></script>`);
+ 	}else if(___tmpurlpage==="item.html"){
+ 		document.write(`
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+		<script src="../res/js/gcam/item.js?v=${X.RES_JS_VERSION}"></script>`);
  	}
+	
+	
  }catch(e){ }
 
 if(typeof X.afterLoad=="function")X.afterLoad();
 window.onerror=function(a,b,c,d){
-	if(X.debugger&&X.isLocal)AZ.toast(a);
+	if(X.debugger&&X.isLocal){
+		if(typeof AZ=='object')AZ.toast(a);
+		else console.log(a,b,c,d)
+	}
 }
 
 window.onload=function(){
 	if(X.isLocal){
 		$(".toolbar").append(` <input type="button"  value="刷新" onclick="(function(){document.location.href=document.location.href+'?a&t='+new Date().getTime();})()" > `);
+	}
+}
+if(X  && (X.CACHE_VERSION||1) > __CACHE_VERSION ){
+	if(typeof AZ=='object' && typeof AZ.clearCache=='function'){
+		AZ.clearCache();
 	}
 }

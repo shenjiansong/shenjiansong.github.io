@@ -78,6 +78,10 @@ function initLibCustom(){
 function initPatchArr(pdt){
 	for(var k in pdt){
 		var pd=pdt[k];
+		//过滤 空值
+		if(pd==null || pd.trim().length<1 || pd.indexOf("as in library")>0) continue;
+		//过滤 cg配置
+		if(/[.]*lib_cg[0-9]*_key_p[.]*/.test(k) && !allowCg()) continue;
 		var p=getP(k);
 		if(p<0)continue;
 		if(k.indexOf("_key_p"+p+"_0")<0 &&  !k.startsWith("my_key") )continue;
@@ -89,6 +93,11 @@ function initPatchArr(pdt){
 				notAllowPatchs.push("p"+p);
 			}
 		}
+	}
+	var unKnowCnt=1;
+	for(var k in patchMap){
+		var patch=patchMap[k];
+		if(!patch["lib_profile_title_key_p0_{cid}"])patch["lib_profile_title_key_p0_{cid}"]="配置"+unKnowCnt++;
 	}
 }
 function getP(k){
@@ -140,4 +149,13 @@ function toPatchXml(map){
 		result=result+'<string name="'+k+'">'+map[k]+'</string>\n';
 	}
 	return result;
+}
+
+function allowCg(){
+	try{
+		if(X.GVERSION*10>85){
+			return false;
+		}
+	}catch(e){}
+	return true;
 }
