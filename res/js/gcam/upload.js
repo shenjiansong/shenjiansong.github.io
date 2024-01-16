@@ -82,6 +82,11 @@ function initPatchArr(pdt){
 		if(pd==null || pd.trim().length<1 || pd.indexOf("as in library")>0) continue;
 		//过滤 cg配置
 		if(/[.]*lib_cg[0-9]*_key_p[.]*/.test(k) && !allowCg()) continue;
+		//过滤 cg配置过滤 lib和库
+		if( k.startsWith("lib_custom_lib_open_key_p")||
+			k.startsWith("lib_lut_intensity_key")||
+			k.startsWith("lib_lut_key"))continue;
+			
 		var p=getP(k);
 		if(p<0)continue;
 		if(k.indexOf("_key_p"+p+"_0")<0 &&  !k.startsWith("my_key") )continue;

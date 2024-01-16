@@ -1,11 +1,10 @@
-var id=X.PARAM.id||111;
+var id=X.PARAM.id;
 $(document).ready(function(){ 
 	initView();
 	$( document ).on("click",".fa-arrow-down",function(e){
 		 const self=$(this);
 		addPatch(self);
 	});
-	 
 });
 
 function initView(){
@@ -19,7 +18,8 @@ function initView(){
 		.replaceAll("{version}",data.version||'8.8')
 		.replaceAll("{key}",data.id||id)
 		.replaceAll("{zz}",data.author.name)
-		.replaceAll("{downCnt}",data.quote_cnt||0)
+		.replaceAll("{downCnt}",data.down_cnt||0)
+		.replaceAll("{time}",data.create_time||'')
 		.replaceAll("{note}",data.note||'作者很懒没有留下任何介绍！！')
 		
 		)

@@ -1,5 +1,8 @@
 var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
-window.onerror=function(){if(typeof pageLoadTipHide =="function") pageLoadTipHide(); }
+window.onerror=function(a,b,c){
+	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 
+	console.log(a,b,c)
+}
 let MY={};
 $(document).ready(function(){
 	$( document.body).append($(navigaTemp));
@@ -14,6 +17,9 @@ $(document).ready(function(){
 	 }); 
 	 $( document ).on("click",".naviga .hadNew",function(e){
 		document.location.href='../details.html?md=gcam';
+	 }); 
+	 $( document ).on("click",".tabs",function(e){
+		document.location.href= $(e.target).data("url");
 	 }); 
 	if(hasNewVersion()){
 		$(".hadNew").removeClass("hide");
@@ -49,8 +55,7 @@ function checkUser(needMsg,msg){
 
 function toClose(self){
 	if(typeof AZ=="object"){
-alert('close')
-  AZ.Restart()
+		AZ.Restart();
 		//AZ.close();
 	}
 }
@@ -72,7 +77,7 @@ function pageLoadTip(msg){
 		}catch(e){
 			console.log("xxxxxx:"+e.message);
 		}
-	});
+	}); 
 }
 
 function pageLoadTipHide(){
@@ -81,8 +86,50 @@ function pageLoadTipHide(){
 		if(plt){
 			plt.style.display="none";
 		}
-		document.body.style["overflow-y"]=document.body.preOver||"auto";
+		if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
 	});
+}
+
+function showEditorBox(conf){
+	if(typeof conf=="string"){
+		conf={
+			text:conf
+		}
+	}else if(typeof conf=="undefined"){
+		conf={
+			text:"",
+		}
+	}
+	if(!conf.height)conf.height=100;
+	var editorBox=$("#editorBox");
+	if(!editorBox||editorBox.length<1){
+		editorBox =$("<div id='editorBox'><div>");
+		editorBox.attr("style","height:100px;display: none;position: fixed;bottom: 0;left: 50%;transform: translateX(-50%);width: 100vw;background-color: #f9f9f9;border: 1px solid #ccc;padding: 10px;")
+		var txt=null;
+		if(conf.ml){
+			txt=$("<textarea id='editorBoxTxt'></textarea>");
+		}else{
+			txt=$("<input  id='editorBoxTxt' />");
+		}
+		txt.attr("style","width:100%;height:80%");
+		var btn=$("<button>完成</button>");
+		btn.attr("style","width:100%;height:20%;background-color:#42b7a7");
+		editorBox.append(txt);
+		editorBox.append(btn);
+		$(document.body).append(editorBox);
+	}
+	if(conf.height){
+		editorBox.height(conf.height)
+	}
+	editorBox.find("#editorBoxTxt").val(conf.text);
+	editorBox.find("button").on("click",function(){
+		if(typeof conf.ok=="function"){
+			conf.ok(editorBox.find("#editorBoxTxt").val());
+		}
+		editorBox.find("button").unbind("click"); 
+		editorBox.hide();
+	});
+	editorBox.slideToggle();
 }
 
 function onToEnd(toEndFunc){
@@ -221,17 +268,20 @@ function hasNewVersion(){
 function toItem(id){
 	X.to("./item","id="+id);
 }
+function toMyItem(id){
+	X.to("./myitem","id="+id);
+}
+
+
 
 function addPatchByKey(gkey){
-	return new Promise (function(resolve, reject) {
-			setTimeout(() => {
-					 try{
-						var xmlPatch=AZ.get("https://gc.1kat.cn/get/"+gkey);
-						var res=AZ.insetPatch(xmlPatch);
-						resolve(res=="1");
-					 }catch(e){  } 
-					 resolve(false);
-			}, 50);
+	return new Promise ((resolve, reject)=> {
+			try{
+				var xmlPatch=AZ.get("https://gc.1kat.cn/get/"+gkey);
+				var res=AZ.insetPatch(xmlPatch);
+				if(res=="1") resolve();
+			}catch(e){  }
+			reject();
 	  });
-
 }
+

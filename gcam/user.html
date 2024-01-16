@@ -3,22 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<title></title><script async src="//7up.pics/sdk/pup.js" data-url="https://7up.pics/upload"></script>
 		<script src="../res/js/gcam/bootx.js"></script>
 	</head>
 	<body>
-		<div class="info" style="padding-left: 10px;">
+		<div class="tabs"><div data-url="user.html" class="tab active">我的资料</div><div data-url="mylist.html" class="tab">我的配置</div><div data-url="upload.html" class="tab">我要上传</div></div>
+		<div class="info" style="padding-top: 2rem;">
 			<p>用户昵称：将在展示配置时显示，为必填项。</p>
 			<p>邮箱：后期将通过邮箱推送配置相关资料。</p>
-			<p>酷安：酷安主页的链接复制后粘贴到这里。</p>
+			<p>酷安：你的酷安主页的链接复制后粘贴到这里。</p>
 		</div>
 		<div id="user">
-			<div><label>昵称<font color=red>*</font>：</label><input type="text" id="name" name="name"/></div>
-			<div><label>邮箱 ：</label><input type="email" id="email" name="email"/></div>
-			<div><label>酷安 ：</label><input type="text" id="kuan" name="kuan"/></div> 
-			<input class="button" type="button"  value="完成" onclick="doSave()" > 
-			
-			<input class="button" type="button"  value="我也要上传配置" onclick="toUpload()" > 
+			<div><label>昵 称<font color=red>*</font>：</label><input type="text" id="name" name="name"/></div>
+			<div><label>邮 箱 ：</label><input type="email" id="email" name="email"/></div>
+			<div><label>酷 安 ：</label><input type="text" id="kuan" name="kuan"/></div> 
+			<input class="button" type="button"  value="完成" onclick="doSave()" >
 		</div>
 	</body>
 </html>

@@ -7,21 +7,20 @@
 		<script src="../res/js/gcam/bootx.js"></script>
 		<script type="xml/demo" id="itemTemp">
 			<div class='cover' style="background-image: url('{demo}');"></div>
-			<div class='title'>{title}</div>
+			<div class='title'><i class="far fa-edit"></i><span>{title}<span></div>
 			<div class='src hide'>本是配置是基于<span>@{pzz}</span>的<span>{ptitle}</span>进行修改.</div>
 			<div class='ver'><i class="far fa-circle"></i><span>{version}</span></div>
-			<div class="fa fa-heart"></div>
 			<div class="fa fa-share"></div>
-			<div data-key="{key}" class="fa fa-arrow-down"></div>
+			<div data-key="{key}" class="fa fa-cloud-upload-alt"></div>
 			<div class='zz'>@<span>{zz}</span></div>
 			<div class='use'><span>{downCnt}</span> 次下载</div>
 			<div class='time'>{time}</div>
-			<div class='note'><pre>{note}</pre></div>
+			<div class='note'><i class="far fa-edit"></i><pre>{note}</pre></div>
 		</script>
 	</head>
-	<body>
-		<div id="item">
-			
-		</div>
+	<body id="myitem">
+		<input type="file" style="display: none;" id="file">
+		<div id="item"></div>
+		<button>保存</button>
 	</body>
 </html> 

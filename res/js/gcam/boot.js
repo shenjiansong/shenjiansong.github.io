@@ -5,10 +5,26 @@ if(typeof "".replaceAll !="function"){String.prototype.replaceAll = function(s1,
 
 var Thead={
 	run:function(task){
-		setTimeout(task,1);
+		return new Promise ((resolve, reject)=> {
+			try{
+				var result=task();
+				resolve(result);
+			}catch(e){
+				reject(e);
+			}
+		});
 	},
 	delayed:function(task,delayedMills){
-		setTimeout(task,delayedMills);
+		return new Promise ((resolve, reject)=> {
+			setTimeout(function(){
+				try{
+					var result=task();
+					resolve(result);
+				}catch(e){
+					reject(e);
+				}
+			},delayedMills);
+		});
 	}
 }
 var X=window.X||{
@@ -61,6 +77,10 @@ document.write(`
  		document.write(`
 		<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 		<script src="../res/js/gcam/item.js?v=${X.RES_JS_VERSION}"></script>`);
+ 	}else if(___tmpurlpage==="mylist.html"){
+ 		document.write(`<script src="../res/js/gcam/mylist.js?v=${X.RES_JS_VERSION}"></script>`);
+ 	}else if(___tmpurlpage==="myitem.html"){
+ 		document.write(`<script src="../res/js/gcam/myitem.js?v=${X.RES_JS_VERSION}"></script>`);
  	}
 	
 	

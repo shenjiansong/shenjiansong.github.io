@@ -104,7 +104,7 @@ margin: 5px;
 .info{
 	margin-top: 4rem;
 	width: 100%;
-	padding-left: 10px;
+	padding-left: 0.8rem;
 	font-size: 8px;
 }
 .checked{
@@ -184,14 +184,12 @@ border-color: chartreuse !important;
 }
 #D2 .item{
 	width: 31vw;
-	height: 10rem;
+	height: 9.4rem;
 	display: inline-grid;
 	position: relative;
-	margin-top: 5px;
 	margin-left: 2px;
 	text-align: center;
 	vertical-align: middle;
-	margin-bottom: 1rem;
 }
 #D2 .item .demoimg{
 	height: 7rem;
@@ -211,22 +209,22 @@ border-color: chartreuse !important;
 	font-size: 0.8rem;
 	position: absolute;
 	padding: 0.5rem 0.5rem;
-	bottom: 1.2rem;
+	bottom: 1.6rem;
 	right: 0.2rem;
 	color: chocolate;
 }
 #D2 .item .fa-arrow-down,#D2 .item .fa-ban,#D2 .item .fa-exclamation{
 	font-size: 0.8rem;
 	position: absolute;
-	padding: 0.5rem 0.5rem;
-	bottom: 1rem;
+	padding: 0.5rem 0.8rem;
+	bottom: 1.4rem;
 	left: 0.2rem;
 	color: chocolate;
 }
 
 #D2 .item .title{
 	position: absolute;
-    top: 8.4rem;
+	bottom: 1rem;
 	text-align: left;
 	padding: 0.1rem 0.8rem;
 	font-size: 0.7rem;
@@ -237,11 +235,20 @@ border-color: chartreuse !important;
 }
 #D2 .item .name{
 	position: absolute;
-	top:9.4rem;
+	bottom: 0rem;
 	text-align: left;
-	padding-left: 15%;
 	font-size: 0.7rem;
 	color: #9e9e9e;
+	padding: 0rem 0.8rem;
+}
+
+#D2 .item .time{
+	position: absolute;
+    top: 6.5rem;
+	text-align: left;
+	padding: 0.1rem 0.8rem;
+	font-size: 0.1rem; 
+	color: white;
 }
 
 #item{
@@ -315,6 +322,14 @@ border-color: chartreuse !important;
 	font-size: 1.2rem;
 	padding-bottom: 0.5rem;
 }
+
+#item .time{
+	position: absolute;
+	right:0rem;
+	top: 50vh;
+	font-size: 0.7rem;
+	color: bisque;
+}
 #item pre {
     white-space: pre-wrap;
 }
@@ -329,3 +344,39 @@ border-color: chartreuse !important;
 	font-size: 0.9rem;
 	color: #63abd6;;
 }
+
+.tabs{
+	background: black;
+	z-index: 999;
+	position: fixed;
+	display: flex;
+	width: 100%;
+}
+.tabs .tab{
+		border-right: 0.01rem solid #5d3737; 
+		background-color: #a07979;
+	    width: 3rem;
+	    top: 3rem;
+		padding: 0.5rem 0.3rem; 
+		text-align: center;
+}
+.tabs .active{
+	background-color:#ce9292
+}
+
+#myitem #item .fa-cloud-upload-alt{
+	position: absolute;
+	right:2rem;
+	top: 40vh;
+	font-size:1.5rem;
+} 
+
+#myitem #item .title .fa-edit{
+	font-size:1rem;
+	color: #daa15a;
+} 
+
+#myitem #item .note .fa-edit{
+	font-size:2rem;
+	color: #daa15a;
+} 
