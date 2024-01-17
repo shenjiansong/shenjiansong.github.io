@@ -10,7 +10,10 @@ $(document).ready(function(){
 function initView(){
 	if(id){
 		var data=getItem(id);
-		console.log(data)
+		if(data.demo && data.demo.indexOf("/pic/DEMO")>0){
+			data.demo=AZ.get(data.demo);
+		}
+		
 		var temp=$("#itemTemp").html();
 		$("#item").html(
 		temp.replaceAll("{title}",data.title)

@@ -1,3 +1,6 @@
+if(!X)X={};
+X.demoWidth=400;
+X.iconWidth=64;
 var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(a,b,c){
 	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 
@@ -88,6 +91,11 @@ function pageLoadTipHide(){
 		}
 		if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
 	});
+}
+
+function hideEditorBox(){
+	var editorBox=$("#editorBox");
+	editorBox.hide();
 }
 
 function showEditorBox(conf){
@@ -202,6 +210,10 @@ if(typeof AZ=="object"){
 			if(url.indexOf("/item/")>0){
 				return litem;
 			}
+			 
+		 //  	$.get(url,function(res){
+				
+			// });
 		},
 		getFileList:function(path){
 			console.log("getFileList：",path);
@@ -285,3 +297,4 @@ function addPatchByKey(gkey){
 	  });
 }
 
+//AZ.toast(UNIN_CODE_IN_PAG%100)

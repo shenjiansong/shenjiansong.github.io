@@ -1,5 +1,5 @@
 
-var litem=`{"author":{"uid":"18CFCC54D4E","name":"nan_ren","email":"","kuan":"","mobile":"","create_time":"2024-01-12 16:23:58"},"create_time":"2024-01-14 07:56:23","demo":"","devices":"OP528BL1_PGEM10_PGEM10_2305","gkey":"2A67D05415113","icon":"","quote_cnt":0,"title":"暮色","version":"8.8","zz":"18CFCC54D4E"}`
+var litem=`{"author":{"uid":"18CFCC54D4E","name":"nan_ren","email":"","kuan":"","mobile":"","create_time":"2024-01-12 16:23:58"},"create_time":"2024-01-14 07:56:23","demo":"https://gc.1kat.cn/pic/DEMO2A67D05415113","devices":"OP528BL1_PGEM10_PGEM10_2305","gkey":"2A67D05415113","icon":"","quote_cnt":0,"title":"暮色","version":"8.8","zz":"18CFCC54D4E"}`
 
 var searchList=`{'lib_profile_title_key_p0_0':'AAAA',
 				'my_key_p0_id':'AAAAAAAA',

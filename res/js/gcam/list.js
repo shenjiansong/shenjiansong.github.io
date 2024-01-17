@@ -13,6 +13,7 @@ $(document).ready(function(){
 				alert("当前配置不可下载");
 			}
 		}else{
+			pageLoadTip("正在加载。。。");
 			var id=$(this).find("i").data("key");
 			toItem(id);
 		}
@@ -34,8 +35,23 @@ function insertToFirst(e){
 		$("#D2").append($(e));
 	}
 }
+var ii=1
 function insertToLast(e){
-	$("#D2").append($(e));
+	let dd=$(e);
+	let demo=dd.find(".demoimg");
+	var src = demo.data("src")
+	if(src){
+		Thead.delayed(function(){
+			if(src && src.indexOf("/pic/DEMO")>0){
+				src=AZ.get(src);
+			}
+			if(src){
+				demo.attr("style","background-image:url('"+src+"')");
+			}
+		},100*(ii++%size));
+	}
+	$("#D2").append(dd);
+	
 }
 function moveToLast(e){
 	$("#D2").append(e);

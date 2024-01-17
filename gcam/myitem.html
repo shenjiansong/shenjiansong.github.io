@@ -6,7 +6,8 @@
 		<title></title>
 		<script src="../res/js/gcam/bootx.js"></script>
 		<script type="xml/demo" id="itemTemp">
-			<div class='cover' style="background-image: url('{demo}');"></div>
+			<div class='cover' data-src='{demo}' style="background-image: url('{demo}');"></div>
+			<div class='icon'><img src='{icon}'></img><div>上传</div></div> 
 			<div class='title'><i class="far fa-edit"></i><span>{title}<span></div>
 			<div class='src hide'>本是配置是基于<span>@{pzz}</span>的<span>{ptitle}</span>进行修改.</div>
 			<div class='ver'><i class="far fa-circle"></i><span>{version}</span></div>
@@ -21,6 +22,6 @@
 	<body id="myitem">
 		<input type="file" style="display: none;" id="file">
 		<div id="item"></div>
-		<button>保存</button>
+		<button id="saveBtn">保存</button>
 	</body>
 </html> 

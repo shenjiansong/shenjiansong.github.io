@@ -1,6 +1,6 @@
 var id=X.PARAM.id||1;
 var item=null;
-$(document).ready(function(){ 
+$(document).ready(function(){
 	initView();
 	$( document ).on("click",".title .fa-edit",function(e){
 		let titleDom=this.parentNode;
@@ -26,7 +26,14 @@ $(document).ready(function(){
 				});
 	});
 	$( document ).on("click",".fa-cloud-upload-alt",function(e){
+		$("#file").data("to","demo");
+		$("#file").data("w",X.demoWidth);
 		 $("#file").click()
+	});
+	$( document ).on("click",".icon",function(e){
+		$("#file").data("to","icon");
+		$("#file").data("w",X.iconWidth);
+		$("#file").click()
 	});
 	$( document ).on("change","#file",function(e){
 		 const file = event.target.files[0]; // 获取第一张选定的图片
@@ -36,8 +43,13 @@ $(document).ready(function(){
 				 const base64String = reader.result; // 获取Base64字符串
 				// console.log("Base64 String:", base64String);
 				 // 这里可以根据需求进行其他操作，比如显示预览、上传等
-				 getBase64Image(base64String).then(v => {
-					item.demo=v;
+				 var to=$("#file").data("to");
+				 var w=$("#file").data("w")*1;
+				 getBase64Image(base64String,w).then(v => {
+					 item[to]=v;
+					 if(to=="demo"){
+						 item["demo_src"]=v;
+					 }
 					initView();
 				 });
 			 };
@@ -46,26 +58,58 @@ $(document).ready(function(){
 			 console.error("Invalid file");
 		 }
 	});
+	$( document ).on("click","#saveBtn",function(e){
+		 if(id&&item){
+			 try{
+				 pageLoadTip("正在保存，请稍后");
+				 var data={
+					 "key":item.gkey||id,
+					 "icon":item.icon||'',
+					 "demo":item.demo||'',
+					 "title":item.title||'',
+					 "note":item.note||''
+				 }
+				var res=AZ.post("https://gc.1kat.cn/update",JSON.stringify(data),"");
+				if(res=="1")alert("保存成功");
+				else  alert("保存失败");
+				pageLoadTipHide();
+				return;
+			}catch(e){
+				pageLoadTipHide();
+			}
+		 }
+		 alert("保存失败");
+	});
 	
-	
+	$( document ).on("click","body",function(e){
+		if($(e.target).hasClass("fa-edit")) return;
+		if(e.target.id=="editorBox"||e.target.id=="editorBoxTxt") return;
+		 hideEditorBox();
+	});
 });
 
 function initView(){
+	//alert(id)
 	if(!item && id){
 		item=getItem(id);
+		if(item.demo && item.demo.indexOf("/pic/DEMO")>0){
+			item.demo_src=AZ.get(item.demo);
+		}else{
+			item.demo_src=item.demo;
+		}
 	}
 	if(item){
 		var temp=$("#itemTemp").html();
 		$("#item").html(
 		temp.replaceAll("{title}",item.title)
-		.replaceAll("{demo}",item.demo||"https://7up.pics/images/2024/01/15/common.webp")
+		.replaceAll("{demo}",item.demo_src||"https://7up.pics/images/2024/01/15/common.webp")
+		.replaceAll("{icon}",item.icon||"https://s11.ax1x.com/2024/01/17/pFkSLtg.png")
 		.replaceAll("{version}",item.version||'8.8')
-		.replaceAll("{key}",item.id||id)
+		.replaceAll("{key}",item.gkey||id)
 		.replaceAll("{zz}",item.author.name)
 		.replaceAll("{downCnt}",item.down_cnt||0)
 		.replaceAll("{time}",item.create_time||'')
 		.replaceAll("{note}",item.note||'作者很懒没有留下任何介绍！！')
-		
 		)
 	}
 }
@@ -93,10 +137,6 @@ function addPatch(self){
 	}, 50);
 }
 
-function show(){
-	
-}
-
 
 function getItem(gkey){
 	try{
@@ -109,18 +149,18 @@ function getItem(gkey){
 }
 
 
-function getBase64Image(src) {
+function getBase64Image(src,w) {
     return new Promise(resolve => {
         const img = new Image()
         img.crossOrigin = ''
         img.onload = function () {
             const canvas = document.createElement('canvas')
 			var m = img.height / img.width;
-			 canvas.width  = 300 ;//该值影响缩放后图片的大小
-			 canvas.height =300*m;
+			 canvas.width  = w ;//该值影响缩放后图片的大小
+			 canvas.height =w*m;
             const ctx = canvas.getContext('2d')
            // ctx?.drawImage(img, 0, 0, img.width, img.height,0, 0, 32, 32)
-			ctx.drawImage(img, 0, 0,300,300*m);
+			ctx.drawImage(img, 0, 0,w,w*m);
             const ext = img.src.substring(img.src.lastIndexOf('.') + 1).toLowerCase()
             const dataURL = canvas.toDataURL('image/' + ext)
             resolve(dataURL)

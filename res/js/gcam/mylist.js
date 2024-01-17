@@ -5,26 +5,13 @@ var default_logo="https://s11.ax1x.com/2024/01/13/pFPJVxI.png"
 
 $(document).ready(function(){
 	$( document ).on("click",".item",function(e){
-		const tag=$(event.target);
-		if(tag.hasClass("down")){
-			if(tag.hasClass("fa-arrow-down")){
-				addPatch(tag); 
-			}else{
-				alert("当前配置不可下载");
-			}
-		}else{
-			var id=$(this).find("i").data("key");
-			toMyItem(id);
-		}
+		var id=$(this).data("key");
+		toMyItem(id);
 	});
-	
-	 initExistsPatchList();
 	 showList();
 	 onToEnd(showList);
 	 
 });
-
-
 
 function insertToFirst(e){
 	var D1=$("#D2")[0];
@@ -34,18 +21,26 @@ function insertToFirst(e){
 		$("#D2").append($(e));
 	}
 }
+var ii=1
 function insertToLast(e){
-	$("#D2").append($(e));
+	let dd=$(e);
+	let demo=dd.find(".demoimg");
+	var src = demo.data("src")
+	if(src){
+		Thead.delayed(function(){
+			if(src && src.indexOf("/pic/DEMO")>0){
+				src=AZ.get(src);
+			}
+			if(src){
+				demo.attr("style","background-image:url('"+src+"')");
+			}
+		},100*(ii++));
+	}
+	
+	$("#D2").append(dd);
 }
 function moveToLast(e){
 	$("#D2").append(e);
-}
-function initExistsPatchList(){
-	var matchJson = AZ.matchPref("my_key_p\\d+_id");
-	if(matchJson && typeof matchJson==="string" )matchJson=JSON.parse(matchJson);
-	for(var k in matchJson){
-		existsPatchList.push(matchJson[k]);
-	}
 }
 function showList(){
 	if(page<0){
@@ -59,14 +54,10 @@ function showList(){
 			var p=list[i];
 			var title=p.title||'未知配置'+(allCnt++)
 			var v=p.version||'8.8';
-			var downCls="fa-arrow-down";
-			if(existsPatchList.includes(p.gkey))downCls="fa-ban";
 			insertToLast(item_temp_html.replace("{key}",p.gkey)
 			.replace("{title}",title)
-			.replace("{downcls}",downCls)
 			.replace("{v}",v)
-			.replace("{name}",p.name||'')
-			.replace("{demoImg}",p.demo||default_logo)
+			.replace("{demoImg}",p.demo||'')
 			); 
 		}
 	}
@@ -103,6 +94,7 @@ function addPatch(self){
 
 
 function getList(p,s){
+	if(!getUkey())return [];
 	var pam={
 		page:p||0,
 		size:s||size,
