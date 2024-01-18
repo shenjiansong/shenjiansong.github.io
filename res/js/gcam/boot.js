@@ -84,6 +84,8 @@ document.write(`
  		document.write(`<script src="../res/js/gcam/mylist.js?v=${X.RES_JS_VERSION}"></script>`);
  	}else if(___tmpurlpage==="myitem.html"){
  		document.write(`<script src="../res/js/gcam/myitem.js?v=${X.RES_JS_VERSION}"></script>`);
+ 	}else if(___tmpurlpage==="add.html"){
+ 		document.write(`<script src="../res/js/gcam/add.js?v=${X.RES_JS_VERSION}"></script>`);
  	}
 	
 	

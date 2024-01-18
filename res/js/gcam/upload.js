@@ -11,7 +11,9 @@ $( document ).ready(function(){
 			alert("当前配置不可上传");
 		}
 	});
-	
+	$( document ).on("click","#addBtn",function(e){
+		X.to("add");
+	});
 	var  matchJson = AZ.queryPref("_key_p");
 	//if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
 	var matchs=null;
