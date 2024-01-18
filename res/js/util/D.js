@@ -58,7 +58,7 @@ layui.define([], function (exports) {
 		footer:{
 			// wx:`${X.img}/wx.jpg`,
 			// mobile:'18888888888',
-			qq:'1315112919',
+			Q群:'792609104',
 			email:'1315112919@qq.com',
 			tempHtml:`<div class="footer-wrap">
 				<div class="footer w1000">

@@ -1,7 +1,10 @@
+var qqKey='Ajunow7XHpNqGtbgG9hDMTnJy0aWK2CV';
+var qqInent='mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26jump_from%3Dwebapi%26k%3D'
+
 if(!X)X={};
 X.demoWidth=400;
 X.iconWidth=64;
-var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
+var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class='qq'>点我<br />加群</span> <span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(a,b,c){
 	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 
 	console.log(a,b,c)
@@ -10,21 +13,29 @@ let MY={};
 $(document).ready(function(){
 	$( document.body).append($(navigaTemp));
 	$( document ).on("click",".naviga .back",function(e){
-		history.back();
-	}); 
+		pageLoadTip("");
+		toBack();
+	});
 	 $( document ).on("click",".naviga .ulogo",function(e){
-		 document.location.href='user.html';
+		X.to("user");
 	 }); 
 	 $( document ).on("click",".naviga .close",function(e){
-		 toClose();
+		pageLoadTip("");
+		toClose();
 	 }); 
 	 $( document ).on("click",".naviga .hadNew",function(e){
-		document.location.href='../details.html?md=gcam';
+		X.to("../details","md=gcam");
+	 }); 
+	 $( document ).on("click",".naviga .qq",function(e){
+		 X.to(qqInent+qqKey);
+		pageLoadTipHide();
 	 }); 
 	 $( document ).on("click",".tabs",function(e){
+		pageLoadTip("");
 		document.location.href= $(e.target).data("url");
 	 }); 
 	if(hasNewVersion()){
+		$(".qq").addClass("hide");
 		$(".hadNew").removeClass("hide");
 	}
 });
@@ -56,11 +67,14 @@ function checkUser(needMsg,msg){
 	return true;
 }
 
-function toClose(self){
+function toClose(){
 	if(typeof AZ=="object"){
 		AZ.Restart();
-		//AZ.close();
 	}
+}
+function toBack(){
+	history.back();
+	Thead.delayed(toClose,300);
 }
 
 function pageLoadTip(msg){
@@ -188,6 +202,9 @@ if(typeof AZ=="object"){
 }else{
 	document.write(`<script src="../res/js/gcam/ldata.js?v=1"></script>`);
 	AZ={
+		getPref:function(str){
+			return "";
+		},
 		queryPref:function(str){
 			return searchList;
 		},

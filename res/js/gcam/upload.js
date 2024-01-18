@@ -45,18 +45,16 @@ function initItems(){
 		var patch=patchMap[k];
 		var title=patch["lib_profile_title_key_p0_{cid}"];
 		if(notAllowPatchs.indexOf(k)>-1){
-			insertToLast(item_temp_html.replace("{p}",k)
-			.replace("{title}",title)
-			.replace("{uploadicon}","fa-ban")
-			.replace("{demoImg}",default_logo) 
-			
-			);
-		}else{
-			insertToFirst(item_temp_html.replace("{p}",k)
-			.replace("{title}",title)
-			.replace("{uploadicon}","fa-arrow-up")
-			.replace("{demoImg}",default_logo) 
-			);
+				insertToLast(item_temp_html.replace("{p}",k)
+				.replace("{title}",title)
+				.replace("{uploadicon}","fa-ban")
+				.replace("{demoImg}",default_logo)  );
+			}else{
+				insertToFirst(item_temp_html.replace("{p}",k)
+				.replace("{title}",title)
+				.replace("{uploadicon}","fa-arrow-up")
+				.replace("{demoImg}",default_logo) 
+				);
 		}
 	}
 }
@@ -93,10 +91,8 @@ function initPatchArr(pdt){
 		if(!patchMap["p"+p])patchMap["p"+p]={};
 		var nk=k.replace("_key_p"+p+"_0","_key_p0_{cid}").replace("_key_p"+p+"_","_key_p0_");
 		patchMap["p"+p][nk]=pd;
-		if(nk=="my_key_p0_id"){
-			if(pd.length>1){
-				notAllowPatchs.push("p"+p);
-			}
+		if(nk=="my_key_p0_lut"){
+			notAllowPatchs.push("p"+p);
 		}
 	}
 	var unKnowCnt=1;
@@ -150,7 +146,10 @@ function toPatchXml(map){
 	if(!title)title="未知配置"
 	var result='<string name="lib_profile_title_key_p0_{cid}">'+title+'</string>\n';
 	for(var k in map){
-		if(k=="lib_profile_title_key_p0_{cid}")continue;
+		if(k=="lib_profile_title_key_p0_{cid}"||
+		k=="my_key_p0_icon"||
+		k=="my_key_p0_index"||
+		k.startsWith("lib_profile_show_key"))continue;
 		result=result+'<string name="'+k+'">'+map[k]+'</string>\n';
 	}
 	return result;

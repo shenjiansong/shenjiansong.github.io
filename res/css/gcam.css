@@ -59,11 +59,19 @@ margin: 5px;
 	border-radius:1.5rem;
 }
 
+.naviga .qq{
+	position: absolute;
+	font-size: 0.2rem; 
+	right: 6rem;
+	top: 1.2rem;
+	color: #ffaa00;
+}
+
 .naviga .hadNew{
 	position: absolute;
 	font-size: 0.2rem; 
 	top: 1.5rem;
-	right: 7rem;
+	right: 6rem;
 	color: #ffaa00;
 }
    
@@ -137,6 +145,15 @@ border-color: chartreuse !important;
 	color: aliceblue;
 	background-color: #5f97a5;
 	border: 0px;
+}
+#user #wxz{
+	width: 40%;
+}
+#user #wxzBtn{
+	height: 1.8rem;
+	width: 2.5rem;
+	margin-left: 0.5rem;
+	margin-top: 1rem;
 }
 
 
@@ -320,10 +337,15 @@ border-color: chartreuse !important;
 
 #item .zz{
 	color: #39c1bb;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	padding-bottom: 0.5rem;
 }
 
+#item .zz img{
+	width: 1rem;
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
+}
 #item .time{
 	position: absolute;
 	right:0rem;

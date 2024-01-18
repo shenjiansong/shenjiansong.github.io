@@ -6,6 +6,14 @@ $( document ).ready(function(){
 		$("#kuan").val(user.kuan||"");
 		$("#email").val(user.email||"");
 	}
+	
+	$("#wxz").val(AZ.getPref("my_random_wxz")||'20');
+	
+	$( document ).on("click","#wxzBtn",function(e){
+		 AZ.setPref("my_random_wxz",$("#wxz").val());
+		 alert("修改成功")
+	});
+	
 });
 function toUpload(){
 	 document.location.href='upload.html';
@@ -30,3 +38,5 @@ function doSave(){
 	}
 	alert("保存失败："+JSON.stringify(res));
 }
+
+//

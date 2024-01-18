@@ -2,7 +2,6 @@
 Array.prototype.remove = function(val){ var index = this.indexOf(val);if (index > -1) {this.splice(index, 1);}  };
 Array.prototype.removeAll = function(val){var index; while((index = this.indexOf(val) )>-1) {this.splice(index, 1);}  };
 if(typeof "".replaceAll !="function"){String.prototype.replaceAll = function(s1, s2) {return this.replace(new RegExp(s1, "gm"), s2);}}
-
 var Thead={
 	run:function(task){
 		return new Promise ((resolve, reject)=> {
@@ -51,8 +50,12 @@ var X=window.X||{
 		return theRequest;
 	},
 	to:function(page,param){
-		var url=page+".html";
-		if(param && param.trim().length>0)url=url+"?"+param;
+		if(typeof pageLoadTip=="function")pageLoadTip("");
+		var url=page;
+		if(url.indexOf("://")<0){
+			url=page+".html";
+		}
+		if(param && param.trim().length>0)url=url.indexOf("?")>0?(url+"&"+param):(url+"?"+param);
 		document.location.href=url;
 	}
 };
