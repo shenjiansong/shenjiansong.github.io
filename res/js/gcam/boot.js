@@ -30,7 +30,7 @@ var X=window.X||{
 	debugger:true,
 	VERSION:2305,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
-	CACHE_VERSION:1.1,
+	CACHE_VERSION:1.2,
 	RES_CSS_VERSION:'1.0.0-2',
 	RES_JS_VERSION:'1.0.0-2',
 	RES_CUSTOM_VERSION:'1.0.0-2',
@@ -52,7 +52,7 @@ var X=window.X||{
 	to:function(page,param){
 		if(typeof pageLoadTip=="function")pageLoadTip("");
 		var url=page;
-		if(url.indexOf("://")<0){
+		if(url.indexOf("://")<0 && !url.endsWith(".html")){
 			url=page+".html";
 		}
 		if(param && param.trim().length>0)url=url.indexOf("?")>0?(url+"&"+param):(url+"?"+param);
@@ -117,7 +117,7 @@ window.onload=function(){
 		$(".toolbar").append(` <input type="button"  value="刷新" onclick="(function(){document.location.href=document.location.href+'?a&t='+new Date().getTime();})()" > `);
 	}
 }
-if(X  && (X.CACHE_VERSION||1) > (__CACHE_VERSION||0.1) ){
+if(X  && (X.CACHE_VERSION||1) != (__CACHE_VERSION||0.1) ){
 	if(typeof AZ=='object' && typeof AZ.clearCache=='function'){
 		AZ.clearCache();
 	}
