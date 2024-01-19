@@ -39,17 +39,17 @@ margin: 5px;
 	z-index: 999;
 }
 .naviga .back{
-	padding: 0.5rem;
-	position: absolute;
-	top: 1rem;
-	font-size: 1rem;
+	padding: 1rem;
+    position: absolute;
+    top: 0.5rem;
+    font-size: 1rem;
 }
 .naviga .close{
-	padding: 0.5rem;
-	position: absolute;
-	top: 1rem;
-	right: 2rem;
-	font-size: 1rem;
+	padding: 1rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1rem;
 }
 .naviga .ulogo{
 	position: absolute;
@@ -66,12 +66,20 @@ margin: 5px;
 	top: 1.2rem;
 	color: #ffaa00;
 }
-
+.naviga .help{
+    position: absolute;
+    font-size: 0.5rem;
+    right: 1rem;
+    top: 55vh;
+}
+.naviga .help i{
+    font-size: 2rem;
+}
 .naviga .hadNew{
 	position: absolute;
 	font-size: 0.2rem; 
 	top: 1.5rem;
-	right: 6rem;
+	left:3rem;
 	color: #ffaa00;
 }
    

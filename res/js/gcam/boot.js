@@ -30,7 +30,7 @@ var X=window.X||{
 	debugger:true,
 	VERSION:2305,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
-	CACHE_VERSION:1,
+	CACHE_VERSION:1.1,
 	RES_CSS_VERSION:'1.0.0-2',
 	RES_JS_VERSION:'1.0.0-2',
 	RES_CUSTOM_VERSION:'1.0.0-2',
@@ -57,6 +57,19 @@ var X=window.X||{
 		}
 		if(param && param.trim().length>0)url=url.indexOf("?")>0?(url+"&"+param):(url+"?"+param);
 		document.location.href=url;
+		if(typeof pageLoadTipHide=="function"){Thead.delayed(pageLoadTipHide,1000);}
+	},
+	out:function(page,param){
+		if(typeof pageLoadTip=="function")pageLoadTip("");
+		var url=page;
+		if(url.indexOf("://")<0){
+			url=page+".html";
+		}
+		if(param && param.trim().length>0)url=url.indexOf("?")>0?(url+"&"+param):(url+"?"+param);
+		if(url.toLowerCase().startsWith("http"))url="out"+url.substring(4);
+		else url="outs://www.1kat.cn"+url;
+		document.location.href=url;
+		if(typeof pageLoadTipHide=="function"){Thead.delayed(pageLoadTipHide,1000);}
 	}
 };
 X.PARAM=X.GetRequest();

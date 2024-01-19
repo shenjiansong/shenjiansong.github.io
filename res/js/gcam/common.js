@@ -4,35 +4,35 @@ var qqInent='mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin
 if(!X)X={};
 X.demoWidth=400;
 X.iconWidth=64;
-var navigaTemp=`<div class="naviga"><i class="fa fa-chevron-left back"></i><span class='qq'>点我<br />加群</span> <span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
+var navigaTemp=`<div class="naviga"><div class='help'><i class="fa fa-question"></i><br />帮助</div><i class="fa fa-chevron-left back"></i><span class='qq'>点我<br />加群</span> <span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(a,b,c){
 	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 
+	if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
 	console.log(a,b,c)
 }
 let MY={};
 $(document).ready(function(){
 	$( document.body).append($(navigaTemp));
 	$( document ).on("click",".naviga .back",function(e){
-		pageLoadTip("");
 		toBack();
 	});
 	 $( document ).on("click",".naviga .ulogo",function(e){
 		X.to("user");
 	 }); 
 	 $( document ).on("click",".naviga .close",function(e){
-		pageLoadTip("");
 		toClose();
 	 }); 
 	 $( document ).on("click",".naviga .hadNew",function(e){
-		X.to("../details","md=gcam");
+		X.out("/details","md=gcam");
 	 }); 
 	 $( document ).on("click",".naviga .qq",function(e){
 		 X.to(qqInent+qqKey);
-		pageLoadTipHide();
+	 });
+	 $( document ).on("click",".naviga .help",function(e){
+	 		X.out("/details","md=gcam101");
 	 }); 
 	 $( document ).on("click",".tabs",function(e){
-		pageLoadTip("");
-		document.location.href= $(e.target).data("url");
+		X.to($(e.target).data("url"));
 	 }); 
 	if(hasNewVersion()){
 		$(".qq").addClass("hide");
@@ -68,11 +68,13 @@ function checkUser(needMsg,msg){
 }
 
 function toClose(){
+	pageLoadTip("");
 	if(typeof AZ=="object"){
 		AZ.Restart();
 	}
 }
 function toBack(){
+	pageLoadTip("");
 	history.back();
 	Thead.delayed(toClose,300);
 }
@@ -88,7 +90,7 @@ function pageLoadTip(msg){
 				document.body.appendChild(pageLoadTip);
 			}
 			document.getElementById("pageLoadTip").style.display="block";
-			document.getElementById("ptMsg").innerHTML=msg||'正在导入,请稍后。。。';
+			document.getElementById("ptMsg").innerHTML=msg||'。。。';
 			document.body.preOver = document.body.style["overflow-y"]||"auto";
 			document.body.style["overflow-y"]="hidden";
 		}catch(e){
@@ -98,13 +100,16 @@ function pageLoadTip(msg){
 }
 
 function pageLoadTipHide(){
-	Thead.run(function(){
-		var plt=document.getElementById("pageLoadTip");
-		if(plt){
-			plt.style.display="none";
-		}
-		if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
-	});
+	try{
+		Thead.run(function(){
+			var plt=document.getElementById("pageLoadTip");
+			if(plt){
+				plt.style.display="none";
+			}
+			if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
+		});
+	}catch(e){ }
+	if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
 }
 
 function hideEditorBox(){
