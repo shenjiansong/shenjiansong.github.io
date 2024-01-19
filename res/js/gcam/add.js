@@ -84,7 +84,7 @@ function toUploadOne(it){
 				if(!key){
 					alert("保存失败！")
 				}else{
-					alert("保存成功！")
+					alert("保存成功,正在跳转至配置页。。")
 					X.to("myitem","id="+key)
 				}
 			}else{

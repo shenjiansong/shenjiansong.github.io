@@ -90,7 +90,7 @@ function pageLoadTip(msg){
 				document.body.appendChild(pageLoadTip);
 			}
 			document.getElementById("pageLoadTip").style.display="block";
-			document.getElementById("ptMsg").innerHTML=msg||'。。。';
+			document.getElementById("ptMsg").innerHTML=msg||'';
 			document.body.preOver = document.body.style["overflow-y"]||"auto";
 			document.body.style["overflow-y"]="hidden";
 		}catch(e){

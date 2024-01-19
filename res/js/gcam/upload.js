@@ -117,11 +117,13 @@ function toUploadOne(it){
 		var patch=patchMap[p];
 		var title=patch["lib_profile_title_key_p0_{cid}"];
 		var key=AZ.post("https://gc.1kat.cn/put",toPatchXml(patch),null);
-		if(!key){
+		if(!key||key=="-1"){
 			it.removeClass("fa-arrow-up");
 			it.addClass("fa-exclamation");
 			moveToLast(it.parent());
 			alert("上传配置失败！")
+		}else if (key=="-2"){
+			alert("已经存在相同配置！")
 		}else{
 			AZ.setPref("my_key_"+p+"_id",key);
 			it.removeClass("fa-arrow-up");
