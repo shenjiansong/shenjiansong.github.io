@@ -30,17 +30,31 @@ $(document).ready(function(){
 	$( document ).on("change","#file",function(e){
 		 const file = event.target.files[0]; // 获取第一张选定的图片
 		 if (file && file instanceof Blob) {
-			 const reader = new FileReader();
-			 reader.onloadend = function() {
-				 const base64String = reader.result; // 获取Base64字符串
-				 var to=$("#file").data("to");
-				 var w=$("#file").data("w")*1;
-				 getBase64Image(base64String,w).then(v => {
-					 item[to]=v;
-					initView();
-				 });
-			 };
-			 reader.readAsDataURL(file); // 开始读取文件内容
+			 if(file.name.toLowerCase().endsWith(".png")){
+				 const reader = new FileReader();
+				 reader.onloadend = function() {
+					 const base64String = reader.result; // 获取Base64字符串
+					 var to=$("#file").data("to");
+					 var w=$("#file").data("w")*1;
+					 getBase64Image(base64String,w).then(v => {
+						 item[to]=v; 
+						initView();
+					 });
+				 };
+				 reader.readAsDataURL(file); // 开始读取文件内容
+			 }else if(file.name.toLowerCase().endsWith(".cube")){
+				 const reader = new FileReader();
+				 reader.onloadend = function() {
+					 const cubeTxt = reader.result; // 获取Base64字符串
+					 let base64Img=AZ.cubeToBase64(cubeTxt);
+					 var to=$("#file").data("to");
+					 var w=$("#file").data("w")*1;
+					 item[to]=base64Img;
+					 initView();
+				 };
+				 reader.readAsText(file); 
+			 }
+			 
 		 } else {
 			 console.error("Invalid file");
 		 }

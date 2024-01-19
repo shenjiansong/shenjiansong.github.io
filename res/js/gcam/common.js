@@ -279,6 +279,21 @@ if(typeof AZ=="object"){
 		},
 		saveUser:function(str){
 			return true;
+		},
+		clearCache:function(){
+		},
+		cubeToBase64:function(cubeTxt){
+		},
+		getLastUploadFile:function(){
+			return "";
+		},
+		getLastUploadFileText:function(){
+			return "";
+		},
+		filterLut:function(imgB64,lutB64){
+		},
+		getWaterMark:function(uploadimgUrl,jsonConf){
+			return "";
 		}
 	}
 }
