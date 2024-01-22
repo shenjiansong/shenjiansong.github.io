@@ -28,7 +28,7 @@ $(document).ready(function(){
 	$( document ).on("click",".fa-cloud-upload-alt",function(e){
 		$("#file").data("to","demo");
 		$("#file").data("w",X.demoWidth);
-		 $("#file").click()
+		$("#file").click()
 	});
 	$( document ).on("click",".icon",function(e){
 		$("#file").data("to","icon");
@@ -36,26 +36,51 @@ $(document).ready(function(){
 		$("#file").click()
 	});
 	$( document ).on("change","#file",function(e){
-		 const file = event.target.files[0]; // 获取第一张选定的图片
-		 if (file && file instanceof Blob) {
-			 const reader = new FileReader();
-			 reader.onloadend = function() {
-				 const base64String = reader.result; // 获取Base64字符串
-				// console.log("Base64 String:", base64String);
-				 // 这里可以根据需求进行其他操作，比如显示预览、上传等
-				 var to=$("#file").data("to");
-				 var w=$("#file").data("w")*1;
-				 getBase64Image(base64String,w).then(v => {
-					 item[to]=v;
-					 if(to=="demo"){
-						 item["demo_src"]=v;
-					 }
-					initView();
-				 });
-			 };
-			 reader.readAsDataURL(file); // 开始读取文件内容
-		 } else {
-			 console.error("Invalid file");
+		if($("#file").data("to")=="demo"){
+			pageLoadTip("")
+			var form = $('#myForm')[0]; // 获取表单元素
+			var data = new FormData(form); // 创建FormData对象来存储表单数据
+			X.uploadImg(data).then(res=>{
+				if(typeof res=="string"){
+					res=JSON.parse(res);
+				}
+				try{
+					if(res.image.image){
+						item["demo_src"]=res.image.image.url;
+						item["demo"]=res.image.image.url;
+						initView();
+					}
+					
+				}catch(e){
+					alert("上传失败")
+				}
+				pageLoadTipHide()
+			}).catch(err=>{
+				alert("上传失败");
+				pageLoadTipHide()
+			});
+		}else{
+			 const file = event.target.files[0]; // 获取第一张选定的图片
+			 if (file && file instanceof Blob) {
+				 const reader = new FileReader();
+				 reader.onloadend = function() {
+					 const base64String = reader.result; // 获取Base64字符串
+					// console.log("Base64 String:", base64String);
+					 // 这里可以根据需求进行其他操作，比如显示预览、上传等
+					 var to=$("#file").data("to");
+					 var w=$("#file").data("w")*1;
+					 getBase64Image(base64String,w).then(v => {
+						 item[to]=v;
+						 if(to=="demo"){
+							 item["demo_src"]=v;
+						 }
+						initView();
+					 });
+				 };
+				 reader.readAsDataURL(file); // 开始读取文件内容
+			 } else {
+				 console.error("Invalid file");
+			 }
 		 }
 	});
 	$( document ).on("click","#saveBtn",function(e){

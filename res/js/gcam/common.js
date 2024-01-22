@@ -4,6 +4,40 @@ var qqInent='mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin
 if(!X)X={};
 X.demoWidth=400;
 X.iconWidth=64;
+X.uploadUrl="https://gc.1kat.cn/json";
+X.uploadImg=function(data){
+	return new Promise ((resolve, reject)=> {
+		$.get(X.uploadUrl,function(res){
+			var tmp=res.split('-');
+			var at=tmp[0];
+			var ck=tmp[1];
+			// var form = $('#myForm')[0]; // 获取表单元素
+			// var data = new FormData(form); // 创建FormData对象来存储表单数据
+			data.append("type","file");
+			data.append("action","upload");
+			data.append("timestamp",new Date().getTime());
+			data.append("auth_token",at);
+			data.append("expiration","");
+			data.append("nsfw",0);
+			$.ajax({
+				url: X.uploadUrl, // 指定URL地址
+				type: 'POST', // 或者'PUT'等其他HTTP动词
+				contentType: false, // 不设置Content-Type头部信息
+				processData: false, // 不处理数据
+				data: data, // 传递FormData对象作为数据
+				headers:{
+					"PHPSESSID":ck
+				},
+				success: function (response) {
+					resolve(response);
+				},
+				error: function (res) {
+					reject(res);
+				}
+			});
+		})
+	});
+}
 var navigaTemp=`<div class="naviga"><div class='help'><i class="fa fa-question"></i><br />帮助</div><i class="fa fa-chevron-left back"></i><span class='qq'>点我<br />加群</span> <span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(a,b,c){
 	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 

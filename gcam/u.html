@@ -11,8 +11,7 @@
 	<script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<iframe src="https://7up.pics"></iframe>
-	<form style="display: none;" id="myForm"  method="post" enctype="multipart/form-data" >
+	<form id="myForm"  method="post" enctype="multipart/form-data">
 		<input  type="file" name="source" value="上传"/>
 		<input  type="text" name="type" value="file"/>
 		<input  type="text" name="action" value="upload"/>
@@ -25,24 +24,33 @@
 </body>
 </html>
 <script>
-	var base="https://7up.pics";//"https://imgse.com";//
+	var base="https://gc.1kat.cn/json";//"https://imgse.com";//
 	document.getElementsByName("timestamp")[0].value=new Date().getTime();
+	var ck="";
 	$.get(base,function(res){
-		var tmp=res.split("PF.obj.config.auth_token")[1].substring(1,50);
-		console.log(tmp);
-		var at=tmp.substring(tmp.indexOf("\"")+1,tmp.indexOf("\";"));
-		document.getElementsByName("auth_token")[0].value=at;
+		// var tmp=res.split("PF.obj.config.auth_token")[1].substring(1,50);
+		// console.log(tmp);
+		// var at=tmp.substring(tmp.indexOf("\"")+1,tmp.indexOf("\";"));
+		// document.getElementsByName("auth_token")[0].value=at;
+		var tmp=res.split('-');
+		document.getElementsByName("auth_token")[0].value=tmp[0];
+		ck=tmp[1];
 	})
 	// action="https://7up.pics/json"
 	function submit(){
 		var form = $('#myForm')[0]; // 获取表单元素
 		var data = new FormData(form); // 创建FormData对象来存储表单数据
+		console.log(data);
+		data.append("aaa","bbb");
 		$.ajax({
-		    url: base+"/json", // 指定URL地址
+		    url: base, // 指定URL地址
 		    type: 'POST', // 或者'PUT'等其他HTTP动词
 		    contentType: false, // 不设置Content-Type头部信息
 		    processData: false, // 不处理数据
 		    data: data, // 传递FormData对象作为数据
+			headers:{
+				"PHPSESSID":ck
+			},
 		    success: function (response) {
 		        console.log('成功',response);
 		    },
@@ -51,6 +59,5 @@
 		    }
 		});
 	}
-	
 </script>
 

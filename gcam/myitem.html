@@ -20,7 +20,9 @@
 		</script>
 	</head>
 	<body id="myitem">
-		<input type="file" style="display: none;" id="file">
+		 <form id="myForm"  style="display: none;"  method="post" enctype="multipart/form-data">
+		 	<input  type="file" id="file" name="source" value="上传"/>
+		 </form> 
 		<div id="item"></div>
 		<button id="saveBtn">保存</button>
 	</body>
