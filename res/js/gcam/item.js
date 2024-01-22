@@ -27,7 +27,6 @@ function initView(){
 		if(data.demo && data.demo.indexOf("/pic/DEMO")>0){
 			data.demo=AZ.get(data.demo);
 		}
-		data.version=0;
 		var temp=$("#itemTemp").html();
 		var v=data.version||'8.8';
 		if(data.version==0)v="通";

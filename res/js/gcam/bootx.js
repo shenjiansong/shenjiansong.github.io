@@ -1,6 +1,6 @@
 
 var __BOOTPATH = ___CreateJSPath("/res/js/gcam/bootx.js");
-var __CACHE_VERSION=2.3;
+var __CACHE_VERSION=2.31;
 function ___CreateJSPath(js) {
     var scripts = document.getElementsByTagName("script");
     var path = "";
