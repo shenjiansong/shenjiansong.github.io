@@ -8,7 +8,7 @@ X.uploadUrl="https://gc.1kat.cn/json";
 X.uploadImg=function(data){
 	return new Promise ((resolve, reject)=> {
 		$.get(X.uploadUrl,function(res){
-			var tmp=res.split('-');
+			var tmp=res.split("-");
 			var at=tmp[0];
 			var ck=tmp[1];
 			// var form = $('#myForm')[0]; // 获取表单元素
@@ -29,10 +29,10 @@ X.uploadImg=function(data){
 					"PHPSESSID":ck
 				},
 				success: function (response) {
-					resolve(response);
+						resolve(response);
 				},
-				error: function (res) {
-					reject(res);
+				error: function (res) { 
+						reject(res);
 				}
 			});
 		})
