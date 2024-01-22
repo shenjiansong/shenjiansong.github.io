@@ -58,7 +58,6 @@ margin: 5px;
 	height:2rem;
 	border-radius:1.5rem;
 }
-
 .naviga .qq{
 	position: absolute;
 	font-size: 0.7rem; 
@@ -71,7 +70,7 @@ margin: 5px;
     font-size: 0.5rem;
     right: 1rem;
     top: 75vh;
-}
+} 
 .naviga .help i{
     font-size: 2rem;
 }
@@ -229,14 +228,13 @@ border-color: chartreuse !important;
 	vertical-align: middle;
 }
 #D2 .item .demoimg{
-	height: 7rem;
+	height: 6rem;
 	margin-left: 10%;
 	border-radius:2rem; 
-	/* background-size: cover; 背景图像会被拉伸到完全覆盖容器 */
-	background-repeat: no-repeat; /* 防止图像平铺 */
-	background-position: center; /* 居中显示背景图片 */
-	background-size: contain; /* 等比缩放且自动裁切到合适大小 */
-	background-clip: content-box; /* 限制背景图片显示于内容区域 */
+	width: 100%;
+	overflow: hidden;
+	background-position: center;  /*居中显示背景图片 */
+	background-size: cover;  /*等比缩放且自动裁切到合适大小 */
 }
 #D2 .item span,#D2 .item i{
 	height: 1rem;

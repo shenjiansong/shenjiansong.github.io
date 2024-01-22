@@ -35,8 +35,8 @@ function insertToFirst(e){
 }
 var ii=1
 function insertToLast(e){
-	let dd=$(e);
-	const demo=dd.find(".demoimg");
+	let dd=$(e); 
+	let demo=dd.find(".demoimg");
 	var src = demo.data("src")
 	if(src){
 		Thead.delayed(function(){
