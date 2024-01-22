@@ -50,7 +50,7 @@ var X=window.X||{
 		return theRequest;
 	},
 	to:function(page,param){
-		if(typeof pageLoadTip=="function")pageLoadTip("");
+		if(typeof pageLoadTip=="function")pageLoadTip("正在跳转中");
 		var url=page;
 		if(url.indexOf("://")<0 && !url.endsWith(".html")){
 			url=page+".html";

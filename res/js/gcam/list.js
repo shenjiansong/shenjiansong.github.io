@@ -18,11 +18,9 @@ $(document).ready(function(){
 			toItem(id);
 		}
 	});
-	
 	 initExistsPatchList();
 	 showList();
 	 onToEnd(showList);
-	 
 });
 
 
@@ -38,7 +36,7 @@ function insertToFirst(e){
 var ii=1
 function insertToLast(e){
 	let dd=$(e);
-	let demo=dd.find(".demoimg");
+	const demo=dd.find(".demoimg");
 	var src = demo.data("src")
 	if(src){
 		Thead.delayed(function(){
@@ -75,6 +73,7 @@ function showList(){
 			var p=list[i];
 			var title=p.title||'未知配置'+(allCnt++)
 			var v=p.version||'8.8';
+			if(p.version==0)v="通用";
 			var downCls="fa-arrow-down";
 			if(existsPatchList.includes(p.gkey))downCls="fa-ban";
 			insertToLast(item_temp_html.replace("{key}",p.gkey)

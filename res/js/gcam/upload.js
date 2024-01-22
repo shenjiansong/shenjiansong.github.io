@@ -125,6 +125,7 @@ function toUploadOne(it){
 		}else if (key=="-2"){
 			alert("已经存在相同配置！")
 		}else{
+			alert("配置上传完成！")
 			AZ.setPref("my_key_"+p+"_id",key);
 			it.removeClass("fa-arrow-up");
 			it.addClass("fa-ban");
