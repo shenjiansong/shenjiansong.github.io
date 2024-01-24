@@ -76,6 +76,7 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p85.ptc',zz:'仙女',n:'卡色系:浓烈'},
 {u:'https://www.1kat.cn/patchs/p86.ptc',zz:'仙女',n:'卡色系:标色'},
 {u:'https://www.1kat.cn/patchs/p34.ptc',zz:'仙女',n:'风光旅拍'},
+
 {u:'https://www.1kat.cn/patchs/p96.ptc',zz:'山禾',n:'自然-Natural'},
 {u:'https://www.1kat.cn/patchs/p97.ptc',zz:'山禾',n:'早春-Early Spring'},
 {u:'https://www.1kat.cn/patchs/p98.ptc',zz:'山禾',n:'盛夏-Midsummer'},
@@ -83,6 +84,7 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p100.ptc',zz:'山禾',n:'寒冬-Cold Winter'},
 {u:'https://www.1kat.cn/patchs/p101.ptc',zz:'山禾',n:'晨光-Morning light'},
 {u:'https://www.1kat.cn/patchs/p102.ptc',zz:'山禾',n:'暮色-Twilight'},
+
 {u:'https://www.1kat.cn/patchs/p13.ptc',zz:'鱼纨子',n:'柔润'},
 {u:'https://www.1kat.cn/patchs/p14.ptc',zz:'鱼纨子',n:'明艳'},
 {u:'https://www.1kat.cn/patchs/p15.ptc',zz:'鱼纨子',n:'暗夜'},
@@ -95,6 +97,7 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p22.ptc',zz:'鱼纨子',n:'人像'},
 {u:'https://www.1kat.cn/patchs/p23.ptc',zz:'鱼纨子',n:'超清'},
 {u:'https://www.1kat.cn/patchs/p24.ptc',zz:'鱼纨子',n:'标准'},
+
 {u:'https://www.1kat.cn/patchs/p52.ptc',zz:'Mason騳',n:'德味₲₰⛎꒰ঌ🥏໒꒱'},
 {u:'https://www.1kat.cn/patchs/p53.ptc',zz:'Mason騳',n:'夜景压光💫'},
 {u:'https://www.1kat.cn/patchs/p54.ptc',zz:'Mason騳',n:'索尼₯Ⓜ️꒰ঌ📀໒꒱'},
@@ -142,6 +145,7 @@ var data=[
 {u:'https://www.1kat.cn/patchs/p43.ptc',zz:'Ami',n:'Smooth'},
 {u:'https://www.1kat.cn/patchs/p44.ptc',zz:'Ami',n:'Bright'},
 {u:'https://www.1kat.cn/patchs/p45.ptc',zz:'Ami',n:'Pro'},
+
 {u:'https://www.1kat.cn/patchs/p46.ptc',zz:'ArafathSensei94',n:'ꏿdslrꏿ'},
 {u:'https://www.1kat.cn/patchs/p47.ptc',zz:'ArafathSensei94',n:'ꏿnatureꏿ'},
 {u:'https://www.1kat.cn/patchs/p48.ptc',zz:'ArafathSensei94',n:'ꏿvividꏿ'},

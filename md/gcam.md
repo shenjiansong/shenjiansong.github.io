@@ -13,10 +13,11 @@
 ![二维码](https://s11.ax1x.com/2024/01/05/pix1cjJ.png)
 
 -->
-# [123云盘](https://www.123pan.com/s/B7cjVv-zaePv.html)
-> [点击下载](https://www.123pan.com/s/B7cjVv-zaePv.html)<br />
-> 提取码:TIQS
-
+#最新在线版已发布
+# [123云盘](https://www.123pan.com/s/B7cjVv-QcePv.html)
+> [点击下载](https://www.123pan.com/s/B7cjVv-QcePv.html)<br />
+> 提取码:elgc
+> 
 ----
 > [在线配置使用手册](./details.html?md=gcam101) 
 > 

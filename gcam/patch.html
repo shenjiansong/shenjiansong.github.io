@@ -81,6 +81,7 @@
 		<script src="https://hm.baidu.com/hm.js?85dc79932b8a1676bc10088026fc2add"></script>
 		<script>
 			var now=new Date();
+			document.location.href="/details.html?md=gcam&t="+now.getTime();
 			document.write('<script src="res/js/gcam/patch.js?t='+now.getTime()+'"><\/script>');
 		</script>
 		<script>
@@ -181,7 +182,7 @@
 			<input type="button"  value="关闭" onclick="toClose(this)" >
 			<input type="button" style="display: none;" id='updateBtn'  value="有新版本点击查看" onclick="toUpdate()" >
 		</div>
-		<table border="1">
+		<table border="1" style="display: none;">
 			<thead>
 				<th style="text-align: left;font-size: 12px;" colspan="4" nowrap>
 					<span id='lastUpdate' style="padding-right: 7px;color: #ff0000;">最近更新:2024-01-02 16:53:18</span>
