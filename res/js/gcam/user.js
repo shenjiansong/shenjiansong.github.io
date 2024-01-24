@@ -31,7 +31,7 @@ function doSave(){
 	}
 	if(res && res.uid){
 		user=res;
-		if(AZ.saveUser(JSON.stringify(user))){
+		if(AZ.saveUser(JSON.stringify(user))==1){
 			alert("保存成功");
 			return ;
 		}

@@ -28,7 +28,7 @@ var Thead={
 }
 var X=window.X||{
 	debugger:true,
-	VERSION:2305,
+	VERSION:2306,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
 	CACHE_VERSION:2.32,
 	RES_CSS_VERSION:'1.0.0-2',
