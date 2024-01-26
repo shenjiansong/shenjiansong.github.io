@@ -328,7 +328,8 @@ if(typeof AZ=="object"){
 		},
 		getWaterMark:function(uploadimgUrl,jsonConf){
 			return "";
-		}
+		},
+		gpuFilter:function(a,b){}
 	}
 }
 // function initUk(){

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<script src="../res/js/gcam/bootx.js"></script>
+		<script type="xml/demo" id="itemTemp">
+			<div class='cover'><img src="{demo}" style="width:100%;height:auto"></img>
+			<div>点击上传DEMO</div></div>
+				<div class='title'><i class="far fa-edit"></i><span>{title}<span></div>
+				<div class='info'></div>
+			</div>
+		</script>
+		
+		<style>
+			.help{
+				display: none;
+			}
+		</style>
+	</head>
+	<body id="myitem">
+		<input type="file" style="display: none;" id="file">  
+		<div id="item"></div>
+		<div id="tool">
+			<div class="tab">
+				<label data-id="1" class="l1 active">色彩</label>
+				<label data-id="2" class="l2 changed">画质</label>
+				<label data-id="3" class="l3">光线</label>
+			</div>
+			<div class="content">
+				<div class="layout c1">
+					
+					<div class="row" data-c="GPUImageRGBFilter">
+						<div class="r1"><div class="title">颜色-红</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="2" data-method="setRed" class="slider" type="range"  min="0" max="10" step="0.001" value="0"></div> 
+					</div>
+					<div class="row" data-c="GPUImageRGBFilter">
+						<div class="r1"><div class="title">颜色-绿</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="2"  data-method="setGreen" class="slider" type="range"   min="0" max="10" step="0.001" value="0"></div>
+					</div>
+					<div class="row" data-c="GPUImageRGBFilter">
+						<div class="r1"><div class="title">颜色-蓝</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="2" data-method="setBlue" class="slider" type="range"   min="0" max="10" step="0.001" value="0"></div>
+					</div>
+					
+					<div class="row"  data-c="GPUImageSharpenFilter">
+						<div class="r1"><div class="title">锐化</div><div class="vol">0</div></div>
+						<div class="r2"><input data-type="1" class="slider" type="range"  min="-4" max="4" step="0.01" value="0"></div>
+					</div>
+					<div class="row"  data-c="GPUImageSaturationFilter">
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><input data-type="1" class="slider" type="range"  min="0" max="2" step="0.001" value="1"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageVibranceFilter">
+						<div class="r1"><div class="title">鲜艳值</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="3" step="0.01" value="0"></div>
+					</div>
+				</div>
+				<div class="layout c2 hide">
+					<div class="row" data-c="GPUImageHueFilter">
+						<div class="r1"><div class="title">色调</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="360" step="90" value="0"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageGaussianBlurFilter">
+						<div class="r1"><div class="title">高斯模糊</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="3" step="0.01" value="0"></div>
+					</div>
+					
+<!-- 					<div class="row" data-c="GPUImageHalftoneFilter">
+						<div class="r1"><div class="title">标题</div><div class="vol">0</div></div>
+						<div class="r2"><input data-type="1" class="slider" type="range"  min="0" max="0.02" step="0.001" value="0.01"></div>
+					</div> -->
+				</div>
+				<div class="layout c3 hide">
+					
+					<div class="row" data-c="GPUImageHighlightShadowFilter">
+						<div class="r1"><div class="title">阴影</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="2"  data-method="setShadows" class="slider" type="range"   min="0" max="1" step="0.001" value="0"></div>
+					</div>
+					<div class="row" data-c="GPUImageHighlightShadowFilter">
+						<div class="r1"><div class="title">高光</div><div class="vol">0</div></div>
+						<div class="r2"><input  data-type="2" data-method="setHighlights" class="slider" type="range"   min="0" max="1" step="0.001" value="1"></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>  
+		<button id="saveBtn">保存</button>
+	</body>
+</html> 

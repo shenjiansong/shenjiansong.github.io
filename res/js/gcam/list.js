@@ -123,6 +123,9 @@ function getList(p,s){
 		size:s||size
 	}
 	var res=AZ.post("https://gc.1kat.cn/list",JSON.stringify(pam),"");
+	
+	console.log(res);
+	
 	if(typeof res=="object")return res;
 	try{
 		return JSON.parse(res);

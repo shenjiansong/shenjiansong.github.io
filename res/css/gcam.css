@@ -10,6 +10,27 @@ t-size: 14px;
 e-height: 1.5;
 margin: 5px;
 }
+
+input[type=range] {
+    -webkit-appearance: none; /* 去除默认样式 */
+    width: 100%; /* 设置宽度 */
+	height: 0.5rem;
+	border-radius: 10px;
+	background-color: #303131;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  /*使滑块超出轨道部分的偏移量相等*/
+  background-color: #303131;
+  border-radius: 50%;
+  /*外观设置为圆形*/
+  border: solid 0.15rem  #FFFFFF;
+  /*设置边框*/
+}
+
+
 .hide{
 	display: none;
 }
@@ -465,4 +486,42 @@ border-color: chartreuse !important;
     color: #964848;
     position: absolute;
     top: 35vh;
+}
+#tool{
+	padding-left: 0.5rem;
+}
+#tool .tab label{
+	padding: 0.5rem;
+}
+#tool .tab .active{
+	color: aquamarine;
+}
+#tool .content{
+	margin-top: 2rem;
+}
+#tool .changed{
+	text-decoration: underline;
+}
+#tool .content .row{
+	height: 2rem;
+	width: 100%;
+}
+#tool .content .row .r1{
+	display: flex;
+}
+.row{
+	margin-bottom: 1rem;
+}
+.r1 .title{
+	width: 50%;
+	padding-left: 1rem;
+}
+.r1 .vol{
+	width: 50%;
+	text-align: right;
+	padding-right:2rem;
+}
+.r2 .slider{ 
+	width: 90%;
+	margin-left: 1rem;
 }

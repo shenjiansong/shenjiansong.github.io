@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<script>
+			function setData(v){
+				localStorage.setItem("data",v);
+			}
+			
+				function getData(){
+					var data= localStorage.getItem("data");
+					console.log(data);
+					return data;
+				}
+				function toDo(t){
+					var aa=document.getElementById("aa");
+					if(t==1){
+						setData(aa.value||"");
+						aa.value="";
+					}else{
+						aa.value=getData();
+					}
+				}
+			
+		</script>
+	</head>
+	<body>
+		<input  id="aa" /> 
+		<input  type="button" value="设置数据" onclick="toDo(1)"/>
+		<input  type="button" value="获取数据" onclick="toDo(2)"/>
+	</body>
+</html>
