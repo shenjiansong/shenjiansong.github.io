@@ -119,7 +119,7 @@ window.onload=function(){
 		$(".toolbar").append(` <input type="button"  value="刷新" onclick="(function(){document.location.href=document.location.href+'?a&t='+new Date().getTime();})()" > `);
 	}
 }
-if(X  && (X.CACHE_VERSION||1) != (__CACHE_VERSION||0.1) ){
+if( (X  && (X.CACHE_VERSION||1) != (__CACHE_VERSION||0.1)) || (X.isLocal) ){
 	if(typeof AZ=='object' && typeof AZ.clearCache=='function'){
 		AZ.clearCache();
 	}

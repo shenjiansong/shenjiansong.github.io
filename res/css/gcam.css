@@ -497,31 +497,60 @@ border-color: chartreuse !important;
 	color: aquamarine;
 }
 #tool .content{
-	margin-top: 2rem;
+	margin-top: 1rem;
+	font-size: 0.4rem;
 }
+#tool .layout{
+	overflow-y: auto;
+	height: 32vh;
+	font-size: 0.4rem;
+}
+ 
 #tool .changed{
 	text-decoration: underline;
 }
 #tool .content .row{
-	height: 2rem;
 	width: 100%;
-}
+	display: contents;
+} 
 #tool .content .row .r1{
 	display: flex;
-}
-.row{
-	margin-bottom: 1rem;
+	margin:0.5rem;
 }
 .r1 .title{
-	width: 50%;
-	padding-left: 1rem;
+	width: 40%;
+	padding-left: 0.1rem;
 }
 .r1 .vol{
 	width: 50%;
 	text-align: right;
-	padding-right:2rem;
+}
+.r2 .reset{
+	text-align: center; 
+	padding: 0.5rem;
+	font-size: large;
 }
 .r2 .slider{ 
-	width: 90%;
-	margin-left: 1rem;
+	width: 85%;
+}
+.bottom_bar{
+	position: fixed;
+	display: flex;
+	bottom: 0;
+	padding: 0.2rem 0.05rem;
+	width: 98vw;
+	border: 0;
+	height: 2rem;
+	text-align: center;
+}
+
+.bottom_bar .button{
+	font-size: 0.8rem;
+	padding-top: 0.5rem;
+	margin-left:  0.1rem;
+	color: #3d3c42;
+	width:32vw;
+	border: 0;
+	background-color: #7fd6d8;
+	height: 2rem;
 }

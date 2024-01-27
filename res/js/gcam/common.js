@@ -113,15 +113,26 @@ function toBack(){
 	Thead.delayed(toClose,300);
 }
 
-function pageLoadTip(msg){
+function pageLoadTip(msg,showLoad){
 	Thead.run(function(){
 		try{
+			if(typeof showLoad=="undefined" || showLoad==null) showLoad=true;
+			if(showLoad==0||showLoad=="false"||showLoad==false)showLoad=false;
+			else showLoad=true;
 			var pageLoadTip=document.getElementById("pageLoadTip");
 			if(!pageLoadTip){
 				pageLoadTip = document.createElement("div");
 				pageLoadTip.id="pageLoadTip";
 				pageLoadTip.innerHTML=`<div class="pltc"><span id="ptMsg">加载中  请稍后。。。</span><div class="loading"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>`;
 				document.body.appendChild(pageLoadTip);
+			}
+			if(!showLoad){
+				$(".loading").hide();
+				$(pageLoadTip).on("click",pageLoadTipHide);
+			}
+			else {
+				$(".loading").show();
+				$(pageLoadTip).off('click');
 			}
 			document.getElementById("pageLoadTip").style.display="block";
 			document.getElementById("ptMsg").innerHTML=msg||'';
@@ -329,7 +340,9 @@ if(typeof AZ=="object"){
 		getWaterMark:function(uploadimgUrl,jsonConf){
 			return "";
 		},
-		gpuFilter:function(a,b){}
+		gpuFilter:function(a,b){
+			return a;
+		}
 	}
 }
 // function initUk(){
@@ -363,7 +376,7 @@ function addPatchByKey(gkey){
 			try{
 				var xmlPatch=AZ.get("https://gc.1kat.cn/get/"+gkey);
 				var res=AZ.insetPatch(xmlPatch);
-				if(res=="1") resolve();
+				if(res.length>0) resolve();
 			}catch(e){  }
 			reject();
 	  });

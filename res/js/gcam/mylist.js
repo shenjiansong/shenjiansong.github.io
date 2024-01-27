@@ -75,7 +75,7 @@ function addPatch(self){
 			 try{
 				var xmlPatch=AZ.get("https://gc.1kat.cn/get/"+gkey);
 				var res=AZ.insetPatch(xmlPatch);
-				if(res=="1"){
+				if(res.length>0){
 					alert("添加成功");
 					self.removeClass("fa-arrow-down");
 					self.addClass("fa-ban")

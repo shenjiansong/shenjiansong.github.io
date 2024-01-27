@@ -5,89 +5,225 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title></title>
 		<script src="../res/js/gcam/bootx.js"></script>
-		<script type="xml/demo" id="itemTemp">
-			<div class='cover'><img src="{demo}" style="width:100%;height:auto"></img>
-			<div>点击上传DEMO</div></div>
-				<div class='title'><i class="far fa-edit"></i><span>{title}<span></div>
-				<div class='info'></div>
-			</div>
-		</script>
 		
 		<style>
 			.help{
 				display: none;
 			}
+			#item .cover{
+				height: 40vh;
+			}
+			body{
+				overflow-y: hidden;
+			}
+			#item .select {
+			    color: #bdbdbd;
+			    font-size: 1.5rem;
+			}
+			#item .select span {
+				padding-left: 0.5rem;
+			    color: #e5e5e5;
+			    font-size: 0.7rem;
+			}
+			#item .title {
+				font-size: 1.2rem;
+				width: 99vw;
+			}
+			#item .edittitle{
+				width: 77vw;
+			}
 		</style>
 	</head>
 	<body id="myitem">
 		<input type="file" style="display: none;" id="file">  
-		<div id="item"></div>
+		<div id="item">
+				<div class='cover'>
+					<img id="demo" style="width:100%;height:auto"></img>
+					<div>点击上传DEMO</div>
+				</div>
+				<div class='title'>
+					<i class="far fa-edit edittitle"><span></span></i>
+					<i class="fa fa-hand-pointer select"><span>99</span></i>
+				</div>
+				
+		</div>
 		<div id="tool">
 			<div class="tab">
 				<label data-id="1" class="l1 active">色彩</label>
 				<label data-id="2" class="l2 changed">画质</label>
 				<label data-id="3" class="l3">光线</label>
+				<label data-id="4" class="l4">特效</label>
 			</div>
 			<div class="content">
 				<div class="layout c1">
-					
 					<div class="row" data-c="GPUImageRGBFilter">
 						<div class="r1"><div class="title">颜色-红</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="2" data-method="setRed" class="slider" type="range"  min="0" max="10" step="0.001" value="0"></div> 
-					</div>
-					<div class="row" data-c="GPUImageRGBFilter">
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setRed" class="slider" type="range"  min="0" max="10" step="0.001" default="1"></div> 
+		
 						<div class="r1"><div class="title">颜色-绿</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="2"  data-method="setGreen" class="slider" type="range"   min="0" max="10" step="0.001" value="0"></div>
-					</div>
-					<div class="row" data-c="GPUImageRGBFilter">
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setGreen" class="slider" type="range"   min="0" max="10" step="0.001" default="1"></div>
+
 						<div class="r1"><div class="title">颜色-蓝</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="2" data-method="setBlue" class="slider" type="range"   min="0" max="10" step="0.001" value="0"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setBlue" class="slider" type="range"   min="0" max="10" step="0.001" default="1"></div>
 					</div>
 					
-					<div class="row"  data-c="GPUImageSharpenFilter">
-						<div class="r1"><div class="title">锐化</div><div class="vol">0</div></div>
-						<div class="r2"><input data-type="1" class="slider" type="range"  min="-4" max="4" step="0.01" value="0"></div>
+					<div class="row" data-c="GPUImageHueFilter">
+						<div class="r1"><div class="title">色调</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="360" step="1" default="0"></div>
 					</div>
+					
 					<div class="row"  data-c="GPUImageSaturationFilter">
 						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
-						<div class="r2"><input data-type="1" class="slider" type="range"  min="0" max="2" step="0.001" value="1"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="0" max="2" step="0.001" default="1"></div>
 					</div>
 					
 					<div class="row" data-c="GPUImageVibranceFilter">
 						<div class="r1"><div class="title">鲜艳值</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="3" step="0.01" value="0"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="3" step="0.01" default="0"></div>
 					</div>
 				</div>
+				
 				<div class="layout c2 hide">
-					<div class="row" data-c="GPUImageHueFilter">
-						<div class="r1"><div class="title">色调</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="360" step="90" value="0"></div>
+					<div class="row" data-c="GPUImageContrastFilter">
+						<div class="r1"><div class="title">对比度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="4" step="0.01" default="1"></div>
 					</div>
-					
+					<div class="row"  data-c="GPUImageSharpenFilter">
+						<div class="r1"><div class="title">锐化</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="-4" max="4" step="0.01" default="0"></div>
+					</div>
 					<div class="row" data-c="GPUImageGaussianBlurFilter">
 						<div class="r1"><div class="title">高斯模糊</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="1" class="slider" type="range"  min="0" max="3" step="0.01" value="0"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="3" step="0.01" default="0"></div>
+					</div>
+					<div class="row" data-c="GPUImageGammaFilter">
+						<div class="r1"><div class="title">伽马-灰度系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="3" step="0.01" default="1"></div>
+					</div>
+					<div class="row" data-c="GPUImageOpacityFilter">
+						<div class="r1"><div class="title">艾尔法-系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setOpacity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
 					</div>
 					
-<!-- 					<div class="row" data-c="GPUImageHalftoneFilter">
-						<div class="r1"><div class="title">标题</div><div class="vol">0</div></div>
-						<div class="r2"><input data-type="1" class="slider" type="range"  min="0" max="0.02" step="0.001" value="0.01"></div>
-					</div> -->
+					
 				</div>
 				<div class="layout c3 hide">
 					
+					
+					<div class="row" data-c="GPUImageHazeFilter">
+						<div class="r1"><div class="title">去雾-距离</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setDistance" class="slider" type="range"  min="-3" max="1" step="0.001" default="0"></div> 
+							
+						<div class="r1"><div class="title">去雾-斜率</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setSlope" class="slider" type="range"   min="-2" max="2" step="0.001" default="0"></div>
+					</div>
+					
+					
 					<div class="row" data-c="GPUImageHighlightShadowFilter">
 						<div class="r1"><div class="title">阴影</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="2"  data-method="setShadows" class="slider" type="range"   min="0" max="1" step="0.001" value="0"></div>
-					</div>
-					<div class="row" data-c="GPUImageHighlightShadowFilter">
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setShadows" class="slider" type="range"   min="0" max="1" step="0.001" default="0"></div>
+
 						<div class="r1"><div class="title">高光</div><div class="vol">0</div></div>
-						<div class="r2"><input  data-type="2" data-method="setHighlights" class="slider" type="range"   min="0" max="1" step="0.001" value="1"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setHighlights" class="slider" type="range"   min="0" max="1" step="0.001" default="1"></div>
+					</div>
+					<div class="row" data-c="GPUImageBrightnessFilter">
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input   data-attr="c.param"  class="slider" type="range"   min="-1" max="1" step="0.001" default="0"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageWhiteBalanceFilter">
+						<div class="r1"><div class="title">白平衡-温度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setTemperature" class="slider" type="range"  min="3000" max="8000" step="10" default="5000"></div> 
+							
+						<div class="r1"><div class="title">白平衡-色调</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setTint" class="slider" type="range"   min="-300" max="300" step="1" default="0"></div>
 					</div>
 					
 				</div>
+				<div class="layout c4 hide">
+					<div class="row" data-c="GPUImageHalftoneFilter">
+						<div class="r1"><div class="title">半色调</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setFractionalWidthOfAPixel" class="slider" type="range"  min="0" max="0.02" step="0.001" default="0.01"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageToonFilter">
+							<div class="r1"><div class="title">卡通效果-灵敏度</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setThreshold" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+							
+							<div class="r1"><div class="title">卡通效果-级别</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setQuantizationLevels" class="slider" type="range"  min="0" max="100" step="0.01" default="10"></div>
+					</div>
+					<div class="row" data-c="GPUImagePosterizeFilter">
+							<div class="r1"><div class="title">卡通效果-着色</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorLevels" class="slider" type="range"  min="0" max="10" step="0.001" default="0"></div>
+					</div>
+					
+					
+					
+					
+					<div class="row" data-c="GPUImageCrosshatchFilter">
+						<div class="r1"><div class="title">黑白交叉阴影线图案-间距</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setCrossHatchSpacing" class="slider" type="range"  min="0" max="0.2" step="0.001" default="0.03"></div>
+
+						<div class="r1"><div class="title">黑白交叉阴影线图案-线宽</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setLineWidth" class="slider" type="range"  min="0" max="0.03" step="0.0001" default="0.003"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageMonochromeFilter">
+						<div class="r1"><div class="title">根据每个像素的亮度将图像转换为单色版本-系数1</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+					
+						<div class="r1"><div class="title">颜色-红</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0.6"></div> 
+								
+						<div class="r1"><div class="title">颜色-绿</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:1" class="slider" type="range"   min="0" max="1" step="0.001" default="045"></div>
+						
+						<div class="r1"><div class="title">颜色-蓝</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:2" class="slider" type="range"   min="0" max="1" step="0.001" default="0.3"></div>
+  
+					</div>
+					<div class="row" data-c="GPUImageSolidColorGenerator">
+						<div class="r1"><div class="title">根据每个像素的亮度将图像转换为单色版本-系数1</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+					</div>
+					
+					
+					<div class="row" data-c="GPUImageEmbossFilter">
+						<div class="r1"><div class="title">浮雕-系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="-5" max="5" step="0.001" default="1"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageZoomBlurFilter">
+						<div class="r1"><div class="title">中心运动模糊</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlurSize" class="slider" type="range"  min="0" max="5" step="0.001" default="1"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageSphereRefractionFilter">
+						<div class="r1"><div class="title">玻璃球-半径</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="0" max="1" step="0.001" default="0.25"></div>
+						
+						<div class="r1"><div class="title">玻璃球-折射率</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRefractiveIndex" class="slider" type="range"  min="-3" max="3" step="0.001" default="0.71"></div>
+					</div>
+					
+					<div class="row" data-c="GPUImageKuwaharaFilter">
+						<div class="r1"><div class="title">油画</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="1" max="50" step="1" default="4"></div>
+						</div>
+					
+					
+					
+					<!-- 			GPUImageLevelsFilter		 -->
+				</div>
+					
 			</div>
-		</div>  
-		<button id="saveBtn">保存</button>
+		</div>
+		<div class="bottom_bar">
+			<div class="button add">保存到配置</div>
+			<div class="button upload">上传</div>
+			<div class="button allreset">重置</div>
+		</div>
+		
 	</body>
 </html> 
