@@ -14,14 +14,14 @@ margin: 5px;
 input[type=range] {
     -webkit-appearance: none; /* 去除默认样式 */
     width: 100%; /* 设置宽度 */
-	height: 0.5rem;
-	border-radius: 10px;
+	height: 0.1rem;
+	border-radius: 0.7px;
 	background-color: #303131;
 }
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 1.2rem;
-  width: 1.2rem;
+  height: 0.8rem;
+  width: 0.8rem;
   /*使滑块超出轨道部分的偏移量相等*/
   background-color: #303131;
   border-radius: 50%;

@@ -27,7 +27,7 @@
 			}
 			#item .title {
 				font-size: 1.2rem;
-				width: 99vw;
+				width: 95vw;
 			}
 			#item .edittitle{
 				width: 77vw;
@@ -39,7 +39,7 @@
 		<div id="item">
 				<div class='cover'>
 					<img id="demo" style="width:100%;height:auto"></img>
-					<div>点击上传DEMO</div>
+					<div>点击上传DEMO1</div>
 				</div>
 				<div class='title'>
 					<i class="far fa-edit edittitle"><span></span></i>
@@ -102,14 +102,12 @@
 					</div>
 					<div class="row" data-c="GPUImageOpacityFilter">
 						<div class="r1"><div class="title">艾尔法-系数</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setOpacity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
 					</div>
 					
 					
 				</div>
 				<div class="layout c3 hide">
-					
-					
 					<div class="row" data-c="GPUImageHazeFilter">
 						<div class="r1"><div class="title">去雾-距离</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setDistance" class="slider" type="range"  min="-3" max="1" step="0.001" default="0"></div> 
@@ -183,10 +181,6 @@
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:2" class="slider" type="range"   min="0" max="1" step="0.001" default="0.3"></div>
   
 					</div>
-					<div class="row" data-c="GPUImageSolidColorGenerator">
-						<div class="r1"><div class="title">根据每个像素的亮度将图像转换为单色版本-系数1</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
-					</div>
 					
 					
 					<div class="row" data-c="GPUImageEmbossFilter">
@@ -211,9 +205,6 @@
 						<div class="r1"><div class="title">油画</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="1" max="50" step="1" default="4"></div>
 						</div>
-					
-					
-					
 					<!-- 			GPUImageLevelsFilter		 -->
 				</div>
 					

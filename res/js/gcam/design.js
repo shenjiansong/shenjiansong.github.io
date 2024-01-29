@@ -5,6 +5,7 @@ var item={
 };
 var srcData=null,localPatchList={},nowP=-99;
 $(document).ready(function(){
+	
 	initLocalPatch(true);
 	initSliderValue();
 	initView();
@@ -145,19 +146,15 @@ function initView(){
 				item.data=srcData;
 			}
 		}
-		$("#item .edittitle span").html(item.title||"添加标题");
-		$("#item .select span").html(nowP>=0?nowP:"");
+		$(".edittitle span").html(item.title||"添加标题");
+		$(".select span").html(nowP>=0?nowP:"");
 		
 		if(item.data){
-			$("#item .cover img").attr("src",item.data);
-			$("#item .cover div").hide();
+			$(".cover img").attr("src",item.data);
+			$(".cover div").hide();
 		}else{
-			$("#item .cover div").show();
+			$(".cover div").show();
 		}
-		//var temp=$("#itemTemp").html();
-		// $("#item").html(
-		// 	temp.replaceAll("{title}",item.title||"添加标题").replaceAll("{demo}",item.data)
-		// )
 	}
 }
 
