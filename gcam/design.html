@@ -12,6 +12,7 @@
 			}
 			#item .cover{
 				height: 40vh;
+				text-align: center;
 			}
 			body{
 				overflow-y: hidden;
@@ -38,7 +39,7 @@
 		<input type="file" style="display: none;" id="file">  
 		<div id="item">
 				<div class='cover'>
-					<img id="demo" style="width:100%;height:auto"></img>
+					<img id="demo"></img>
 					<div>点击上传DEMO1</div>
 				</div>
 				<div class='title'>
@@ -50,7 +51,8 @@
 		<div id="tool">
 			<div class="tab">
 				<label data-id="1" class="l1 active">色彩</label>
-				<label data-id="2" class="l2 changed">画质</label>
+				<label data-id="5" class="l5">色彩替换</label>
+				<label data-id="2" class="l2">画质</label>
 				<label data-id="3" class="l3">光线</label>
 				<label data-id="4" class="l4">特效</label>
 			</div>
@@ -100,11 +102,20 @@
 						<div class="r1"><div class="title">伽马-灰度系数</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="3" step="0.01" default="1"></div>
 					</div>
-					<div class="row" data-c="GPUImageOpacityFilter">
+<!-- 					<div class="row" data-c="GPUImageOpacityFilter">
 						<div class="r1"><div class="title">艾尔法-系数</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
-					</div>
+					</div> -->
 					
+					
+<!-- 					<div class="row" data-c="GPUImageMixBlendFilter">
+					
+						<div class="r1"><div class="title hide">着色器</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input type="text"  data-attr="c.param" class="slider"  default='OpenGL'></div>
+						
+						<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setMix" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					</div> -->
 					
 				</div>
 				<div class="layout c3 hide">
@@ -115,6 +126,7 @@
 						<div class="r1"><div class="title">去雾-斜率</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setSlope" class="slider" type="range"   min="-2" max="2" step="0.001" default="0"></div>
 					</div>
+
 					
 					
 					<div class="row" data-c="GPUImageHighlightShadowFilter">
@@ -124,6 +136,13 @@
 						<div class="r1"><div class="title">高光</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setHighlights" class="slider" type="range"   min="0" max="1" step="0.001" default="1"></div>
 					</div>
+					
+					
+					<div class="row" data-c="GPUImageExposureFilter">
+						<div class="r1"><div class="title">曝光度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param" class="slider" type="range"  min="-10" max="10" step="0.01" default="0"></div> 
+					</div>
+					
 					<div class="row" data-c="GPUImageBrightnessFilter">
 						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input   data-attr="c.param"  class="slider" type="range"   min="-1" max="1" step="0.001" default="0"></div>
@@ -136,12 +155,15 @@
 						<div class="r1"><div class="title">白平衡-色调</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setTint" class="slider" type="range"   min="-300" max="300" step="1" default="0"></div>
 					</div>
+
+					
+					
 					
 				</div>
 				<div class="layout c4 hide">
 					<div class="row" data-c="GPUImageHalftoneFilter">
 						<div class="r1"><div class="title">半色调</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setFractionalWidthOfAPixel" class="slider" type="range"  min="0" max="0.02" step="0.001" default="0.01"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setFractionalWidthOfAPixel" class="slider" type="range"  min="0" max="0.025" step="0.001" default="0"></div>
 					</div>
 					
 					<div class="row" data-c="GPUImageToonFilter">
@@ -149,15 +171,12 @@
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setThreshold" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
 							
 							<div class="r1"><div class="title">卡通效果-级别</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setQuantizationLevels" class="slider" type="range"  min="0" max="100" step="0.01" default="10"></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setQuantizationLevels" class="slider" type="range"  min="0" max="10" step="0.01" default="10"></div>
 					</div>
 					<div class="row" data-c="GPUImagePosterizeFilter">
 							<div class="r1"><div class="title">卡通效果-着色</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorLevels" class="slider" type="range"  min="0" max="10" step="0.001" default="0"></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorLevels" class="slider" type="range"  min="0" max="20" step="1" default="0"></div>
 					</div>
-					
-					
-					
 					
 					<div class="row" data-c="GPUImageCrosshatchFilter">
 						<div class="r1"><div class="title">黑白交叉阴影线图案-间距</div><div class="vol">0</div></div>
@@ -167,22 +186,23 @@
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setLineWidth" class="slider" type="range"  min="0" max="0.03" step="0.0001" default="0.003"></div>
 					</div>
 					
-					<div class="row" data-c="GPUImageMonochromeFilter">
+<!-- 					<div class="row" data-c="GPUImageMonochromeFilter">
 						<div class="r1"><div class="title">根据每个像素的亮度将图像转换为单色版本-系数1</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param:0" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
 					
 						<div class="r1"><div class="title">颜色-红</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0.6"></div> 
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param:1-0" class="slider" type="range"  min="0" max="1" step="0.001" default="0.6"></div> 
 								
 						<div class="r1"><div class="title">颜色-绿</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:1" class="slider" type="range"   min="0" max="1" step="0.001" default="045"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param:1-1" class="slider" type="range"   min="0" max="1" step="0.001" default="045"></div>
 						
 						<div class="r1"><div class="title">颜色-蓝</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setColor:2" class="slider" type="range"   min="0" max="1" step="0.001" default="0.3"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param:1-2" class="slider" type="range"   min="0" max="1" step="0.001" default="0.3"></div>
+						
+						<div class="r1"><div class="title">颜色-透明度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="c.param:1-3" class="slider" type="range"   min="0" max="1" step="0.001" default="1"></div>
   
-					</div>
-					
-					
+					</div> --> 
 					<div class="row" data-c="GPUImageEmbossFilter">
 						<div class="r1"><div class="title">浮雕-系数</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="-5" max="5" step="0.001" default="1"></div>
@@ -204,8 +224,171 @@
 					<div class="row" data-c="GPUImageKuwaharaFilter">
 						<div class="r1"><div class="title">油画</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="1" max="50" step="1" default="4"></div>
-						</div>
+					</div>
 					<!-- 			GPUImageLevelsFilter		 -->
+				</div>
+				
+				<div class="layout c5 hide">
+<!-- 					<div class="level" >
+						<div class="changed" data-type="all" style="color: #ffffff; ">全色</div>
+						<div data-type="red" style="color: #ff0000;">红色</div>
+						<div data-type="green" style="color: #00ff00;">绿色</div>
+						<div data-type="blue" style="color: #0000ff;">蓝色</div>
+					</div> -->
+					
+					<div class="row" data-c="GPUImageFalseColorFilter">
+						<div class="r1"><div class="title">暗部-红</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setFirstColor:0-0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div> 
+								
+						<div class="r1"><div class="title">暗部-绿</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setFirstColor:0-1" class="slider" type="range"   min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">暗部-蓝</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setFirstColor:0-2" class="slider" type="range"   min="0" max="1" step="0.001" default="0"></div>
+						
+						
+						<div class="r1"><div class="title">亮部-红</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setSecondColor:0-0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div> 
+								
+						<div class="r1"><div class="title">亮部-绿</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setSecondColor:0-1" class="slider" type="range"   min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">亮部-蓝</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setSecondColor:0-2" class="slider" type="range"   min="0" max="1" step="0.001" default="0"></div>
+						
+					</div> 
+					<!-- <div class="row all" data-c="GPUImageColorMatrixFilter">
+						
+						<div class="r1"><div class="title">系数1</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+											
+											
+											
+						<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-1" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-2" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-3" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-4" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-5" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-6" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-7" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-8" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-9" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-10" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-11" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-12" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-13" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-14" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+	
+	<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+	<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-15" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					
+</div> -->
+					
+					
+					<div class="hide row all" data-c="GPUImageLevelsFilter">
+						<div class="r1"><div class="title">输入-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setMin:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+
+						<div class="r1"><div class="title">输入-中值</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setMin:1" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						
+						<div class="r1"><div class="title">输入-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setMin:2" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+					
+<!-- 						<div class="r1"><div class="title">输出-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setMin:3" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">输出-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setMin:4" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						 -->
+					</div>
+					<div class="hide row red" data-c="GPUImageLevelsFilter">
+						<div class="r1"><div class="title">输入-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRedMin:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					
+						<div class="r1"><div class="title">输入-中值</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRedMin:1" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						
+						<div class="r1"><div class="title">输入-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRedMin:2" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+<!-- 					
+						<div class="r1"><div class="title">输出-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRedMin:3" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">输出-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRedMin:4" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+				 -->
+					</div>
+					
+					<div class="hide row green" data-c="GPUImageLevelsFilter">
+						<div class="r1"><div class="title">输入-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setGreenMin:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					
+						<div class="r1"><div class="title">输入-中值</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setGreenMin:1" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						
+						<div class="r1"><div class="title">输入-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setGreenMin:2" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+					
+<!-- 						<div class="r1"><div class="title">输出-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setGreenMin:3" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">输出-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setGreenMin:4" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						 -->
+					</div>
+					
+					
+					<div class="hide row blue" data-c="GPUImageLevelsFilter">
+						<div class="r1"><div class="title">输入-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlueMin:0" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+					
+						<div class="r1"><div class="title">输入-中值</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlueMin:1" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						
+						<div class="r1"><div class="title">输入-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlueMin:2" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+					
+<!-- 						<div class="r1"><div class="title">输出-最小</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlueMin:3" class="slider" type="range"  min="0" max="1" step="0.001" default="0"></div>
+						
+						<div class="r1"><div class="title">输出-最大</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setBlueMin:4" class="slider" type="range"  min="0" max="1" step="0.001" default="1"></div>
+						 -->
+					</div>
+					
+					
 				</div>
 					
 			</div>

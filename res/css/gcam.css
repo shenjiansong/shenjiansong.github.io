@@ -554,3 +554,20 @@ border-color: chartreuse !important;
 	background-color: #7fd6d8;
 	height: 2rem;
 }
+
+.content .c5 .level{ 
+    display: flex;
+	position: absolute;
+	background-color: black;
+}
+.content .c5 .level div{
+    padding: 0.5rem;
+}
+.content .c5 .row{
+	margin-top: 2.5rem!important;
+	display: block!important;
+}
+
+.c5 .hide.row{
+	display: none!important;
+}

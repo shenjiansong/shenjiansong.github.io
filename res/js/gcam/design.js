@@ -39,7 +39,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$( document ).on("click",".lpatch",function(e){ 
+	$( document ).on("click",".lpatch",function(e){
 		var p=$(this).data("p")
 		var key="my_key_p"+p+"_random"
 		item.json=JSON.parse(JSON.stringify(localPatchList[key]));
@@ -61,17 +61,38 @@ $(document).ready(function(){
 		 $(".layout.c"+id).removeClass("hide")
 	});
 	
+	$( document ).on("click",".level div",function(e){
+		 $(".level div").removeClass("changed");
+		 $(this).addClass("changed");
+		 $(".c5 .row").addClass("hide")
+		 $(".c5 .row."+$(this).data("type")).removeClass("hide")
+	});
 	
 	
 	$( document ).on("click",".reset",function(e){
 		var slider=this.nextElementSibling;
 		slider.value=$(slider).attr("default");
-		sliderChange(slider);
+		var attr=$(slider).data("attr");
+		if(attr.indexOf(":")<0){
+			showValueBySlider(slider);
+			var row=findRowBySlider(slider);
+			var filterName=$(row).data("c");
+			var p1=item.json[filterName];
+			var p2=p1[attr.split(".")[0]];
+			delete p2[attr.split(".")[1]]
+			if(!p2 || JSON.stringify(p2).length<3)delete  p1[attr.split(".")[0]];
+			if(!p1["m"]&&!p1["f"]&&!p1["c"]["param"])delete p1["c"];
+			if(!p1["c"])delete item.json[filterName];
+			initView();
+		}else{
+			setJsonBySlider(s);
+		}
+		
 	});
 	
 	
 	 
-	$( document ).on("input",".row .slider",function(e){
+	$( document ).on("input",".layout .slider",function(e){
 			sliderChange(this);
 	});
 	
@@ -122,7 +143,9 @@ $(document).ready(function(){
 			 const reader = new FileReader();
 			 reader.onloadend = function() {
 				 const base64String = reader.result; // 获取Base64字符串
-				 var to=$("#file").data("to");
+				  // srcData=base64String;
+				  // initView();
+				 // var to=$("#file").data("to");
 				 var w=$("#file").data("w")*1;
 				 getBase64Image(base64String,w).then(v => {
 					srcData=v; 
@@ -134,6 +157,17 @@ $(document).ready(function(){
 			 console.error("Invalid file");
 		 }
 	});
+	
+	demo.onload=function(){
+		var w=this.naturalWidth,h=this.naturalHeight;
+		if(h>w){
+			$("#demo").height(window.screen.availHeight *0.4)
+			$("#demo").width(w*((window.screen.availHeight *0.4)/h))
+		}else{
+			$("#demo").width(window.screen.availWidth)
+			$("#demo").height(h*($("#demo").width()/w))
+		}
+	}
 	
 });
 
@@ -265,7 +299,12 @@ function setJsonBySlider(s){
 	if(!filter[type])filter[type]={};
 	//设置字段属性
 	if(type=="f"){
-		filter[type][attr]=s.value;
+		if(attr.indexOf(":")<1){
+			filter[type][attr]=s.value;
+		}else{
+			var attr=attr.split(":")[0];
+			filter[type][attr]=getArrayByRow(row,type,attr).join(",");
+		}
 	}else{//设置方法属性和构造参数
 		if(attr.indexOf(":")<1){
 			filter[type][attr]=[s.value];
@@ -286,10 +325,27 @@ function getArrayByRow(row,type,attr){
 			if(slider.data("attr")==findAttr){
 				result.push(slider.val());
 				break;
+			}else if(slider.data("attr").indexOf(findAttr+"-")>=0){
+				result.push(getArrField(sliders,findAttr));
+				break;
 			}
 		}
 	}
 	return result;
+}
+function getArrField(sliders,findAttr){
+	var result=[];
+	for(var i=0;i<10;i++){
+		var  findAttr2=findAttr+"-"+i;
+		for(var j=0;j<sliders.length;j++){
+			var slider=$(sliders[j]);
+			if(slider.data("attr")==findAttr2){
+				result.push(slider.val());
+				break;
+			}
+		}
+	}
+	return result.join(",");
 }
 
 function initLocalPatch(isPageLoad){
