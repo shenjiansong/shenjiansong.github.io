@@ -9,6 +9,11 @@ $(document).ready(function(){
 	initLocalPatch(true);
 	initSliderValue();
 	initView();
+	$( document ).on("click",".layout .lut",function(e){
+		$("#file").data("to","lut");
+		$("#file").data("w",512);
+		$("#file").click()
+	});
 	$( document ).on("click",".cover",function(e){
 		$("#file").data("to","data");
 		$("#file").data("w",512);
@@ -64,30 +69,32 @@ $(document).ready(function(){
 	$( document ).on("click",".level div",function(e){
 		 $(".level div").removeClass("changed");
 		 $(this).addClass("changed");
-		 $(".c5 .row").addClass("hide")
-		 $(".c5 .row."+$(this).data("type")).removeClass("hide")
+		 $(".c5 .cmf").addClass("hide")
+		 $(".c5 .cmf."+$(this).data("type")).removeClass("hide")
 	});
 	
 	
 	$( document ).on("click",".reset",function(e){
 		var slider=this.nextElementSibling;
 		slider.value=$(slider).attr("default");
+		showValueBySlider(slider);
 		var attr=$(slider).data("attr");
 		if(attr.indexOf(":")<0){
-			showValueBySlider(slider);
 			var row=findRowBySlider(slider);
 			var filterName=$(row).data("c");
 			var p1=item.json[filterName];
-			var p2=p1[attr.split(".")[0]];
-			delete p2[attr.split(".")[1]]
-			if(!p2 || JSON.stringify(p2).length<3)delete  p1[attr.split(".")[0]];
-			if(!p1["m"]&&!p1["f"]&&!p1["c"]["param"])delete p1["c"];
-			if(!p1["c"])delete item.json[filterName];
-			initView();
+			if(p1){
+				var p2=p1.hasOwnProperty(attr.split(".")[0])?p1[attr.split(".")[0]]:{};
+				delete p2[attr.split(".")[1]]
+				if(!p2 || JSON.stringify(p2).length<3)delete  p1[attr.split(".")[0]];
+				if(!p1["m"]&&!p1["f"]&&!p1["c"]["param"])delete p1["c"];
+				if(!p1["c"])delete item.json[filterName];
+			}
 		}else{
-			setJsonBySlider(s);
+			setJsonBySlider(slider);
 		}
 		
+		initView();
 	});
 	
 	
@@ -124,6 +131,7 @@ $(document).ready(function(){
 	
 	$( document ).on("click",".allreset",function(e){
 			item.json={};
+			setLutValue("");
 			initSliderValue();
 			initView();
 	});
@@ -135,26 +143,19 @@ $(document).ready(function(){
 	});
 	
 	$( document ).on("change","#file",function(e){
-		 //    imgUrl=AZ.getLastUploadFile();
-			// if(imgUrl)item.data=AZ.gpuFilter(imgUrl,item.json);
-			// initView();
 		 const file = event.target.files[0]; // 获取第一张选定的图片
+		 console.log(file.name)
+		 var to=$("#file").data("to");
 		 if (file && file instanceof Blob) {
-			 const reader = new FileReader();
-			 reader.onloadend = function() {
-				 const base64String = reader.result; // 获取Base64字符串
-				  // srcData=base64String;
-				  // initView();
-				 // var to=$("#file").data("to");
-				 var w=$("#file").data("w")*1;
-				 getBase64Image(base64String,w).then(v => {
-					srcData=v; 
-					initView();
-				 });
-			 };
-			 reader.readAsDataURL(file); // 开始读取文件内容
+			 if(to=="data"){
+			 	doCover(file)
+			 }else if(to=="lut"){
+			 	doLut(file)
+			 }
+			 $("#file").val("")
 		 } else {
 			 console.error("Invalid file");
+			  $("#file").val("")
 		 }
 	});
 	
@@ -171,11 +172,66 @@ $(document).ready(function(){
 	
 });
 
+function doLut(file){
+	
+	var w=$("#file").data("w")*1;
+	if(file.name.toLowerCase().endsWith(".png")){
+		 const reader = new FileReader();
+		 reader.onloadend = function() {
+			 const base64String = reader.result; // 获取Base64字符串
+			 getBase64Image(base64String,w).then(v => {
+				setLutValue(v)
+			 });
+		 };
+		 reader.readAsDataURL(file); // 开始读取文件内容
+	}else if(file.name.toLowerCase().endsWith(".cube")){
+		 const reader = new FileReader();
+		 reader.onloadend = function() {
+			 const cubeTxt = reader.result; // 获取Base64字符串
+			 let base64Img=AZ.cubeToBase64(cubeTxt);
+			 getBase64Image(base64Img,w).then(v => {
+			 				setLutValue(v)
+			 });
+		 };
+		 reader.readAsText(file);   
+	}
+}
+function setLutValue(base64){
+	var s=$(".layout .lut input")[0];
+	if(!base64  || base64.length<50){
+		$(".layout .lut img").attr("src",null);
+		$(".layout .lut div").show();
+		s.value="";
+		if(item.json.hasOwnProperty("GPUImageLookupFilter")){
+			delete item.json["GPUImageLookupFilter"];
+		}
+	}else{
+		$(".layout .lut img").attr("src",base64); 
+		$(".layout .lut div").hide();
+		s.value=base64;
+		setJsonBySlider(s); 
+	}
+	initView();
+}
+	
+function doCover(file){
+	 var w=$("#file").data("w")*1;
+	const reader = new FileReader();
+	reader.onloadend = function() {
+		 const base64String = reader.result; // 获取Base64字符串
+		 getBase64Image(base64String,w).then(v => {
+			srcData=v;
+			initView();
+		 });
+	};
+	reader.readAsDataURL(file); // 开始读取文件内容
+}
 function initView(){
 	if(item){
 		if(srcData){
-			if(item.json && JSON.stringify(item.json)!="{}"){
-				item.data=AZ.gpuFilter(srcData,JSON.stringify(item.json));
+			var filterJson=toFilterJson();
+			if(filterJson && filterJson.length>3){
+				item.data=AZ.gpuFilter(srcData,filterJson);
 			}else{
 				item.data=srcData;
 			}
@@ -335,7 +391,7 @@ function getArrayByRow(row,type,attr){
 }
 function getArrField(sliders,findAttr){
 	var result=[];
-	for(var i=0;i<10;i++){
+	for(var i=0;i<32;i++){
 		var  findAttr2=findAttr+"-"+i;
 		for(var j=0;j<sliders.length;j++){
 			var slider=$(sliders[j]);
@@ -437,3 +493,31 @@ function deletePatchByP(p){
 window.onerror=function(a,b,c){
 	alert("error:"+a)
 }
+
+function  toFilterJson(){ 
+	
+	var filter=JSON.stringify(item.json);
+	filter=JSON.parse(filter);
+	var aj=filter["GPUImageVignetteFilter"];
+	if(aj){
+		aj.m["setVignetteCenter"]=["0.5,0.5"]; 
+		// aj=JSON.parse(JSON.stringify(aj)); 
+		// aj.m["setVignetteCenter"]=["0,1"];
+		// filter["GPUImageVignetteFilter01"]=JSON.parse(JSON.stringify(aj));
+		// aj.m["setVignetteCenter"]=["1,0"];
+		// filter["GPUImageVignetteFilter10"]=JSON.parse(JSON.stringify(aj));
+		// aj.m["setVignetteCenter"]=["1,1"];
+		// filter["GPUImageVignetteFilter11"]=JSON.parse(JSON.stringify(aj));
+	}
+	
+	// var  cmf=filter["GPUImageColorMatrixFilter"];
+	// if(cmf){
+	// 	cmf.m["setColorMatrix"]=["0.3588, 0.7044, 0.1368, 0.0,  0.2990, 0.5870, 0.1140, 0.0, 0.2392, 0.4696, 0.0912, 0.0,  0, 0, 0, 1.0"]; 
+	// }
+	
+	//  
+	 var resultJsonStr= JSON.stringify(filter);
+	 console.log(aj,filter);
+	return resultJsonStr;
+}
+

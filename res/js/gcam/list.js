@@ -118,19 +118,38 @@ function addPatch(self){
 
 
 function getList(p,s){
-	var pam={
-		page:p||0,
-		size:s||size
-	}
-	var res=AZ.post("https://gc.1kat.cn/list",JSON.stringify(pam),"");
-	
-	console.log(res);
-	
-	if(typeof res=="object")return res;
-	try{
-		return JSON.parse(res);
-	}catch(e){
-		return [];
-	}
+	if(p>0)return [];
+	return getLocalData();
 }
 
+function getLocalData(){
+	var ldata=localStorage.getItem("list_data");
+	try{
+		if(ldata){
+			if(typeof ldata=="string"){
+				ldata=JSON.parse(ldata);
+			}
+			if(ldata.data.length>0 || ldata.lasttime>0){
+				if(ldata.lasttime && (new Date().getTime()-ldata.lasttime>1)){
+					Thead.delayed(saveLocalData,1000);
+				}
+				
+				return ldata.data;
+			}
+		}
+	}catch(e){ }
+	saveLocalData();
+	return getLocalData();
+	
+}
+
+function saveLocalData(){
+	var pam={page:0,size:99999}
+	var res=AZ.get("https://gc.1kat.cn/list2");
+	if(typeof res=="string"){
+		res = JSON.parse(res);
+	}
+	var ldata={lasttime:new Date().getTime(),data:res};
+	localStorage.setItem("list_data",JSON.stringify(ldata));
+	return ldata;
+}

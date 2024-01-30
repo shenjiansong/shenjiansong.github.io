@@ -563,11 +563,24 @@ border-color: chartreuse !important;
 .content .c5 .level div{
     padding: 0.5rem;
 }
-.content .c5 .row{
+.content .c5 .rate{
 	margin-top: 2.5rem!important;
 	display: block!important;
 }
 
-.c5 .hide.row{
+.c5 .row .hide{
 	display: none!important;
+}
+.slider{
+ background: linear-gradient(90deg, #555 0%, #aaa 52%);
+}
+
+.cmf.red .slider{
+ background: linear-gradient(90deg, #00f 0%, #f00 52%);
+}
+.cmf.green .slider{
+ background: linear-gradient(90deg, #f00 0%, #0f0 52%);
+}
+.cmf.blue .slider{
+ background: linear-gradient(90deg, #0f0 0%, #00f 52%);
 }

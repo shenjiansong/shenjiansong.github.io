@@ -12,7 +12,7 @@ $( document ).ready(function(){
 		}
 	});
 	$( document ).on("click","#addBtn",function(e){
-		X.to("add");
+		X.to("design");
 	});
 	var  matchJson = AZ.queryPref("_key_p");
 	//if(!matchJson)matchJson = AZ.matchPref(".*_key_p/\d_.*");
