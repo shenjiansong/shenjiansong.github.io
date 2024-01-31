@@ -52,12 +52,12 @@
 			<div class="tab">
 				<label data-id="1" class="l1 active">色彩</label>
 				<label data-id="5" class="l5">矩阵</label>
+				<label data-id="8" class="18">HSL</label>
 				<label data-id="2" class="l2">画质</label>
 				<label data-id="3" class="l3">光线</label>
-				<label data-id="4" class="l4">特效</label>
 				<label data-id="6" class="l6">模糊</label>
 				<label data-id="7" class="l7">LUT</label>
-				<label data-id="8" class="18">其他</label>
+				<label data-id="4" class="l4">特效</label>
 			</div>
 			<div class="content">
 				<div class="layout c1">
@@ -146,6 +146,10 @@
 
 						<div class="r1"><div class="title">高光</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input  data-attr="m.setHighlights" class="slider" type="range"   min="0" max="1" step="0.001" default="1"></div>
+					</div> 
+					<div class="row" data-c="GPUImageSoftLightBlendFilter">
+						<div class="r1"><div class="title">柔光</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.sss" class="slider" type="range"  min="0" max="1" step="1" default="0"></div>
 					</div>
 					
 					<div class="row" data-c="GPUImageExposureFilter">
@@ -258,10 +262,58 @@
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRefractiveIndex" class="slider" type="range"  min="-3" max="3" step="0.001" default="0.71"></div>
 					</div>
 					
+					<div class="row" data-c="GPUImageSwirlFilter">
+						<div class="r1"><div class="title">漩涡-半径</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="0" max="1" step="0.001" default="0.25"></div>
+						
+						<div class="r1"><div class="title">漩涡-角度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setAngle" class="slider" type="range"  min="-3" max="3" step="0.001" default="0.71"></div>
+					</div>
+					
+					 
+<!-- 					<div class="row" data-c="GPUImageGlassSphereFilter">
+						<div class="r1"><div class="title">玻璃球2-半径</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="0" max="1" step="0.001" default="0.5"></div>
+						<div class="r1"><div class="title">玻璃球2-折射率</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRefractiveIndex" class="slider" type="range"  min="-3" max="3" step="0.001" default="0.71"></div>
+						
+					</div> -->
+					<div class="row" data-c="GPUImageLuminanceThresholdFilter">
+							<div class="r1"><div class="title">亮度阈值-  高于阈值 显示为白色，而低于阈值为黑色</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setThreshold" class="slider" type="range"  min="0" max="1" step="0.01" default="0.5"></div>
+					</div>
+					
+					
+					
+					<div class="row" data-c="GPUImageSolarizeFilter">
+						<div class="r1"><div class="title">彩色反转-阈值</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setThreshold" class="slider" type="range"  min="0" max="2" step="0.01" default="0"></div>
+					</div>
+					
+					
 					<div class="row" data-c="GPUImageKuwaharaFilter">
 						<div class="r1"><div class="title">油画</div><div class="vol">0</div></div>
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRadius" class="slider" type="range"  min="1" max="50" step="1" default="4"></div>
 					</div>
+					
+					
+					<div class="row" data-c="GPUImageRGBDilationFilter"> 
+						<div class="r1"><div class="title">膨胀</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="0" max="4" step="1" default="0"></div>
+					</div>
+					
+					
+					
+					<div class="row" data-c="GPUImageToneCurveFilter"> 
+						<div class="r1"><div class="title">颜色点x</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRgbCompositeControlPoints:0-0" class="slider" type="range"  min="-1" max="1" step="0.01" default="0"></div>
+						<div class="r1"><div class="title">颜色点y</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setRgbCompositeControlPoints:0-1" class="slider" type="range"  min="-1" max="1" step="0.01" default="0"></div>
+					</div>
+					
+					
+					
+					
 				</div>
 				
 				
@@ -284,15 +336,26 @@
 						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setDistanceNormalizationFactor" class="slider" type="range"  min="0" max="10" step="0.01" default="8"></div>
 					</div>
 					 
+					<div class="row" data-c="GPUImageSobelEdgeDetectionFilter">
+						<div class="r1"><div class="title">Sobel边缘检测，边缘以白色突出显示</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setLineSize" class="slider" type="range"  min="0" max="10" step="0.01" default="0"></div>
+					</div>
+					
+					
+					<div class="row" data-c="GPUImageSobelThresholdFilter">
+						<div class="r1"><div class="title">Sobel边缘检测，边缘以黑色突出显示</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="-1" max="1" step="0.01" default="0"></div>
+					</div>
+					
 					
 				</div>
 				
 				<div class="layout c5 hide">
 					<div class="level" >
-						<!-- <div class="changed" data-type="all" style="color: #ffffff; ">全色</div> -->
 						<div class="changed" data-type="red" style="color: #ff0000;">红色</div>
 						<div data-type="green" style="color: #00ff00;">绿色</div>
 						<div data-type="blue" style="color: #0000ff;">蓝色</div>
+						<!-- <div data-type="all" style="color: #ffffff; ">色调</div> -->
 					</div>
 					
 <!-- 					<div class="row" data-c="GPUImageFalseColorFilter">
@@ -319,52 +382,52 @@
 					
 					 <div class="row rate" data-c="GPUImageColorMatrixFilter">
 						<div class="r1"><div class="title">全局系数</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-2" max="2" step="0.001" default="0.2"></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-2" max="2" step="0.001" default="1"></div>
 					</div>
 					 <div class="row" data-c="GPUImageColorMatrixFilter">
 						<div class="cmf red" >
-							<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-0" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1"><div class="title">红色增量</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-0" class="slider" type="range"  min="-1" max="2" step="0.001" default="1"></div>
 											
-							<div class="r1"><div class="title">参数2</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">绿转红比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-1" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 
-							<div class="r1"><div class="title">参数3</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">蓝转红比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-2" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 
-							<div class="r1"><div class="title">参数4</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-3" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1 hide"><div class="title">参数4</div><div class="vol">0</div></div>
+							<div class="r2 hide"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-3" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 						</div>
 						
 						<div class="hide cmf green">
-							<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">红转绿比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-4" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 
-							<div class="r1"><div class="title">参数2</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-5" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1"><div class="title">绿色增量</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-5" class="slider" type="range"  min="-1" max="2" step="0.001" default="1"></div>
 
-							<div class="r1"><div class="title">参数3</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">蓝转绿比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-6" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 
-							<div class="r1"><div class="title">参数4</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-7" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1 hide"><div class="title">参数4</div><div class="vol">0</div></div>
+							<div class="r2 hide"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-7" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 						</div>
 						
 						<div class="hide cmf blue">
-							<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">红转蓝比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-8" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 
-							<div class="r1"><div class="title">参数2</div><div class="vol">0</div></div>
+							<div class="r1"><div class="title">绿转蓝比</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-9" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 							
-							<div class="r1"><div class="title">参数3</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-10" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1"><div class="title">蓝色增量</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-10" class="slider" type="range"  min="-1" max="2" step="0.001" default="1"></div>
 							
-							<div class="r1"><div class="title">参数4</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-11" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1 hide"><div class="title">参数4</div><div class="vol">0</div></div>
+							<div class="r2 hide"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-11" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 						</div>
 						
-						<div class="hide all">
+						<div class="hide cmf all">
 							<div class="r1"><div class="title">参数1</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-12" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 							
@@ -374,8 +437,8 @@
 							<div class="r1"><div class="title">参数3</div><div class="vol">0</div></div>
 							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-14" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
 							
-							<div class="r1"><div class="title">参数4</div><div class="vol">0</div></div>
-							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-15" class="slider" type="range"  min="-1" max="2" step="0.001" default="0"></div>
+							<div class="r1 hide"><div class="title">参数4</div><div class="vol">0</div></div>
+							<div class="r2 hide"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0-15" class="slider" type="range"  min="-1" max="2" step="0.001" default="1"></div>
 						</div>		 
 					
 					</div>
@@ -472,10 +535,97 @@
 				</div>
 				
 				<div class="layout c8 hide">
+					<div class="level" >
+						<div class="changed" data-type="0" style="color: #ff0000;">红色</div>
+						<div data-type="60" style="color:#FFA500;">橙色</div>
+						<div data-type="120" style="color:#FFFF00;">黄色</div>
+						<div data-type="180" style="color:#00ff00;">绿色</div>
+						<div data-type="240" style="color:#00FFFF;">青色</div>
+						<div data-type="300" style="color:#0000FF;">蓝色</div>
+					</div>
 					
-					<div class="row" data-c="GPUImageDilationFilter"> 
-						<div class="r1"><div class="title">膨胀</div><div class="vol">0</div></div>
-						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="c.param" class="slider" type="range"  min="-5" max="5" step="0.01" default="0"></div>
+					<div class="row hsl rate h0" data-c="hsl0">
+						<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+					
+						<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="-30" max="30" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+					</div>
+					<div class="hide row hsl rate h60" data-c="hsl60">
+					
+						<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+					
+						<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="30" max="90" step="0.1" default="60"></div> 
+						
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+					</div>
+					<div class="hide row hsl rate h120" data-c="hsl120">
+						
+							<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+						
+							<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="90" max="150" step="0.1" default="120"></div>
+							
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+					</div>
+					<div class="hide row hsl rate h180" data-c="hsl180">
+						
+							<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+						
+							<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="150" max="210" step="0.1" default="180"></div>
+							
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+					</div>
+					<div class="hide row hsl rate h240" data-c="hsl240">
+						
+							<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+						
+							<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="210" max="270" step="0.1" default="240"></div>
+							
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+					</div>
+					<div class="hide row hsl rate h300" data-c="hsl300">
+						
+							<div class="r1"><div class="title">系数</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setIntensity" class="slider" type="range"  min="-1" max="2" step="0.01" default="1"></div>
+						
+							<div class="r1"><div class="title">色相</div><div class="vol">0</div></div>
+							<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:0" class="slider" type="range"  min="270" max="330" step="0.1" default="300"></div>
+							
+						<div class="r1"><div class="title">饱和度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:1" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
+						
+						<div class="r1"><div class="title">亮度</div><div class="vol">0</div></div>
+						<div class="r2"><div class="reset fa fa-sync"></div><input data-attr="m.setColorMatrix:2" class="slider" type="range"  min="-100" max="100" step="0.1" default="0"></div>
 					</div>
 					
 				</div>

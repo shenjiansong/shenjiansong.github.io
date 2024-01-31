@@ -518,7 +518,7 @@ border-color: chartreuse !important;
 	margin:0.5rem;
 }
 .r1 .title{
-	width: 40%;
+	width: 90%;
 	padding-left: 0.1rem;
 }
 .r1 .vol{
@@ -555,20 +555,20 @@ border-color: chartreuse !important;
 	height: 2rem;
 }
 
-.content .c5 .level{ 
+.content  .layout .level{ 
     display: flex;
 	position: absolute;
 	background-color: black;
 }
-.content .c5 .level div{
+.content .layout .level div{
     padding: 0.5rem;
 }
-.content .c5 .rate{
+.content .layout .rate{
 	margin-top: 2.5rem!important;
 	display: block!important;
 }
 
-.c5 .row .hide{
+.layout .row.hide,.row .hide{
 	display: none!important;
 }
 .slider{
@@ -583,4 +583,24 @@ border-color: chartreuse !important;
 }
 .cmf.blue .slider{
  background: linear-gradient(90deg, #0f0 0%, #00f 52%);
+}
+
+
+.hsl.h0 .slider{
+ background: linear-gradient(90deg, #0000FF 0%,#ff0000 52%, #FFA500 99%);
+}
+.hsl.h60 .slider{
+ background: linear-gradient(90deg, #ff0000 0%,#FFA500 52%, #FFFF00 99%);
+}
+.hsl.h120 .slider{
+ background: linear-gradient(90deg, #FFA500 0%, #FFFF00 52%, #00ff00 99%);
+}
+.hsl.h180 .slider{
+ background: linear-gradient(90deg, #FFFF00 0%, #00ff00 52%, #00FFFF 99%);
+}
+.hsl.h240 .slider{
+ background: linear-gradient(90deg, #00ff00 0%, #00FFFF 52%, #0000FF 99%);
+}
+.hsl.h300 .slider{
+ background: linear-gradient(90deg, #00FFFF 0%,#0000FF 52%, #ff0000 99%);
 }

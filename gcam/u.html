@@ -9,55 +9,47 @@
     <title>七喜 - 免费图片上传空间</title>
     <meta name="generator" content="Chevereto 4">
 	<script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+	<style>
+		<!-- CSS样式 -->
+		#colorPicker {
+		   width: 200px; /* 调整大小 */
+		   height: 200px;
+		   border-radius: 50%; /* 变成圆形 */
+		}
+		.palette {
+		   display: inline-block;
+		   width: 40px; /* 调整大小 */
+		   height: 40px;
+		   margin: 10px; /* 调整间距 */
+		   background-color: #ff0000; /* 初始化背景色 */
+		}
+	</style>
+	<script>
+		
+ 
+// JavaScript/jQuery代码
+$(document).ready(function() {
+   // 获取所有的小块
+   var palette = $(".palette");
+ 
+   // 定义预设的颜色值
+   var colors = ["red", "green", "blue"];
+ 
+   // 为每个小块绑定点击事件
+   palette.click(function() {
+      var selectedColor = $(this).css("background-color"); // 获取被点击小块的背景色
+      // 更新目标位置的文字内容为所选颜色名称
+      $("#target").text(selectedColor);
+   });
+});
+	</script>
 </head>
-<body>
-	<form id="myForm"  method="post" enctype="multipart/form-data">
-		<input  type="file" name="source" value="上传"/>
-		<input  type="text" name="type" value="file"/>
-		<input  type="text" name="action" value="upload"/>
-		<input  type="text" name="timestamp" value=""/>
-		<input  type="text" name="auth_token" value=""/>
-		<input  type="text" name="expiration" value=""/>
-		<input  type="text" name="nsfw" value="0"/> 
-	</form> 
-	<input  type="button" onclick="submit()" value="提交"/>
+<body> 
+<div id="colorPicker">
+    <div class="palette"></div> <!-- 第一个小块 -->
+    <div class="palette"></div> <!-- 第二个小块 -->
+</div>
+ 
+
 </body>
 </html>
-<script>
-	var base="https://gc.1kat.cn/json";//"https://imgse.com";//
-	document.getElementsByName("timestamp")[0].value=new Date().getTime();
-	var ck="";
-	$.get(base,function(res){
-		// var tmp=res.split("PF.obj.config.auth_token")[1].substring(1,50);
-		// console.log(tmp);
-		// var at=tmp.substring(tmp.indexOf("\"")+1,tmp.indexOf("\";"));
-		// document.getElementsByName("auth_token")[0].value=at;
-		var tmp=res.split('-');
-		document.getElementsByName("auth_token")[0].value=tmp[0];
-		ck=tmp[1];
-	})
-	// action="https://7up.pics/json"
-	function submit(){
-		var form = $('#myForm')[0]; // 获取表单元素
-		var data = new FormData(form); // 创建FormData对象来存储表单数据
-		console.log(data);
-		data.append("aaa","bbb");
-		$.ajax({
-		    url: base, // 指定URL地址
-		    type: 'POST', // 或者'PUT'等其他HTTP动词
-		    contentType: false, // 不设置Content-Type头部信息
-		    processData: false, // 不处理数据
-		    data: data, // 传递FormData对象作为数据
-			headers:{
-				"PHPSESSID":ck
-			},
-		    success: function (response) {
-		        console.log('成功',response);
-		    },
-		    error: function (res) {
-		        console.error('失败',res);
-		    }
-		});
-	}
-</script>
-
