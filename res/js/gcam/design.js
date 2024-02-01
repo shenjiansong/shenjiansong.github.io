@@ -139,6 +139,7 @@ $(document).ready(function(){
 			item.json={};
 			setLutValue("");
 			initSliderValue();
+			curveObj.clearAll();
 			initView();
 	});
 	
@@ -176,12 +177,26 @@ $(document).ready(function(){
 		}
 	}
 	
+	
+	var curveObj=new curve(".layout.c9",window.screen.availWidth*0.65,function(c){
+		if(curveObj){
+			var  curveFilter=curveObj.toGpuImageFilter();
+			if(!curveFilter){
+				if(item.json.hasOwnProperty("curve"))delete item.json["curve"];
+			}else{
+				item.json["curve"]=curveFilter;
+			}
+			initView()
+		}
+	});
+	
 });
 
 function doLut(file){
 	
 	var w=$("#file").data("w")*1;
-	if(file.name.toLowerCase().endsWith(".png")){
+	var fileName=file.name.toLowerCase();
+	if(fileName.endsWith(".png")||fileName.endsWith(".jpg")||fileName.endsWith(".jpeg")){
 		 const reader = new FileReader();
 		 reader.onloadend = function() {
 			 const base64String = reader.result; // 获取Base64字符串
@@ -190,7 +205,7 @@ function doLut(file){
 			 });
 		 };
 		 reader.readAsDataURL(file); // 开始读取文件内容
-	}else if(file.name.toLowerCase().endsWith(".cube")){
+	}else if(fileName.endsWith(".cube")){
 		 const reader = new FileReader();
 		 reader.onloadend = function() {
 			 const cubeTxt = reader.result; // 获取Base64字符串
@@ -510,17 +525,6 @@ function  toFilterJson(){
 			var aj=filter["GPUImageVignetteFilter"];
 			if(aj){
 				aj.m["setVignetteCenter"]=["0.5,0.5"];
-			}
-		}else if(att=="GPUImageToneCurveFilter"){
-			var tc=filter["GPUImageToneCurveFilter"]; 
-			if(tc){
-				var arr=tc.m["setRgbCompositeControlPoints"];
-				var  tmps=arr[0].split(",");
-				for(var i=0;i<tmps.length;i++){
-					tmps[i]=tmps[i]+","+tmps[i];
-				}
-				tmps.push("0,0");
-				tc.m["setRgbCompositeControlPoints"]=[tmps.join(";")];
 			}
 		}else if(att.startsWith("hsl")){
 			var hsl=filter[att];
