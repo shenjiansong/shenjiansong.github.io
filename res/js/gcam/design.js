@@ -528,18 +528,11 @@ function  toFilterJson(){
 			}
 		}else if(att.startsWith("hsl")){
 			var hsl=filter[att];
-			if(hsl&&hsl.hasOwnProperty("m")){
-				if(hsl.m.hasOwnProperty("setColorMatrix")){
-					 hsl["c"]["name"]="GPUImageColorMatrixFilter";
-					 var tcm=hsl.m["setColorMatrix"];
-					 var rcm=getHSLMatrix(tcm[0]*1,tcm[1]*1,tcm[2]*1);
-					 hsl.m["setColorMatrix"]=[rcm.join(",")];
-					if(!hsl.m.hasOwnProperty("setIntensity")){
-						hsl.m["setIntensity"]=[1];
-					}
-				}
-			}else{
-				delete filter[att];
+			if(hsl&&hsl.hasOwnProperty("c")){
+				var hslName=hsl["c"]["name"];
+				 hsl["c"]["param"]=[hslName.replace("hsl","")];
+				 hsl["c"]["name"]="nan.ren.filter.HslFilter";
+				 
 			}
 			
 		}

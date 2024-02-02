@@ -589,18 +589,26 @@ border-color: chartreuse !important;
 .hsl.h0 .slider{
  background: linear-gradient(90deg, #0000FF 0%,#ff0000 52%, #FFA500 99%);
 }
-.hsl.h60 .slider{
+
+.hsl.h30 .slider{
  background: linear-gradient(90deg, #ff0000 0%,#FFA500 52%, #FFFF00 99%);
 }
+
+.hsl.h60 .slider{
+ background: linear-gradient(90deg, #FFA500 0%,#FFFF00 52%, #00FF00 99%);
+}
 .hsl.h120 .slider{
- background: linear-gradient(90deg, #FFA500 0%, #FFFF00 52%, #00ff00 99%);
+ background: linear-gradient(90deg, #FFFF00 0%, #00FF00 52%, #00FFFF 99%);
 }
 .hsl.h180 .slider{
- background: linear-gradient(90deg, #FFFF00 0%, #00ff00 52%, #00FFFF 99%);
+ background: linear-gradient(90deg, #00FF00 0%, #00FFFF 52%, #0000FF 99%);
 }
 .hsl.h240 .slider{
- background: linear-gradient(90deg, #00ff00 0%, #00FFFF 52%, #0000FF 99%);
+ background: linear-gradient(90deg, #00FFFF 0%, #0000FF 52%, #800080 99%);
+}
+.hsl.h270 .slider{
+ background: linear-gradient(90deg, #0000FF 0%, #800080 52%, #FF00FF 99%);
 }
 .hsl.h300 .slider{
- background: linear-gradient(90deg, #00FFFF 0%,#0000FF 52%, #ff0000 99%);
+ background: linear-gradient(90deg, #800080 0%,#FF00FF 52%, #ff0000 99%);
 }
