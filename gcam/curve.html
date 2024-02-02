@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Title</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../res/js/gcam/curve.js?t=1"></script> 
+  <style>
+	  body{ 
+		  background-color: #000000;
+		  text-align: center;
+	  }
+	 .curve {
+		 width: 350px;
+		 height: 350px;
+		 background-color: #ada9a996;
+		 display: grid;
+		 grid-template-rows: repeat(3, 1fr);
+		 grid-template-columns: repeat(3, 1fr);
+	 }
+	 
+	 .block {
+		 border: 1px solid #d2c7c733;
+		 text-align: center;
+		 padding: 5px;
+	 }
+	 
+  </style>
+  
+</head>
+<body> 
+
+<!-- <div class="curve"></div> -->
+ <!-- <canvas style="background-color:#ada9a996;" width="350px" height="350px" id="myCanvas"></canvas> -->
+</body>
+</html>
+<script>
+	var c=new curve(document.body,250)   
+	//  // 获取<canvas>元素
+	//  var curves={
+	// 	 all:[],
+	// 	 r:[],
+	// 	 g:[],
+	// 	 b:[]
+	//  }
+	//  var canvas = document.getElementById("myCanvas");
+	//  var size=canvas.width;
+	//  canvas.height=size;
+	//  var ctx = canvas.getContext('2d');
+	//  var base=[[0,0],[1,1]]
+	//  var points=[[0,0],[1,1]];
+	//  var nowPointIndex=-1;
+	//  var  drawTiger=-1;
+	// $(document).ready(function(){
+	// 	$("#myCanvas").on("touchstart",function(e){
+	// 		var p=getPoint(e);
+	// 		nowPointIndex = -1; 
+	// 		for(var i=0;i<points.length;i++){
+	// 			if(distance(p,points[i])<0.1){
+	// 				points[i]=p;
+	// 				nowPointIndex = i;
+	// 				break;
+	// 			}
+	// 		}
+	// 		if(nowPointIndex==-1){
+	// 			for(var i=0;i<points.length;i++){
+	// 				 if(points[i][0]>p[0]){
+	// 					points.splice(i, 0, p);
+	// 					nowPointIndex = i;
+	// 					break;
+	// 				 }
+	// 			}
+	// 		}
+	// 		drawTiger=setInterval(draw,200);
+	// 	});
+	// 	$("#myCanvas").on("touchend",function(e){
+	// 		clearInterval(drawTiger);
+	// 		nowPointIndex=-1;
+	// 	});
+	// 	$("#myCanvas").on("touchmove",function(e){
+	// 	    var p=getPoint(e);
+	// 		points[nowPointIndex]=p;
+	// 	});
+		
+	// 	draw();
+	// });
+	// function clear(){
+	// 	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	// }
+	// function getPoint(e){
+	// 	let x=e.originalEvent.changedTouches[0].pageX-canvas.offsetLeft;
+	// 	let y=e.originalEvent.changedTouches[0].pageY-canvas.offsetTop;
+	// 	x=x<0?0:x; 
+	// 	x=x>size?size:x;
+	// 	y=y<0?0:y; 
+	// 	y=y>size?size:y;
+	// 	x=x/size;
+	// 	y=1-y/size;
+	// 	if(nowPointIndex>0){
+	// 		var x1=points[nowPointIndex-1][0];
+	// 		var x2=points[nowPointIndex+1][0];
+	// 		if(x<x1+0.05)x=x1+0.05;
+	// 		if(x>x2-0.05)x=x2-0.05;
+	// 	}
+	// 	return  [x,y];
+	// }
+	// function distance(p1,p2){
+	// 	var x=Math.abs( p1[0]-p2[0] );
+	// 	var y=Math.abs( p1[1]-p2[1] );
+	// 	return Math.sqrt(x*x+y*y);
+	// }
+	// function drawLine(p1,p2,color){
+	// 	if(!color)color="#d2c7c733";
+	// 	var point1 = { left: p1[0]*size, top: ( 1-p1[1])*size  };//第一个点
+	// 	var point2 = { left: p2[0]*size, top: ( 1-p2[1])*size  };//第二个点
+
+	// 	ctx.beginPath();
+	// 	ctx.moveTo(point1.left, point1.top);//起始位置
+	// 	ctx.lineTo(point2.left, point2.top);//停止位置
+	// 	ctx.strokeStyle=color;
+	// 	ctx.stroke();
+	// }
+	// function drawPoint(p,r,color){
+	// 	if(!color)color='#1c86d1';
+	// 	if(!r)r=10;
+	// 	var point1 = { left: p[0]*size, top: ( 1-p[1])*size  };//第一个点
+	// 	ctx.beginPath();
+	// 	ctx.strokeStyle =color;
+	// 	//从150,150的位置为圆心，50为半径，画一个从0-2π的圆
+	// 	ctx.arc(point1.left,point1.top,r,0,2*Math.PI);
+	// 	ctx.stroke();
+	// }
+	// function draw(){
+	// 	clear();
+	// 	drawLine([1/3,0],[1/3,1]);
+	// 	drawLine([2/3,0],[2/3,1]);
+	// 	drawLine([0,1/3],[1,1/3]);
+	// 	drawLine([0,2/3],[1,2/3]);
+	// 	for(var i=0;i<points.length-1 ;i++){
+	// 		drawLine(points[i],points[i+1],"#FFFFFF");
+	// 		if(i!=points.length-2)drawPoint(points[i+1]);
+	// 	}
+	// }
+</script>
