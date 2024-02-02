@@ -30,7 +30,7 @@ var X=window.X||{
 	debugger:true,
 	VERSION:2306,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
-	CACHE_VERSION:2.39,
+	CACHE_VERSION:2.40,
 	RES_CSS_VERSION:'1.0.0-9',
 	RES_JS_VERSION:'1.0.0-9',
 	RES_CUSTOM_VERSION:'1.0.0-9',
