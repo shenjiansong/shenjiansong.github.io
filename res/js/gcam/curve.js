@@ -107,10 +107,19 @@ function curve(renderTo,_size,callBack){
 	}
 	function draw(){
 		clear();
-		drawLine([1/3,0],[1/3,1]);
-		drawLine([2/3,0],[2/3,1]);
-		drawLine([0,1/3],[1,1/3]);
-		drawLine([0,2/3],[1,2/3]);
+		// drawLine([1/3,0],[1/3,1]);
+		// drawLine([2/3,0],[2/3,1]);
+		
+		// drawLine([0,1/3],[1,1/3]);
+		// drawLine([0,2/3],[1,2/3]);
+		
+		for(var i=1;i<=4;i++){
+			drawLine([i/4,0],[i/4,1]);
+			drawLine([0,i/4],[1,i/4]);
+		}
+		
+		
+		
 		for(var att in curves){
 			const dpoints=curves[att];
 			var dColor=(att=="all"?"#fff":att)
