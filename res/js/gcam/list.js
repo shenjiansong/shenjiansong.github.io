@@ -1,5 +1,4 @@
 var existsPatchList=[];
-var page=0,size=18;
 var allCnt=1;
 var default_logo="https://s11.ax1x.com/2024/01/13/pFPJVxI.png"
 
@@ -20,7 +19,7 @@ $(document).ready(function(){
 	});
 	 initExistsPatchList();
 	 showList();
-	 onToEnd(showList);
+	// onToEnd(showList);
 });
 
 
@@ -39,14 +38,15 @@ function insertToLast(e){
 	let demo=dd.find(".demoimg");
 	var src = demo.data("src")
 	if(src){
-		Thead.delayed(function(){
-			if(src && src.indexOf("/pic/DEMO")>0){
-				src=AZ.get(src);
-			}
-			if(src){
-				demo.attr("style","background-image:url('"+src+"')");
-			}
-		},100*(ii++%size));
+		if(src.indexOf("/pic/DEMO")>0){
+			Thead.delayed(function(){
+				if(src && src.indexOf("/pic/DEMO")>0){
+					src=AZ.get(src);
+				}
+			},100*ii++);
+		}else{
+			demo.attr("style","background-image:url('"+src+"')");
+		}
 	}
 	$("#D2").append(dd);
 	
@@ -62,11 +62,8 @@ function initExistsPatchList(){
 	}
 }
 function showList(){
-	if(page<0){
-		return ;
-	}
 	pageLoadTip("加载中。。。");
-	var list=getList(page);
+	var list=G.getList();
 	var item_temp_html=$("#tempItem").html();
 	if(list && list.length>0){
 		for(var i=0;i<list.length;i++){
@@ -86,11 +83,6 @@ function showList(){
 		}
 	}
 	pageLoadTipHide(); 
-	if(list.length<size){
-		page=-1;
-	}else{
-		page++;
-	}
 }
 function addPatch(self){
 	pageLoadTip(null);
@@ -116,40 +108,3 @@ function addPatch(self){
 	}, 50);
 }
 
-
-function getList(p,s){
-	if(p>0)return [];
-	return getLocalData();
-}
-
-function getLocalData(){
-	var ldata=localStorage.getItem("list_data");
-	try{
-		if(ldata){
-			if(typeof ldata=="string"){
-				ldata=JSON.parse(ldata);
-			}
-			if(ldata.data.length>0 || ldata.lasttime>0){
-				if(ldata.lasttime && (new Date().getTime()-ldata.lasttime>1)){
-					Thead.delayed(saveLocalData,1000);
-				}
-				
-				return ldata.data;
-			}
-		}
-	}catch(e){ }
-	saveLocalData();
-	return getLocalData();
-	
-}
-
-function saveLocalData(){
-	var pam={page:0,size:99999}
-	var res=AZ.get("https://gc.1kat.cn/list2");
-	if(typeof res=="string"){
-		res = JSON.parse(res);
-	}
-	var ldata={lasttime:new Date().getTime(),data:res};
-	localStorage.setItem("list_data",JSON.stringify(ldata));
-	return ldata;
-}

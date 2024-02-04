@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 	$( document ).on("click",".cover",function(e){
 		$("#file").data("to","data");
-		$("#file").data("w",512);
+		$("#file").data("w",window.screen.availWidth);
 		$("#file").click()
 	});
 	$( document ).on("click",".title .fa-edit",function(e){
@@ -151,7 +151,6 @@ $(document).ready(function(){
 	
 	$( document ).on("change","#file",function(e){
 		 const file = event.target.files[0]; // 获取第一张选定的图片
-		 console.log(file.name)
 		 var to=$("#file").data("to");
 		 if (file && file instanceof Blob) {
 			 if(to=="data"){

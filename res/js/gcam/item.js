@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 function initView(){
 	if(id){
-		data=getItem(id);
+		data=G.getItem(id);
 		if(data.demo && data.demo.indexOf("/pic/DEMO")>0){
 			data.demo=AZ.get(data.demo);
 		}
@@ -84,15 +84,3 @@ function addPatch(self){
 function show(){
 	
 }
-
-
-function getItem(gkey){
-	try{
-		var data=AZ.get("https://gc.1kat.cn/item/"+(id+"").trim());
-		if(typeof data=="object")return data;
-		return JSON.parse(data);
-	}catch(e){
-		return {};
-	}
-}
-

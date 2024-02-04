@@ -262,7 +262,7 @@ if(typeof AZ=="object"){
 			return "";
 		},
 		getUkey:function(){
-			return "";
+			return "18D432BCC5D";
 		},
 		close:function(){
 			console.log("close");
@@ -270,17 +270,31 @@ if(typeof AZ=="object"){
 		post:function(url,json,headers){
 			if(url=="https://gc.1kat.cn/list"){
 				return plist.concat(plist);
+			}else{
+				var  jsonData="";
+				if(typeof json=="string")jsonData=json;
+				else jsonData=JSON.stringify(json);
+				$.ajaxSetup({ async:false });
+				var a=$.ajax({
+				  url: url,
+				  type: 'POST',
+				  contentType: 'application/json',
+				  data: jsonData
+				});
+				$.ajaxSetup({ async:true });
+				console.log(a.responseText)
+				return a.responseText;
 			}
 		},
-		get:function(url){
-			console.log("get：",url);
+		get:function(url){ 
 			if(url.indexOf("/item/")>0){
 				return litem;
 			}
-			 
-		 //  	$.get(url,function(res){
-				
-			// });
+			$.ajaxSetup({ async:false });
+			var  a=  $.get(url);
+			//console.log("get：",url,a.responseText);
+			$.ajaxSetup({ async:true });
+			return a.responseText;
 		},
 		getFileList:function(path){
 			console.log("getFileList：",path);
@@ -320,7 +334,7 @@ if(typeof AZ=="object"){
 			
 		},
 		getUser:function(){
-			return null;
+			return {"uid":AZ.getUkey()};
 		},
 		saveUser:function(str){
 			return true;
@@ -382,4 +396,114 @@ function addPatchByKey(gkey){
 	  });
 }
 
-//AZ.toast(UNIN_CODE_IN_PAG%100)
+var G=window.G||{
+	getList:function (p){
+		var result= G.getLocalData(false);
+		if(p && p.zz){
+			var resList=[];
+			for(var i=0;i<result.length;i++){
+				if(p.zz==result[i].zz){
+					resList.push(result[i]);
+				}
+			}
+			return resList;
+		}else if(p && p.gkey){
+			var resList=[];
+			for(var i=0;i<result.length;i++){
+				if(p.gkey==result[i].gkey){
+					resList.push(result[i]);
+				}
+			}
+			return resList;
+		}
+		return result;
+	},
+	getLocalData:function (fRet){//fRet 是否取消递归
+		var ldata=localStorage.getItem("list_data"); 
+		try{
+			if(ldata){
+				if(typeof ldata=="string"){
+					ldata=JSON.parse(ldata);
+				}
+				if(ldata.data.length>0 || ldata.lasttime>0){
+					if(ldata.lasttime && (new Date().getTime()-ldata.lasttime>1000*60)){
+						Thead.delayed(saveLocalData,1000);
+					}
+					return ldata.data;
+				}
+			}
+		}catch(e){ }
+		G.saveLocalData();
+		if(fRet){
+			return [];
+		}else{
+			return G.getLocalData(true);
+		}
+	},
+	saveLocalData:function (){
+		var pam={page:0,size:99999}
+		var res=AZ.get("https://gc.1kat.cn/list2");
+		if(typeof res=="string"){
+			res = JSON.parse(res);
+		}
+		return G.saveList(res);
+	},
+	saveList:function(list){
+		var ldata={lasttime:new Date().getTime(),data:list};
+		localStorage.setItem("list_data",JSON.stringify(ldata));
+		return ldata;
+	},
+	getItem:function(gkey){
+		var list=G.getList({gkey:gkey});
+		if(!list||list.length<1){
+			return {
+				"author":{}
+			}
+		}
+		var item=list[0];
+		 item["create_time"]=new Date(item["create_time"]).toDateTime();
+		item["author"]={
+			"uid":item.zz,
+			"name":item.name,
+			"email":item.email,
+			"kuan":item.kuan
+		};
+		if(item.pkey && item.pkey.length>5){
+			item["parent"]=G.getItem(item.pkey.trim());
+		}
+		return item;
+	},
+	removeItem:function(gkey){
+		var list=G.getList();
+		if(!list||list.length<1){
+			 return;
+		}
+		for(var i=0;i<list.length;i++){
+			if(list[i].gkey==gkey){
+				list.splice(i, 1);
+				break;
+			}
+		}
+		return G.saveList(list);
+	},
+	updateLocal:function(item){
+		var list=G.getList();
+		if(!list||list.length<1){
+			 return;
+		}
+		for(var i=0;i<list.length;i++){
+			if(list[i].gkey==item.gkey){
+				item=Object.assign(list[i], item);
+				list.splice(i, 1);
+				list.unshift(item);
+				break;
+			}
+		}
+		return G.saveList(list);
+	},
+	addLocal:function(item){
+		var list=G.getList();
+		list.unshift(item);
+		return G.saveList(list);
+	}
+}

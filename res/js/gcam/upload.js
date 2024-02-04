@@ -130,6 +130,19 @@ function toUploadOne(it){
 			it.removeClass("fa-arrow-up");
 			it.addClass("fa-ban");
 			moveToLast(it.parent());
+			var user=getUser();
+			var pkey=key.indexOf("_")>0?key.split("_")[0]:"";
+			G.addLocal(
+			{
+				gkey:key,
+				title:title,
+				zz:user["uid"],
+				name:user["name"],
+				kuan:user["kuan"],
+				pkey:pkey,
+				create_time:new Date().toDateTime()
+				
+			});
 		}
 	}catch(e){
 		

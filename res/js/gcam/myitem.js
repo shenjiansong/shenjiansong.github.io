@@ -95,7 +95,10 @@ $(document).ready(function(){
 					 "note":item.note||''
 				 }
 				var res=AZ.post("https://gc.1kat.cn/update",JSON.stringify(data),"");
-				if(res=="1")alert("保存成功");
+				if(res=="1"){
+					alert("保存成功");
+					G.updateLocal(data);
+				}
 				else  alert("保存失败");
 				pageLoadTipHide();
 				return;
@@ -116,7 +119,7 @@ $(document).ready(function(){
 function initView(){
 	//alert(id)
 	if(!item && id){
-		item=getItem(id);
+		item=G.getItem(id);
 		if(item.demo && item.demo.indexOf("/pic/DEMO")>0){
 			item.demo_src=AZ.get(item.demo);
 		}else{
@@ -160,17 +163,6 @@ function addPatch(self){
 			pageLoadTipHide();
 			return;
 	}, 50);
-}
-
-
-function getItem(gkey){
-	try{
-		var data=AZ.get("https://gc.1kat.cn/item/"+(id+"").trim());
-		if(typeof data=="object")return data;
-		return JSON.parse(data);
-	}catch(e){
-		return {};
-	}
 }
 
 

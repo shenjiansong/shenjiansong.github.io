@@ -2,6 +2,9 @@
 Array.prototype.remove = function(val){ var index = this.indexOf(val);if (index > -1) {this.splice(index, 1);}  };
 Array.prototype.removeAll = function(val){var index; while((index = this.indexOf(val) )>-1) {this.splice(index, 1);}  };
 if(typeof "".replaceAll !="function"){String.prototype.replaceAll = function(s1, s2) {return this.replace(new RegExp(s1, "gm"), s2);}}
+Date.prototype.Format = function (fmt) { var o = {"M+": this.getMonth() + 1,"d+": this.getDate(),"H+": this.getHours(),"m+": this.getMinutes(),"s+": this.getSeconds(),"q+": Math.floor((this.getMonth() + 3) / 3),"S": this.getMilliseconds()};if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));for (var k in o) if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length))); return fmt; }
+Date.prototype.toDate = function () {return this.Format("yyyy-MM-dd");}
+Date.prototype.toDateTime = function () {return this.Format("yyyy-MM-dd HH:mm:ss");}
 var Thead={
 	run:function(task){
 		return new Promise ((resolve, reject)=> {
@@ -30,10 +33,10 @@ var X=window.X||{
 	debugger:true,
 	VERSION:2306,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
-	CACHE_VERSION:2.40,
-	RES_CSS_VERSION:'1.0.0-9',
-	RES_JS_VERSION:'1.0.0-9',
-	RES_CUSTOM_VERSION:'1.0.0-9',
+	CACHE_VERSION:2.41,
+	RES_CSS_VERSION:'1.0.0-10',
+	RES_JS_VERSION:'1.0.0-10',
+	RES_CUSTOM_VERSION:'1.0.0-10',
 	base: function(){try{return document.getElementById("bootjs").src.split("/res/js/boot.js")[0]}catch{return document.location.origin;}}(),
 	isLocal:(window.location.href.indexOf("127.0.0")>-1||window.location.href.indexOf("localhost")>-1||window.location.host.startsWith("10.")),
 	sleep:function(ms){var start = new Date().getTime();while (true) if (new Date().getTime() - start > ms) break;},
