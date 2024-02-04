@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 	$( document ).on("click",".cover",function(e){
 		$("#file").data("to","data");
-		$("#file").data("w",window.screen.availWidth);
+		$("#file").data("w",Math.max(window.screen.availWidth,1024));
 		$("#file").click()
 	});
 	$( document ).on("click",".title .fa-edit",function(e){
