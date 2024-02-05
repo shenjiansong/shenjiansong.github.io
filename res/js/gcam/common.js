@@ -242,6 +242,22 @@ if(typeof AZ=="object"){
 	alert=function(msg){
 		Thead.run(function(){AZ.toast(msg);});
 	}
+	console.log=function(msg,a,b,c){
+		var m="";
+		if(typeof msg=="object")m=JSON.stringify(msg);
+		else m=msg;
+		
+		if(typeof a=="object")m=m+","+JSON.stringify(a);
+		else if(typeof a !=="undefined") m=m+","+ a;
+		 
+		 if(typeof b=="object")m=m+","+JSON.stringify(b);
+		 else if(typeof b !=="undefined") m=m+","+ b;
+		 
+		 if(typeof c=="object")m=m+","+JSON.stringify(c);
+		 else if(typeof c !=="undefined") m=m+","+ c; 
+		
+		Thead.run(function(){AZ.log(m);});
+	}
 	 //var ids=AZ.matchPref("my_key_p\\d+_id");
 	// alert(ids);
 	// var obj=JSON.parse(ids);

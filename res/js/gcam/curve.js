@@ -265,6 +265,37 @@ function curve(renderTo,_size,callBack){
 			return filter;
 		}
 		
+		this.fromGpuImageFilter=function(filter){
+			if(typeof filter==="string")filter=JSON.parse(filter);
+			curves={
+					 all:[[0,0],[1,1]],
+					 red:[[0,0],[1,1]], 
+					 green:[[0,0],[1,1]],
+					 blue:[[0,0],[1,1]]
+			};
+			for(var att in filter.m){
+				var v=filter.m[att];
+				if(v && v.length==1 && typeof v=="object")v=v[0];
+				var vs=v.split(";");
+				var arr=[];  
+				for(var i=0;i<vs.length;i++){
+					arr.push(vs[i].split(","));
+				}
+				if(att==="setRgbCompositeControlPoints"){
+					curves["all"]=arr;
+				}else if(att==="setRedControlPoints"){
+					curves["red"]=arr;
+				}else if(att==="setGreenControlPoints"){
+					curves["green"]=arr;
+				}else if(att==="setBlueControlPoints"){
+					curves["blue"]=arr;
+				}
+			}
+			points=curves[nowColor];
+			draw();
+			
+		}
+		
 		this.setChanged=function(_callBack){
 			onChanged=_callBack;
 		}

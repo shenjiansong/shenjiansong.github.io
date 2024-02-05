@@ -3,12 +3,15 @@ var item={
 	data:'',
 	json:{}
 };
+var curveObj=null;
 var srcData=null,localPatchList={},nowP=-99;
+var srcImageBase64=null;
+var srcImageUrl=null;
 $(document).ready(function(){
 	
 	initLocalPatch(true);
 	initSliderValue();
-	initView();
+	initView(true);
 	$( document ).on("click",".layout .lut",function(e){
 		$("#file").data("to","lut");
 		$("#file").data("w",512);
@@ -16,16 +19,16 @@ $(document).ready(function(){
 	});
 	$( document ).on("click",".cover",function(e){
 		$("#file").data("to","data");
-		$("#file").data("w",Math.max(window.screen.availWidth,1024));
+		//$("#file").data("w",Math.min(window.screen.availWidth*2,1024));
+		$("#file").data("w",1024);
 		$("#file").click()
 	});
 	$( document ).on("click",".title .fa-edit",function(e){
 		let titleDom=this.parentNode;
 		 showEditorBox({text:item.title||'',
 						ok:function(res){
-							console.log(res);
 							item.title=res;
-							initView();
+							initView(false);
 					},
 		 });
 	});
@@ -47,18 +50,17 @@ $(document).ready(function(){
 	$( document ).on("click",".lpatch",function(e){
 		var p=$(this).data("p")
 		var key="my_key_p"+p+"_random"
-		item.json=JSON.parse(JSON.stringify(localPatchList[key]));
+		item.json=toItemJson(JSON.stringify(localPatchList[key]));
 		item.title=this.innerText;
 		nowP=p;
 		resetValueByJson();
-		initView();
+		initView(true);
 		$(".title.select").html("no:"+nowP);
 		$(".button.add").html("保存("+this.innerText+")");
 		
 	});
 	
 	$( document ).on("click","#tool label",function(e){
-		 console.log(this);
 		 $("label").removeClass("active");
 		 $(this).addClass("active"); 
 		 $(".layout").addClass("hide")
@@ -99,8 +101,7 @@ $(document).ready(function(){
 		}else{
 			setJsonBySlider(slider);
 		}
-		
-		initView();
+		initView(true);
 	});
 	
 	
@@ -140,7 +141,32 @@ $(document).ready(function(){
 			setLutValue("");
 			initSliderValue();
 			curveObj.clearAll();
-			initView();
+			initView(true);
+	});
+	
+	$( document ).on("click",".export",function(e){
+		pageLoadTip("正在导出图片，请稍后。。。");
+		var result=false;
+		try{
+			var filterJson=toFilterJson();
+			if(filterJson && filterJson.length>10){
+				if(srcImageUrl && srcImageUrl.length>10){
+					result=AZ.saveImageByFilter(srcImageUrl,filterJson);
+				}else if(srcImageBase64 && srcImageBase64.length>100){
+					result=AZ.saveImageByFilter(srcImageBase64,filterJson);
+				}
+			}
+		}catch(e){
+			
+		}
+		
+		if(!result){
+			alert("导出失败")
+		}else{
+			alert("导出完成")
+		}
+		pageLoadTipHide();
+			 
 	});
 	
 	$( document ).on("click",".upload",function(e){
@@ -177,7 +203,7 @@ $(document).ready(function(){
 	}
 	
 	
-	var curveObj=new curve(".layout.c9",window.screen.availWidth*0.65,function(c){
+	curveObj=new curve(".layout.c9",window.screen.availWidth*0.65,function(c){
 		if(curveObj){
 			var  curveFilter=curveObj.toGpuImageFilter();
 			if(!curveFilter){
@@ -185,10 +211,23 @@ $(document).ready(function(){
 			}else{
 				item.json["curve"]=curveFilter;
 			}
-			initView()
+			doValueChange();
 		}
 	});
 	
+	// $(".layout .slider").on("touchmove",function(e){
+	// 	  event.preventDefault(); 
+	// });
+	  
+	// $(".layout .slider").on("touchstart",function(e){
+	// 	  event.preventDefault(); 
+	// });
+	// $(".layout .slider").on("mousedown",function(e){ 
+	// 	  event.preventDefault(); 
+	// });
+	// $(".layout .slider").on("mousemove",function(e){ 
+	// 	  event.preventDefault(); 
+	// });
 });
 
 function doLut(file){
@@ -231,24 +270,25 @@ function setLutValue(base64){
 		s.value=base64;
 		setJsonBySlider(s); 
 	}
-	initView();
+	initView(true);
 }
 	
 function doCover(file){
 	 var w=$("#file").data("w")*1;
 	const reader = new FileReader();
 	reader.onloadend = function() {
-		 const base64String = reader.result; // 获取Base64字符串
-		 getBase64Image(base64String,w).then(v => {
-			srcData=v;
-			initView();
+		 srcImageBase64 = reader.result; // 获取Base64字符串
+		 srcImageUrl=AZ.getLastUploadFile();
+		 getBase64Image(srcImageBase64,w).then(v => {
+			srcData=v; 
+			initView(true);
 		 });
 	};
 	reader.readAsDataURL(file); // 开始读取文件内容
 }
-function initView(){
+function initView(incloudImg){//是否重新渲染图片
 	if(item){
-		if(srcData){
+		if(srcData && incloudImg){
 			var filterJson=toFilterJson();
 			if(filterJson && filterJson.length>3){
 				item.data=AZ.gpuFilter(srcData,filterJson);
@@ -305,6 +345,7 @@ function getBase64Image(src,w) {
         img.onload = function () {
             const canvas = document.createElement('canvas')
 			var m = img.height / img.width;
+			 if(img.width<w)w=img.width;
 			 canvas.width  = w ;//该值影响缩放后图片的大小
 			 canvas.height =w*m;
             const ctx = canvas.getContext('2d')
@@ -330,11 +371,20 @@ function initSliderValue(){
 function sliderChange(s){
 	showValueBySlider(s);
 	setJsonBySlider(s);
-	initView();
+	doValueChange();
 }
 function showValueBySlider(s){
 	var cc=$(s.parentNode.previousElementSibling);
 	cc.find(".vol").html(s.value);
+}
+var tigerJob=-1;
+function doValueChange(){
+	if(tigerJob==-1){
+		tigerJob=setTimeout(function(){
+			initView(true);
+			tigerJob=-1;
+		},50);
+	}
 }
 
 
@@ -487,7 +537,7 @@ function resetValueByJson(){
 					var temps=attr.split(":");
 					attr=temps[0];
 					if(item.json[c][type].hasOwnProperty(attr)){
-						var po=temps.length>1?(temps[0]*1):0;
+						var po=temps.length>1?(temps[1]*1):0;
 						slider.value=item.json[c][type][attr][po];
 						showValueBySlider(slider)
 					}
@@ -518,7 +568,6 @@ function  toFilterJson(){
 	
 	var filter=JSON.stringify(item.json);
 	filter=JSON.parse(filter);
-	
 	for(var att in filter){
 		if(att=="GPUImageVignetteFilter"){//暗角设置中心点
 			var aj=filter["GPUImageVignetteFilter"];
@@ -531,145 +580,32 @@ function  toFilterJson(){
 				var hslName=hsl["c"]["name"];
 				 hsl["c"]["param"]=[hslName.replace("hsl","")];
 				 hsl["c"]["name"]="nan.ren.filter.HslFilter";
-				 
 			}
-			
 		}
 		
 	}
-	
 	// var  cmf=filter["GPUImageColorMatrixFilter"];
 	// if(cmf){
 	// 	cmf.m["setColorMatrix"]=["0.3588, 0.7044, 0.1368, 0.0,  0.2990, 0.5870, 0.1140, 0.0, 0.2392, 0.4696, 0.0912, 0.0,  0, 0, 0, 1.0"]; 
 	// }
-	
 	//  
 	 var resultJsonStr= JSON.stringify(filter);
-	 console.log(filter);
 	return resultJsonStr;
 }
 
-
-
-
-function getHSLMatrix2(hue, saturation, luminance) {
-	//var defaultHsl=[0, 0, 0.39215686274509803];
-	var rgb=HSL2RGB([hue,saturation,luminance]);
-	return [
-        rgb[0]/255,0,0,0, 
-        0,rgb[1]/255,0,0, 
-        0,0,rgb[2]/255,0, 
-        0,0,0,1,  
-    ];
-}
-function getHSLMatrix(hue, saturation, luminance) {
-    var c =  Math.cos(hue * Math.PI / 180.0);
-    var s = Math.sin(hue * Math.PI / 180.0);
-	var lumaR = 0.213;
-	var lumaG = 0.715;
-	var lumaB = 0.072;
-	var oneMinusLumaR = 1.0 - lumaR;
-	var oneMinusLumaG = 1.0 - lumaG;
-	var oneMinusLumaB = 1.0 - lumaB;
-	
-	var rgb=HSL2RGB([hue,saturation*2,luminance+40]);
-	
-	// 设置矩阵参数
-	var hslMatrix= [
-	    (lumaR + oneMinusLumaR * c + lumaR * s)*(1+rgb[0]/255),
-	    (lumaG - lumaG * c + lumaG * s)*(1+rgb[1]/255),
-	    (lumaB - lumaB * c - oneMinusLumaB * s)*(1+rgb[2]/255),
-	    0.0,
-		
-	    (lumaR - lumaR * c - oneMinusLumaR * s)*(1+rgb[0]/255),
-	    (lumaG + oneMinusLumaG * c + lumaG * s)*(1+rgb[1]/255),
-	    (lumaB - lumaB * c + lumaB * s)*(1+rgb[2]/255),
-	    0.0,
-		  
-	    (lumaR - lumaR * c + lumaR * s)*(1+rgb[0]/255),
-	    (lumaG - lumaG * c - oneMinusLumaG * s)*(1+rgb[1]/255),
-	    (lumaB + oneMinusLumaB * c + lumaB * s)*(1+rgb[2]/255),
-	    0.0,
-		
-	    0.0,
-	    0.0,
-	    0.0,
-	    1.0
-	];
-	return hslMatrix;
-	
-}
-
-
-function HSL2RGB(hsl) {
-const h = (hsl[0]%360+360)  / 360;
-const s = hsl[1] / 100;
-const l = hsl[2] / 100;
-let t2;
-let t3;
-let val;
-if (s === 0) {
-val = l * 255;
-return [val, val, val];
-}
-if (l < 0.5) {
-t2 = l * (1 + s);
-} else {
-t2 = l + s - l * s;
-}
-const t1 = 2 * l - t2;
-const rgb = [0, 0, 0];
-for (let i = 0; i < 3; i++) {
-t3 = h + (1 / 3) * -(i - 1);
-if (t3 < 0) {
-t3++;
-}
-if (t3 > 1) {
-t3--;
-}
-if (6 * t3 < 1) {
-val = t1 + (t2 - t1) * 6 * t3;
-} else if (2 * t3 < 1) {
-val = t2;
-} else if (3 * t3 < 2) {
-val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
-} else {
-val = t1;
-}
-rgb[i] = val * 255;
-}
-return rgb;
-}
-
-function RGB2HSL(rgb) {
-const r = rgb[0] / 255;
-const g = rgb[1] / 255;
-const b = rgb[2] / 255;
-const min = Math.min(r, g, b);
-const max = Math.max(r, g, b);
-const delta = max - min;
-let h;
-let s;
-if (max === min) {
-h = 0;
-} else if (r === max) {
-h = (g - b) / delta;
-} else if (g === max) {
-h = 2 + (b - r) / delta;
-} else if (b === max) {
-h = 4 + (r - g) / delta;
-}
-h = Math.min(h * 60, 360);
-if (h < 0) {
-h += 360;
-}
-const l = (min + max) / 2;
-if (max === min) {
-s = 0;
-} else if (l <= 0.5) {
-s = delta / (max + min);
-} else {
-s = delta / (2 - max - min);
-}
-return [h, s * 100, l * 100];
+function  toItemJson(json){ 
+	if(typeof json=="string") json=JSON.parse(json);
+	if(json.hasOwnProperty("curve")){//显示曲线 
+		curveObj.fromGpuImageFilter(json["curve"]);
+	}else{
+		curveObj.clearAll();
+	}
+	for(var att in json){
+		 if(att.startsWith("hsl")){
+			 console.log(json[att])
+			json[att]["c"]["name"]=att;
+			delete json[att]["c"]["param"]; 
+		 }
+	}
+	return json;
 }
