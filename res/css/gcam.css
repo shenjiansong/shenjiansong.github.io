@@ -552,15 +552,15 @@ border-color: chartreuse !important;
 	width:24vw;
 	border: 0;
 	background-color: #7fd6d8;
-	height: 2rem;
+	height: 2rem; 
 }
 
-.content  .layout .level{ 
+.content  .layout .level,.content  .layout .grade{ 
     display: flex;
 	position: absolute;
 	background-color: black;
 }
-.content .layout .level div{
+.content .layout .level div,.content .layout .grade div{
     padding: 0.5rem;
 }
 .content .layout .rate{

@@ -31,12 +31,12 @@ var Thead={
 }
 var X=window.X||{
 	debugger:true,
-	VERSION:2306,
+	VERSION:2307,
 	GVERSION:function(){try{ return AZ.getVersion().split("_")[0]; }catch(e){ return "8.8"; }}(),
-	CACHE_VERSION:2.41,
-	RES_CSS_VERSION:'1.0.0-10',
-	RES_JS_VERSION:'1.0.0-10',
-	RES_CUSTOM_VERSION:'1.0.0-10',
+	CACHE_VERSION:2.42,
+	RES_CSS_VERSION:'1.0.0-11',
+	RES_JS_VERSION:'1.0.0-11',
+	RES_CUSTOM_VERSION:'1.0.0-11',
 	base: function(){try{return document.getElementById("bootjs").src.split("/res/js/boot.js")[0]}catch{return document.location.origin;}}(),
 	isLocal:(window.location.href.indexOf("127.0.0")>-1||window.location.href.indexOf("localhost")>-1||window.location.host.startsWith("10.")),
 	sleep:function(ms){var start = new Date().getTime();while (true) if (new Date().getTime() - start > ms) break;},

@@ -1,7 +1,7 @@
 
 function curve(renderTo,_size,callBack){
 	var onChanged=callBack;
-	var drawFrequency=100;
+	var drawFrequency=50;
 	var render=null;
 	if(typeof renderTo=="string" || typeof renderTo.length == "undefined")render=$(renderTo);
 	else render=renderTo;
@@ -15,7 +15,7 @@ function curve(renderTo,_size,callBack){
 	var div=$("<div></div>");
 	var canvas=document.createElement("canvas");
 	canvas.width=size; 
-	canvas.height=size; 
+	canvas.height=size;  
 	$(canvas).attr("style","background-color:#71717159;")
 	div.width(size+colorBlockSize*1.2);
 	div.attr("style","display:flex;");
@@ -51,7 +51,6 @@ function curve(renderTo,_size,callBack){
 			divBlock.addClass(classname);
 		}
 		divBlock.attr("style","color:#fff;font-size:1.6rem;margin-bottom:0.6rem;border-radius:2rem; width:100%;height:12.5%;");
-		
 		if(color){
 			divBlock.attr("style",divBlock.attr("style")+"background-color:"+color+";");
 		}
@@ -183,26 +182,10 @@ function curve(renderTo,_size,callBack){
 	} 
  
 	var lastStartPointIndex=-1;
+	var lastStartPoint=null;
 		$(canvas).on("touchstart",function(e){
-			var p=getPoint(e);
+			lastStartPoint=getPoint(e);
 			nowPointIndex = -1; 
-			for(var i=0;i<points.length;i++){
-				if(distance(p,points[i])<0.1){
-					points[i]=p;
-					nowPointIndex = i;
-					break;
-				}
-			}
-			if(nowPointIndex==-1){
-				for(var i=0;i<points.length;i++){
-					 if(points[i][0]>p[0]){
-						points.splice(i, 0, p);
-						nowPointIndex = i;
-						break;
-					 }
-				}
-			}
-			lastStartPointIndex=nowPointIndex;
 			startDraw();
 		});
 		$(canvas).on("touchend",function(e){
@@ -212,7 +195,28 @@ function curve(renderTo,_size,callBack){
 		});
 		$(canvas).on("touchmove",function(e){
 			var p=getPoint(e);
-			if(nowPointIndex>0 && isDrawIng)points[nowPointIndex]=p;
+			if(nowPointIndex>0 && isDrawIng){
+				points[nowPointIndex]=p;
+			}else if(lastStartPoint && distance(lastStartPoint,p)>0.05){
+				for(var i=0;i<points.length;i++){
+					if(distance(lastStartPoint,points[i])<0.1){
+						points[i]=lastStartPoint;
+						nowPointIndex = i;
+						break;
+					}
+				}
+				if(nowPointIndex==-1){
+					for(var i=0;i<points.length;i++){
+						 if(points[i][0]>lastStartPoint[0]){
+							points.splice(i, 0, lastStartPoint);
+							nowPointIndex = i;
+							break;
+						 }
+					}
+				}
+				lastStartPointIndex=nowPointIndex;
+				lastStartPoint=null;
+			}
 		    
 		});
 		var isDrawIng=false;
