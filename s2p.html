@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div style="height: 100%;">
+	<div style="height:20%;width:90%">
+		<p>源文件内容粘贴到此处V 
+			<label for="cid">cid:<input id='cid' value="0" ></label>
+			<label for="jts">镜头数:<input id='jts' value="3" ></label>
+			<button onclick="zh()">复制</button>
+		</p>
+		<textarea id='txt' style="height:70vh;width:45%"></textarea>
+		<textarea id='txt2' style="height:70vh;width:45%"></textarea>
+	</div>
+	<div id="tempDiv" style="height:90%;width:90%"></div>
+</div>
+
+<script>
+	if(typeof "".replaceAll !="function"){
+		String.prototype.replaceAll = function(s1, s2) {
+		    return this.replace(new RegExp(s1, "gm"), s2);
+		}
+	}
+var nowTime=0;
+var txt =document.getElementById("txt");
+var txt2 =document.getElementById("txt2");
+var jts =document.getElementById("jts");
+var cid =document.getElementById("cid");
+
+function zh(){
+	nowTime=new Date().getTime();
+	let matches = txt.value.match(/<string[^>]+?>[\s\S]*?<\/string>/ig);
+	if (matches) {
+	  var data=[];
+	  var tar=[];
+	  var reg=new RegExp("[.]*_p[0-9]+_"+cid.value+"[^\"]?");
+	//  var reg2=new RegExp("[.]*_p[0-9]+_[0-9]+[^\"]?");
+	   var reg2=new RegExp("[.]*pref_show_+[^\"]?");
+	  //过滤单个镜头的所有设置 镜头ID通过cid配置，默认0
+	  for(var i=0;i<matches.length;i++){
+			var tmpStr=matches[i];
+			if(reg.test(tmpStr)){
+				data.push(tmpStr);
+			}else if(reg2.test(tmpStr)){
+				tar.push(tmpStr);
+			}
+	  }
+	  var  result=[];
+	  for(var i=0;i<=jts.value*1;i++){
+		  for(var j=0;j<data.length;j++){
+				if(i==0){
+					result.push(data[j]);
+				}else{
+					result.push(data[j].replace("_0\">","_"+i+"\">"));
+				}
+		  }
+	  }
+	  //pref_show_hdrnet_button_key
+	  
+    //<string name="pref_show_shading_button_key">1</string>
+	//<string name="pref_show_watmk_button_key">1</string>
+	//    <string name="pref_show_profile_button_key">1</string>
+	  txt2.value="<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n";
+	  
+	  /*if(txt.value.indexOf("pref_show_profile_button_key")>0)txt2.value=txt2.value+"<string name=\"pref_show_profile_button_key\">1</string>\n";
+	  if(txt.value.indexOf("pref_show_hdrnet_button_key")>0)txt2.value=txt2.value+"<string name=\"pref_show_hdrnet_button_key\">1</string>\n";
+	  if(txt.value.indexOf("pref_show_shading_button_key")>0)txt2.value=txt2.value+"<string name=\"pref_show_shading_button_key\">1</string>\n";
+	  if(txt.value.indexOf("pref_show_watmk_button_key")>0)txt2.value=txt2.value+"<string name=\"pref_show_watmk_button_key\">1</string>\n";
+	  if(txt.value.indexOf("pref_show_profile_button_key")>0)txt2.value=txt2.value+"<string name=\"pref_show_profile_button_key\">1</string>\n";*/
+      txt2.value=txt2.value+tar.join("\n")+"\n";
+	  txt2.value=txt2.value+result.join("\n")+"\n</map>";
+	  
+	}
+}
+
+</script>
+</body>
+</html>

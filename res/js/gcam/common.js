@@ -160,6 +160,8 @@ function pageLoadTipHide(){
 function hideEditorBox(){
 	var editorBox=$("#editorBox");
 	editorBox.hide();
+	var editorBoxMask=$("#editorBoxMask");
+	editorBoxMask.hide();
 }
 
 function showEditorBox(conf){
@@ -174,9 +176,15 @@ function showEditorBox(conf){
 	}
 	if(!conf.height)conf.height=100;
 	var editorBox=$("#editorBox");
+	var editorBoxMask=$("#editorBoxMask");
 	if(!editorBox||editorBox.length<1){
+		editorBoxMask=$("<div id='editorBoxMask'><div>");
+		editorBoxMask.on("click",function(){
+			hideEditorBox();
+		});
+		editorBoxMask.attr("style","z-index:5;position:absolute;top:0;left:0;width:95vw;height:100vh;");
 		editorBox =$("<div id='editorBox'><div>");
-		editorBox.attr("style","height:100px;display: none;position: fixed;bottom: 0;left: 50%;transform: translateX(-50%);width: 100vw;background-color: #f9f9f9;border: 1px solid #ccc;padding: 10px;")
+		editorBox.attr("style","height:100px;display: none;position: fixed;bottom: 0;left: 50%;transform: translateX(-50%);width: 100vw;background-color: #f9f9f9;border: 1px solid #ccc;padding: 10px;z-index:10;")
 		var txt=null;
 		if(conf.ml){
 			txt=$("<textarea id='editorBoxTxt'></textarea>");
@@ -189,6 +197,7 @@ function showEditorBox(conf){
 		editorBox.append(txt);
 		editorBox.append(btn);
 		$(document.body).append(editorBox);
+		$(document.body).append(editorBoxMask);
 	}
 	if(conf.height){
 		editorBox.height(conf.height)
@@ -200,8 +209,10 @@ function showEditorBox(conf){
 		}
 		editorBox.find("button").unbind("click"); 
 		editorBox.hide();
+		editorBoxMask.hide();
 	});
 	editorBox.slideToggle();
+	editorBoxMask.show();
 }
 
 function onToEnd(toEndFunc){
