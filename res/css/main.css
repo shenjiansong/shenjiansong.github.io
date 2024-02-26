@@ -71,7 +71,7 @@ body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-se
 
 
 .footer-wrap{border-top: 1px solid #402863;}
-.footer{padding:60px 0 80px 0; position: relative; overflow: hidden;}
+.footer{padding:10px 0 20px 0; position: relative; overflow: hidden;}
 .footer .qrcode{float: left;}
 .footer .practice-mode{float: right;}
 .footer .practice-mode img{float: left;  padding-right: 28px;}
@@ -80,8 +80,29 @@ body{font: 14px 宋体 Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-se
 .footer .practice-mode .text p{line-height: 32px;}
 .footer .practice-mode .text p span{padding-left: 24px;}
 
-
-
+.privacy{
+	position: sticky;
+	z-index: 9;
+	width: 100%; 
+	overflow-y: auto;
+	left: 0;
+	bottom: 10vh;
+	padding-left: 5%;
+}
+.privacy .text{
+	width: 90%;    
+	height: 70vh;
+	background: azure;
+}
+.privacy .buttons{
+	width: 90%;
+}
+.privacy input{
+	width: 100%;
+	height: 5vh;
+	background: darkseagreen;
+}
+.privacy H1{text-align: center;}
 
 
 
