@@ -14,13 +14,12 @@
 
 -->
 #最新在线版已发布
-># [123云盘](https://www.123pan.com/s/B7cjVv-fHtPv.html)
-
-> [点击下载1](https://www.123pan.com/s/B7cjVv-fHtPv.html)
+># [123云盘](https://www.123pan.com/s/B7cjVv-CntPv.html)
+> [点击下载1](https://www.123pan.com/s/B7cjVv-CntPv.html)
 > 
-> [点击下载2](outs://www.123pan.com/s/B7cjVv-fHtPv.html)
+> [点击下载2](outs://www.123pan.com/s/B7cjVv-CntPv.html)
 > 
-> 提取码:QIen
+> 提取码:ffDY
 > 
 ----
 > [在线配置使用手册](./details.html?md=gcam101) 
