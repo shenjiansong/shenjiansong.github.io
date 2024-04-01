@@ -116,6 +116,7 @@ function toUploadOne(it){
 		var p=it.data("p");
 		var patch=patchMap[p];
 		var title=patch["lib_profile_title_key_p0_{cid}"];
+		var user=getUser();
 		var userinfo="<string name=\"username\">"+user["name"]+"</string>\n<string name=\"userkuan\">"+user["kuan"]+"</string>\n";
 		var key=AZ.post("https://gc.1kat.cn/put",userinfo+toPatchXml(patch)+,null);
 		if(!key||key=="-1"){
@@ -131,7 +132,6 @@ function toUploadOne(it){
 			it.removeClass("fa-arrow-up");
 			it.addClass("fa-ban");
 			moveToLast(it.parent());
-			var user=getUser();
 			var pkey=key.indexOf("_")>0?key.split("_")[0]:"";
 			G.addLocal(
 			{

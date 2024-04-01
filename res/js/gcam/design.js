@@ -323,12 +323,26 @@ function toUploadOne(it){
 			if(item.title && item.title.length>1){
 				var patch='<string name="lib_profile_title_key_p0_{cid}">'+(item.title||'未知配置')+'</string>\n'+
 							'<string name="my_key_p0_random">'+JSON.stringify(item.json)+'</string>';
-				var key=AZ.post("https://gc.1kat.cn/put",patch,null);
+				var user=getUser();
+				var userinfo="<string name=\"username\">"+user["name"]+"</string>\n<string name=\"userkuan\">"+user["kuan"]+"</string>\n";
+							
+				var key=AZ.post("https://gc.1kat.cn/put",userinfo+patch,null);
 				if(!key){
 					alert("上传失败！")
 				}else{
 					alert("上传成功,可到我的配置中查看和修改。。")
 					//X.to("myitem","id="+key);
+					G.addLocal(
+					{
+						gkey:key,
+						title:item.title,
+						zz:user["uid"],
+						name:user["name"],
+						kuan:user["kuan"],
+						pkey:"",
+						create_time:new Date().toDateTime()
+						
+					});
 				}
 			}else{
 				alert("请添加标题！")
