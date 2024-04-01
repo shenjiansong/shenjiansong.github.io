@@ -118,7 +118,7 @@ function toUploadOne(it){
 		var title=patch["lib_profile_title_key_p0_{cid}"];
 		var user=getUser();
 		var userinfo="<string name=\"username\">"+user["name"]+"</string>\n<string name=\"userkuan\">"+user["kuan"]+"</string>\n";
-		var key=AZ.post("https://gc.1kat.cn/put",userinfo+toPatchXml(patch)+,null);
+		var key=AZ.post("https://gc.1kat.cn/put",userinfo+toPatchXml(patch),null);
 		if(!key||key=="-1"){
 			it.removeClass("fa-arrow-up");
 			it.addClass("fa-exclamation");
