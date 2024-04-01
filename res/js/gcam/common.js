@@ -40,9 +40,9 @@ X.uploadImg=function(data){
 }
 var navigaTemp=`<div class="naviga"><div class='help'><i class="fa fa-question"></i><br />帮助</div><i class="fa fa-chevron-left back"></i><span class='qq'>点我<br />加群</span> <span class="hadNew hide">新的版本 <i class="fa fa-arrow-down"></i></span><img class="ulogo" src="https://s11.ax1x.com/2024/01/13/pFP8xHS.jpg"/><i class="fa fa-times close"></i></div>`;
 window.onerror=function(a,b,c){
+	console.log(a,b,c)
 	if(typeof pageLoadTipHide =="function") pageLoadTipHide(); 
 	if(document.body&&document.body.style)document.body.style["overflow-y"]=document.body.preOver||"auto";
-	console.log(a,b,c)
 }
 let MY={};
 $(document).ready(function(){
