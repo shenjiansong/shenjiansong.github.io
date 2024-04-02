@@ -13,13 +13,14 @@
 ![二维码](https://s11.ax1x.com/2024/01/05/pix1cjJ.png)
 
 -->
+
 #最新在线版已发布
-># [123云盘](https://www.123pan.com/s/B7cjVv-CntPv.html)
-> [点击下载1](https://www.123pan.com/s/B7cjVv-CntPv.html)
+># [123云盘](https://www.123pan.com/s/B7cjVv-OmiPv.html)
+> [点击下载1](https://www.123pan.com/s/B7cjVv-OmiPv.html)
 > 
-> [点击下载2](outs://www.123pan.com/s/B7cjVv-CntPv.html)
+> [点击下载2](outs://www.123pan.com/s/B7cjVv-OmiPv.html)
 > 
-> 提取码:ffDY
+> 提取码:X89e
 > 
 ----
 > [在线配置使用手册](./details.html?md=gcam101) 
