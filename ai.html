@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/x-icon" href="./static/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/github-dark-dimmed.min.css">
+    <style>:root[bg-theme='light']{--bg-color:white;}:root[bg-theme='gray']{--bg-color:#42424670;}:root[bg-theme='light-red']{--bg-color:#eda8a8;}:root[bg-theme='light-blue']{--bg-color:#55609a;}:root[bg-theme='light-purple']{--bg-color:#c09ff9;}:root[bg-theme='light-green']{--bg-color:#91ecd1;}:root[bg-theme='light-yellow']{--bg-color:#e9e097;}body{background-color:var(--bg-color);}@media screen and (max-width:768px){.container{width:100% !important;}.answer{height:calc(100vh - 145px) !important;}.answer .others .common .settings-common span{font-size:85%;}.foot p:first-child{font-size:14px !important;}.foot p a{font-size:13px !important;}}@media screen and (min-width:1200px){.container{width:970px !important;}}@media screen and (min-width:768px){#chatWindow::-webkit-scrollbar{width:3px;}#chatWindow::-webkit-scrollbar-track{background-color:#f1f1f1;}#chatWindow::-webkit-scrollbar-thumb{background-color:#888;border-radius:4px;}}*{margin:0;padding:0;}html,body{height:100%;width:100%;}.form-control{border-color:#1ab394 !important;padding:6px 6px !important;}pre{position:relative;color:#adbac7;background:#2b2a2a;}.copy-btn{position:absolute;top:5px;right:5px;padding:5px 10px;border:none;border-radius:4px;background-color:#686666;color:#e2dfea;cursor:pointer;}.title{width:100%;}.title h2{margin-bottom:20px;color:#4aa593;}.answer{width:100%;position:relative;height:calc(100vh - 165px);}.answer .tips{width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;}.answer .tips h4{color:red;}.answer .tips img{margin-top:30px;border:1px solid #7eecd6;box-shadow:0px 1px 10px 0px #7defd8;border-radius:10px;width:200px;}.answer .function{padding:0 15px;width:100%;position:absolute;bottom:0px;}.answer .others{display:flex;justify-content:space-between;align-items:center;padding:0 15px;height:30px;margin-bottom:10px;}.answer .others .left,.right{display:flex;}.answer .others .center{display:none;}.answer .others .common{width:30px;height:30px;display:flex;}.answer .others .common .settings-common{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;background-color:#fff;border-bottom:1px solid #ddd;}.answer .others .common .settings-common:hover{background-color:rgba(148,163,184,.2);}.answer .others .common .settings-common:last-child{border-bottom:0;}.answer .others .common .settings-common .ipt-common{width:60%;opacity:.8;}.answer .others .common .settings-common span{color:#1ab394;cursor:default;}.answer .others .common .settings-common a{font-size:14px;color:#1ab394;cursor:pointer;text-decoration:none;}.chck-btn{display:flex;justify-content:center;width:60px;height:34px;}input[type="checkbox"]{position:absolute;opacity:0;z-index:-1;}.check-trail{display:flex;align-items:center;width:100%;height:100%;background:rgba(148,163,184,.4);border-radius:15px;transition:all 0.5s ease;cursor:pointer;}.check-handler{display:flex;justify-content:center;align-items:center;width:34px;height:34px;background:rgb(148 163 184 / 85%);border-radius:50%;transition:all 0.5s ease;box-shadow:0 0 8px rgba(0,0,0,0.3);}.check-handler:before{content:"×";color:white;font-weight:bold;}input[type="checkbox"]:checked + .check-trail{background:#1ab394a3;}input[type="checkbox"]:checked + .check-trail .check-handler{margin-left:26px;background:#1ab394;}input[type="checkbox"]:checked + .check-trail .check-handler::before{content:"✔";}.answer .others .center .stop{border:1px solid rgba(241,41,11,0.8);border-radius:5px;opacity:.8;width:60px;background-color:rgba(179,46,26,0.1);overflow:hidden;}.answer .others .center .stop .stop-icon{width:100%;color:red;opacity:.8;}.answer .others .center .stop .stop-icon:hover{background-color:rgb(214,168,168,.2);}.answer .others .right .screenshot{margin-right:10px;}.answer .others .icon-style{width:30px;height:30px;line-height:30px;text-align:center;color:#1ab394;cursor:pointer;}.answer .others .icon-style:hover{background-color:rgba(26,179,148,.1);}.answer .ipt{display:flex;align-items:center;padding-right:15px;border-radius:10px;height:50px;border:1px solid rgba(26,179,148,0.8);box-shadow:0px 0px 10px 0px rgba(26,179,148,0.2);}.answer .ipt textarea{resize:none;overflow-y:auto;border:none;box-shadow:none;}.answer .ipt textarea:focus{border:none !important;box-shadow:none !important;}.answer #chatWindow{width:100%;max-height:calc(100% - 100px);height:auto;overflow-y:auto;}.message-bubble{padding:5px;margin:10px;display:flex;align-items:flex-start;border-bottom:1px dashed #e7eaec;}.message-bubble .message-text{width:auto;max-width:calc(100% - 45px);font-size:18px;margin-left:15px;word-break:break-all;}.message-bubble .message-text p{white-space:pre-wrap;}.message-bubble .response ol,ul{padding-left:2em;}.message-bubble .message-text p.error{color:red;height:auto;display:block;white-space:normal;word-break:break-all;}.message-bubble .chat-icon{width:30px;height:30px;border-radius:3px;background-repeat:no-repeat;background-size:cover;background-position:center;}.message-bubble .request-icon{background-image:url("https://img0.baidu.com/it/u=1214064415,2597776514&fm=253&fmt=auto&app=138&f=JPEG?w=450&h=450");}.message-bubble .response-icon{background-image:url("https://img0.baidu.com/it/u=3934932366,2288999595&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500");}.message-bubble .response .loading-icon{color:#1ab394;}.answer #chatBtn{background-color:#1ab394;border-color:#1ab394;}.answer #chatBtn:focus{outline:5px auto #1ab394 !important;}.foot p:first-child{margin-bottom:10px;opacity:.9;}.foot p:nth-child(2){margin-bottom:0;}.foot p a{margin-right:10px;font-weight:400;font-size:14px;color:#1ab394;text-decoration:none;}</style>
+    <title>ChatGPT-website</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="box col-xs-12">
+        <div class="title">
+            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-optin-monster fa-lg" aria-hidden="true"></i></span>ChatGPT-website</h2>
+        </div>
+        <div class="answer">
+          <div class="tips">
+            <!--h4 class="text-center">欢迎！更多功能请点击下方设置按钮</h4>
+            <img src="./static/images/reward.png" -->
+          </div>
+          <div id="chatWindow"></div>
+          <div class="function">
+            <div class="others">
+              <div class="left">
+                <div class="settings common dropup">
+                  <a class="dropdown-toggle icon-style" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="设置">
+                    <i class="fa fa-cogs fa-lg" aria-hidden="true"></i>
+                  </a>
+                  <div class="dropdown-menu" style="padding:0;" onclick="event.stopPropagation()">
+                    <div class="settings-common">
+                      <span><i class="fa fa fa-linode fa-lg" aria-hidden="true"></i>&nbsp; 主题</span>
+                      <select class="form-control ipt-common theme">
+                        <option value="light">light</option>
+                        <option value="gray">gray</option>
+                        <option value="light-red">light-red</option>
+                        <option value="light-blue">light-blue</option>
+                        <option value="light-purple">light-purple</option>
+                        <option value="light-green">light-green</option>
+                        <option value="light-yellow">light-yellow</option>
+                      </select>
+                    </div>
+                    <div class="settings-common">
+                      <span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; OpenAI Key</span>
+                      <input type="text" class="form-control ipt-common api-key" placeholder="可用自己的api key">
+                    </div>
+                    <div class="settings-common">
+                      <span><i class="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>&nbsp; OpenAI 模型</span>
+                      <select class="form-control ipt-common" id="model">
+						<option value="/openchat/openchat-3.5-0106">openchat-3.5-0106</option>
+                        <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
+						<option value="/meta/llama-3-8b-instruct">llama-3-8b-instruct</option>
+                      </select>
+                    </div>
+                    <div class="settings-common">
+                      <span><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>&nbsp; 记录对话内容，刷新不会消失</span>
+                      <div class="chck-btn">
+                        <input id="chck-1" type="checkbox">
+                        <label for="chck-1" class="check-trail">
+                        <div class="check-handler"></div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="settings-common">
+                      <span><i class="fa fa-retweet fa-lg" aria-hidden="true"></i>&nbsp; 开启连续对话，加倍消耗tokens</span>
+                      <div class="chck-btn">
+                        <input id="chck-2" type="checkbox">
+                        <label for="chck-2" class="check-trail">
+                        <div class="check-handler"></div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="settings-common">                      
+						<span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; 角色设定</span>
+                      <input type="text" id="role" class="form-control ipt-common" placeholder="角色设定">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="screenshot common">
+                  <a class="icon-style" title="截图保存对话"><i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i></a>
+                </div>
+                <div class="delete common">
+                  <a class="icon-style" title="删除历史记录"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="ipt">
+              <div class="col-xs-12">
+                <textarea id="chatInput" class="form-control" rows="1"></textarea>
+              </div>
+              <button id="chatBtn" class="btn btn-primary" type="button">Go !</button>
+            </div>
+          </div>
+        </div>
+        <footer class="foot" style="margin-top: 20px;">
+          <p class="lead text-center">“抢走工作的不会是AI,而是率先掌握AI能力的人”</p>
+          <p class="lead text-center">
+            <a href="https://blog.csdn.net/qq_57421630" target="_blank"><i class="fa fa-link fa-lg" aria-hidden="true"></i>&nbsp; 联系我</a>
+            <a href="https://gitee.com/aniu-666/chat-gpt-website" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i>&nbsp; 项目地址</a>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/marked/0.7.0/marked.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+const config = {
+    // gpt3.5 官方接口：https://api.openai.com/v1/chat/completions
+   // url: "http://openai.1kat.cn/v1/chat/completions",  // gpt3.5代理接口
+   // apiKey: "sk-NYsoG3VBKDiTuvdtC969F95aFc4f45379aD3854a93602327"  // openAi Base64 编码 apiKey
+   url:"https://ai.watano.top/chat",
+   apiKey:"aaa"
+};
+$(document).ready(function() {
+  var roleTxt=$("#role");
+  var chatBtn = $('#chatBtn');
+  var chatInput = $('#chatInput');
+  var chatWindow = $('#chatWindow');
+
+  // 存储对话信息,实现连续对话
+  var messages = [];
+
+  // 检查返回的信息是否是正确信息
+  var resFlag = true
+
+  // 创建自定义渲染器
+  const renderer = new marked.Renderer();
+
+  // 重写list方法
+  renderer.list = function(body, ordered, start) {
+    const type = ordered ? 'ol' : 'ul';
+    const startAttr = (ordered && start) ? ` start="${start}"` : '';
+    return `<${type}${startAttr}>\n${body}</${type}>\n`;
+  };
+
+  // 设置marked选项
+  marked.setOptions({
+    renderer: renderer,
+    highlight: function (code, language) {
+      const validLanguage = hljs.getLanguage(language) ? language : 'javascript';
+      return hljs.highlight(code, { language: validLanguage }).value;
+    }
+  });
+
+
+  // 转义html代码(对应字符转移为html实体)，防止在浏览器渲染
+  function escapeHtml(html) {
+    let text = document.createTextNode(html);
+    let div = document.createElement('div');
+    div.appendChild(text);
+    return div.innerHTML;
+  }
+  
+  // 添加请求消息到窗口
+  function addRequestMessage(message) {
+    $(".answer .tips").css({"display":"none"});    // 打赏卡隐藏
+    chatInput.val('');
+    let escapedMessage = escapeHtml(message);  // 对请求message进行转义，防止输入的是html而被浏览器渲染
+    let requestMessageElement = $('<div class="message-bubble"><span class="chat-icon request-icon"></span><div class="message-text request"><p>' +  escapedMessage + '</p></div></div>');
+    chatWindow.append(requestMessageElement);
+    let responseMessageElement = $('<div class="message-bubble"><span class="chat-icon response-icon"></span><div class="message-text response"><span class="loading-icon"><i class="fa fa-spinner fa-pulse fa-2x"></i></span></div></div>');
+    chatWindow.append(responseMessageElement);
+    chatWindow.scrollTop(chatWindow.prop('scrollHeight'));
+  }
+  
+  // 添加响应消息到窗口,流式响应此方法会执行多次
+  function addResponseMessage(message) {
+    let lastResponseElement = $(".message-bubble .response").last();
+    lastResponseElement.empty();
+    let escapedMessage;
+    // 处理流式消息中的代码块
+    let codeMarkCount = 0;
+    let index = message.indexOf('```');
+    while (index !== -1) {
+        codeMarkCount ++ ;
+        index = message.indexOf('```', index + 3);
+    }
+    if(codeMarkCount % 2 == 1  ){  // 有未闭合的 code
+      escapedMessage = marked.parse(message + '\n\n```'); 
+    }else if(codeMarkCount % 2 == 0 && codeMarkCount != 0){
+      escapedMessage = marked.parse(message);  // 响应消息markdown实时转换为html
+    }else if(codeMarkCount == 0){  // 输出的代码没有markdown代码块
+      if (message.includes('`')){
+        escapedMessage = marked.parse(message);  // 没有markdown代码块，但有代码段，依旧是markdown格式
+      }else{
+        escapedMessage = marked.parse(escapeHtml(message)); // 有可能不是markdown格式，都用escapeHtml处理后再转换，防止非markdown格式html紊乱页面
+      }
+    }
+    lastResponseElement.append(escapedMessage);
+    chatWindow.scrollTop(chatWindow.prop('scrollHeight'));
+  }
+
+  // 添加失败信息到窗口
+  function addFailMessage(message) {
+    let lastResponseElement = $(".message-bubble .response").last();
+    lastResponseElement.empty();
+    lastResponseElement.append('<p class="error">' + message + '</p>');
+    chatWindow.scrollTop(chatWindow.prop('scrollHeight'));
+    messages.pop() // 失败就让用户输入信息从数组删除
+  }
+  
+
+  // 发送请求获得响应
+  async function sendRequest(data) {
+	var systemMsg=[];
+	if($("#role").val()){
+		systemMsg.push({ role: 'system', content:$("#role").val()});
+	}
+    const response = await fetch(config.url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + data.apiKey
+      },
+      body: JSON.stringify({
+        "messages": systemMsg.concat( data.prompts),
+        "model": $("#model").val(),
+        "max_tokens": 1025,
+        "temperature": 0.5,
+        "top_p": 1,
+        "n": 1,
+        "stream": true
+      })
+    }); 
+  
+    const reader = response.body.getReader();
+    let res = '';
+    let str;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) {
+        break;
+      }
+      str = '';
+      res += new TextDecoder().decode(value).replace(/^data: /gm, '').replace("[DONE]",'');
+      const lines = res.trim().split(/[\n]+(?=\{)/);
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        let jsonObj;
+        try{
+          jsonObj = JSON.parse(line);
+        }catch(e){
+          break;
+        }
+        if (jsonObj.choices && jsonObj.choices[0].delta.content) {
+          str += jsonObj.choices[0].delta.content;
+          addResponseMessage(str);
+          resFlag = true;
+        }else if (jsonObj.response) {
+          str += jsonObj.response;
+          addResponseMessage(str);
+          resFlag = true;
+        }else{
+          if(jsonObj.error){
+            addFailMessage(jsonObj.error.type + " : " + jsonObj.error.message + jsonObj.error.code);
+            resFlag = false;
+          }
+        } 
+      }
+    }
+    return str;
+  }
+
+  // 处理用户输入
+  chatBtn.click(function() {
+    // 解绑键盘事件
+    chatInput.off("keydown",handleEnter);
+    
+    // 保存api key与对话数据
+    let data;
+    if(config.apiKey !== ''){
+	  if(config.apiKey.startsWith("sk-")){
+		data = { "apiKey": config.apiKey}; 
+	  }else{
+		data = { "apiKey": atob(config.apiKey)}; 
+	  }
+    }else{
+      data = { "apiKey": ""};
+    }
+   
+    let apiKey = localStorage.getItem('apiKey');
+    if (apiKey){
+      data.apiKey = apiKey;
+    }
+
+    let message = chatInput.val();
+    if (message.length == 0){
+      // 重新绑定键盘事件
+      chatInput.on("keydown",handleEnter);
+      return
+    }
+
+    addRequestMessage(message);
+    // 将用户消息保存到数组
+    messages.push({"role": "user", "content": message})
+    // 收到回复前让按钮不可点击
+    chatBtn.attr('disabled',true)
+
+    if(messages.length>40){
+      addFailMessage("此次对话长度过长，请点击下方删除按钮清除对话内容！");
+      // 重新绑定键盘事件
+      chatInput.on("keydown",handleEnter);
+      chatBtn.attr('disabled',false) // 让按钮可点击
+      return ;
+    }
+
+    // 判读是否已开启连续对话
+    if(localStorage.getItem('continuousDialogue') == 'true'){
+        // 控制上下文，对话长度超过4轮，取最新的3轮,即数组最后7条数据
+      data.prompts = messages.slice();  // 拷贝一份全局messages赋值给data.prompts,然后对data.prompts处理
+      if (data.prompts.length > 8) {
+        data.prompts.splice(0, data.prompts.length - 7);
+      }
+    }else{
+      data.prompts = messages.slice();
+      data.prompts.splice(0, data.prompts.length - 1); // 未开启连续对话，取最后一条
+    }
+      
+    sendRequest(data).then((res) => {
+      chatInput.val('');
+      // 收到回复，让按钮可点击
+      chatBtn.attr('disabled',false)
+      // 重新绑定键盘事件
+      chatInput.on("keydown",handleEnter); 
+      // 判断是否是回复正确信息
+      if(resFlag){
+        messages.push({"role": "assistant", "content": res});
+        // 判断是否本地存储历史会话
+        if(localStorage.getItem('archiveSession')=="true"){
+          localStorage.setItem("session",JSON.stringify(messages));
+        }
+      }
+      // 添加复制
+      copy();
+    });
+  });  
+
+  // Enter键盘事件
+  function handleEnter(e){
+    if (e.keyCode==13){
+      chatBtn.click();
+      e.preventDefault();  //避免回车换行
+    }
+  }
+
+  // 绑定Enter键盘事件
+  chatInput.on("keydown",handleEnter);
+
+
+  // 设置栏宽度自适应
+  let width = $('.function .others').width();
+  $('.function .settings .dropdown-menu').css('width', width);
+  
+  $(window).resize(function() {
+    width = $('.function .others').width();
+    $('.function .settings .dropdown-menu').css('width', width);
+  });
+
+  
+  // 主题
+  function setBgColor(theme){
+    $(':root').attr('bg-theme', theme);
+    $('.settings-common .theme').val(theme);
+    // 定位在文档外的元素也同步主题色
+    $('.settings-common').css('background-color', 'var(--bg-color)');
+  }
+  
+  let theme = localStorage.getItem('theme');
+  // 如果之前选择了主题，则将其应用到网站中
+  if (theme) {
+    setBgColor(theme);
+  }else{
+    localStorage.setItem('theme', "light"); //默认的主题
+    theme = localStorage.getItem('theme');
+    setBgColor(theme);
+  }
+
+  // 监听主题选择的变化
+  $('.settings-common .theme').change(function() {
+    const selectedTheme = $(this).val();
+    localStorage.setItem('theme', selectedTheme);
+    $(':root').attr('bg-theme', selectedTheme);
+    // 定位在文档外的元素也同步主题色
+    $('.settings-common').css('background-color', 'var(--bg-color)');
+  });
+
+  // apiKey
+  const apiKey = localStorage.getItem('apiKey');
+  if (apiKey) {
+    $(".settings-common .api-key").val(apiKey);
+  }
+
+  // apiKey输入框事件
+  $(".settings-common .api-key").blur(function() { 
+    const apiKey = $(this).val();
+    if(apiKey.length!=0){
+      localStorage.setItem('apiKey', apiKey);
+    }else{
+      localStorage.removeItem('apiKey');
+    }
+  })
+
+  // 是否保存历史对话
+  var archiveSession = localStorage.getItem('archiveSession');
+
+  // 初始化archiveSession
+  if(archiveSession == null){
+    archiveSession = "false";
+    localStorage.setItem('archiveSession', archiveSession);
+  }
+  
+  if(archiveSession == "true"){
+    $("#chck-1").prop("checked", true);
+  }else{
+    $("#chck-1").prop("checked", false);
+  }
+
+  $('#chck-1').click(function() {
+    if ($(this).prop('checked')) {
+      // 开启状态的操作
+      localStorage.setItem('archiveSession', true);
+      if(messages.length != 0){
+        localStorage.setItem("session",JSON.stringify(messages));
+      }
+    } else {
+      // 关闭状态的操作
+      localStorage.setItem('archiveSession', false);
+      localStorage.removeItem("session");
+    }
+  });
+  
+  // 加载历史保存会话
+  if(archiveSession == "true"){
+    const messagesList = JSON.parse(localStorage.getItem("session"));
+    if(messagesList){
+      messages = messagesList;
+      $.each(messages, function(index, item) {
+        if (item.role === 'user') {
+          addRequestMessage(item.content)
+        } else if (item.role === 'assistant') {
+          addResponseMessage(item.content)
+        }
+      });
+      // 添加复制
+      copy();
+    }
+  }
+
+  // 是否连续对话
+  var continuousDialogue = localStorage.getItem('continuousDialogue');
+
+  // 初始化continuousDialogue
+  if(continuousDialogue == null){
+    continuousDialogue = "true";
+    localStorage.setItem('continuousDialogue', continuousDialogue);
+  }
+  
+  if(continuousDialogue == "true"){
+    $("#chck-2").prop("checked", true);
+  }else{
+    $("#chck-2").prop("checked", false);
+  }
+
+  $('#chck-2').click(function() {
+    if ($(this).prop('checked')) {
+      localStorage.setItem('continuousDialogue', true);
+    } else {
+      localStorage.setItem('continuousDialogue', false);
+    }
+  });
+
+  // 删除功能
+  $(".delete a").click(function(){
+    chatWindow.empty();
+    $(".answer .tips").css({"display":"flex"});
+    messages = [];
+    localStorage.removeItem("session");
+  });
+
+  // 截图功能
+  $(".screenshot a").click(function() {
+    // 创建副本元素
+    const clonedChatWindow = chatWindow.clone();
+    clonedChatWindow.css({
+      position: "absolute",
+      left: "-9999px",
+      overflow: "visible",
+      width: chatWindow.width(),
+      height: "auto"
+    });
+    $("body").append(clonedChatWindow);
+    // 截图
+    html2canvas(clonedChatWindow[0], {
+      allowTaint: false,
+      useCORS: true,
+      scrollY: 0,
+    }).then(function(canvas) {
+      // 将 canvas 转换成图片
+      const imgData = canvas.toDataURL('image/png');
+      // 创建下载链接
+      const link = document.createElement('a');
+      link.download = "screenshot_" + Math.floor(Date.now() / 1000) + ".png";
+      link.href = imgData;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      clonedChatWindow.remove();
+    });
+  });
+
+  // 复制代码功能
+  function copy(){
+    $('pre').each(function() {
+      let btn = $('<button class="copy-btn">复制</button>');
+      $(this).append(btn);
+      btn.hide();
+    });
+
+    $('pre').hover(
+      function() {
+        $(this).find('.copy-btn').show();
+      },
+      function() {
+        $(this).find('.copy-btn').hide();
+      }
+    );
+  
+    $('pre').on('click', '.copy-btn', function() {
+      let text = $(this).siblings('code').text();
+      // 创建一个临时的 textarea 元素
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+
+      // 选择 textarea 中的文本
+      textArea.select();
+
+      // 执行复制命令
+      try {
+        document.execCommand('copy');
+        $(this).text('复制成功');
+      } catch (e) {
+        $(this).text('复制失败');
+      }
+
+      // 从文档中删除临时的 textarea 元素
+      document.body.removeChild(textArea);
+
+      setTimeout(() => {
+        $(this).text('复制');
+      }, 2000);
+    });
+  }
+	$("#role").val(localStorage.getItem("roletext")||"");
+	$("#role").change(function(){
+       localStorage.setItem("roletext",this.value);
+    });
+
+  // 禁用右键菜单
+  document.addEventListener('contextmenu',function(e){
+    e.preventDefault();  // 阻止默认事件
+  });
+
+  // 禁止键盘F12键
+  document.addEventListener('keydown',function(e){
+    if(e.key == 'F12'){
+        e.preventDefault(); // 如果按下键F12,阻止事件
+    }
+  });
+});
+</script>
+</html>
