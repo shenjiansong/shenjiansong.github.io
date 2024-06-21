@@ -52,8 +52,10 @@
                       <span><i class="fa fa-reddit-alien fa-lg" aria-hidden="true"></i>&nbsp; OpenAI 模型</span>
                       <select class="form-control ipt-common" id="model">
 						<option value="/openchat/openchat-3.5-0106">openchat-3.5-0106</option>
-                        <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
 						<option value="/meta/llama-3-8b-instruct">llama-3-8b-instruct</option>
+                        <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
+						<option value="t2i">Text2Image</option>
+						<option value="i2i">Image2Image</option>
                       </select>
                     </div>
                     <div class="settings-common">
@@ -302,6 +304,13 @@ $(document).ready(function() {
     }
 
     addRequestMessage(message);
+	
+	if($("#model").val()=="t2i"||$("#model").val()=="i2i"){
+		
+		addResponseMessage("![](https://ai.watano.top/t2i?prompt="+message+")");
+		return ;
+	}
+	
     // 将用户消息保存到数组
     messages.push({"role": "user", "content": message})
     // 收到回复前让按钮不可点击
