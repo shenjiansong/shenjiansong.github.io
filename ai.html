@@ -29,12 +29,14 @@
     <title>AI-智能机器人</title>
 </head>
 <body>
-<div id="speak_bg">。。讲话中。。</div>
+<div id="speak_bg">。。讲话中。。<br /><p style="padding-left: 50%;">1s</p></div>
   <div class="container">
     <div class="row">
       <div class="box col-xs-12">
         <div class="title">
-            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-optin-monster fa-lg" aria-hidden="true"></i></span>AI-智能机器人</h2>
+            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-optin-monster fa-lg" aria-hidden="true"></i></span>AI-智能机器人
+			<p id="msg" style="font-size: 8px;color: red;"></p>
+			</h2>
         </div>
         <div class="answer">
           <div class="tips">
@@ -144,6 +146,7 @@ const config = {
    apiKey:"aaa"
 };
 $(document).ready(function() {
+  var isDebug=document.location.search.toLowerCase().indexOf("debug")>0
   var roleTxt=$("#role");
   var chatBtn = $('#chatBtn');
   var chatInput = $('#chatInput');
@@ -649,51 +652,66 @@ $(document).ready(function() {
   const recognition = new webkitSpeechRecognition();
   recognition.lang = 'zh-CN';
   recognition.continuous = true;
-  isStart=false;
+  var isStart=false;
+  var tiger_speak_times=-1;
   recognition.onresult = function(event) {
-	console.log("onresult",event);
+	debug(["onresult",event.results]);
 	// 获取并显示识别结果
 	chatInput.val(event.results[0][0].transcript);
+	 clearInterval(tiger_speak_times);
   }
   // 当语音识别开始时
   recognition.onstart = function() {
-	 console.log("onstart",event);
+	  debug("onstart");
 	 isStart=true;
   }
   
   // 当识别结束时
 	recognition.onend = function() { 
-	  console.log("onend",event);
+	  debug("onend");
 	  isStart=false;
+	  stopServer();
+	  clearInterval(tiger_speak_times);
 	}
-  
+	
 	function startServer(){
 		try{
+			debug("startServer:"+isStart)
 			if(!isStart)recognition.start();
 		}catch(e){
-			 addFailMessage("语音输入出错："+(e.message||e.msg||e));
+			 debug("语音输入出错："+(e.message||e.msg||e));
 		}
+		let st=1;
+		if(tiger_speak_times>1)clearInterval(tiger_speak_times);
+		$("#speak_bg p").html(st+"s");
+		tiger_speak_times=setInterval(function(){
+			$("#speak_bg p").html(++st+"s");
+		},1000);
+		
 		$("#speak_bg").show();
 	}
 	function stopServer(){
 		try{
+			debug("stopServer:"+isStart)
 			if(isStart)recognition.stop();
 		}catch(e){
-			addFailMessage("语音输入出错："+(e.message||e.msg||e));
+			debug("语音输入出错："+(e.message||e.msg||e));
 		}
 		$("#speak_bg").hide();
 	}
   
      speakBtn.on("mousedown",function() {
+		debug("mousedown")
 		startServer();
 	});
 	
     speakBtn.on("mouseup",function() {
+		debug("mouseup")
 		stopServer();
 	});
 	let touchStartTime = 0;
 	speakBtn.on('touchstart',function(){ 
-		console.log('touchstart');
+		debug('touchstart');
 		touchStartTime = Date.now();
         // 设置一个超时来检测长按
         setTimeout(function() {
@@ -704,9 +722,19 @@ $(document).ready(function() {
         }, 600); // 长按超时设置为1000毫秒
 	}); 
 	speakBtn.on('touchend',function(){
+		debug("touchend")
 		 touchStartTime = 0;
 		 stopServer();
 	});
+	
+	function debug(s){
+		try{console.log("debug",JSON.stringify(s));}catch(e){}
+		if(isDebug){
+			addRequestMessage("debug:")
+			addFailMessage(JSON.stringify(s));
+		}
+	}
+	
 });
 </script>
 </html>
