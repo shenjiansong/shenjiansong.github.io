@@ -7,8 +7,6 @@
     <link rel="icon" type="images/x-icon" href="./static/images/favicon.ico">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <!--link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.0/css/all.min.css" -->
-	
-
 	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
 	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<!--link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
@@ -28,10 +26,10 @@
 	  display:none;
 	}
 	</style>
-    <title>ChatGPT-website</title>
+    <title>AI-智能机器人</title>
 </head>
 <body>
-<div id="speak_bg">。。。。讲话中。。。。</div>
+<div id="speak_bg">。。讲话中。。</div>
   <div class="container">
     <div class="row">
       <div class="box col-xs-12">
@@ -692,6 +690,22 @@ $(document).ready(function() {
 	
     speakBtn.on("mouseup",function() {
 		stopServer();
+	});
+	let touchStartTime = 0;
+	speakBtn.on('touchstart',function(){ 
+		console.log('touchstart');
+		touchStartTime = Date.now();
+        // 设置一个超时来检测长按
+        setTimeout(function() {
+            if (touchStartTime !== 0) {
+                startServer();
+                touchStartTime = 0;
+            }
+        }, 600); // 长按超时设置为1000毫秒
+	}); 
+	speakBtn.on('touchend',function(){
+		 touchStartTime = 0;
+		 stopServer();
 	});
 });
 </script>
