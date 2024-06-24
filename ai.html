@@ -34,7 +34,7 @@
     <div class="row">
       <div class="box col-xs-12">
         <div class="title">
-            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>AI-智能机器人V1.2
+            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></span>AI-智能机器人V1.3
 			<p id="msg" style="font-size: 8px;color: red;"></p>
 			</h2>
         </div>
@@ -670,9 +670,9 @@ $(document).ready(function() {
   });
   
   var speakBtn = $('#speakBtn');
-  if ('webkitSpeechRecognition' in window) { 
+  if ('webkitSpeechRecognition' in window) {
 	  //语言输入设置
-	  const recognition = new webkitSpeechRecognition();
+	  let recognition = new webkitSpeechRecognition();
 	  recognition.lang = 'zh-CN';
 	  recognition.continuous = true;
 	  var isStart=false;
@@ -699,6 +699,13 @@ $(document).ready(function() {
 		  debug("onend");
 		  isStart=false;
 		  stopServer();
+		  clearInterval(tiger_speak_times);
+		}
+		
+		// 当识别结束时
+		recognition.onerror = function() {
+		  debug("onerror");
+		  isStart=false;
 		  clearInterval(tiger_speak_times);
 		}
 		
