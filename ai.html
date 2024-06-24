@@ -54,8 +54,8 @@
 						<option value="/openchat/openchat-3.5-0106">openchat-3.5-0106</option>
 						<option value="/meta/llama-3-8b-instruct">llama-3-8b-instruct</option>
                         <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
-						<option value="t2i">Text2Image</option>
-						<option value="i2i">Image2Image</option>
+						<option value="t2i">图片生成</option>
+						<option value="fanyi">谷歌翻译</option>
                       </select>
                     </div>
                     <div class="settings-common">
@@ -304,6 +304,7 @@ $(document).ready(function() {
     }
 
     addRequestMessage(message);
+
 	
 	if(selModel.val()=="t2i"||selModel.val()=="i2i"){
 		let  firstLineIndex=message.indexOf("\n");
@@ -314,12 +315,34 @@ $(document).ready(function() {
 		}else{
 			addResponseMessage("![](https://ai.watano.top/t2i?prompt="+encodeURIComponent(message)+")");
 		}
-
 		return ;
 	}
+	if(selModel.val()=="fanyi"){
+		  fetch("https://ai.watano.top/fanyi?prompt="+encodeURIComponent(message), { 
+			  method: 'GET' ,
+			  headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'Bearer ' + data.apiKey
+			  }
+		  }).then( res => {  return res.json();  })
+		  .then(data=>{
+			addResponseMessage(data.res);
+			messages.push({"role": "user", "content": message})	
+			messages.push({"role": "assistant", "content": data.res});
+			// 判断是否本地存储历史会话
+			if(localStorage.getItem('archiveSession')=="true"){
+			  localStorage.setItem("session",JSON.stringify(messages));
+			}
+		  }).catch(err=>{
+             addFailMessage("翻译出错啦："+(err.message||err.msg||err));
+		  }); 
+		  
+		  return ;
+	}
 	
-    // 将用户消息保存到数组
-    messages.push({"role": "user", "content": message})
+	// 将用户消息保存到数组
+    messages.push({"role": "user", "content": message})	
+
     // 收到回复前让按钮不可点击
     chatBtn.attr('disabled',true)
 
