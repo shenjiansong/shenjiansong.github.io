@@ -674,7 +674,7 @@ $(document).ready(function() {
 	  //语言输入设置
 	  let recognition = new webkitSpeechRecognition();
 	  recognition.lang = 'zh-CN';
-	  recognition.continuous = true;
+	  recognition.continuous = (document.location.search.toLowerCase().indexOf("continuous")>0);
 	  var isStart=false;
 	  var tiger_speak_times=-1;
 	  recognition.onresult = function(event) {
