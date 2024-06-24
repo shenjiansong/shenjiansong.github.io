@@ -129,7 +129,7 @@ $(document).ready(function() {
   var chatBtn = $('#chatBtn');
   var chatInput = $('#chatInput');
   var chatWindow = $('#chatWindow');
-
+  var selModel = $('#model');
   // 存储对话信息,实现连续对话
   var messages = [];
 
@@ -227,7 +227,7 @@ $(document).ready(function() {
       },
       body: JSON.stringify({
         "messages": systemMsg.concat( data.prompts),
-        "model": $("#model").val(),
+        "model": selModel.val(),
         "max_tokens": 1025,
         "temperature": 0.5,
         "top_p": 1,
@@ -305,9 +305,16 @@ $(document).ready(function() {
 
     addRequestMessage(message);
 	
-	if($("#model").val()=="t2i"||$("#model").val()=="i2i"){
-		
-		addResponseMessage("![](https://ai.watano.top/t2i?prompt="+message+")");
+	if(selModel.val()=="t2i"||selModel.val()=="i2i"){
+		let  firstLineIndex=message.indexOf("\n");
+		let imgUrl=message.substring(0,firstLineIndex).trim();
+		if(imgUrl.toLowerCase().startsWith("http")){
+			message=message.substring(firstLineIndex+1);
+			addResponseMessage("![](https://ai.watano.top/i2i?prompt="+encodeURIComponent(message)+"&img="+encodeURIComponent(imgUrl)+")");
+		}else{
+			addResponseMessage("![](https://ai.watano.top/t2i?prompt="+encodeURIComponent(message)+")");
+		}
+
 		return ;
 	}
 	
@@ -574,6 +581,12 @@ $(document).ready(function() {
 	$("#role").val(localStorage.getItem("roletext")||"");
 	$("#role").change(function(){
        localStorage.setItem("roletext",this.value);
+    });
+	if(localStorage.getItem("model")){
+		selModel.val(localStorage.getItem("model"));
+	}
+	selModel.change(function(){
+		localStorage.setItem("model",this.value);
     });
 
   // 禁用右键菜单
