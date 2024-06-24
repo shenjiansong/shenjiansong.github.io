@@ -145,7 +145,29 @@ const config = {
    url:"https://ai.watano.top/chat",
    apiKey:"aaa"
 };
+
+	
+	
 $(document).ready(function() {
+	$(window).on('error', function(event) {
+	    // 获取错误信息
+	    var errorMessage = event.originalEvent.message;
+	    var filename = event.originalEvent.filename;
+	    var lineno = event.originalEvent.lineno;
+	    var colno = event.originalEvent.colno;
+	    var error = event.originalEvent.error;
+	 
+	    // 你可以在这里处理错误信息，例如发送到服务器或者在控制台打印
+		if(typeof debug ==="function"){
+			debug('Error captured:'+ errorMessage+'\nFilename:'+filename+
+			'\nLine number:'+ lineno +
+			'\nColumn number:'+ colno +
+			'\nStack trace:' +error && error.stack);
+		}
+	 
+	    // 返回 true 可以阻止错误传播，否则错误会被抛出
+	    return true;
+	});
   var isDebug=document.location.search.toLowerCase().indexOf("debug")>0
   var roleTxt=$("#role");
   var chatBtn = $('#chatBtn');
@@ -734,24 +756,6 @@ $(document).ready(function() {
 			addFailMessage(JSON.stringify(s));
 		}
 	}
-	
-	$(window).on('error', function(event) {
-	    // 获取错误信息
-	    var errorMessage = event.originalEvent.message;
-	    var filename = event.originalEvent.filename;
-	    var lineno = event.originalEvent.lineno;
-	    var colno = event.originalEvent.colno;
-	    var error = event.originalEvent.error;
-	 
-	    // 你可以在这里处理错误信息，例如发送到服务器或者在控制台打印
-	    debug('Error captured:'+ errorMessage+'\nFilename:'+filename+
-	    '\nLine number:'+ lineno +
-	    '\nColumn number:'+ colno +
-	    '\nStack trace:' +error && error.stack);
-	 
-	    // 返回 true 可以阻止错误传播，否则错误会被抛出
-	    return true;
-	});
 	
 });
 </script>
