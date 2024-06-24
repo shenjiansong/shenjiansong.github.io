@@ -34,7 +34,7 @@
     <div class="row">
       <div class="box col-xs-12">
         <div class="title">
-            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-optin-monster fa-lg" aria-hidden="true"></i></span>AI-智能机器人V1
+            <h2 class="text-center"><span style="margin-right: 10px;"><i class="fa fa-optin-monster fa-lg" aria-hidden="true"></i></span>AI-智能机器人V1.2
 			<p id="msg" style="font-size: 8px;color: red;"></p>
 			</h2>
         </div>
@@ -670,84 +670,93 @@ $(document).ready(function() {
   });
   
   var speakBtn = $('#speakBtn');
-  //语言输入设置
-  const recognition = new webkitSpeechRecognition();
-  recognition.lang = 'zh-CN';
-  recognition.continuous = true;
-  var isStart=false;
-  var tiger_speak_times=-1;
-  recognition.onresult = function(event) {
-	debug(["onresult",event.results]);
-	// 获取并显示识别结果
-	chatInput.val(event.results[0][0].transcript);
-	 clearInterval(tiger_speak_times);
-  }
-  // 当语音识别开始时
-  recognition.onstart = function() {
-	  debug("onstart");
-	 isStart=true;
-  }
-  
-  // 当识别结束时
-	recognition.onend = function() { 
-	  debug("onend");
-	  isStart=false;
-	  stopServer();
-	  clearInterval(tiger_speak_times);
-	}
-	
-	function startServer(){
-		try{
-			debug("startServer:"+isStart)
-			if(!isStart)recognition.start();
-		}catch(e){
-			 debug("语音输入出错："+(e.message||e.msg||e));
+  if ('webkitSpeechRecognition' in window) { 
+	  //语言输入设置
+	  const recognition = new webkitSpeechRecognition();
+	  recognition.lang = 'zh-CN';
+	  recognition.continuous = true;
+	  var isStart=false;
+	  var tiger_speak_times=-1;
+	  recognition.onresult = function(event) {
+		debug(["onresult",event.results]);
+		// 获取并显示识别结果
+		chatInput.val(event.results[0][0].transcript);
+		 clearInterval(tiger_speak_times);
+	  }
+	  recognition.onnomatch = function(event) {
+	  		debug(["onnomatch","无法识别"]);
+	  		clearInterval(tiger_speak_times);
+	  }
+	  
+	  // 当语音识别开始时
+	  recognition.onstart = function() {
+		  debug("onstart");
+		 isStart=true;
+	  }
+	  
+	  // 当识别结束时
+		recognition.onend = function() { 
+		  debug("onend");
+		  isStart=false;
+		  stopServer();
+		  clearInterval(tiger_speak_times);
 		}
-		let st=1;
-		if(tiger_speak_times>1)clearInterval(tiger_speak_times);
-		$("#speak_bg p").html(st+"s");
-		tiger_speak_times=setInterval(function(){
-			$("#speak_bg p").html(++st+"s");
-		},1000);
 		
-		$("#speak_bg").show();
-	}
-	function stopServer(){
-		try{
-			debug("stopServer:"+isStart)
-			if(isStart)recognition.stop();
-		}catch(e){
-			debug("语音输入出错："+(e.message||e.msg||e));
+		function startServer(){
+			try{
+				debug("startServer:"+isStart)
+				if(!isStart)recognition.start();
+			}catch(e){
+				 debug("语音输入出错："+(e.message||e.msg||e));
+			}
+			let st=1;
+			if(tiger_speak_times>1)clearInterval(tiger_speak_times);
+			$("#speak_bg p").html(st+"s");
+			tiger_speak_times=setInterval(function(){
+				$("#speak_bg p").html(++st+"s");
+			},1000);
+			
+			$("#speak_bg").show();
 		}
-		$("#speak_bg").hide();
+		function stopServer(){
+			try{
+				debug("stopServer:"+isStart)
+				if(isStart)recognition.stop();
+			}catch(e){
+				debug("语音输入出错："+(e.message||e.msg||e));
+			}
+			$("#speak_bg").hide();
+		}
+	  
+		 speakBtn.on("mousedown",function() {
+			debug("mousedown")
+			startServer();
+		});
+		
+		speakBtn.on("mouseup",function() {
+			debug("mouseup")
+			stopServer();
+		});
+		let touchStartTime = 0;
+		speakBtn.on('touchstart',function(){ 
+			debug('touchstart');
+			touchStartTime = Date.now();
+			// 设置一个超时来检测长按
+			setTimeout(function() {
+				if (touchStartTime !== 0) {
+					startServer();
+					touchStartTime = 0;
+				}
+			}, 600); // 长按超时设置为1000毫秒
+		}); 
+		speakBtn.on('touchend',function(){
+			debug("touchend")
+			 touchStartTime = 0;
+			 stopServer();
+		});
+	}else{
+		speakBtn.hide();
 	}
-  
-     speakBtn.on("mousedown",function() {
-		debug("mousedown")
-		startServer();
-	});
-	
-    speakBtn.on("mouseup",function() {
-		debug("mouseup")
-		stopServer();
-	});
-	let touchStartTime = 0;
-	speakBtn.on('touchstart',function(){ 
-		debug('touchstart');
-		touchStartTime = Date.now();
-        // 设置一个超时来检测长按
-        setTimeout(function() {
-            if (touchStartTime !== 0) {
-                startServer();
-                touchStartTime = 0;
-            }
-        }, 600); // 长按超时设置为1000毫秒
-	}); 
-	speakBtn.on('touchend',function(){
-		debug("touchend")
-		 touchStartTime = 0;
-		 stopServer();
-	});
 	
 	function debug(s){
 		try{console.log("debug",JSON.stringify(s));}catch(e){}
