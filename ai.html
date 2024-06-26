@@ -26,6 +26,7 @@
 	  display:none;
 	}
 	</style>
+	<script src="https://ai.watano.top/rpc?var=getRoles&url=https%3A%2F%2Fraw.githubusercontent.com%2FPlexPt%2Fawesome-chatgpt-prompts-zh%2Fmain%2Fprompts-zh.json"></script>
     <title>AI-智能机器人</title>
 </head>
 <body>
@@ -97,9 +98,11 @@
                       </div>
                     </div>
                     <div class="settings-common">                      
-						<span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; 角色设定</span>
-                      <input type="text" id="role" class="form-control ipt-common" placeholder="角色设定">
-                    </div>
+					  <span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; 角色设定</span>
+                     <span> <select class="form-control ipt-common" id="selRole"><option value="">自定义</option></select></span>
+					  <input type="text" id="role" class="form-control ipt-common" placeholder="角色设定">
+                    </div> 
+					
                   </div>
                 </div>
               </div>
@@ -668,6 +671,23 @@ $(document).ready(function() {
         e.preventDefault(); // 如果按下键F12,阻止事件
     }
   });
+  
+  
+  var roles=getRoles();
+  if(roles){
+	 var selRoleDom=$("#selRole")[0];
+	 for(var i=0;i<roles.length;i++){
+		var r=roles[i];
+		var op=new Option();
+		op.text=r.act;
+		op.value=r.prompt;
+		selRoleDom.add(op);
+	 }
+	 $("#selRole").on("change",function(){
+		 console.log("xxx",event,this)
+		 $("#role").val(this.value);
+	 })
+  }
   
   var speakBtn = $('#speakBtn');
   if(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia==="function"){
