@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Audio Recorder</h1>
+  <button id="start-record">Start Recording</button>
+  <button id="stop-record">Stop Recording</button>
+  <button id="play-record">Play Recording</button>
+	<div id="info">
+	111
+	</div>
+  <script>
+  function init(){
+	document.getElementById('start-record').style.backgroundColor=""
+	document.getElementById('stop-record').style.backgroundColor=""
+	document.getElementById('stop-record').style.backgroundColor="";
+  }
+   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia({ audio: true }))document.getElementById('info').innerHTML="不支持";
+    // Get the audio context
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        // Create a MediaStreamTrack object
+        const audioTrack = stream.getAudioTracks()[0];
+
+        // Create a MediaRecorder object
+        const mediaRecorder = new MediaRecorder(stream);
+
+        // Set up event listeners for recording and playback
+        document.getElementById('start-record').addEventListener('click', () => {
+          mediaRecorder.start();
+		  init();
+		  event.target.style.backgroundColor="#11223355";
+        });
+
+        document.getElementById('stop-record').addEventListener('click', () => {
+          mediaRecorder.stop();
+		  init();
+		  event.target.style.backgroundColor="#11223355";
+        });
+
+        document.getElementById('play-record').addEventListener('click', () => {
+		try{
+			  const recordedBlobs = mediaRecorder.recordedBlobs;
+			  const audioBlob = new Blob(recordedBlobs, { type: 'audio/wav' });
+			  const url = URL.createObjectURL(audioBlob);
+			  
+			  const audio = new Audio(url);
+			  audio.play();
+		  }catch(e){
+			document.getElementById('info').innerHTML=document.getElementById('info').innerHTML+(e.message||e.msg)+"\n";
+		  }
+		  init();
+		  event.target.style.backgroundColor="#11223355";
+        });
+
+        // Set up event listeners for recording and playback errors
+        mediaRecorder.onstart = () => {
+          console.log('Recording started');
+        };
+
+        mediaRecorder.onstop = () => {
+          console.log('Recording stopped');
+        };
+
+        mediaRecorder.onerror = error => {
+          console.error('Error recording:', error);
+        };
+
+        mediaRecorder.ondataavailable = event => {
+          // Get the recorded audio data
+		  console.log(event.data);
+		  document.getElementById('info').innerHTML=event.data.size+"b";
+		  mediaRecorder.recordedBlobs=[event.data];
+		  
+         
+		  /*      var reader = new FileReader();
+			    var blob = event.data;
+			    reader.readAsDataURL(blob);
+			    reader.onloadend = function () {
+				   var result = reader.result; 
+				   mediaRecorder.recordedBlobs=result;
+				   console.log('Recorded audio data:', result);
+			  } 
+		*/
+	
+        };
+      })
+      .catch(error => {
+        console.error('Error getting user media:', error);
+      });
+  </script>
+</body>
+</html>
