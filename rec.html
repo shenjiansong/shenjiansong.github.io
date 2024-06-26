@@ -26,8 +26,7 @@
   }
    if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia({ audio: true }))document.getElementById('info').innerHTML="不支持";
     // Get the audio context
-    navigator.mediaDevices.getUserMedia({ audio: true })
-      .then(stream => {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         // Create a MediaStreamTrack object
         const audioTrack = stream.getAudioTracks()[0];
 
