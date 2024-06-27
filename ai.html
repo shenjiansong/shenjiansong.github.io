@@ -66,12 +66,13 @@
                       </select>
                     </div>
                     <div class="settings-common">
-                      <span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; OpenAI Key</span>
+                      <span><i class="fa fa-key fa-lg" aria-hidden="true"></i>&nbsp; Api Key</span>
                       <input type="text" class="form-control ipt-common api-key" placeholder="可用自己的api key">
                     </div>
                     <div class="settings-common">
-                      <span><i class="fa fa-ghost fa-lg" aria-hidden="true"></i>&nbsp; OpenAI 模型</span>
+                      <span><i class="fa fa-ghost fa-lg" aria-hidden="true"></i>&nbsp; AI 模型</span>
                       <select class="form-control ipt-common" id="model">
+						<option value="qwen">千问70b</option>
 						<option value="/openchat/openchat-3.5-0106">openchat-3.5-0106</option>
 						<option value="/meta/llama-3-8b-instruct">llama-3-8b-instruct</option>
                         <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
@@ -153,7 +154,7 @@ const config = {
    // url: "http://openai.1kat.cn/v1/chat/completions",  // gpt3.5代理接口
    // apiKey: "sk-NYsoG3VBKDiTuvdtC969F95aFc4f45379aD3854a93602327"  // openAi Base64 编码 apiKey
    url:"https://ai.watano.top/chat",
-   apiKey:"aaa"
+   apiKey:localStorage.getItem('apiKey')||"aaa"
 };
 
 	
@@ -278,7 +279,8 @@ $(document).ready(function() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + data.apiKey
+        'Authorization': 'Bearer ' + data.apiKey,
+        'session_hash': localStorage.getItem("session_hash")
       },
       body: JSON.stringify({
         "messages": systemMsg.concat( data.prompts),
@@ -318,6 +320,16 @@ $(document).ready(function() {
           str += jsonObj.response;
           addResponseMessage(str);
           resFlag = true;
+        }else if (jsonObj.msg && jsonObj.msg=="process_generating" ) {//千问
+          var resArr1=jsonObj.output.data[1];
+		  if(resArr1&&resArr1.length>0){
+			  var resArr=resArr1[resArr1.length-1];
+			  if(resArr&&resArr.length>0){
+				  str+=resArr[resArr.length-1];
+				  addResponseMessage(str);
+				  resFlag = true;
+			  }
+		  }
         }else{
           if(jsonObj.error){
             addFailMessage(jsonObj.error.type + " : " + jsonObj.error.message + jsonObj.error.code);
@@ -365,10 +377,10 @@ $(document).ready(function() {
 		let  firstLineIndex=message.indexOf("\n");
 		let imgUrl=message.substring(0,firstLineIndex).trim();
 		if(imgUrl.toLowerCase().startsWith("http")){
-			message=message.substring(firstLineIndex+1);
-			addResponseMessage("![](https://ai.watano.top/i2i?prompt="+encodeURIComponent(message)+"&img="+encodeURIComponent(imgUrl)+")");
+			message=message.substring(firstLineIndex+1);// data.apiKey
+			addResponseMessage("![](https://ai.watano.top/i2i?authorization="+(data.apiKey||'')+"&prompt="+encodeURIComponent(message)+"&img="+encodeURIComponent(imgUrl)+")");
 		}else{
-			addResponseMessage("![](https://ai.watano.top/t2i?prompt="+encodeURIComponent(message)+")");
+			addResponseMessage("![](https://ai.watano.top/t2i?authorization="+(data.apiKey||'')+"&prompt="+encodeURIComponent(message)+")");
 		}
 		return ;
 	}
@@ -696,7 +708,6 @@ $(document).ready(function() {
 		 localStorage.setItem("roletext",this.value);
 	 })
   }
-  
   var speakBtn = $('#speakBtn');
   if(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia==="function"){
 		navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
@@ -782,12 +793,31 @@ $(document).ready(function() {
 		$("#speak_bg").hide();
 		if(tiger_speak_times>1)clearInterval(tiger_speak_times);
 	}
+	function initSessionHash(){
+		fetch("https://ai.watano.top/sessionHash", {
+					  method: 'POST' ,
+					  headers: {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer ' + config.apiKey
+					  }
+		}).then( res => {  return res.json();  })
+		.then(data=>{
+				if(data["session_hash"]){
+					localStorage.setItem("session_hash",data["session_hash"])
+				}
+		}).catch(err=>{
+		   addFailMessage("翻译出错啦："+(err.message||err.msg||err));
+		}); 
+	}
+	if(!localStorage.getItem("session_hash")){
+		  initSessionHash()
+	}
 	function v2t(base64){
-		fetch("https://ai.watano.top/v2t?", {
+		fetch("https://ai.watano.top/v2t", {
 					  method: 'POST' ,
 					  headers: {
 						//'Content-Type': 'application/json',
-						//'Authorization': 'Bearer ' + data.apiKey
+						'Authorization': 'Bearer ' + config.apiKey
 					  },
 					  body:base64
 		}).then( res => {  return res.json();  })
