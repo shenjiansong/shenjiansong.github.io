@@ -73,6 +73,13 @@
                       <span><i class="fa fa-ghost fa-lg" aria-hidden="true"></i>&nbsp; AI 模型</span>
                       <select class="form-control ipt-common" id="model">
 						<option value="qwen">千问70b</option>
+						<option value="ReffidGPT">ReffidGPT</option>
+						<option value="fast-gpt">FastGPT</option>
+						<option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+						<option value="gpt-4">gpt-4</option>
+						<option value="Balanced">Balanced</option>
+						<option value="Precise">Precise</option>
+						<option value="Creative">Creative</option>
 						<option value="/openchat/openchat-3.5-0106">openchat-3.5-0106</option>
 						<option value="/meta/llama-3-8b-instruct">llama-3-8b-instruct</option>
                         <option value="/meta/llama-2-7b-chat-int8">llama-2-7b-chat-int8</option>
@@ -289,13 +296,15 @@ $(document).ready(function() {
         "temperature": 0.5,
         "top_p": 1,
         "n": 1,
-        "stream": true
+        "stream": true,
+		'session_hash': localStorage.getItem("session_hash")
       })
     }); 
   
     const reader = response.body.getReader();
     let res = '';
     let str;
+	let heartBeatCnt=0;
     while (true) {
       const { done, value } = await reader.read();
       if (done) {
@@ -320,17 +329,64 @@ $(document).ready(function() {
           str += jsonObj.response;
           addResponseMessage(str);
           resFlag = true;
-        }else if (jsonObj.msg && jsonObj.msg=="process_generating" ) {//千问
-          var resArr1=jsonObj.output.data[1];
-		  if(resArr1&&resArr1.length>0){
-			  var resArr=resArr1[resArr1.length-1];
-			  if(resArr&&resArr.length>0){
-				  str+=resArr[resArr.length-1];
-				  addResponseMessage(str);
-				  resFlag = true;
+        }else if (jsonObj.msg && (jsonObj.msg=="process_completed"||jsonObj.msg=="process_generating") ) {//千问
+			heartBeatCnt=0;
+			if(selModel.val()==="qwen"){
+			  var resArr1=jsonObj.output.data[1];
+			  if(resArr1&&resArr1.length>0){
+				  var resArr=resArr1[resArr1.length-1];
+				  if(resArr&&resArr.length>0){
+					  if(jsonObj.msg=="process_completed"){
+							var tmpStr=resArr[resArr.length-1];
+							if(tmpStr.length>=str.length){
+								addResponseMessage(tmpStr);
+								resFlag = true;
+								try{reader.cancel();}catch(e){}
+								return tmpStr;
+							}
+					  }else{
+						  str+=resArr[resArr.length-1];
+						  addResponseMessage(str);
+						  resFlag = true;
+					  }
+				  }
 			  }
-		  }
-        }else{
+		    }else if(selModel.val()==="ReffidGPT"||selModel.val()==="fast-gpt"
+			||selModel.val()==="gpt-3.5-turbo"||selModel.val()==="gpt-4"
+			||selModel.val()==="Balanced"||selModel.val()==="Creative"||selModel.val()==="Precise"){
+				var resArr1=jsonObj.output.data;
+				
+				if(resArr1&&resArr1.length>0 &&resArr1[0]){
+								  resArr1=resArr1[0];
+								  var resArr=resArr1[resArr1.length-1];
+								  if(resArr&&resArr.length>0){
+									  if(jsonObj.msg=="process_completed"){
+										var tmpStr=resArr[resArr.length-1]||"";
+										if(tmpStr.length>=str.length){
+											addResponseMessage(tmpStr);
+										    resFlag = true;
+											try{reader.cancel();}catch(e){}
+											return tmpStr;
+										}
+									  }else{
+										  var tmpStr=resArr[resArr.length-1]||"";
+										  str+=tmpStr;
+										  addResponseMessage(str);
+										  resFlag = true;
+									  }
+								  }
+				}
+			}
+        }else if (jsonObj.msg &&jsonObj.msg=="heartbeat" ){
+			heartBeatCnt++;
+			if(heartBeatCnt>5){
+				try{reader.cancel();}catch(e){}
+				return str;
+			}
+		}else if (jsonObj.msg &&jsonObj.msg=="close_stream"){
+			try{reader.cancel();}catch(e){}
+			return str;
+		}else{
           if(jsonObj.error){
             addFailMessage(jsonObj.error.type + " : " + jsonObj.error.message + jsonObj.error.code);
             resFlag = false;
@@ -338,6 +394,7 @@ $(document).ready(function() {
         } 
       }
     }
+	try{reader.cancel();}catch(e){}
     return str;
   }
 
@@ -389,7 +446,8 @@ $(document).ready(function() {
 			  method: 'GET' ,
 			  headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + data.apiKey
+				'Authorization': 'Bearer ' + data.apiKey,
+				'session_hash': localStorage.getItem("session_hash")
 			  }
 		  }).then( res => {  return res.json();  })
 		  .then(data=>{
@@ -434,7 +492,7 @@ $(document).ready(function() {
     }
       
     sendRequest(data).then((res) => {
-      chatInput.val('');
+     // chatInput.val('');
       // 收到回复，让按钮可点击
       chatBtn.attr('disabled',false)
       // 重新绑定键盘事件
@@ -692,21 +750,23 @@ $(document).ready(function() {
   });
   
   
-  var roles=getRoles();
-  if(roles){
-	 var selRoleDom=$("#selRole")[0];
-	 for(var i=0;i<roles.length;i++){
-		var r=roles[i];
-		var op=new Option();
-		op.text=r.act;
-		op.value=r.prompt;
-		selRoleDom.add(op);
-	 }
-	 $("#selRole").on("change",function(){
-		 console.log("xxx",event,this)
-		 $("#role").val(this.value);
-		 localStorage.setItem("roletext",this.value);
-	 })
+  $("#selRole").on("change",function(){
+  		 console.log("xxx",event,this)
+  		 $("#role").val(this.value);
+  		 localStorage.setItem("roletext",this.value);
+  })
+  if(typeof getRoles==="function"){
+	  var roles=getRoles();
+	  if(roles){
+		 var selRoleDom=$("#selRole")[0];
+		 for(var i=0;i<roles.length;i++){
+			var r=roles[i];
+			var op=new Option();
+			op.text=r.act;
+			op.value=r.prompt;
+			selRoleDom.add(op);
+		 }
+	  }
   }
   var speakBtn = $('#speakBtn');
   if(navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia==="function"){
@@ -717,7 +777,7 @@ $(document).ready(function() {
 		    const mediaRecorder = new MediaRecorder(stream);
 		    mediaRecorder.ondataavailable = event => {
 		      // Get the recorded audio data
-				    var blob = event.data;
+				    var blob = new Blob([event.data],{ type: "audio/wave; codecs=opus" });
 					if(blob&&blob.size>15000){
 						var reader = new FileReader();
 						reader.readAsDataURL(blob);
@@ -817,15 +877,16 @@ $(document).ready(function() {
 					  method: 'POST' ,
 					  headers: {
 						//'Content-Type': 'application/json',
-						'Authorization': 'Bearer ' + config.apiKey
+						'Authorization': 'Bearer ' + config.apiKey,
+						'session_hash': localStorage.getItem("session_hash")
 					  },
 					  body:base64
 		}).then( res => {  return res.json();  })
 		.then(data=>{
-				//debug(JSON.stringify(data));
+				debug(JSON.stringify(data));
 				if(data.text)chatInput.val(data.text)
 		}).catch(err=>{
-		   addFailMessage("翻译出错啦："+(err.message||err.msg||err));
+		   addFailMessage("语言识别出错啦："+(err.message||err.msg||err));
 		}); 
 	}
 });
