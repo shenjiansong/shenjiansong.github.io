@@ -364,15 +364,21 @@ $(document).ready(function() {
 										var tmpStr=resArr[resArr.length-1]||"";
 										if(tmpStr.length>=str.length){
 											addResponseMessage(tmpStr);
+											console.log("process_completed",tmpStr)
 										    resFlag = true;
 											try{reader.cancel();}catch(e){}
 											return tmpStr;
 										}
 									  }else{
 										  var tmpStr=resArr[resArr.length-1]||"";
-										  str+=tmpStr;
-										  addResponseMessage(str);
-										  resFlag = true;
+										  if(resArr[0]=="replace"){
+											  addResponseMessage(tmpStr);
+											  resFlag = true;
+										  }else{
+											  str+=tmpStr;
+											  addResponseMessage(str);
+											  resFlag = true;
+										  }
 									  }
 								  }
 				}
@@ -826,7 +832,7 @@ $(document).ready(function() {
 			}
 		  })
 		  .catch(error => {
-		    console.error('Error getting user media:', error);
+		     console.error('Error getting user media:', error);
 		  });
   }else{
 	  speakBtn.hide();
