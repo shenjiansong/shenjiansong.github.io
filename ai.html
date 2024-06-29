@@ -72,7 +72,8 @@
                     <div class="settings-common">
                       <span><i class="fa fa-ghost fa-lg" aria-hidden="true"></i>&nbsp; AI 模型</span>
                       <select class="form-control ipt-common" id="model">
-						<option value="qwen">千问70b</option>
+						<option value="qwen-qwen2-72b-instruct">千问V2-72b</option>
+						<option value="qwen-qwen1-5-110b-chat-demo?fn_index=0">千问V1.5-110b</option>
 						<option value="ReffidGPT">ReffidGPT</option>
 						<option value="fast-gpt">FastGPT</option>
 						<option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
@@ -331,7 +332,7 @@ $(document).ready(function() {
           resFlag = true;
         }else if (jsonObj.msg && (jsonObj.msg=="process_completed"||jsonObj.msg=="process_generating") ) {//千问
 			heartBeatCnt=0;
-			if(selModel.val()==="qwen"){
+			if(selModel.val().startsWith("qwen")){
 			  var resArr1=jsonObj.output.data[1];
 			  if(resArr1&&resArr1.length>0){
 				  var resArr=resArr1[resArr1.length-1];
