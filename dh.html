@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8">		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<title>选择图标</title>
 		<style>
 			#D1{
 				width: 100vw;
@@ -34,7 +33,7 @@
 		</style>
 	</head>
 	<body>
-	<div><input id="url" style="width: 70vw;" type="text"/><input onclick="goto(url.value)" value="GO" style="width:40px" type="button"/> <input onchange="proxyChecked(this)" type="checkbox"/></div>
+	<div>1<input id="url" style="width: 70vw;" type="text"/><input onclick="goto(url.value)" value="GO" style="width:40px" type="button"/> <input onchange="proxyChecked(this)" type="checkbox"/></div>
 	<div id="D1"></div>
 	</body>
 </html>
@@ -46,7 +45,9 @@
 			location.href=url;
 		}
 	function proxyChecked(self){
+		console.log("xxxxxxxxxxxxxxx1111111111111xxx")
 		if(typeof AZ=="object"){
+			console.log("xxxxxxxxxxxx222222222222222xxxxxx")
 			AZ.setProxyFlag(self.checked);
 		}
 	}
