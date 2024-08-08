@@ -21,7 +21,7 @@
 				vertical-align: middle;
 			}
 			#D1 div img{
-				max-width: 29vw;
+				max-width: 32vw;
 				max-height: 100px;
 				text-align: center;
 				vertical-align: middle;
@@ -34,11 +34,17 @@
 		</style>
 	</head>
 	<body>
-	<div>代理：<input onchange="proxyChecked(this)" type="checkbox"/></div>
+	<div><input id="url" style="width: 70vw;" type="text"/><input onclick="goto(url.value)" value="GO" style="width:40px" type="button"/> <input onchange="proxyChecked(this)" type="checkbox"/></div>
 	<div id="D1"></div>
 	</body>
 </html>
 <script>
+	
+		function goto(url){
+			if(!url ||url.trim().length<3)return;
+			if(!url.toLowerCase().startsWith("http"))url="https://"+url.trim();
+			location.href=url;
+		}
 	function proxyChecked(self){
 		if(typeof AZ=="object"){
 			AZ.setProxyFlag(self.checked);
@@ -47,9 +53,11 @@
 	function imageLoaded(image) {
 	   image.parentElement.innerHTML="<p>"+image.id+"</p>"
 	}
-	const SITE_LIST = [ 
+	const SITE_LIST = [
+		['0x3','https://0x3.com','https://0x3.com/apple-touch-icon.png?v=1'],
+	      ['pasha','https://pasha.style/works',"https://pasha.style/favicon.ico"],
+	      ['500px','',"https://500px.com/favicon.ico"],
 	      ['magnumphotos','www.magnumphotos.com/photographers/','magnum'],
-	      ['500px',''],
 	      ['michaelkenna',''],
 	      ['lt2','www.lt2.fr/photo-film/emma-anderson','lt2'],
 	      ['photographercat',''],
@@ -57,8 +65,7 @@
 	      ['newyorker',''],
 	      ['mymodernmet',''],
 	      ['ivde',''],
-	      ['blackandwhitephotographymag','','B&W'],
-	      ['pasha','pasha.style/works'],	  
+	      ['blackandwhitephotographymag','','B&W'],	  
 	      ['nytimes', 'm.cn.nytimes.com','https://img0.baidu.com/it/u=1660973377,32251883&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'],
 	      ['ctwant', '','https://7up.pics/images/2024/03/01/ctwan.png'],
 	      ['cnatw', 'www.cna.com.tw/','https://img1.baidu.com/it/u=2773893810,2493609461&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300'], 
