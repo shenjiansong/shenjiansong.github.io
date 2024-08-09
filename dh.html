@@ -11,6 +11,7 @@
 			#D1 div{
 				width: 29vw;
 				height: 100px;
+				line-height: 100px;
 				border: 1px solid red;
 				display: inline-block;
 				background-color: #cec1aa33;
@@ -19,115 +20,27 @@
 				text-align: center;
 				vertical-align: middle;
 			}
-			#D1 div img{
-				max-width: 32vw;
-				max-height: 100px;
+			#D1 div img ,#D1 div p{
+				max-width: 25vw;
+				max-height: 80px;
 				text-align: center;
 				vertical-align: middle;
+				overflow: hidden; /* 隐藏超出div宽度的文本 */
+				text-overflow: ellipsis; /* 使用省略号表示隐藏的文本 */
 			}
-			#D1 div p{
-				padding-top: 25px;
-				padding-left: 12vw;
-				position: absolute;
-			}
+	
 		</style>
 	</head>
 	<body>
-	<div><input id="url" style="width: 70vw;" type="text"/><input onclick="goto(url.value)" value="GO" style="width:40px" type="button"/> <input onchange="proxyChecked(this)" type="checkbox"/></div>
+	<div>
+		<input id="url" style="width: 55vw;" type="text"/>
+		<input onclick="goto(url.value)" value="GO" style="width:40px" type="button"/> 
+	<input onchange="proxyChecked(this)" type="checkbox" style="width:30px" />
+	<input onclick="localStorage.clear()" value="Clear" style="width:45px" type="button"/>
+	</div>
 	<div id="D1"></div>
 	</body>
 </html>
 <script>
-	
-		function goto(url){
-			if(!url ||url.trim().length<3)return;
-			if(!url.toLowerCase().startsWith("http"))url="https://"+url.trim();
-			location.href=url;
-		}
-	function proxyChecked(self){
-		if(typeof AZ=="object"){
-			AZ.setProxyFlag(self.checked);
-		}
-	}
-	function imageLoaded(image) {
-	   image.parentElement.innerHTML="<p>"+image.id+"</p>"
-	}
-	const SITE_LIST = [
-		['0x3','https://0x3.com','https://0x3.com/apple-touch-icon.png?v=1'],
-	      ['pasha','https://pasha.style/works',"https://pasha.style/favicon.ico"],
-	      ['500px','',"https://500px.com/favicon.ico"],
-	      ['magnumphotos','www.magnumphotos.com/photographers/','magnum'],
-	      ['michaelkenna',''],
-	      ['lt2','www.lt2.fr/photo-film/emma-anderson','lt2'],
-	      ['photographercat',''],
-	      ['boredpanda',''],
-	      ['newyorker',''],
-	      ['mymodernmet',''],
-	      ['ivde',''],
-	      ['blackandwhitephotographymag','','B&W'],	  
-	      ['nytimes', 'm.cn.nytimes.com','https://img0.baidu.com/it/u=1660973377,32251883&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'],
-	      ['ctwant', '','https://7up.pics/images/2024/03/01/ctwan.png'],
-	      ['cnatw', 'www.cna.com.tw/','https://img1.baidu.com/it/u=2773893810,2493609461&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300'], 
-	      ['globalnewstv', 'globalnewstv.com.tw','https://img2.baidu.com/it/u=3092369973,37315639&fm=253&fmt=auto&app=138&f=JPEG?w=977&h=500'], 
-	      ['thenewslens', '','https://t8.baidu.com/it/u=2348063916,4133504452&fm=218&app=126&size=f242,150&n=0&f=JPEG&fmt=auto?s=9291566E2CE6ED30508F42580200D0BA&sec=1693069200&t=054c73b06818bb26192c96b97741aab1'],
-	      ['rti', 'www.rti.org.tw','https://img2.baidu.com/it/u=3355253366,1690504808&fm=253&fmt=auto&app=138&f=JPG?w=640&h=494'],
-	      ['setn', '','https://img0.baidu.com/it/u=729819653,165192658&fm=253&fmt=auto&app=138&f=JPEG?w=175&h=102'],
-	      ['cnyna', 'cn.yna.co.kr','https://t8.baidu.com/it/u=3597881286,2807850633&fm=218&app=126&size=f242,150&n=0&f=JPEG&fmt=auto?s=3973E8129A9167F102ABBCDC030050AA&sec=1693069200&t=3095ca24e3268deb14657523bb20eaf1'], 
-	      ['eprice','www.eprice.com.hk','https://img2.baidu.com/it/u=1644501149,1458786990&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1693069200&t=1ebdbe2193373541eeb4fb329aa0ee18'],
-	      ['rthk', 'news.rthk.hk/','https://img1.baidu.com/it/u=509296131,367427974&fm=253&fmt=auto&app=138&f=GIF?w=623&h=450'], 
-	      ['orientaldaily', 'orientaldaily.on.cc/','https://img0.baidu.com/it/u=1565788615,1876543552&fm=253&fmt=auto&app=138&f=JPEG?w=430&h=270'],
-	      ['ftchinese', '','https://img2.baidu.com/it/u=516173754,2841348358&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'],
-	      
-	      ['nikkei','cn.nikkei.com','https://t9.baidu.com/it/u=2594561844,3437828127&fm=218&app=126&size=f242,150&n=0&f=JPEG&fmt=auto?s=1493807E22F49DCE563672930200308A&sec=1692291600&t=18e4773874a09a2a549d7facf0a912f4'],
-	      ['kyodonews', 'tchina.kyodonews.net/','https://img1.baidu.com/it/u=2893166647,908055764&fm=253&fmt=auto&app=120&f=JPEG?w=799&h=500'],
-	      ['nhkjp', 'www3.nhk.or.jp','https://img1.baidu.com/it/u=286302638,114032508&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1693069200&t=3d971a79d8b0d8b6a079809b4f1a62d3'],
-	      ['tokyo', 'www.tokyo-np.co.jp/','https://img2.baidu.com/it/u=649893734,853279226&fm=253&fmt=auto&app=138&f=JPG?w=400&h=300'],
-	      ['jcp', 'www.jcp.or.jp/','https://img2.baidu.com/it/u=4054453903,873421899&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1693069200&t=be05778733f6f7f074e0d211932e2bab'],     
-	       
-	      ['wsj', 'cn.wsj.com/','https://img1.baidu.com/it/u=1385490753,2519046259&fm=253&fmt=auto&app=138&f=PNG?w=500&h=500'],      
-	      ['Bloomberg', '','https://img2.baidu.com/it/u=624881191,563714033&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500'], 
-	      ['bbc', 'www.bbc.com/zhongwen','https://img1.baidu.com/it/u=2893166647,908055764&fm=253&fmt=auto&app=120&f=JPEG?w=799&h=500'],
-	      ['reuters', '','https://img2.baidu.com/it/u=1046524540,604795770&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=411'],
-	      ['voachinese', '','https://img1.baidu.com/it/u=1534691480,2223943372&fm=253&fmt=auto&app=138&f=JPEG?w=554&h=500'],
-	      ['FOXNews', '','https://img2.baidu.com/it/u=3157845071,3822289394&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400'],
-	      ['rfi', 'www.rfi.fr/cn/','https://7up.pics/images/2024/03/01/rfi.jpeg'],
-	      ['wiki', 'zh.wikipedia.org/'],
-	      ['udn','udn.com/news/index','http://mms2.baidu.com/it/u=415959152,4190763135&fm=253&app=138&f=JPEG?w=300&h=159'],
-	      ['gamer','www.gamer.com.tw','http://mms0.baidu.com/it/u=754462923,4047555133&fm=253&app=120&f=PNG?w=729&h=593'],
-	      ['google', ''],
-	      ['youtube', ''],
-	      ['gist', 'gist.github.com/'],
-	      ['facebook', 'facebook.com/Google/'],
-	      ['blogger', ''],
-	      ['flickr', ''],
-	      ['twitter', 'twitter.com/google'],
-	      ['twitch', 'www.twitch.tv/'],
-	      ['reddit', ''],
-	      ['quora', 'www.quora.com/topic/JavaScript-programming-language'],      
-	      ['yahoo', 'www.yahoo.co.jp','https://img0.baidu.com/it/u=2987783444,377773872&fm=253&fmt=auto&app=138&f=BMP?w=590&h=366'],
-	    ];
-	var d1= document.getElementById("D1");
-	  d1.innerHTML = SITE_LIST.map(v => {
-		let [id, url,logo] = v;
-		url = url || "https://www."+id+".com/"
-		
-		if(!url.toLowerCase().startsWith("http"))url="https://"+url;
-
-		logo=logo || "https://github.moeyy.xyz/https://raw.githubusercontent.com/jayshen2015/jayshen2015.GitHub.io/main/assets/ico/"+id+".png"
-		
-		if(!logo || logo.length>20)
-			return "<div data='"+url+"'><img onerror='imageLoaded(this)' src='"+logo+"'  id='"+id+"'/></div>"
-		else 
-			return "<div data='"+url+"'><p>"+(logo||id)+"</p></div>"
-	  }).join("");
-	  
-	for(var c in d1.children){
-		var d=d1.children[c];
-		if(d&& d.tagName==="DIV" && d.getAttribute("data")){
-			d.addEventListener("click",function(e){
-				location.href=this.getAttribute("data");
-			})
-		}
-	}
-	
+document.write(`<script src="./res/js/tool/dh.js?t=${1||new Date().getTime()}" type="text/javascript"></`+`script>`);
 </script>
